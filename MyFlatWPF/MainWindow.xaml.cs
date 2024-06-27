@@ -24,5 +24,11 @@ namespace MyFlatWPF
         {
             InitializeComponent();
         }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            tbEMail.Text = MyFlatWPF.Properties.Settings.Default.EMail;
+            tbPassword.Password = MyFlatWPF.Properties.Settings.Default.Password;
+        }
     }
 }
