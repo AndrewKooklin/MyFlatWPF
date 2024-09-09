@@ -10,21 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MyFlatWPF
+namespace MyFlatWPF.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LoginWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginWindow : Window
     {
-
-        public MainWindow()
+        public LoginWindow()
         {
-             
             InitializeComponent();
+        }
+
+        private void LoginWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            tbEMail.Text = MyFlatWPF.Properties.Settings.Default.EMail;
+            tbPassword.Password = MyFlatWPF.Properties.Settings.Default.Password;
         }
     }
 }

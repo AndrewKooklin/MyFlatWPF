@@ -14,11 +14,12 @@ namespace MyFlatWPF
     /// </summary>
     public partial class App : Application
     {
-        public static MyFlatWindow MyFlatWindow = new MyFlatWindow(); 
+        public static new MainWindow mainWindow = new MainWindow();
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            App.MyFlatWindow.Show();
+            
+            App.mainWindow.Show();
 
             base.OnStartup(e);
         }

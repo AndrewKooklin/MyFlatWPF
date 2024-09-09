@@ -56,3 +56,5 @@ C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\MyFlatWPF.csproj.CoreCompileInputs.cache
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\MyFlatWPF.csproj.CopyComplete
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\MyFlatWPF.exe
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\MyFlatWPF.pdb
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\LoginWindow.g.cs
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\LoginWindow.baml
