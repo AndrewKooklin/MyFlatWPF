@@ -4,17 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyFlatWPF"
+        xmlns:viewModel="clr-namespace:MyFlatWPF.ViewModel"
         xmlns:help="clr-namespace:MyFlatWPF.HelpMethods"
         mc:Ignorable="d"
-        Title="MyFlat" 
-        Height="600"
-        MinHeight="600"
-        Width="640"
-        MinWidth="640"
+        Title="MyFlat"
+        Icon="/Images/i.ico"
+        Height="680"
+        MinHeight="680"
+        Width="680"
+        MinWidth="680"
         WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
-        <!--<viewModel:PhoneBookWindowViewModel x:Key="PhoneBookWindowViewModel"/>-->
+        <viewModel:MainWindowViewModel x:Key="MainWindowViewModel"/>
         <help:MyMultiValueConverter x:Key="MyMultiValueConverter"/>
     </Window.Resources>
 
@@ -29,22 +31,28 @@
                 <Setter Property="Padding" Value="4 0 4 1"/>
                 <Setter Property="Background" Value="Transparent"/>
             </Style>
-            
+
             <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
                 <Setter Property="FontSize" Value="15"/>
                 <Setter Property="Margin" Value="0"/>
                 <Setter Property="Background" Value="Transparent"/>
             </Style>
 
+            <Style x:Key="ImageStyle" TargetType="{x:Type Image}">
+                <Setter Property="Height" Value="28"/>
+                <Setter Property="Width" Value="50"/>
+                <Setter Property="Margin" Value="0 0 2 0"/>
+            </Style>
+
         </Grid.Resources>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="8*"/>
+            <RowDefinition Height="7*"/>
             <RowDefinition Height="140*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="410*" MinWidth="410"></ColumnDefinition>
-            <ColumnDefinition Width="210*" MinWidth="210"></ColumnDefinition>
+            <ColumnDefinition Width="450*" MinWidth="450"></ColumnDefinition>
+            <ColumnDefinition Width="190*" MinWidth="190"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Menu x:Name="mTopLeft"
@@ -55,54 +63,66 @@
               FontSize="15"
               Background="White">
 
-                <MenuItem x:Name="miManagement"
-                          Header="Прочитать записи"
-                          Visibility="Collapsed"
-                          Cursor="Hand"
-                          Style="{StaticResource MenuItemStyle}"
-                          Margin="0 0 2 2">
-                    <!--Command="{Binding UpdateViewCommand, Source={StaticResource PhoneBookWindowViewModel}}" 
-                          CommandParameter="{Binding Header, ElementName=miGetRecords}"-->
-                </MenuItem>
-                <MenuItem x:Name="miHome"
+            <MenuItem x:Name="miHomePicture"
+                      Cursor="Hand"
+                      Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
+                      CommandParameter="{Binding Name, ElementName=miHomePicture}">
+                <MenuItem.Header>
+                    <StackPanel>
+                        <Image Source="/Images/kind.png" 
+                               Style="{StaticResource ImageStyle}"/>
+                    </StackPanel>
+                    
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem x:Name="miManagement"
+                      Header="Management"
+                      Visibility="Collapsed"
+                      Cursor="Hand"
+                      Style="{StaticResource MenuItemStyle}"
+                      Margin="0 0 2 2"
+                      Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
+                      CommandParameter="{Binding Name, ElementName=miManagement}">
+            </MenuItem>
+            <MenuItem x:Name="miHome"
                           Header="Home"
                           Cursor="Hand"
                           Style="{StaticResource MenuItemStyle}"
-                          Margin="0 0 2 2">
-                    <!--Command="{Binding UpdateViewCommand, Source={StaticResource PhoneBookWindowViewModel}}"
-                          CommandParameter="{Binding Header, ElementName=miGetDetails}"-->
-                </MenuItem>
-                <MenuItem x:Name="miProjects"
+                          Margin="0 0 2 2"
+                          Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
+                          CommandParameter="{Binding Name, ElementName=miHome}">
+            </MenuItem>
+            <MenuItem x:Name="miProjects"
                           Header="Projects"
                           Cursor="Hand"
                           Style="{StaticResource MenuItemStyle}"
-                          Margin="0 0 2 2">
-                    <!--Command="{Binding UpdateViewCommand, Source={StaticResource PhoneBookWindowViewModel}}" 
-                          CommandParameter="{Binding Header, ElementName=miAddRecord}"-->
-                </MenuItem>
-                <MenuItem x:Name="miServices"
+                          Margin="0 0 2 2"
+                          Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
+                          CommandParameter="{Binding Name, ElementName=miProjects}">
+            </MenuItem>
+            <MenuItem x:Name="miServices"
                           Header="Services"
                           Cursor="Hand"
                           Style="{StaticResource MenuItemStyle}"
-                          Margin="0 0 2 2">
-                    <!--Command="{Binding UpdateViewCommand, Source={StaticResource PhoneBookWindowViewModel}}" 
-                          CommandParameter="{Binding Header, ElementName=miChangeRecord}"-->
-                </MenuItem>
+                          Margin="0 0 2 2"
+                      Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
+                      CommandParameter="{Binding Name, ElementName=miServices}">
+            </MenuItem>
             <MenuItem x:Name="miBlog"
                           Header="Blog"
                           Cursor="Hand"
                           Style="{StaticResource MenuItemStyle}"
-                          Margin="0 0 2 2">
-                <!--Command="{Binding UpdateViewCommand, Source={StaticResource PhoneBookWindowViewModel}}" 
-                          CommandParameter="{Binding Header, ElementName=miDeleteRecord}"-->
+                          Margin="0 0 2 2"
+                          Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
+                          CommandParameter="{Binding Name, ElementName=miBlog}">
             </MenuItem>
             <MenuItem x:Name="miContacts"
                           Header="Contacts"
                           Cursor="Hand"
                           Style="{StaticResource MenuItemStyle}"
-                          Margin="0 0 2 2">
-                <!--Command="{Binding UpdateViewCommand, Source={StaticResource PhoneBookWindowViewModel}}" 
-                          CommandParameter="{Binding Header, ElementName=miDeleteRecord}"-->
+                          Margin="0 0 2 2"
+                          Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
+                          CommandParameter="{Binding Name, ElementName=miContacts}">
             </MenuItem>
         </Menu>
 
@@ -151,23 +171,12 @@
         <StackPanel Grid.Row="1"
                     Grid.ColumnSpan="2"
                     Background="LightSkyBlue">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="76*" MinWidth="400"></ColumnDefinition>
-                    <ColumnDefinition Width="324*"/>
-                    <ColumnDefinition Width="29*"/>
-                    <ColumnDefinition Width="205*" MinWidth="205"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
 
-                <ContentControl x:Name="ccLeftPartPage" Grid.ColumnSpan="4" Margin="0,0,204.6,0">
-                    <!--Content="{Binding LeftCurrentView, Source={StaticResource PhoneBookWindowViewModel}, UpdateSourceTrigger=PropertyChanged}"-->
-                </ContentControl>
-                <ContentControl x:Name="ccRightPartPage"
-                            Grid.Column="3" Margin="349.2,0,-144.4,0">
-                    <!--Content="{Binding RightCurrentView, Source={StaticResource PhoneBookWindowViewModel}, UpdateSourceTrigger=PropertyChanged}"-->
-
-                </ContentControl>
-            </Grid>
+            <ContentControl x:Name="ccView"
+                            Content="{Binding CurrentView, 
+                            Source={StaticResource MainWindowViewModel}, 
+                            UpdateSourceTrigger=PropertyChanged}">
+            </ContentControl>
         </StackPanel>
     </Grid>
 </Window>
