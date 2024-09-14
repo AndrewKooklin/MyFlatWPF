@@ -7,13 +7,155 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" 
              d:DesignWidth="678">
+
+
+
     <Grid>
-        <StackPanel>
-            <TextBlock Text="Home View"
-                       HorizontalAlignment="Center"
-                       FontSize="20"
+        <Grid.Resources>
+            <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="FontSize" Value="15"/>
+                <!--<Setter Property="Padding" Value="5 5 5 8"/>-->
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="3"
+                                    BorderThickness="1"
+                                    BorderBrush="Black"
+                                    Background="DeepSkyBlue">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="140*"/>
+            <RowDefinition Height="140*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <TextBlock Grid.Column="1"
+                   Grid.ColumnSpan="2"
+                       Text="ECO-FRIENDLY HOUSES"
+                   Margin="0 0 10 0"
+                       HorizontalAlignment="Right"
+                       FontSize="12"
+                   FontWeight="DemiBold"
                        Background="Transparent">
+        </TextBlock>
+        <Border Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Background="Black"
+                Height="1">
+        </Border>
+        <TextBlock x:Name="tbHello"
+                   Grid.Row="2"
+                   Grid.ColumnSpan="2"
+                   Padding="0 5 0 0"
+                   HorizontalAlignment="Center"
+                   Text="WELCOME"
+                   FontSize="17">
+        </TextBlock>
+        <StackPanel x:Name="spCallToAcion"
+                    Grid.Row="3"
+                    Margin="0 25 0 25"
+                    VerticalAlignment="Center">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <TextBlock Text="Become Happy"
+                       HorizontalAlignment="Center"
+                       FontSize="16"
+                       FontWeight="DemiBold"></TextBlock>
+            <TextBlock Grid.Row="1"
+                       Text="Order a House Project"
+                       HorizontalAlignment="Center"
+                       Margin="0 10 0 10"
+                       FontSize="25"
+                       FontWeight="Medium"></TextBlock>
+            <TextBlock Grid.Row="2"
+                       Margin="0 10 0 10"
+                       HorizontalAlignment="Center">
+                <Button Content="Order"
+                        Style="{StaticResource ButtonStyle}"
+                        Width="56"
+                        Height="25"
+                        Padding="3 3 3 5"
+                        Foreground="White"
+                        Background="Aquamarine"
+                        Cursor="Hand"></Button>
+                <Button Content="Read more"
+                        Style="{StaticResource ButtonStyle}"
+                        Margin="5 0 0 0"
+                        Width="90"
+                        Height="25"
+                        Foreground="DimGray"
+                        Background="Transparent"
+                        Cursor="Hand"></Button>
             </TextBlock>
         </StackPanel>
+        <StackPanel x:Name="spImage"
+                    Grid.Row="3"
+                    Grid.Column="1">
+            <Image Source="c:\repos\myflatwpf\myflatwpf\images\hand-draft.webp
+"
+                   Margin="0 30 10 30"></Image>
+        </StackPanel>
+        <StackPanel x:Name="spExpertHelp"
+                    Grid.Row="4"
+                    Margin="10 20 5 20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <TextBlock Text="Get A Help"
+                       FontSize="12"
+                       Foreground="DeepSkyBlue"></TextBlock>
+            <TextBlock Text="Need Our Expert Help?"
+                       FontSize="25"
+                       FontWeight="Medium"
+                       Margin="0 20 0 5"></TextBlock>
+            <TextBlock Text="We're Here!"
+                       FontSize="25"
+                       FontWeight="Medium"></TextBlock>
+            <TextBlock FontSize="8"
+                       FontWeight="Medium"
+                       Margin="0 10 0 10">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. &#10;
+                       Aliqu diam amet diam et eos.Clita erat ipsum et lorem et sit, sed stet lorem sit <LineBreak/>
+                       clita duo justo.Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu <LineBreak/>
+                        diam amet diam et eos.Clita erat ipsum et lorem et sit, sed stet lorem sit clita <LineBreak/>
+                        duo justo.Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam <LineBreak/>
+                        amet diam et eos.Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo.
+            </TextBlock>
+            <TextBlock></TextBlock>
+            
+        </StackPanel>
+
     </Grid>
 </UserControl>

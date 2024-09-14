@@ -1,4 +1,5 @@
 ﻿using MyFlatWPF.Commands;
+using MyFlatWPF.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,10 @@ namespace MyFlatWPF.ViewModel
         public MainWindowViewModel()
         {
             SwitchViewCommand = new SwitchViewCommand(this);
+
+            CurrentView = new HomeView();
+
+
         }
 
         private UserControl _CurrentView;
@@ -38,5 +43,7 @@ namespace MyFlatWPF.ViewModel
         }
 
         public ICommand SwitchViewCommand { get; set; }
+
+        
     }
 }

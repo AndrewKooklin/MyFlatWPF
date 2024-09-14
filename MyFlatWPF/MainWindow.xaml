@@ -168,9 +168,10 @@
             </MenuItem>
         </Menu>
 
-        <StackPanel Grid.Row="1"
+        <StackPanel x:Name="spContent"
+                    Grid.Row="1"
                     Grid.ColumnSpan="2"
-                    Background="LightSkyBlue">
+                    Background="Transparent">
 
             <ContentControl x:Name="ccView"
                             Content="{Binding CurrentView, 

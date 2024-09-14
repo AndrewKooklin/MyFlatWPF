@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace MyFlatWPF
 {
@@ -14,7 +15,7 @@ namespace MyFlatWPF
     /// </summary>
     public partial class App : Application
     {
-        public static new MainWindow mainWindow = new MainWindow();
+        public static MainWindow mainWindow;
 
         public static HomeView HomeWiew = new HomeView();
 
@@ -36,10 +37,20 @@ namespace MyFlatWPF
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            
+            App.mainWindow = new MainWindow();
+            //CreateButton();
             App.mainWindow.Show();
 
             base.OnStartup(e);
+        }
+
+        public void CreateButton()
+        {
+            Button newBtn = new Button();
+            newBtn.Content = "Click me";
+            newBtn.Width = 50;
+            App.mainWindow.spContent.Children.Add(newBtn);
+            App.mainWindow.Show();
         }
     }
 }
