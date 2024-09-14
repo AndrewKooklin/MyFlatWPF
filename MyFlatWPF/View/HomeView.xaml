@@ -144,16 +144,19 @@
             <TextBlock Text="We're Here!"
                        FontSize="25"
                        FontWeight="Medium"></TextBlock>
-            <TextBlock FontSize="8"
+            <TextBlock FontSize="10"
                        FontWeight="Medium"
-                       Margin="0 10 0 10">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. &#10;
-                       Aliqu diam amet diam et eos.Clita erat ipsum et lorem et sit, sed stet lorem sit <LineBreak/>
-                       clita duo justo.Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu <LineBreak/>
-                        diam amet diam et eos.Clita erat ipsum et lorem et sit, sed stet lorem sit clita <LineBreak/>
-                        duo justo.Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam <LineBreak/>
-                        amet diam et eos.Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo.
+                       Margin="0 10 0 10">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. <LineBreak/>
+                        Aliqu diam amet diam et eos.Clita erat ipsum et lorem et sit, sed stet <LineBreak/>
+                        lorem sit clita duo justo. Tempor erat elitr rebum at clita. Diam <LineBreak/>
+                        dolor diam ipsum sit. Aliqu diam amet diam et eos.Clita erat ipsum et <LineBreak/>
+                        lorem et sit, sed stet lorem sit clita duo justo. Tempor erat elitr <LineBreak/>
+                        rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam <LineBreak/>
+                        et eos.Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo.
             </TextBlock>
-            <TextBlock></TextBlock>
+            <TextBlock Foreground="DarkBlue"
+                       FontSize="14"
+                       FontWeight="DemiBold">+7 012 345 6789</TextBlock>
             
         </StackPanel>
 
