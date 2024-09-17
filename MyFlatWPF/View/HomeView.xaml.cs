@@ -24,5 +24,35 @@ namespace MyFlatWPF.View
         {
             InitializeComponent();
         }
+
+        private void OnYourNameChanged(object sender, TextChangedEventArgs e)
+        {
+            if(sender is TextBox name)
+            {
+                if (string.IsNullOrEmpty(name.Text))
+                {
+                    name.Background = (ImageBrush)FindResource("YourName");
+                }
+                else
+                {
+                    name.Background = null;
+                }
+            }
+        }
+
+        private void OnYourEmailChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox email)
+            {
+                if (string.IsNullOrEmpty(email.Text))
+                {
+                    email.Background = (ImageBrush)FindResource("YourEmail");
+                }
+                else
+                {
+                    email.Background = null;
+                }
+            }
+        }
     }
 }

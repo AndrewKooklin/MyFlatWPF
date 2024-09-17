@@ -233,5 +233,14 @@
   <ItemGroup>
     <Resource Include="Images\i.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\apps_comm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\YourName.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\YourEmail.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

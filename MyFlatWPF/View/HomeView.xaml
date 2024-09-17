@@ -8,7 +8,16 @@
              d:DesignHeight="600" 
              d:DesignWidth="678">
 
-
+    <UserControl.Resources>
+        <ImageBrush x:Key="YourName" 
+                    ImageSource="/Images/YourName.gif"
+                    AlignmentX="Left"
+                    Stretch="None"/>
+        <ImageBrush x:Key="YourEmail" 
+                    ImageSource="/Images/YourEmail.gif"
+                    AlignmentX="Left"
+                    Stretch="None"/>
+    </UserControl.Resources>
 
     <Grid>
         <Grid.Resources>
@@ -121,7 +130,7 @@
         </StackPanel>
         <StackPanel x:Name="spExpertHelp"
                     Grid.Row="4"
-                    Margin="10 20 5 20">
+                    Margin="10 20 20 20">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -133,30 +142,89 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-            </Grid>
-            <TextBlock Text="Get A Help"
+            
+            <TextBlock Grid.Row="0"
+                Text="Get A Help"
                        FontSize="12"
                        Foreground="DeepSkyBlue"></TextBlock>
-            <TextBlock Text="Need Our Expert Help?"
+            <TextBlock Grid.Row="1"
+                Text="Need Our Expert Help?"
                        FontSize="25"
                        FontWeight="Medium"
-                       Margin="0 20 0 5"></TextBlock>
-            <TextBlock Text="We're Here!"
+                       Margin="0 10 0 5"></TextBlock>
+            <TextBlock Grid.Row="2"
+                Text="We're Here!"
                        FontSize="25"
                        FontWeight="Medium"></TextBlock>
-            <TextBlock FontSize="10"
+            <TextBlock Grid.Row="3"
+                FontSize="10"
                        FontWeight="Medium"
                        Margin="0 10 0 10">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. <LineBreak/>
-                        Aliqu diam amet diam et eos.Clita erat ipsum et lorem et sit, sed stet <LineBreak/>
-                        lorem sit clita duo justo. Tempor erat elitr rebum at clita. Diam <LineBreak/>
-                        dolor diam ipsum sit. Aliqu diam amet diam et eos.Clita erat ipsum et <LineBreak/>
-                        lorem et sit, sed stet lorem sit clita duo justo. Tempor erat elitr <LineBreak/>
+                        Aliqu diam amet diam et eos.Clita erat ipsum et lorem et sit, sed  <LineBreak/>
+                        stet lorem sit clita duo justo. Tempor erat elitr rebum at clita. Diam <LineBreak/>
+                        dolor diam ipsum sit. Aliqu diam amet diam et eos.Clita erat ipsum  <LineBreak/>
+                        et lorem et sit, sed stet lorem sit clita duo justo. Tempor erat elitr <LineBreak/>
                         rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam <LineBreak/>
-                        et eos.Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo.
-            </TextBlock>
-            <TextBlock Foreground="DarkBlue"
+                        et eos.Clita erat ipsum et lorem et sit, sed stet lorem sit clita <LineBreak/>
+                        duo justo.
+                </TextBlock>
+            <StackPanel Orientation="Horizontal"
+                        Grid.Row="4">
+                <TextBlock><Image Source="/Images/apps_comm.png"
+                              Margin="0 5 0 0"
+                              Width="20"
+                              Height="20"/></TextBlock>
+
+                <TextBlock Foreground="DarkBlue"
                        FontSize="14"
-                       FontWeight="DemiBold">+7 012 345 6789</TextBlock>
+                       FontWeight="DemiBold"
+                       Margin="0 5 0 0">
+                +7 012 345 6789</TextBlock>
+            </StackPanel>
+            </Grid>
+        </StackPanel>
+        <StackPanel x:Name="spOrderForm"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Margin="10 20 10 20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Name="spOrderHeader"
+                            Grid.Row="0"
+                            Grid.ColumnSpan="2"
+                            HorizontalAlignment="Center"
+                            Margin="20 10 10 0"
+                       FontSize="20"
+                       FontWeight="Medium">Make An Order</TextBlock>
+                <TextBox x:Name="tbYourName"
+                         Grid.Row="1"
+                         Grid.Column="0"
+                         Background="{Binding Mode=OneWay, Source={StaticResource YourName}}"
+                         Margin="0 20 5 0"
+                         Height="30"
+                         FontSize="18"
+                         TextChanged="OnYourNameChanged"></TextBox>
+                <TextBox x:Name="tbYourEmail"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         Background="{Binding Mode=OneWay, Source={StaticResource YourEmail}}"
+                         Margin="5 20 0 0"
+                         Height="30"
+                         FontSize="18"
+                         TextChanged="OnYourEmailChanged"></TextBox>
+
+            </Grid>
             
         </StackPanel>
 
