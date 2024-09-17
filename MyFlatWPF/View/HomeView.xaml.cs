@@ -54,5 +54,20 @@ namespace MyFlatWPF.View
                 }
             }
         }
+
+        private void OnYourMobileChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox mobile)
+            {
+                if (string.IsNullOrEmpty(mobile.Text))
+                {
+                    mobile.Background = (ImageBrush)FindResource("YourMobile");
+                }
+                else
+                {
+                    mobile.Background = null;
+                }
+            }
+        }
     }
 }

@@ -17,6 +17,10 @@
                     ImageSource="/Images/YourEmail.gif"
                     AlignmentX="Left"
                     Stretch="None"/>
+        <ImageBrush x:Key="YourMobile" 
+                    ImageSource="/Images/YourMobile.gif"
+                    AlignmentX="Left"
+                    Stretch="None"/>
     </UserControl.Resources>
 
     <Grid>
@@ -197,7 +201,7 @@
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="1.2*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
                 <TextBlock x:Name="spOrderHeader"
@@ -223,6 +227,36 @@
                          Height="30"
                          FontSize="18"
                          TextChanged="OnYourEmailChanged"></TextBox>
+                <TextBox x:Name="tbYourMobile"
+                         Grid.Row="2"
+                         Grid.Column="0"
+                         Background="{Binding Mode=OneWay, Source={StaticResource YourMobile}}"
+                         Margin="0 20 5 0"
+                         Height="30"
+                         FontSize="18"
+                         TextChanged="OnYourMobileChanged"></TextBox>
+                <ComboBox x:Name="cbServiceChoose"
+                          Grid.Row="2"
+                          Grid.Column="1"
+                          Margin="5 20 0 0"
+                          Height="30"
+                          ToolTip="Choose service"
+                          Text="Choose service"
+                          FontSize="16">
+                    <ComboBoxItem IsEnabled="False"
+                                  IsSelected="True">Choose Service
+                    </ComboBoxItem>
+                    <ComboBoxItem >Building design
+                    </ComboBoxItem>
+                    <ComboBoxItem >Home construction
+                    </ComboBoxItem>
+                    <ComboBoxItem >Communications
+                    </ComboBoxItem>
+                    <ComboBoxItem >Room design
+                    </ComboBoxItem>
+                    <ComboBoxItem >Finishing facilities
+                    </ComboBoxItem>
+                </ComboBox>
 
             </Grid>
             

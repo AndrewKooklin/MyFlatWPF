@@ -242,5 +242,8 @@
   <ItemGroup>
     <Resource Include="Images\YourEmail.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\YourMobile.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
