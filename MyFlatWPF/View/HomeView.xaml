@@ -21,6 +21,11 @@
                     ImageSource="/Images/YourMobile.gif"
                     AlignmentX="Left"
                     Stretch="None"/>
+        <ImageBrush x:Key="YourMessage" 
+                    ImageSource="/Images/YourMessage.gif"
+                    AlignmentX="Left"
+                    AlignmentY="Top"
+                    Stretch="None"/>
     </UserControl.Resources>
 
     <Grid>
@@ -42,6 +47,34 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+
+            <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="TextBox">
+                            <Border CornerRadius="3"
+                                    BorderThickness="1"
+                                    BorderBrush="Black"
+                                    Background="Transparent">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
+                <Setter Property="Background" Value="Transparent"></Setter>
+                
+            </Style>
+
+            <Style x:Key="ComboBoxItemStyle" TargetType="ComboBoxItem">
+                <Setter Property="Background" Value="Transparent">
+                </Setter>
+            </Style>
+
         </Grid.Resources>
 
 
@@ -82,7 +115,7 @@
         </TextBlock>
         <StackPanel x:Name="spCallToAcion"
                     Grid.Row="3"
-                    Margin="0 25 0 25"
+                    Margin="0 25 0 15"
                     VerticalAlignment="Center">
             <Grid>
                 <Grid.RowDefinitions>
@@ -130,11 +163,12 @@
                     Grid.Column="1">
             <Image Source="c:\repos\myflatwpf\myflatwpf\images\hand-draft.webp
 "
-                   Margin="0 30 10 30"></Image>
+                   Margin="0 30 10 10"></Image>
         </StackPanel>
+        
         <StackPanel x:Name="spExpertHelp"
                     Grid.Row="4"
-                    Margin="10 20 20 20">
+                    Margin="10 10 20 20">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -146,21 +180,21 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-            
-            <TextBlock Grid.Row="0"
+
+                <TextBlock Grid.Row="0"
                 Text="Get A Help"
                        FontSize="12"
                        Foreground="DeepSkyBlue"></TextBlock>
-            <TextBlock Grid.Row="1"
+                <TextBlock Grid.Row="1"
                 Text="Need Our Expert Help?"
                        FontSize="25"
                        FontWeight="Medium"
                        Margin="0 10 0 5"></TextBlock>
-            <TextBlock Grid.Row="2"
+                <TextBlock Grid.Row="2"
                 Text="We're Here!"
                        FontSize="25"
                        FontWeight="Medium"></TextBlock>
-            <TextBlock Grid.Row="3"
+                <TextBlock Grid.Row="3"
                 FontSize="10"
                        FontWeight="Medium"
                        Margin="0 10 0 10">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. <LineBreak/>
@@ -172,19 +206,19 @@
                         et eos.Clita erat ipsum et lorem et sit, sed stet lorem sit clita <LineBreak/>
                         duo justo.
                 </TextBlock>
-            <StackPanel Orientation="Horizontal"
+                <StackPanel Orientation="Horizontal"
                         Grid.Row="4">
-                <TextBlock><Image Source="/Images/apps_comm.png"
+                    <TextBlock><Image Source="/Images/apps_comm.png"
                               Margin="0 5 0 0"
                               Width="20"
                               Height="20"/></TextBlock>
 
-                <TextBlock Foreground="DarkBlue"
+                    <TextBlock Foreground="DarkBlue"
                        FontSize="14"
                        FontWeight="DemiBold"
                        Margin="0 5 0 0">
                 +7 012 345 6789</TextBlock>
-            </StackPanel>
+                </StackPanel>
             </Grid>
         </StackPanel>
         <StackPanel x:Name="spOrderForm"
@@ -211,42 +245,79 @@
                             Margin="20 10 10 0"
                        FontSize="20"
                        FontWeight="Medium">Make An Order</TextBlock>
-                <TextBox x:Name="tbYourName"
-                         Grid.Row="1"
-                         Grid.Column="0"
+                <Border Grid.Row="1"
+                        Grid.Column="0"
+                        CornerRadius="3"
+                        BorderThickness="1"
+                        BorderBrush="Black"
+                        Background="Transparent"
+                        Margin="0 20 5 0"
+                        Height="30">
+                    <TextBox x:Name="tbYourName"
+                         ToolTip="Enter Your Name"
                          Background="{Binding Mode=OneWay, Source={StaticResource YourName}}"
-                         Margin="0 20 5 0"
-                         Height="30"
                          FontSize="18"
+                         BorderBrush="Transparent"
+                         BorderThickness="0"
                          TextChanged="OnYourNameChanged"></TextBox>
-                <TextBox x:Name="tbYourEmail"
-                         Grid.Row="1"
-                         Grid.Column="1"
+                </Border>
+
+                <Border Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="5 20 0 0"
+                        Height="30"
+                        CornerRadius="3"
+                        BorderThickness="1"
+                        BorderBrush="Black"
+                        Background="Transparent">
+                    <TextBox x:Name="tbYourEmail"
+                         ToolTip="Enter Your Email"
                          Background="{Binding Mode=OneWay, Source={StaticResource YourEmail}}"
-                         Margin="5 20 0 0"
-                         Height="30"
                          FontSize="18"
+                         BorderBrush="Transparent"
+                         BorderThickness="0"
                          TextChanged="OnYourEmailChanged"></TextBox>
-                <TextBox x:Name="tbYourMobile"
-                         Grid.Row="2"
-                         Grid.Column="0"
+                </Border>
+
+                <Border Grid.Row="2"
+                        Grid.Column="0"
+                        CornerRadius="3"
+                        BorderThickness="1"
+                        BorderBrush="Black"
+                        Background="Transparent"
+                        Margin="0 15 5 0"
+                        Height="30">
+                    <TextBox x:Name="tbYourMobile"
+                         ToolTip="Enter Your Mobile Number"
                          Background="{Binding Mode=OneWay, Source={StaticResource YourMobile}}"
-                         Margin="0 20 5 0"
-                         Height="30"
                          FontSize="18"
+                         BorderBrush="Transparent"
+                         BorderThickness="0"
                          TextChanged="OnYourMobileChanged"></TextBox>
+                </Border>
+
+                <Border Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="5 15 0 0"
+                        Height="30"
+                        CornerRadius="3"
+                        BorderThickness="1"
+                        BorderBrush="Black"
+                        Background="Transparent"
+                        Cursor="Hand">
                 <ComboBox x:Name="cbServiceChoose"
-                          Grid.Row="2"
-                          Grid.Column="1"
-                          Margin="5 20 0 0"
-                          Height="30"
-                          ToolTip="Choose service"
+                          ToolTip="Choose Service"
                           Text="Choose service"
-                          FontSize="16">
-                    <ComboBoxItem IsEnabled="False"
-                                  IsSelected="True">Choose Service
-                    </ComboBoxItem>
-                    <ComboBoxItem >Building design
+                          FontSize="16"
+                          Style="{StaticResource ComboBoxStyle}"
+                         BorderBrush="Transparent"
+                         BorderThickness="0">
+                    
+                            <ComboBoxItem IsEnabled="False"
+                                  IsSelected="True"
+                                  Style="{StaticResource ComboBoxItemStyle}">Choose Service
+                            </ComboBoxItem>
+                            <ComboBoxItem Style="{StaticResource ComboBoxItemStyle}">Building design
                     </ComboBoxItem>
                     <ComboBoxItem >Home construction
                     </ComboBoxItem>
@@ -257,9 +328,38 @@
                     <ComboBoxItem >Finishing facilities
                     </ComboBoxItem>
                 </ComboBox>
+                </Border>
+
+                <Border Grid.Row="3"
+                        Grid.ColumnSpan="2"
+                        Height="50"
+                        Margin="0 15 0 0"
+                        CornerRadius="3"
+                        BorderThickness="1"
+                        BorderBrush="Black"
+                        Background="Transparent">
+                    <TextBox x:Name="tbMessage"
+                         ToolTip="Enter Your Message"
+                           Background="{Binding Mode=OneWay, Source={StaticResource YourMessage}}"
+                           FontSize="18"
+                           TextWrapping="Wrap"
+                           VerticalScrollBarVisibility="Visible"
+                         BorderBrush="Transparent"
+                         BorderThickness="0"
+                           TextChanged="OnYourMessageChanged"></TextBox>
+                </Border>
+
+                <Button Grid.Row="4"
+                        Grid.ColumnSpan="2"
+                        Margin="0 15 0 10"
+                        Height="30"
+                        Style="{StaticResource ButtonStyle}"
+                        Cursor="Hand">
+                    Send form
+                </Button>
 
             </Grid>
-            
+
         </StackPanel>
 
     </Grid>

@@ -9,8 +9,8 @@
         mc:Ignorable="d"
         Title="MyFlat"
         Icon="/Images/i.ico"
-        Height="680"
-        MinHeight="680"
+        Height="610"
+        MinHeight="610"
         Width="680"
         MinWidth="680"
         WindowStartupLocation="CenterScreen">

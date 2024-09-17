@@ -69,5 +69,20 @@ namespace MyFlatWPF.View
                 }
             }
         }
+
+        private void OnYourMessageChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox message)
+            {
+                if (string.IsNullOrEmpty(message.Text))
+                {
+                    message.Background = (ImageBrush)FindResource("YourMessage");
+                }
+                else
+                {
+                    message.Background = null;
+                }
+            }
+        }
     }
 }
