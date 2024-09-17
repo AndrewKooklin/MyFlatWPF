@@ -307,25 +307,24 @@
                         Cursor="Hand">
                 <ComboBox x:Name="cbServiceChoose"
                           ToolTip="Choose Service"
-                          Text="Choose service"
+                          Text="Choose Service"
                           FontSize="16"
                           Style="{StaticResource ComboBoxStyle}"
-                         BorderBrush="Transparent"
-                         BorderThickness="0">
+                          BorderBrush="Transparent"
+                          BorderThickness="0">
                     
-                            <ComboBoxItem IsEnabled="False"
-                                  IsSelected="True"
-                                  Style="{StaticResource ComboBoxItemStyle}">Choose Service
-                            </ComboBoxItem>
-                            <ComboBoxItem Style="{StaticResource ComboBoxItemStyle}">Building design
+                    <ComboBoxItem IsEnabled="False"
+                                  IsSelected="True">Choose Service
                     </ComboBoxItem>
-                    <ComboBoxItem >Home construction
+                    <ComboBoxItem>Building design
                     </ComboBoxItem>
-                    <ComboBoxItem >Communications
+                    <ComboBoxItem>Home construction
                     </ComboBoxItem>
-                    <ComboBoxItem >Room design
+                    <ComboBoxItem>Communications
                     </ComboBoxItem>
-                    <ComboBoxItem >Finishing facilities
+                    <ComboBoxItem>Room design
+                    </ComboBoxItem>
+                    <ComboBoxItem>Finishing facilities
                     </ComboBoxItem>
                 </ComboBox>
                 </Border>
