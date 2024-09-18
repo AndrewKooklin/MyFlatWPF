@@ -16,16 +16,16 @@ namespace MyFlatWPF.Commands
 
         public bool CanExecute(object parameter)
         {
-            if(parameter == null)
-            {
-                return false;
-            }
+            //if(parameter == null)
+            //{
+            //    return false;
+            //}
 
-            bool result = checkInput.CheckOrderFormFields(App.HomeWiew, parameter);
-            if (!result)
-            {
-                return false;
-            }
+            //bool result = checkInput.CheckOrderFormFields(App.HomeWiew, parameter);
+            //if (!result)
+            //{
+            //    return false;
+            //}
             return true;
         }
 

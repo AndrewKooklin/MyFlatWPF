@@ -175,14 +175,13 @@
             <Border.Background>
                 <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
                     <GradientStop Color="Transparent" Offset="0.0"/>
-                    <GradientStop Color="Transparent" Offset="0.4"/>
+                    <GradientStop Color="Transparent" Offset="0.3"/>
                     <GradientStop Color="#8ed5ff" Offset="0.85"/>
-                    <GradientStop Color="#8ed5ff" Offset="1.0"/>
                 </LinearGradientBrush>
             </Border.Background>
             <StackPanel x:Name="spContent"
-                    Grid.Row="1"
-                Grid.ColumnSpan="2">
+                        Grid.Row="1"
+                        Grid.ColumnSpan="2">
 
                 <ContentControl x:Name="ccView"
                             Content="{Binding CurrentView, 

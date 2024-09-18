@@ -421,10 +421,9 @@
                 <Button x:Name="btnSendForm" 
                         Grid.Row="8"
                         Grid.ColumnSpan="2"
-                        Content="Send form"
                         Margin="0 0 0 10"
                         Height="30"
-                        Style="{Binding }"
+                        Style="{StaticResource ButtonStyle}"
                         Command="{Binding SendOrderFormCommand, Source={StaticResource HomeViewModel}}">
                     <Button.CommandParameter>
                         <MultiBinding Converter="{StaticResource MultiValueConverter}">
@@ -435,7 +434,7 @@
                             <Binding Path="Text" ElementName="tbMessage"/>
                         </MultiBinding>
                     </Button.CommandParameter>
-
+                    Send form
                 </Button>
 
             </Grid>
