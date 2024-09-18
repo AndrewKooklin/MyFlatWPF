@@ -4,11 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyFlatWPF.View"
+             xmlns:viewModel="clr-namespace:MyFlatWPF.ViewModel"
+             xmlns:help="clr-namespace:MyFlatWPF.HelpMethods"
              mc:Ignorable="d" 
              d:DesignHeight="600" 
              d:DesignWidth="678">
 
     <UserControl.Resources>
+
+        <viewModel:HomeViewModel x:Key="HomeViewModel"/>
+        <help:MyMultiValueConverter x:Key="MultiValueConverter"/>
+
         <ImageBrush x:Key="YourName" 
                     ImageSource="/Images/YourName.gif"
                     AlignmentX="Left"
@@ -73,6 +79,12 @@
             <Style x:Key="ComboBoxItemStyle" TargetType="ComboBoxItem">
                 <Setter Property="Background" Value="Transparent">
                 </Setter>
+            </Style>
+
+            <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="12"></Setter>
+                <Setter Property="Foreground" Value="Red"></Setter>
+                <Setter Property="HorizontalAlignment" Value="Left"></Setter>
             </Style>
 
         </Grid.Resources>
@@ -225,12 +237,16 @@
                     Grid.Row="4"
                     Grid.Column="1"
                     Margin="10 20 10 20">
-            <Grid>
+            <Grid x:Name="gOrderForm">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.2*"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.2*"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.2*"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.2*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -238,20 +254,30 @@
                     <ColumnDefinition Width="1.2*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock x:Name="spOrderHeader"
+                <TextBlock x:Name="tbOrderHeader"
                             Grid.Row="0"
                             Grid.ColumnSpan="2"
                             HorizontalAlignment="Center"
                             Margin="20 10 10 0"
                        FontSize="20"
-                       FontWeight="Medium">Make An Order</TextBlock>
-                <Border Grid.Row="1"
+                       FontWeight="Medium">Make An Order
+                </TextBlock>
+
+                <TextBlock x:Name="tbNameError"
+                         Grid.Row="1"
+                         Grid.Column="0"
+                         Style="{StaticResource TextBlockStyle}"
+                         Text="{Binding ErrorNameInput, Source={StaticResource HomeViewModel}}">
+                </TextBlock>
+
+                <Border x:Name="bYourName"
+                    Grid.Row="2"
                         Grid.Column="0"
                         CornerRadius="3"
                         BorderThickness="1"
                         BorderBrush="Black"
                         Background="Transparent"
-                        Margin="0 20 5 0"
+                        Margin="0 0 5 0"
                         Height="30">
                     <TextBox x:Name="tbYourName"
                          ToolTip="Enter Your Name"
@@ -262,9 +288,17 @@
                          TextChanged="OnYourNameChanged"></TextBox>
                 </Border>
 
-                <Border Grid.Row="1"
+                <TextBlock x:Name="tbEmailError"
+                         Grid.Row="2"
+                         Grid.Column="0"
+                         Style="{StaticResource TextBlockStyle}"
+                         Text="{Binding ErrorEmailInput, Source={StaticResource HomeViewModel}}">
+                </TextBlock>
+
+                <Border x:Name="bYourEmail" 
+                        Grid.Row="2"
                         Grid.Column="1"
-                        Margin="5 20 0 0"
+                        Margin="5 0 0 0"
                         Height="30"
                         CornerRadius="3"
                         BorderThickness="1"
@@ -279,13 +313,21 @@
                          TextChanged="OnYourEmailChanged"></TextBox>
                 </Border>
 
-                <Border Grid.Row="2"
+                <TextBlock x:Name="tbMobileError"
+                         Grid.Row="3"
+                         Grid.Column="0"
+                         Style="{StaticResource TextBlockStyle}"
+                         Text="{Binding ErrorMobileInput, Source={StaticResource HomeViewModel}}">
+                </TextBlock>
+
+                <Border x:Name="bYourMobile" 
+                        Grid.Row="4"
                         Grid.Column="0"
                         CornerRadius="3"
                         BorderThickness="1"
                         BorderBrush="Black"
                         Background="Transparent"
-                        Margin="0 15 5 0"
+                        Margin="0 0 5 0"
                         Height="30">
                     <TextBox x:Name="tbYourMobile"
                          ToolTip="Enter Your Mobile Number"
@@ -296,9 +338,17 @@
                          TextChanged="OnYourMobileChanged"></TextBox>
                 </Border>
 
-                <Border Grid.Row="2"
+                <TextBlock x:Name="tbServiceError"
+                         Grid.Row="3"
+                         Grid.Column="1"
+                         Style="{StaticResource TextBlockStyle}"
+                         Text="{Binding ErrorServiceChoose, Source={StaticResource HomeViewModel}}">
+                </TextBlock>
+
+                <Border x:Name="bServiceChoose" 
+                        Grid.Row="4"
                         Grid.Column="1"
-                        Margin="5 15 0 0"
+                        Margin="5 0 0 0"
                         Height="30"
                         CornerRadius="3"
                         BorderThickness="1"
@@ -329,10 +379,18 @@
                 </ComboBox>
                 </Border>
 
-                <Border Grid.Row="3"
+                <TextBlock x:Name="tbMessageError"
+                         Grid.Row="5"
+                         Grid.ColumnSpan="2"
+                         Style="{StaticResource TextBlockStyle}"
+                         Text="{Binding ErrorMessageInput, Source={StaticResource HomeViewModel}}">
+                </TextBlock>
+
+                <Border x:Name="bMessage" 
+                    Grid.Row="6"
                         Grid.ColumnSpan="2"
                         Height="50"
-                        Margin="0 15 0 0"
+                        Margin="0 0 0 0"
                         CornerRadius="3"
                         BorderThickness="1"
                         BorderBrush="Black"
@@ -348,13 +406,32 @@
                            TextChanged="OnYourMessageChanged"></TextBox>
                 </Border>
 
-                <Button Grid.Row="4"
+                <TextBlock x:Name="tbResultSendForm"
+                         Grid.Row="7"
+                         Grid.ColumnSpan="2"
+                         Style="{StaticResource TextBlockStyle}"
+                         Text="{Binding ResultSendForm, Source={StaticResource HomeViewModel}}">
+                </TextBlock>
+
+                <Button x:Name="btnSendForm" 
+                        Grid.Row="8"
                         Grid.ColumnSpan="2"
-                        Margin="0 15 0 10"
+                        Content="Send form"
+                        Margin="0 0 0 10"
                         Height="30"
                         Style="{StaticResource ButtonStyle}"
-                        Cursor="Hand">
-                    Send form
+                        Cursor="Hand"
+                    Command="{Binding SendOrderFormCommand, Source={StaticResource HomeViewModel}}">
+                    <Button.CommandParameter>
+                        <MultiBinding Converter="{StaticResource MultiValueConverter}">
+                            <Binding Path="Text" ElementName="tbYourName"/>
+                            <Binding Path="Text" ElementName="tbYourEmail"/>
+                            <Binding Path="Text" ElementName="tbYourMobile"/>
+                            <Binding Path="SelectedValue" ElementName="cbServiceChoose"/>
+                            <Binding Path="Text" ElementName="tbMessage"/>
+                        </MultiBinding>
+                    </Button.CommandParameter>
+
                 </Button>
 
             </Grid>

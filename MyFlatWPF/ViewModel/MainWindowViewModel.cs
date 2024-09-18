@@ -27,6 +27,7 @@ namespace MyFlatWPF.ViewModel
 
         }
 
+
         private UserControl _CurrentView;
 
         public UserControl CurrentView
