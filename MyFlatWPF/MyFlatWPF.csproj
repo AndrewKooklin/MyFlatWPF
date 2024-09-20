@@ -120,6 +120,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Commands\SendOrderFormCommand.cs" />
     <Compile Include="Commands\SwitchViewCommand.cs" />
     <Compile Include="HelpMethods\CheckInputFields.cs" />
@@ -226,9 +227,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\kind.png" />
+    <Resource Include="Images\YourName.gif" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\House-icon.jpeg" />
@@ -244,9 +245,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\YourMobile.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\YourName.gif" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\YourMessage.gif" />

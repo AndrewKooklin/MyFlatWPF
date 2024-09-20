@@ -48,6 +48,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="7*"/>
+            <RowDefinition Height="4.5*"/>
             <RowDefinition Height="140*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -170,7 +171,17 @@
             </MenuItem>
         </Menu>
 
-        <Border Grid.Row="1"
+        <TextBlock Grid.Row="1"
+                   Grid.Column="1"
+                   Text="ECO-FRIENDLY HOUSES"
+                   Margin="0 0 10 0"
+                   HorizontalAlignment="Right"
+                   FontSize="12"
+                   FontWeight="DemiBold"
+                   Background="Transparent">
+        </TextBlock>
+
+        <Border Grid.Row="2"
             Grid.ColumnSpan="2">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">

@@ -24,7 +24,6 @@ namespace MyFlatWPF.ViewModel
 
             CurrentView = new HomeView();
 
-
         }
 
 

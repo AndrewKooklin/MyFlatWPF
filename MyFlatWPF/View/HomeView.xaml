@@ -12,10 +12,7 @@
     
         <UserControl.Resources>
 
-        <viewModel:HomeViewModel x:Key="HomeViewModel"/>
-        <help:MyMultiValueConverter x:Key="MultiValueConverter"/>
-
-        <ImageBrush x:Key="YourName" 
+        <ImageBrush x:Key="YourName"
                     ImageSource="/Images/YourName.gif"
                     AlignmentX="Left"
                     Stretch="None"/>
@@ -32,7 +29,12 @@
                     AlignmentX="Left"
                     AlignmentY="Top"
                     Stretch="None"/>
-    </UserControl.Resources>
+
+        <viewModel:HomeViewModel x:Key="HomeViewModel"/>
+        <help:MyMultiValueConverter x:Key="MultiValueConverter"/>
+
+        
+        </UserControl.Resources>
 
 
     <Grid>
@@ -106,17 +108,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-
-
-        <TextBlock Grid.Column="1"
-                   Grid.ColumnSpan="2"
-                       Text="ECO-FRIENDLY HOUSES"
-                   Margin="0 0 10 0"
-                       HorizontalAlignment="Right"
-                       FontSize="12"
-                   FontWeight="DemiBold"
-                       Background="Transparent">
-        </TextBlock>
+        
         <Border Grid.Row="1"
                 Grid.ColumnSpan="2"
                 Background="Black"
@@ -178,7 +170,7 @@
         <StackPanel x:Name="spImage"
                     Grid.Row="3"
                     Grid.Column="1">
-            <Image Source="c:\repos\myflatwpf\myflatwpf\images\hand-draft.webp
+            <Image Source="c:\repos\myflatwpf\myflatwpf\Images\hand-draft.webp
 "
                    Margin="0 30 10 10"></Image>
         </StackPanel>
@@ -272,7 +264,7 @@
                          Grid.Row="1"
                          Grid.Column="0"
                          Style="{StaticResource TextBlockStyle}"
-                         Text="{Binding ErrorNameInput, Source={StaticResource HomeViewModel}}">
+                         Text="{Binding ErrorNameInput, Source={StaticResource HomeViewModel}, UpdateSourceTrigger=PropertyChanged}">
                 </TextBlock>
 
                 <Border x:Name="bYourName"
@@ -286,16 +278,20 @@
                         Height="30">
                     <TextBox x:Name="tbYourName"
                          ToolTip="Enter Your Name"
-                         Background="{Binding Mode=OneWay, Source={StaticResource YourName}}"
+                         Text="{Binding NameInput, 
+                                Source={StaticResource HomeViewModel}, 
+                                UpdateSourceTrigger=PropertyChanged}"
                          FontSize="18"
                          BorderBrush="Transparent"
                          BorderThickness="0"
+                         Background="{Binding Source={StaticResource YourName}}"
                          TextChanged="OnYourNameChanged"></TextBox>
                 </Border>
 
                 <TextBlock x:Name="tbEmailError"
-                         Grid.Row="2"
-                         Grid.Column="0"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         Margin="5 0 0 0"
                          Style="{StaticResource TextBlockStyle}"
                          Text="{Binding ErrorEmailInput, Source={StaticResource HomeViewModel}}">
                 </TextBlock>
@@ -346,6 +342,7 @@
                 <TextBlock x:Name="tbServiceError"
                          Grid.Row="3"
                          Grid.Column="1"
+                         Margin="5 0 0 0"
                          Style="{StaticResource TextBlockStyle}"
                          Text="{Binding ErrorServiceChoose, Source={StaticResource HomeViewModel}}">
                 </TextBlock>
@@ -366,10 +363,13 @@
                           FontSize="16"
                           Style="{StaticResource ComboBoxStyle}"
                           BorderBrush="Transparent"
-                          BorderThickness="0">
+                          BorderThickness="0"
+                               SelectionChanged ="OnSelectedChanged">
 
-                        <ComboBoxItem IsEnabled="False"
-                                  IsSelected="True">Choose Service
+                        <ComboBoxItem IsEnabled="False">Choose Service
+                        </ComboBoxItem>
+                        <ComboBoxItem x:Name="cbiService"
+                                      Visibility="Collapsed">
                         </ComboBoxItem>
                         <ComboBoxItem>Building design
                         </ComboBoxItem>
@@ -421,20 +421,21 @@
                 <Button x:Name="btnSendForm" 
                         Grid.Row="8"
                         Grid.ColumnSpan="2"
+                        Content="Send form"
                         Margin="0 0 0 10"
                         Height="30"
                         Style="{StaticResource ButtonStyle}"
                         Command="{Binding SendOrderFormCommand, Source={StaticResource HomeViewModel}}">
                     <Button.CommandParameter>
-                        <MultiBinding Converter="{StaticResource MultiValueConverter}">
-                            <Binding Path="Text" ElementName="tbYourName"/>
-                            <Binding Path="Text" ElementName="tbYourEmail"/>
-                            <Binding Path="Text" ElementName="tbYourMobile"/>
-                            <Binding Path="SelectedValue" ElementName="cbServiceChoose"/>
-                            <Binding Path="Text" ElementName="tbMessage"/>
-                        </MultiBinding>
+                    <MultiBinding Converter="{StaticResource MultiValueConverter}">
+                        <Binding Path="Text" ElementName="tbYourName"/>
+                        <Binding Path="Text" ElementName="tbYourEmail"/>
+                        <Binding Path="Text" ElementName="tbYourMobile"/>
+                            <Binding ElementName="cbServiceChoose"/>
+                        <Binding Path="Text" ElementName="tbMessage"/>
+                    </MultiBinding>
                     </Button.CommandParameter>
-                    Send form
+
                 </Button>
 
             </Grid>

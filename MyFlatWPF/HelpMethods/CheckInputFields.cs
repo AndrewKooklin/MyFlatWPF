@@ -27,6 +27,11 @@ namespace MyFlatWPF.HelpMethods
                 homeView.tbNameError.Text = "Fill field \"Your Name\"";
                 return false;
             }
+            if (name.Length < 3)
+            {
+                homeView.tbNameError.Text = "Length of at least 3 characters.";
+                return false;
+            }
 
             if (String.IsNullOrEmpty(email))
             {
@@ -66,19 +71,36 @@ namespace MyFlatWPF.HelpMethods
                 homeView.tbMessageError.Text = "Length of at least 5 characters.";
                 return false;
             }
+            else
+            {
+                homeView.tbNameError.Text = "";
+                homeView.tbEmailError.Text = "";
+                homeView.tbMobileError.Text = "";
+                homeView.tbServiceError.Text = "";
+                homeView.tbMessageError.Text = "";
+                return true;
+            }
 
-            return true;
+            
         }
 
         private bool CheckEmail(string email)
         {
-            MailAddress mail = new MailAddress(email);
-            bool result = mail.Address == email;
-            if (result)
+            try
             {
-                return true;
+                MailAddress mail = new MailAddress(email);
+                bool result = mail.Address == email;
+                if (result)
+                {
+                    return true;
+                }
             }
-            else return false;
+            catch
+            {
+                return false;
+            }
+
+            return false;
         }
 
         private bool CheckPhone(string phoneNumber)

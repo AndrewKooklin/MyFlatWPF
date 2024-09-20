@@ -31,11 +31,12 @@ namespace MyFlatWPF.View
             {
                 if (string.IsNullOrEmpty(name.Text))
                 {
-                    name.Background = (ImageBrush)FindResource("YourName");
+                    name.Background = (ImageBrush)FindResource("/Images/YourName.gif");
                 }
                 else
                 {
                     name.Background = null;
+                    //App.HomeWiew.tbYourName.Text = name.Text;
                 }
             }
         }
@@ -46,11 +47,12 @@ namespace MyFlatWPF.View
             {
                 if (string.IsNullOrEmpty(email.Text))
                 {
-                    email.Background = (ImageBrush)FindResource("YourEmail");
+                    email.Background = (ImageBrush)FindResource("/Images/YourEmail.gif");
                 }
                 else
                 {
                     email.Background = null;
+                    App.HomeWiew.tbYourEmail.Text = email.Text;
                 }
             }
         }
@@ -61,11 +63,12 @@ namespace MyFlatWPF.View
             {
                 if (string.IsNullOrEmpty(mobile.Text))
                 {
-                    mobile.Background = (ImageBrush)FindResource("YourMobile");
+                    mobile.Background = (ImageBrush)FindResource("/Images/YourMobile.gif");
                 }
                 else
                 {
                     mobile.Background = null;
+                    App.HomeWiew.tbYourMobile.Text = mobile.Text;
                 }
             }
         }
@@ -76,12 +79,23 @@ namespace MyFlatWPF.View
             {
                 if (string.IsNullOrEmpty(message.Text))
                 {
-                    message.Background = (ImageBrush)FindResource("YourMessage");
+                    message.Background = (ImageBrush)FindResource("/Images/YourMessage.gif");
                 }
                 else
                 {
                     message.Background = null;
+                    App.HomeWiew.tbMessage.Text = message.Text;
                 }
+            }
+        }
+
+        private void OnSelectedChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(sender is ComboBox cb)
+            {
+                ComboBoxItem cbItem = (ComboBoxItem)cb.SelectedItem;
+                string serviceName = cbItem.Content.ToString();
+                App.HomeWiew.cbiService.Content = serviceName;
             }
         }
     }
