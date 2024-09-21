@@ -52,7 +52,7 @@ namespace MyFlatWPF.View
                 else
                 {
                     email.Background = null;
-                    App.HomeWiew.tbYourEmail.Text = email.Text;
+                    //App.HomeWiew.tbYourEmail.Text = email.Text;
                 }
             }
         }
@@ -68,7 +68,7 @@ namespace MyFlatWPF.View
                 else
                 {
                     mobile.Background = null;
-                    App.HomeWiew.tbYourMobile.Text = mobile.Text;
+                    //App.HomeWiew.tbYourMobile.Text = mobile.Text;
                 }
             }
         }
@@ -84,7 +84,7 @@ namespace MyFlatWPF.View
                 else
                 {
                     message.Background = null;
-                    App.HomeWiew.tbMessage.Text = message.Text;
+                    //App.HomeWiew.tbMessage.Text = message.Text;
                 }
             }
         }

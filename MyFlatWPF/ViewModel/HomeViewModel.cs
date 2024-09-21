@@ -1,9 +1,14 @@
 ﻿using MyFlatWPF.Commands;
 using MyFlatWPF.HelpMethods;
+using MyFlatWPF.Model;
 using MyFlatWPF.View;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -18,8 +23,7 @@ namespace MyFlatWPF.ViewModel
 
         public HomeViewModel()
         {
-            SendOrderFormCommand = new RelayCommand(Execute, CanExecute); 
-
+            SendOrderFormCommand = new RelayCommand(Execute, CanExecute);
         }
 
         public ICommand SendOrderFormCommand { get; set; }
@@ -66,6 +70,20 @@ namespace MyFlatWPF.ViewModel
             }
         }
 
+        private string _emailInput = "";
+        public string EmailInput
+        {
+            get
+            {
+                return _emailInput;
+            }
+            set
+            {
+                _emailInput = value;
+                OnPropertyChanged(nameof(EmailInput));
+            }
+        }
+
         private string _errorMobileInput = "";
         public string ErrorMobileInput
         {
@@ -77,6 +95,20 @@ namespace MyFlatWPF.ViewModel
             {
                 _errorMobileInput = value;
                 OnPropertyChanged(nameof(ErrorMobileInput));
+            }
+        }
+
+        private string _mobileInput = "";
+        public string MobileInput
+        {
+            get
+            {
+                return _mobileInput;
+            }
+            set
+            {
+                _mobileInput = value;
+                OnPropertyChanged(nameof(MobileInput));
             }
         }
 
@@ -94,6 +126,20 @@ namespace MyFlatWPF.ViewModel
             }
         }
 
+        private ComboBoxItem _serviceChooseItem;
+        public ComboBoxItem ServiceChooseItem
+        {
+            get
+            {
+                return _serviceChooseItem;
+            }
+            set
+            {
+                _serviceChooseItem = value;
+                OnPropertyChanged(nameof(ServiceChooseItem));
+            }
+        }
+
         private string _errorMessageInput = "";
         public string ErrorMessageInput
         {
@@ -105,6 +151,20 @@ namespace MyFlatWPF.ViewModel
             {
                 _errorMessageInput = value;
                 OnPropertyChanged(nameof(ErrorMessageInput));
+            }
+        }
+
+        private string _messageInput = "";
+        public string MessageInput
+        {
+            get
+            {
+                return _messageInput;
+            }
+            set
+            {
+                _messageInput = value;
+                OnPropertyChanged(nameof(MessageInput));
             }
         }
 
@@ -131,15 +191,16 @@ namespace MyFlatWPF.ViewModel
                 return false;
             }
 
-            HomeView homeView = App.HomeWiew;
+            //HomeView homeView = App.HomeWiew;
 
-            var fieldElements = (object[])parameter;
+            //var fieldElements = (object[])parameter;
             string name = NameInput;
-            //if (String.IsNullOrEmpty(name))
-            //{
-            //    App.HomeWiew.tbNameError.Text = "Fill field \"Your Name\"";
-            //    return false;
-            //}
+            if (String.IsNullOrEmpty(name))
+            {
+                ErrorNameInput = "Fill field \"Your Name\"";
+                return false;
+            }
+            
             if (name.Length < 3)
             {
                 ErrorNameInput = "At least 3 characters";
@@ -149,8 +210,39 @@ namespace MyFlatWPF.ViewModel
             {
                 ErrorNameInput = "";
             }
-            string email = fieldElements[1].ToString();
-            string mobile = fieldElements[2].ToString();
+
+            string email = EmailInput;
+            if (String.IsNullOrEmpty(email))
+            {
+                ErrorEmailInput = "Fill field \"Your Email\"";
+                return false;
+            }
+            if (!CheckEmail(email))
+            {
+                ErrorEmailInput = "Email format name@site.com";
+                return false;
+            }
+            else
+            {
+                ErrorEmailInput = "";
+            }
+
+            string mobile = MobileInput;
+            if (String.IsNullOrEmpty(mobile))
+            {
+                ErrorMobileInput = "Fill field \"Your Mobile\"";
+                return false;
+            }
+            if (!CheckPhone(mobile))
+            {
+                ErrorMobileInput = "Format 11 digits";
+                return false;
+            }
+            else
+            {
+                ErrorMobileInput = "";
+            }
+
             //ComboBox cbox = new ComboBox();
             //cbox = (ComboBox)fieldElements[3];
             //ComboBoxItem cbItem = (ComboBoxItem)cbox.SelectedItem;
@@ -158,74 +250,70 @@ namespace MyFlatWPF.ViewModel
             //{
             //    return false;
             //}
-            if(App.HomeWiew.cbiService.Content == null)
+            if (ServiceChooseItem == null)
             {
-                return false;
-            }
-            string serviceName = App.HomeWiew.cbiService.Content.ToString();
-            if (String.IsNullOrEmpty(serviceName))
-            {
-                return false;
-            }
-
-            string message = fieldElements[4].ToString();
-
-            
-
-            
-
-            if (String.IsNullOrEmpty(email))
-            {
-                homeView.tbEmailError.Text = "Fill field \"Your Email\"";
-                return false;
-            }
-            if (!CheckEmail(email))
-            {
-                homeView.tbEmailError.Text = "Email field format name@site.com";
-                return false;
-            }
-
-            if (String.IsNullOrEmpty(mobile))
-            {
-                homeView.tbMobileError.Text = "Fill field \"Your Mobile\"";
-                return false;
-            }
-            if (!CheckPhone(mobile))
-            {
-                homeView.tbMobileError.Text = "Field must contain 11 digits";
-                return false;
-            }
-
-            if (String.IsNullOrEmpty(serviceName))
-            {
-                homeView.tbServiceError.Text = "Choose service";
-                return false;
-            }
-
-            if (String.IsNullOrEmpty(message))
-            {
-                homeView.tbMessageError.Text = "Fill field \"Your Message\"";
-                return false;
-            }
-            if (message.Length < 5)
-            {
-                homeView.tbMessageError.Text = "Length of at least 5 characters.";
+                ErrorServiceChoose = "Choose service";
                 return false;
             }
             else
             {
-                homeView.tbNameError.Text = "";
-                homeView.tbEmailError.Text = "";
-                homeView.tbMobileError.Text = "";
-                homeView.tbServiceError.Text = "";
-                homeView.tbMessageError.Text = "";
+                ErrorServiceChoose = "";
+            }
+            
+
+
+            string message = MessageInput;
+            if (String.IsNullOrEmpty(message))
+            {
+                ErrorMessageInput = "Fill field \"Your Message\"";
+                return false;
+            }
+            if (message.Length < 5)
+            {
+                ErrorMessageInput = "At least 5 characters.";
+                return false;
+            }
+            else
+            {
+                ErrorNameInput = "";
+                ErrorEmailInput = "";
+                ErrorMobileInput = "";
+                ErrorServiceChoose = "";
+                ErrorMessageInput = "";
                 return true;
             }
         }
 
+        private HttpClient _httpClient;
+        private string url = @"https://localhost:44388/";
+        string urlRequest = "";
+        HttpResponseMessage response;
+        string result;
+        bool apiResponseConvert;
+
         private void Execute(object param)
         {
+            string name = NameInput;
+            string email = EmailInput;
+            string mobile = MobileInput;
+            string serviceName = ServiceChooseItem.Content.ToString();
+            string message = MessageInput;
 
+            OrderModel order = new OrderModel();
+            order.Name = name;
+            order.Email = email;
+            order.Mobile = mobile;
+            order.ServiceName = serviceName;
+            order.Message = message;
+            var response = SaveOrder(order);
+            if (!response.GetAwaiter().GetResult())
+            {
+                ResultSendForm = "API server error";
+            }
+            else
+            {
+                ResultSendForm = "Order succesfully accepted";
+            }
         }
 
         private bool CheckEmail(string email)
@@ -255,6 +343,23 @@ namespace MyFlatWPF.ViewModel
                 return true;
             }
             else return false;
+        }
+
+        public async Task<bool> SaveOrder(OrderModel order)
+        {
+            urlRequest = $"{url}" + "OrdersAPI/SaveOrder/" + $"{order}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, order))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
         }
     }
 

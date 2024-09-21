@@ -264,7 +264,9 @@
                          Grid.Row="1"
                          Grid.Column="0"
                          Style="{StaticResource TextBlockStyle}"
-                         Text="{Binding ErrorNameInput, Source={StaticResource HomeViewModel}, UpdateSourceTrigger=PropertyChanged}">
+                         Text="{Binding ErrorNameInput, 
+                                Source={StaticResource HomeViewModel}, 
+                                UpdateSourceTrigger=PropertyChanged}">
                 </TextBlock>
 
                 <Border x:Name="bYourName"
@@ -293,7 +295,9 @@
                          Grid.Column="1"
                          Margin="5 0 0 0"
                          Style="{StaticResource TextBlockStyle}"
-                         Text="{Binding ErrorEmailInput, Source={StaticResource HomeViewModel}}">
+                         Text="{Binding ErrorEmailInput, 
+                                Source={StaticResource HomeViewModel}, 
+                                UpdateSourceTrigger=PropertyChanged}">
                 </TextBlock>
 
                 <Border x:Name="bYourEmail" 
@@ -307,6 +311,9 @@
                         Background="White">
                     <TextBox x:Name="tbYourEmail"
                          ToolTip="Enter Your Email"
+                         Text="{Binding EmailInput, 
+                                Source={StaticResource HomeViewModel}, 
+                                UpdateSourceTrigger=PropertyChanged}"
                          Background="{Binding Mode=OneWay, Source={StaticResource YourEmail}}"
                          FontSize="18"
                          BorderBrush="Transparent"
@@ -318,7 +325,9 @@
                          Grid.Row="3"
                          Grid.Column="0"
                          Style="{StaticResource TextBlockStyle}"
-                         Text="{Binding ErrorMobileInput, Source={StaticResource HomeViewModel}}">
+                         Text="{Binding ErrorMobileInput, 
+                                Source={StaticResource HomeViewModel},
+                                UpdateSourceTrigger=PropertyChanged}">
                 </TextBlock>
 
                 <Border x:Name="bYourMobile" 
@@ -332,6 +341,9 @@
                         Height="30">
                     <TextBox x:Name="tbYourMobile"
                          ToolTip="Enter Your Mobile Number"
+                         Text="{Binding MobileInput, 
+                                Source={StaticResource HomeViewModel}, 
+                                UpdateSourceTrigger=PropertyChanged}"
                          Background="{Binding Mode=OneWay, Source={StaticResource YourMobile}}"
                          FontSize="18"
                          BorderBrush="Transparent"
@@ -344,7 +356,9 @@
                          Grid.Column="1"
                          Margin="5 0 0 0"
                          Style="{StaticResource TextBlockStyle}"
-                         Text="{Binding ErrorServiceChoose, Source={StaticResource HomeViewModel}}">
+                         Text="{Binding ErrorServiceChoose, 
+                                Source={StaticResource HomeViewModel},
+                                UpdateSourceTrigger=PropertyChanged}">
                 </TextBlock>
 
                 <Border x:Name="bServiceChoose" 
@@ -359,12 +373,14 @@
                         Cursor="Hand">
                     <ComboBox x:Name="cbServiceChoose"
                           ToolTip="Choose Service"
-                          Text="Choose Service"
+                          SelectedItem="{Binding ServiceChooseItem, 
+                                Source={StaticResource HomeViewModel}, 
+                                UpdateSourceTrigger=PropertyChanged}"
                           FontSize="16"
                           Style="{StaticResource ComboBoxStyle}"
                           BorderBrush="Transparent"
                           BorderThickness="0"
-                               SelectionChanged ="OnSelectedChanged">
+                          SelectionChanged ="OnSelectedChanged">
 
                         <ComboBoxItem IsEnabled="False">Choose Service
                         </ComboBoxItem>
@@ -388,7 +404,9 @@
                          Grid.Row="5"
                          Grid.ColumnSpan="2"
                          Style="{StaticResource TextBlockStyle}"
-                         Text="{Binding ErrorMessageInput, Source={StaticResource HomeViewModel}}">
+                         Text="{Binding ErrorMessageInput, 
+                                Source={StaticResource HomeViewModel},
+                                UpdateSourceTrigger=PropertyChanged}">
                 </TextBlock>
 
                 <Border x:Name="bMessage" 
@@ -401,14 +419,19 @@
                         BorderBrush="Black"
                         Background="White">
                     <TextBox x:Name="tbMessage"
-                         ToolTip="Enter Your Message"
-                           Background="{Binding Mode=OneWay, Source={StaticResource YourMessage}}"
-                           FontSize="18"
-                           TextWrapping="Wrap"
-                           VerticalScrollBarVisibility="Visible"
-                         BorderBrush="Transparent"
-                         BorderThickness="0"
-                           TextChanged="OnYourMessageChanged"></TextBox>
+                             ToolTip="Enter Your Message"
+                             Text="{Binding MessageInput, 
+                                Source={StaticResource HomeViewModel}, 
+                                UpdateSourceTrigger=PropertyChanged}"
+                             Background="{Binding Mode=OneWay, 
+                                        Source={StaticResource YourMessage}}"
+                             FontSize="18"
+                             TextWrapping="Wrap"
+                             VerticalScrollBarVisibility="Visible"
+                             BorderBrush="Transparent"
+                             BorderThickness="0"
+                             TextChanged="OnYourMessageChanged">
+                    </TextBox>
                 </Border>
 
                 <TextBlock x:Name="tbResultSendForm"
@@ -431,7 +454,7 @@
                         <Binding Path="Text" ElementName="tbYourName"/>
                         <Binding Path="Text" ElementName="tbYourEmail"/>
                         <Binding Path="Text" ElementName="tbYourMobile"/>
-                            <Binding ElementName="cbServiceChoose"/>
+                        <Binding Path="SelectedItem.Content" ElementName="cbServiceChoose"/>
                         <Binding Path="Text" ElementName="tbMessage"/>
                     </MultiBinding>
                     </Button.CommandParameter>
