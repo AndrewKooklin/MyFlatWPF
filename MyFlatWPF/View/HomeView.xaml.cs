@@ -29,14 +29,16 @@ namespace MyFlatWPF.View
         {
             if(sender is TextBox name)
             {
+                App.HomeWiew.tbServerError.Text = "";
+                App.HomeWiew.tbOrderSaved.Text = "";
+
                 if (string.IsNullOrEmpty(name.Text))
                 {
-                    name.Background = (ImageBrush)FindResource("/Images/YourName.gif");
+                    name.Background = (ImageBrush)FindResource("YourName");
                 }
                 else
                 {
                     name.Background = null;
-                    //App.HomeWiew.tbYourName.Text = name.Text;
                 }
             }
         }
@@ -47,12 +49,11 @@ namespace MyFlatWPF.View
             {
                 if (string.IsNullOrEmpty(email.Text))
                 {
-                    email.Background = (ImageBrush)FindResource("/Images/YourEmail.gif");
+                    email.Background = (ImageBrush)FindResource("YourEmail");
                 }
                 else
                 {
                     email.Background = null;
-                    //App.HomeWiew.tbYourEmail.Text = email.Text;
                 }
             }
         }
@@ -63,12 +64,11 @@ namespace MyFlatWPF.View
             {
                 if (string.IsNullOrEmpty(mobile.Text))
                 {
-                    mobile.Background = (ImageBrush)FindResource("/Images/YourMobile.gif");
+                    mobile.Background = (ImageBrush)FindResource("YourMobile");
                 }
                 else
                 {
                     mobile.Background = null;
-                    //App.HomeWiew.tbYourMobile.Text = mobile.Text;
                 }
             }
         }
@@ -79,12 +79,11 @@ namespace MyFlatWPF.View
             {
                 if (string.IsNullOrEmpty(message.Text))
                 {
-                    message.Background = (ImageBrush)FindResource("/Images/YourMessage.gif");
+                    message.Background = (ImageBrush)FindResource("YourMessage");
                 }
                 else
                 {
                     message.Background = null;
-                    //App.HomeWiew.tbMessage.Text = message.Text;
                 }
             }
         }

@@ -284,6 +284,7 @@
                                 Source={StaticResource HomeViewModel}, 
                                 UpdateSourceTrigger=PropertyChanged}"
                          FontSize="18"
+                         VerticalAlignment="Center"
                          BorderBrush="Transparent"
                          BorderThickness="0"
                          Background="{Binding Source={StaticResource YourName}}"
@@ -316,6 +317,7 @@
                                 UpdateSourceTrigger=PropertyChanged}"
                          Background="{Binding Mode=OneWay, Source={StaticResource YourEmail}}"
                          FontSize="18"
+                         VerticalAlignment="Center"
                          BorderBrush="Transparent"
                          BorderThickness="0"
                          TextChanged="OnYourEmailChanged"></TextBox>
@@ -346,6 +348,7 @@
                                 UpdateSourceTrigger=PropertyChanged}"
                          Background="{Binding Mode=OneWay, Source={StaticResource YourMobile}}"
                          FontSize="18"
+                         VerticalAlignment="Center"
                          BorderBrush="Transparent"
                          BorderThickness="0"
                          TextChanged="OnYourMobileChanged"></TextBox>
@@ -377,6 +380,7 @@
                                 Source={StaticResource HomeViewModel}, 
                                 UpdateSourceTrigger=PropertyChanged}"
                           FontSize="16"
+                         VerticalAlignment="Center"
                           Style="{StaticResource ComboBoxStyle}"
                           BorderBrush="Transparent"
                           BorderThickness="0"
@@ -434,11 +438,23 @@
                     </TextBox>
                 </Border>
 
-                <TextBlock x:Name="tbResultSendForm"
+                <TextBlock x:Name="tbServerError"
                          Grid.Row="7"
-                         Grid.ColumnSpan="2"
                          Style="{StaticResource TextBlockStyle}"
-                         Text="{Binding ResultSendForm, Source={StaticResource HomeViewModel}}">
+                         Text="{Binding ServerError, 
+                                Source={StaticResource HomeViewModel},
+                                UpdateSourceTrigger=PropertyChanged}">
+                </TextBlock>
+
+                <TextBlock x:Name="tbOrderSaved"
+                         Grid.Row="7"
+                         Grid.Column="1"
+                         FontSize="12"
+                         Foreground="DarkGreen"
+                         HorizontalAlignment="Right"
+                         Text="{Binding OrderSaved, 
+                                Source={StaticResource HomeViewModel},
+                                UpdateSourceTrigger=PropertyChanged}">
                 </TextBlock>
 
                 <Button x:Name="btnSendForm" 

@@ -20,6 +20,12 @@ namespace MyFlatWPF.ViewModel
 {
     public class HomeViewModel : BaseViewModel
     {
+        private HttpClient _httpClient;
+        private string url = @"https://localhost:44388/";
+        string urlRequest = "";
+        HttpResponseMessage response;
+        string apiResponse;
+        public bool apiResponseConvert;
 
         public HomeViewModel()
         {
@@ -52,6 +58,8 @@ namespace MyFlatWPF.ViewModel
             set
             {
                 _nameInput = value;
+                ServerError = "";
+                OrderSaved = "";
                 OnPropertyChanged(nameof(NameInput));
             }
         }
@@ -80,6 +88,8 @@ namespace MyFlatWPF.ViewModel
             set
             {
                 _emailInput = value;
+                ServerError = "";
+                OrderSaved = "";
                 OnPropertyChanged(nameof(EmailInput));
             }
         }
@@ -108,6 +118,8 @@ namespace MyFlatWPF.ViewModel
             set
             {
                 _mobileInput = value;
+                ServerError = "";
+                OrderSaved = "";
                 OnPropertyChanged(nameof(MobileInput));
             }
         }
@@ -136,6 +148,8 @@ namespace MyFlatWPF.ViewModel
             set
             {
                 _serviceChooseItem = value;
+                ServerError = "";
+                OrderSaved = "";
                 OnPropertyChanged(nameof(ServiceChooseItem));
             }
         }
@@ -164,21 +178,37 @@ namespace MyFlatWPF.ViewModel
             set
             {
                 _messageInput = value;
+                ServerError = "";
+                OrderSaved = "";
                 OnPropertyChanged(nameof(MessageInput));
             }
         }
 
-        private string _resultSendForm = "";
-        public string ResultSendForm
+        private string _serverError = "";
+        public string ServerError
         {
             get
             {
-                return _resultSendForm;
+                return _serverError;
             }
             set
             {
-                _resultSendForm = value;
-                OnPropertyChanged(nameof(ResultSendForm));
+                _serverError = value;
+                OnPropertyChanged(nameof(ServerError));
+            }
+        }
+
+        private string _orderSaved = "";
+        public string OrderSaved
+        {
+            get
+            {
+                return _orderSaved;
+            }
+            set
+            {
+                _orderSaved = value;
+                OnPropertyChanged(nameof(OrderSaved));
             }
         }
 
@@ -284,14 +314,9 @@ namespace MyFlatWPF.ViewModel
             }
         }
 
-        private HttpClient _httpClient;
-        private string url = @"https://localhost:44388/";
-        string urlRequest = "";
-        HttpResponseMessage response;
-        string result;
-        bool apiResponseConvert;
+        
 
-        private void Execute(object param)
+        private async void Execute(object param)
         {
             string name = NameInput;
             string email = EmailInput;
@@ -305,14 +330,16 @@ namespace MyFlatWPF.ViewModel
             order.Mobile = mobile;
             order.ServiceName = serviceName;
             order.Message = message;
-            var response = SaveOrder(order);
-            if (!response.GetAwaiter().GetResult())
+            order.StatusName = "Recieved";
+            bool resultSendOrder = await SaveOrder(order);
+
+            if (resultSendOrder)
             {
-                ResultSendForm = "API server error";
+                OrderSaved = "Order succesfully accepted";
             }
             else
             {
-                ResultSendForm = "Order succesfully accepted";
+                ServerError = "API server error";
             }
         }
 
@@ -354,14 +381,11 @@ namespace MyFlatWPF.ViewModel
                 _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 using (response = await _httpClient.PostAsJsonAsync(urlRequest, order))
                 {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponse = await response.Content.ReadAsStringAsync();
                     apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
                 }
             }
-
             return apiResponseConvert;
         }
     }
-
-
 }
