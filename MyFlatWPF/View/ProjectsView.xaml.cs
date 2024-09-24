@@ -23,8 +23,9 @@ namespace MyFlatWPF.View
     {
         public ProjectsView()
         {
-            this.DataContext = new ProjectsViewModel(this.spProjects);
+            
             InitializeComponent();
+            this.DataContext = new ProjectsViewModel(this.spProjects);
         }
     }
 }

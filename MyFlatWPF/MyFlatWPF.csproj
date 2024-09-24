@@ -138,7 +138,6 @@
     <Compile Include="HelpMethods\CheckInputFields.cs" />
     <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\OrderModel.cs" />
-    <Compile Include="Model\StackPanelModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
