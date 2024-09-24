@@ -212,8 +212,6 @@ namespace MyFlatWPF.ViewModel
             }
         }
 
-        CheckInputFields checkInput = new CheckInputFields();
-
         private bool CanExecute(object parameter)
         {
             if (parameter == null)
@@ -221,9 +219,6 @@ namespace MyFlatWPF.ViewModel
                 return false;
             }
 
-            //HomeView homeView = App.HomeWiew;
-
-            //var fieldElements = (object[])parameter;
             string name = NameInput;
             if (String.IsNullOrEmpty(name))
             {
@@ -273,13 +268,6 @@ namespace MyFlatWPF.ViewModel
                 ErrorMobileInput = "";
             }
 
-            //ComboBox cbox = new ComboBox();
-            //cbox = (ComboBox)fieldElements[3];
-            //ComboBoxItem cbItem = (ComboBoxItem)cbox.SelectedItem;
-            //if(cbItem == null)
-            //{
-            //    return false;
-            //}
             if (ServiceChooseItem == null)
             {
                 ErrorServiceChoose = "Choose service";

@@ -4,16 +4,51 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyFlatWPF.View"
+             xmlns:viewModel="clr-namespace:MyFlatWPF.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="600" 
              d:DesignWidth="678">
     <Grid>
-        <StackPanel>
-            <TextBlock Text="Projects View"
-                       HorizontalAlignment="Center"
-                       FontSize="20"
-                       Background="Transparent">
-            </TextBlock>
+
+        <Grid.Resources>
+
+            <viewModel:ProjectsViewModel x:Key="ProjectsViewModel"/>
+
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="140*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock x:Name="tbHeaderProjects"
+                   Grid.Row="0"
+                   Padding="0 20 0 10"
+                   HorizontalAlignment="Center"
+                   Text="Our Projects"
+                   FontSize="24"
+                   FontWeight="DemiBold">
+        </TextBlock>
+
+        <TextBlock x:Name="tbCommonDescription"
+                   Grid.Row="1"
+                   FontSize="11"
+                   HorizontalAlignment="Center"
+                   Margin="0 10 0 10"
+                   Text="{Binding CommonDescription, Source={StaticResource ProjectsViewModel}}">
+        </TextBlock>
+
+        <StackPanel x:Name="spProjects"
+                    Grid.Row="2"
+                    HorizontalAlignment="Center"
+                    Margin="50 20 50 20">
+            
+            
         </StackPanel>
+
     </Grid>
 </UserControl>

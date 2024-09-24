@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyFlatWPF.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace MyFlatWPF.View
     {
         public ProjectsView()
         {
+            this.DataContext = new ProjectsViewModel(this.spProjects);
             InitializeComponent();
         }
     }

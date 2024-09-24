@@ -109,11 +109,7 @@
         </Grid.ColumnDefinitions>
 
         
-        <Border Grid.Row="1"
-                Grid.ColumnSpan="2"
-                Background="Black"
-                Height="1">
-        </Border>
+        
         <TextBlock x:Name="tbHello"
                    Grid.Row="2"
                    Grid.ColumnSpan="2"

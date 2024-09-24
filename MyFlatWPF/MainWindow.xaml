@@ -49,6 +49,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="7*"/>
             <RowDefinition Height="4.5*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="140*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -182,6 +183,12 @@
         </TextBlock>
 
         <Border Grid.Row="2"
+                Grid.ColumnSpan="2"
+                Background="Black"
+                Height="1">
+        </Border>
+
+        <Border Grid.Row="3"
             Grid.ColumnSpan="2">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
@@ -191,7 +198,7 @@
                 </LinearGradientBrush>
             </Border.Background>
             <StackPanel x:Name="spContent"
-                        Grid.Row="1"
+                        Grid.Row="3"
                         Grid.ColumnSpan="2">
 
                 <ContentControl x:Name="ccView"
