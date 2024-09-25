@@ -80,3 +80,5 @@ C:\repos\MyFlatWPF\MyFlatWPF\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 C:\repos\MyFlatWPF\MyFlatWPF\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 C:\repos\MyFlatWPF\MyFlatWPF\bin\Debug\Prism.xml
 C:\repos\MyFlatWPF\MyFlatWPF\bin\Debug\Prism.Wpf.xml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ProjectDetailView.g.cs
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ProjectDetailView.baml

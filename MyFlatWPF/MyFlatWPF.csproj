@@ -132,12 +132,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\OpenProjectDetailsCommand.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Commands\SendOrderFormCommand.cs" />
     <Compile Include="Commands\SwitchViewCommand.cs" />
     <Compile Include="HelpMethods\CheckInputFields.cs" />
+    <Compile Include="HelpMethods\ObjectModel.cs" />
     <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\OrderModel.cs" />
+    <Compile Include="Model\ProjectModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
@@ -156,6 +159,9 @@
     </Compile>
     <Compile Include="View\ManagementWindow.xaml.cs">
       <DependentUpon>ManagementWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProjectDetailView.xaml.cs">
+      <DependentUpon>ProjectDetailView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ProjectsView.xaml.cs">
       <DependentUpon>ProjectsView.xaml</DependentUpon>
@@ -196,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManagementWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ProjectDetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

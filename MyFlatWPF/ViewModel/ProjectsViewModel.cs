@@ -11,6 +11,8 @@ using MyFlatWPF.Model;
 using Prism.Commands;
 using System.Windows.Media;
 using System.Windows;
+using MyFlatWPF.Commands;
+using MyFlatWPF.HelpMethods;
 
 namespace MyFlatWPF.ViewModel
 {
@@ -28,6 +30,8 @@ namespace MyFlatWPF.ViewModel
             _stackPanel = stackPanel;
 
             GetProjectCards(_stackPanel);
+
+            OpenProjectDetailsCommand = new OpenProjectDetailsCommand();
         }
 
         
@@ -40,31 +44,34 @@ namespace MyFlatWPF.ViewModel
         {
             WrapPanel wpProject = new WrapPanel();
             wpProject.Orientation = Orientation.Horizontal;
-            wpProject.Margin = new System.Windows.Thickness(20, 10, 0, 10);
+            //wpProject.Margin = new System.Windows.Thickness(0, 0, 5, 0);
 
             for (int i = 0; i < 6; i++)
             {
                 Border border = new Border();
+                border.Height = 120;
                 border.BorderBrush = Brushes.Black;
                 border.BorderThickness = new Thickness(1,1,1,1);
+                //border.Margin = new System.Windows.Thickness(10, 10, 0, 0);
 
                 StackPanel spCard = new StackPanel();
                 spCard.Orientation = Orientation.Vertical;
-                spCard.Height = 165;
+                spCard.Height = 120;
                 spCard.Margin = new System.Windows.Thickness(10, 10, 0, 0);
                 spCard.Children.Add(border);
 
                 StackPanel spCardProj = new StackPanel();
                 spCardProj.Orientation = Orientation.Vertical;
 
-                //TextBlock tbId = new TextBlock();
-                //tbId.Visibility = System.Windows.Visibility.Collapsed;
-                //tbId.Text = "Id Project";
-                //spCard.Children.Add(tbId);
+                TextBlock tbId = new TextBlock();
+                tbId.Visibility = System.Windows.Visibility.Collapsed;
+                tbId.Text = "1";
+                spCard.Children.Add(tbId);
 
                 Image image = new Image();
-                image.Height = 130;
-                image.Width = 150;
+                //image.Height = 130;
+                image.Width = 148;
+                image.Margin = new System.Windows.Thickness(0, 0, 0, 0);
                 BitmapImage src = new BitmapImage();
                 src.BeginInit();
                 src.UriSource = new Uri(@"C:\repos\MyFlatWPF\MyFlatWPF\Images\i1.jpg", UriKind.Absolute);
@@ -80,11 +87,17 @@ namespace MyFlatWPF.ViewModel
                 btnProject.Background = Brushes.Transparent;
                 btnProject.BorderBrush = Brushes.Transparent;
                 btnProject.FontSize = 14;
+                btnProject.FontWeight = FontWeights.SemiBold;
                 btnProject.VerticalAlignment = System.Windows.VerticalAlignment.Center;
                 btnProject.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                 btnProject.Content = "Details";
+                //MainWindow mainWindow = App.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+                //OpenProjectDetailsCommand = new SwitchViewCommand((MainWindowViewModel)mainWindow.DataContext);
                 btnProject.Command = OpenProjectDetailsCommand;
-                //btnProject.CommandParameter = tbId.Text;
+                ObjectModel project = new ObjectModel();
+                project.TypeObject = "project";
+                project.IdObject = tbId.Text;
+                btnProject.CommandParameter = project;
                 btnProject.Cursor = Cursors.Hand;
 
                 spCardProj.Children.Add(btnProject);

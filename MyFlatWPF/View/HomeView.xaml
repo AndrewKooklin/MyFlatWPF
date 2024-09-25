@@ -166,8 +166,7 @@
         <StackPanel x:Name="spImage"
                     Grid.Row="3"
                     Grid.Column="1">
-            <Image Source="c:\repos\myflatwpf\myflatwpf\Images\hand-draft.webp
-"
+            <Image Source="c:\repos\myflatwpf\myflatwpf\Images\hand-draft.webp"
                    Margin="0 30 10 10"></Image>
         </StackPanel>
 

@@ -1,4 +1,5 @@
 ﻿using MyFlatWPF.View;
+using MyFlatWPF.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,11 +18,15 @@ namespace MyFlatWPF
     {
         public static MainWindow mainWindow;
 
+        //public static MainWindowViewModel mainWindowViewModel = new MainWindowViewModel(); 
+
         public static HomeView HomeWiew = new HomeView();
 
         public static ManagementWindow ManagementWindow = new ManagementWindow();
 
         public static ProjectsView ProjectsWiew = new ProjectsView();
+
+        public static ProjectDetailView ProjectDetailWiew = new ProjectDetailView();
 
         public static ServicesView ServicesWiew = new ServicesView();
 
@@ -38,19 +43,9 @@ namespace MyFlatWPF
         protected override void OnStartup(StartupEventArgs e)
         {
             App.mainWindow = new MainWindow();
-            //CreateButton();
             App.mainWindow.Show();
 
             base.OnStartup(e);
-        }
-
-        public void CreateButton()
-        {
-            Button newBtn = new Button();
-            newBtn.Content = "Click me";
-            newBtn.Width = 50;
-            App.mainWindow.spContent.Children.Add(newBtn);
-            App.mainWindow.Show();
         }
     }
 }

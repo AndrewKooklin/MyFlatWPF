@@ -39,14 +39,14 @@
                    FontSize="11"
                    HorizontalAlignment="Center"
                    Margin="0 10 0 10">
-                   As a builder, we undertake large, complex projects, foster innovation,
-                   &#10; emerging technologies, and make a difference in the community.
+                   As a builder, we undertake large, complex projects, foster innovation,<LineBreak/>
+                   emerging technologies, and make a difference in the community.
         </TextBlock>
 
         <StackPanel x:Name="spProjects"
                     Grid.Row="2"
                     HorizontalAlignment="Center"
-                    Margin="50 20 50 20">
+                    Margin="50 20 55 20">
             
             
         </StackPanel>
