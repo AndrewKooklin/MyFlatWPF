@@ -11,14 +11,14 @@ namespace MyFlatWPF.Commands
 {
     public class SwitchViewCommand : ICommand
     {
-        StaticMainViewModel StaticMainViewModel = new StaticMainViewModel();
+        MainWindowViewModel _mainWindowViewModel = StaticMainViewModel.MainViewModel;
         private ObjectModel _objectModel;
 
         public event EventHandler CanExecuteChanged;
 
         public SwitchViewCommand(MainWindowViewModel mainWindowViewModel)
         {
-            StaticMainViewModel.MainViewModel = mainWindowViewModel;
+            _mainWindowViewModel = mainWindowViewModel;
         }
 
         public SwitchViewCommand(ObjectModel objectModel)
@@ -47,7 +47,7 @@ namespace MyFlatWPF.Commands
                     case "miHome":
                         {
                             App.HomeWiew.Visibility = System.Windows.Visibility.Visible;
-                            StaticMainViewModel.MainViewModel.CurrentView = App.HomeWiew;
+                            _mainWindowViewModel.CurrentView = App.HomeWiew;
                             break;
                         }
                     case "miManagement":
@@ -59,25 +59,25 @@ namespace MyFlatWPF.Commands
                     case "miProjects":
                         {
                             App.ProjectsWiew.Visibility = System.Windows.Visibility.Visible;
-                            StaticMainViewModel.MainViewModel.CurrentView = App.ProjectsWiew;
+                            _mainWindowViewModel.CurrentView = App.ProjectsWiew;
                             break;
                         }
                     case "miServices":
                         {
                             App.ServicesWiew.Visibility = System.Windows.Visibility.Visible;
-                            StaticMainViewModel.MainViewModel.CurrentView = App.ServicesWiew;
+                            _mainWindowViewModel.CurrentView = App.ServicesWiew;
                             break;
                         }
                     case "miBlog":
                         {
                             App.BlogWiew.Visibility = System.Windows.Visibility.Visible;
-                            StaticMainViewModel.MainViewModel.CurrentView = App.BlogWiew;
+                            _mainWindowViewModel.CurrentView = App.BlogWiew;
                             break;
                         }
                     case "miContacts":
                         {
                             App.ContactsWiew.Visibility = System.Windows.Visibility.Visible;
-                            StaticMainViewModel.MainViewModel.CurrentView = App.ContactsWiew;
+                            _mainWindowViewModel.CurrentView = App.ContactsWiew;
                             break;
                         }
                     default: break;
@@ -94,7 +94,7 @@ namespace MyFlatWPF.Commands
                     case "project":
                         {
                             App.ProjectDetailWiew.Visibility = System.Windows.Visibility.Visible;
-                            StaticMainViewModel.MainViewModel.CurrentView = App.ProjectDetailWiew;
+                            _mainWindowViewModel.CurrentView = App.ProjectDetailWiew;
                             break;
                         }
                     default: break;
