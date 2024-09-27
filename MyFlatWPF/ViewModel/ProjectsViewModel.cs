@@ -92,11 +92,13 @@ namespace MyFlatWPF.ViewModel
                 btnProject.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                 btnProject.Content = "Details";
                 //MainWindow mainWindow = App.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-                //OpenProjectDetailsCommand = new SwitchViewCommand((MainWindowViewModel)mainWindow.DataContext);
-                btnProject.Command = OpenProjectDetailsCommand;
+
                 ObjectModel project = new ObjectModel();
                 project.TypeObject = "project";
                 project.IdObject = tbId.Text;
+                OpenProjectDetailsCommand = new SwitchViewCommand(project);
+                btnProject.Command = OpenProjectDetailsCommand;
+                
                 btnProject.CommandParameter = project;
                 btnProject.Cursor = Cursors.Hand;
 

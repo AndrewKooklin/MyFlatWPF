@@ -145,6 +145,7 @@
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\ProjectsViewModel.cs" />
+    <Compile Include="ViewModel\StaticMainViewModel.cs" />
     <Compile Include="View\BlogView.xaml.cs">
       <DependentUpon>BlogView.xaml</DependentUpon>
     </Compile>
