@@ -40,6 +40,8 @@ namespace MyFlatWPF.ViewModel
 
         public ICommand OpenProjectDetailsCommand { get; set; }
 
+        
+
         public void GetProjectCards(StackPanel stackPanel)
         {
             WrapPanel wpProject = new WrapPanel();
@@ -49,14 +51,16 @@ namespace MyFlatWPF.ViewModel
             for (int i = 0; i < 6; i++)
             {
                 Border border = new Border();
-                border.Height = 120;
+                border.Height = 128;
+                border.Width = 160;
                 border.BorderBrush = Brushes.Black;
                 border.BorderThickness = new Thickness(1,1,1,1);
                 //border.Margin = new System.Windows.Thickness(10, 10, 0, 0);
 
                 StackPanel spCard = new StackPanel();
                 spCard.Orientation = Orientation.Vertical;
-                spCard.Height = 120;
+                spCard.Height = 128;
+                spCard.Width = 160;
                 spCard.Margin = new System.Windows.Thickness(10, 10, 0, 0);
                 spCard.Children.Add(border);
 
@@ -70,7 +74,7 @@ namespace MyFlatWPF.ViewModel
 
                 Image image = new Image();
                 //image.Height = 130;
-                image.Width = 148;
+                image.Width = 160;
                 image.Margin = new System.Windows.Thickness(0, 0, 0, 0);
                 BitmapImage src = new BitmapImage();
                 src.BeginInit();
@@ -81,16 +85,53 @@ namespace MyFlatWPF.ViewModel
 
                 spCardProj.Children.Add(image);
 
+                //Style buttonStyle = new Style(typeof(Button));
+                //buttonStyle.Setters.Add(new Setter(Control.BackgroundProperty, Brushes.Transparent));
+                //buttonStyle.Setters.Add(new Setter(Control.BorderBrushProperty, Brushes.Transparent));
+                //buttonStyle.Setters.Add(new Setter(Control.FontWeightProperty, FontWeights.SemiBold));
+                //buttonStyle.Setters.Add(new Setter(Control.VerticalContentAlignmentProperty, VerticalAlignment.Center));
+                //buttonStyle.Setters.Add(new Setter(Control.HorizontalContentAlignmentProperty, HorizontalAlignment.Center));
+
+                //Trigger mouseEnterTrigger = new Trigger
+                //{
+                //    Property = UIElement.IsMouseOverProperty,
+                //    Value = true
+                //};
+                //mouseEnterTrigger.Setters.Add(new Setter(Control.BackgroundProperty, Brushes.Coral));
+                //buttonStyle.Triggers.Add(mouseEnterTrigger);
+
+                //Trigger mouseLeaveTrigger = new Trigger
+                //{
+                //    Property = UIElement.IsMouseOverProperty,
+                //    Value = true
+                //};
+                //mouseEnterTrigger.Setters.Add(new Setter(Control.BackgroundProperty, Brushes.Transparent));
+                //buttonStyle.Triggers.Add(mouseLeaveTrigger);
+
+
+                //Button btnProject = new Button 
+                //{
+                //    //Content = "Details",
+                //    //Style = buttonStyle,
+                //    //Height = 30,
+                //    //Width = 160,
+                //    //FontSize = 14
+                //};
                 Button btnProject = new Button();
                 btnProject.Height = 30;
-                btnProject.Width = 150;
+                btnProject.Width = 160;
                 btnProject.Background = Brushes.Transparent;
                 btnProject.BorderBrush = Brushes.Transparent;
+                //btnProject.MouseEnter += btn_mouseEnter;
+                //btnProject.MouseLeave += btn_mouseLeave;
                 btnProject.FontSize = 14;
                 btnProject.FontWeight = FontWeights.SemiBold;
                 btnProject.VerticalAlignment = System.Windows.VerticalAlignment.Center;
                 btnProject.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                 btnProject.Content = "Details";
+
+                
+
                 //MainWindow mainWindow = App.Current.Windows.OfType<MainWindow>().FirstOrDefault();
 
                 ObjectModel project = new ObjectModel();
@@ -108,6 +149,19 @@ namespace MyFlatWPF.ViewModel
                 wpProject.Children.Add(spCard);
             }
             stackPanel.Children.Add(wpProject);
+        }
+
+        private void btn_mouseEnter(object sender, MouseEventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.Background = Brushes.Transparent;
+            btn.BorderBrush = Brushes.Transparent;
+        }
+
+        private void btn_mouseLeave(object sender, MouseEventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.Background = Brushes.Transparent;
         }
     }
 }

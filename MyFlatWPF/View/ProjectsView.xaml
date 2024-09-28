@@ -46,7 +46,7 @@
         <StackPanel x:Name="spProjects"
                     Grid.Row="2"
                     HorizontalAlignment="Center"
-                    Margin="50 20 55 20">
+                    Margin="10 20 15 20">
             
             
         </StackPanel>

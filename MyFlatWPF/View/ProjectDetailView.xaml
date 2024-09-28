@@ -4,12 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyFlatWPF.View"
+             xmlns:viewModel="clr-namespace:MyFlatWPF.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="600" 
              d:DesignWidth="678">
     <Grid>
 
         <Grid.Resources>
+
+            <viewModel:MainWindowViewModel x:Key="MainWindowViewModel"/>
 
             <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
                 <Setter Property="FontSize" Value="16"/>
@@ -47,7 +50,7 @@
         <TextBlock x:Name="tbHeaderProject"
                    Grid.Row="0"
                    Grid.ColumnSpan="2"
-                   Padding="0 20 0 10"
+                   Padding="0 20 0 30"
                    HorizontalAlignment="Center"
                    Text="Project Details"
                    FontSize="24"
@@ -99,7 +102,9 @@
                 HorizontalAlignment="Right"
                 Margin="0 0 25 0"
                 Content="Back"
-                Style="{StaticResource ButtonStyle}">
+                Style="{StaticResource ButtonStyle}"
+                Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
+                CommandParameter="{Binding Name, ElementName=btnBackToProjects}">
 
         </Button>
 
