@@ -23,31 +23,23 @@ namespace MyFlatWPF.ViewModel
 
         }
 
-        private StackPanel _stackPanel;
+        private WrapPanel _wrapPanel;
 
-        public ProjectsViewModel(StackPanel stackPanel)
+        public ProjectsViewModel(WrapPanel wrapPanel)
         {
-            _stackPanel = stackPanel;
+            _wrapPanel = wrapPanel;
 
-            GetProjectCards(_stackPanel);
+            GetProjectCards(_wrapPanel);
 
             OpenProjectDetailsCommand = new OpenProjectDetailsCommand();
         }
-
-        
 
         public ICommand GetProjectCardsCommand { get; set; }
 
         public ICommand OpenProjectDetailsCommand { get; set; }
 
-        
-
-        public void GetProjectCards(StackPanel stackPanel)
+        public void GetProjectCards(WrapPanel wrapPanel)
         {
-            WrapPanel wpProject = new WrapPanel();
-            wpProject.Orientation = Orientation.Horizontal;
-            //wpProject.Margin = new System.Windows.Thickness(0, 0, 5, 0);
-
             for (int i = 0; i < 6; i++)
             {
                 Border border = new Border();
@@ -55,21 +47,19 @@ namespace MyFlatWPF.ViewModel
                 border.Width = 160;
                 border.BorderBrush = Brushes.Black;
                 border.BorderThickness = new Thickness(1,1,1,1);
-                //border.Margin = new System.Windows.Thickness(10, 10, 0, 0);
+                Panel.SetZIndex(border, 5);
+                border.Margin = new System.Windows.Thickness(10, 10, 0, 0);
 
                 StackPanel spCard = new StackPanel();
                 spCard.Orientation = Orientation.Vertical;
                 spCard.Height = 128;
                 spCard.Width = 160;
-                spCard.Margin = new System.Windows.Thickness(10, 10, 0, 0);
-                spCard.Children.Add(border);
-
-                StackPanel spCardProj = new StackPanel();
-                spCardProj.Orientation = Orientation.Vertical;
-
+                Panel.SetZIndex(spCard, 4);
+                
                 TextBlock tbId = new TextBlock();
                 tbId.Visibility = System.Windows.Visibility.Collapsed;
                 tbId.Text = "1";
+                Panel.SetZIndex(tbId, 3);
                 spCard.Children.Add(tbId);
 
                 Image image = new Image();
@@ -82,57 +72,24 @@ namespace MyFlatWPF.ViewModel
                 src.EndInit();
                 image.Source = src;
                 image.Stretch = System.Windows.Media.Stretch.Uniform;
+                Panel.SetZIndex(image, 2);
+                spCard.Children.Add(image);
 
-                spCardProj.Children.Add(image);
-
-                //Style buttonStyle = new Style(typeof(Button));
-                //buttonStyle.Setters.Add(new Setter(Control.BackgroundProperty, Brushes.Transparent));
-                //buttonStyle.Setters.Add(new Setter(Control.BorderBrushProperty, Brushes.Transparent));
-                //buttonStyle.Setters.Add(new Setter(Control.FontWeightProperty, FontWeights.SemiBold));
-                //buttonStyle.Setters.Add(new Setter(Control.VerticalContentAlignmentProperty, VerticalAlignment.Center));
-                //buttonStyle.Setters.Add(new Setter(Control.HorizontalContentAlignmentProperty, HorizontalAlignment.Center));
-
-                //Trigger mouseEnterTrigger = new Trigger
-                //{
-                //    Property = UIElement.IsMouseOverProperty,
-                //    Value = true
-                //};
-                //mouseEnterTrigger.Setters.Add(new Setter(Control.BackgroundProperty, Brushes.Coral));
-                //buttonStyle.Triggers.Add(mouseEnterTrigger);
-
-                //Trigger mouseLeaveTrigger = new Trigger
-                //{
-                //    Property = UIElement.IsMouseOverProperty,
-                //    Value = true
-                //};
-                //mouseEnterTrigger.Setters.Add(new Setter(Control.BackgroundProperty, Brushes.Transparent));
-                //buttonStyle.Triggers.Add(mouseLeaveTrigger);
-
-
-                //Button btnProject = new Button 
-                //{
-                //    //Content = "Details",
-                //    //Style = buttonStyle,
-                //    //Height = 30,
-                //    //Width = 160,
-                //    //FontSize = 14
-                //};
                 Button btnProject = new Button();
-                btnProject.Height = 30;
+                btnProject.Height = 31;
                 btnProject.Width = 160;
+                btnProject.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
                 btnProject.Background = Brushes.Transparent;
                 btnProject.BorderBrush = Brushes.Transparent;
-                //btnProject.MouseEnter += btn_mouseEnter;
-                //btnProject.MouseLeave += btn_mouseLeave;
+                btnProject.MouseEnter += btn_mouseEnter;
+                btnProject.MouseLeave += btn_mouseLeave;
                 btnProject.FontSize = 14;
                 btnProject.FontWeight = FontWeights.SemiBold;
                 btnProject.VerticalAlignment = System.Windows.VerticalAlignment.Center;
                 btnProject.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                 btnProject.Content = "Details";
-
-                
-
-                //MainWindow mainWindow = App.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+                btnProject.OverridesDefaultStyle = true;
+                Panel.SetZIndex(btnProject, 1);
 
                 ObjectModel project = new ObjectModel();
                 project.TypeObject = "project";
@@ -143,25 +100,41 @@ namespace MyFlatWPF.ViewModel
                 btnProject.CommandParameter = project;
                 btnProject.Cursor = Cursors.Hand;
 
-                spCardProj.Children.Add(btnProject);
-                
-                border.Child = spCardProj;
-                wpProject.Children.Add(spCard);
+                spCard.Children.Add(btnProject);
+                border.Child = spCard;
+                //
+                Panel.SetZIndex(wrapPanel, 6);
+                wrapPanel.Children.Add(border);
             }
-            stackPanel.Children.Add(wpProject);
         }
 
         private void btn_mouseEnter(object sender, MouseEventArgs e)
         {
             Button btn = sender as Button;
-            btn.Background = Brushes.Transparent;
-            btn.BorderBrush = Brushes.Transparent;
+            e.Handled = true;
+            StackPanel btnParent = (StackPanel)btn.Parent;
+            Border spParent = (Border)btnParent.Parent;
+            WrapPanel borderParent = (WrapPanel)spParent.Parent;
+            Grid wpParent = (Grid)borderParent.Parent;
+            Style styleButton = (Style)wpParent.FindResource("HoverButtonStyle");
+
+            btn.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
+            btn.OverridesDefaultStyle = true;
+            btn.Style = styleButton;
+            btn.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#34b4ff"));
+            btn.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#34b4ff"));
+            btn.Foreground = Brushes.White;
         }
 
         private void btn_mouseLeave(object sender, MouseEventArgs e)
         {
             Button btn = sender as Button;
+            e.Handled = true;
+            btn.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
+            btn.OverridesDefaultStyle = true;
             btn.Background = Brushes.Transparent;
+            btn.BorderBrush = Brushes.Transparent;
+            btn.Foreground = Brushes.Black;
         }
     }
 }

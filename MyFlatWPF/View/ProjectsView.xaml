@@ -14,6 +14,20 @@
 
             <!--<viewModel:ProjectsViewModel x:Key="ProjectsViewModel"/>-->
 
+            <Style x:Key="HoverButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="OverridesDefaultStyle" Value="True"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Background" Value="Azure"/>
+            </Style>
+
         </Grid.Resources>
 
         <Grid.RowDefinitions>
@@ -43,13 +57,14 @@
                    emerging technologies, and make a difference in the community.
         </TextBlock>
 
-        <StackPanel x:Name="spProjects"
+        <WrapPanel x:Name="wpProjects"
                     Grid.Row="2"
                     HorizontalAlignment="Center"
-                    Margin="10 20 15 20">
+                    Margin="20 20 25 20"
+                    Orientation="Horizontal">
             
             
-        </StackPanel>
+        </WrapPanel>
 
     </Grid>
 </UserControl>
