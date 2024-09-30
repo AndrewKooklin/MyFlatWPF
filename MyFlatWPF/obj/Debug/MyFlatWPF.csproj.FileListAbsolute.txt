@@ -82,3 +82,8 @@ C:\repos\MyFlatWPF\MyFlatWPF\bin\Debug\Prism.xml
 C:\repos\MyFlatWPF\MyFlatWPF\bin\Debug\Prism.Wpf.xml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ProjectDetailView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ProjectDetailView.baml
+C:\repos\MyFlatWPF\MyFlatWPF\bin\Debug\Microsoft.Toolkit.Win32.UI.XamlHost.xml
+C:\repos\MyFlatWPF\MyFlatWPF\bin\Debug\Microsoft.Toolkit.Win32.UI.XamlHost.Managed.dll
+C:\repos\MyFlatWPF\MyFlatWPF\bin\Debug\Microsoft.Toolkit.Win32.UI.XamlHost.winmd
+C:\repos\MyFlatWPF\MyFlatWPF\bin\Debug\Microsoft.Toolkit.Win32.UI.XamlHost.Managed.pdb
+C:\repos\MyFlatWPF\MyFlatWPF\bin\Debug\Microsoft.Toolkit.Win32.UI.XamlHost.Managed.xml

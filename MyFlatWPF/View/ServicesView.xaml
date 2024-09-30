@@ -10,15 +10,25 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="140*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBlock x:Name="tbHeaderProjects"
+        <ScrollViewer x:Name="scrView"
+                       VerticalScrollBarVisibility="Auto"
+                       Height="522">
+            <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="140*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="tbHeaderProjects"
                    Grid.Row="0"
                    Padding="0 20 0 10"
                    HorizontalAlignment="Center"
@@ -36,14 +46,16 @@
                    emerging technologies, and make a difference in the community.
         </TextBlock>
 
-
+        
         <StackPanel x:Name="spServices"
-                   Grid.Row="2"
+                    Grid.Row="2"
                    HorizontalAlignment="Center"
-                   Margin="20 20 25 20"
+                   Margin="50 20 55 20"
                    Orientation="Vertical">
             
         </StackPanel>
+            </Grid>
+        </ScrollViewer>
 
     </Grid>
 </UserControl>
