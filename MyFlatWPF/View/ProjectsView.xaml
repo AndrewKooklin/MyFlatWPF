@@ -12,8 +12,6 @@
 
         <Grid.Resources>
 
-            <!--<viewModel:ProjectsViewModel x:Key="ProjectsViewModel"/>-->
-
             <Style x:Key="HoverButtonStyle" TargetType="{x:Type Button}">
                 <Setter Property="OverridesDefaultStyle" Value="True"/>
                 <Setter Property="Template">
@@ -25,7 +23,6 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="Background" Value="Azure"/>
             </Style>
 
         </Grid.Resources>

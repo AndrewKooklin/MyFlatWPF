@@ -1,84 +1,81 @@
 ﻿using System;
-using Prism.Mvvm;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
-using MyFlatWPF.Model;
-using Prism.Commands;
 using System.Windows.Media;
-using System.Windows;
+using System.Windows.Media.Imaging;
 using MyFlatWPF.Commands;
 using MyFlatWPF.HelpMethods;
 
 namespace MyFlatWPF.ViewModel
 {
-    public class ProjectsViewModel : BaseViewModel
+    public class BlogViewModel : BaseViewModel
     {
-        public ProjectsViewModel()
-        {
-
-        }
-
         private WrapPanel _wrapPanel;
 
-        public ProjectsViewModel(WrapPanel wrapPanel)
+        public BlogViewModel(WrapPanel wrapPanel)
         {
             _wrapPanel = wrapPanel;
 
-            GetProjectCards(_wrapPanel);
+            GetBlogCards(_wrapPanel);
 
-            OpenProjectDetailsCommand = new OpenProjectDetailsCommand();
+            OpenBlogDetailsCommand = new OpenBlogDetailsCommand();
         }
 
-        public ICommand GetProjectCardsCommand { get; set; }
+        public ICommand OpenBlogDetailsCommand { get; set; }
 
-        public ICommand OpenProjectDetailsCommand { get; set; }
-
-        public void GetProjectCards(WrapPanel wrapPanel)
+        private void GetBlogCards(WrapPanel wrapPanel)
         {
             for (int i = 0; i < 6; i++)
             {
                 Border border = new Border();
-                border.Height = 140;
-                border.Width = 180;
+                border.Height = 215;
+                border.Width = 190;
                 border.BorderBrush = Brushes.Black;
-                border.BorderThickness = new Thickness(1,1,1,1);
-                Panel.SetZIndex(border, 5);
-                border.Margin = new System.Windows.Thickness(10, 10, 0, 0);
+                border.BorderThickness = new Thickness(1, 1, 1, 1);
+                //Panel.SetZIndex(border, 5);
+                border.Margin = new Thickness(5, 5, 0, 0);
 
                 StackPanel spCard = new StackPanel();
                 spCard.Orientation = Orientation.Vertical;
-                spCard.Height = 140;
-                spCard.Width = 180;
-                Panel.SetZIndex(spCard, 4);
-                
+                spCard.Height = 215;
+                spCard.Width = 190;
+                //Panel.SetZIndex(spCard, 4);
+
                 TextBlock tbId = new TextBlock();
-                tbId.Visibility = System.Windows.Visibility.Collapsed;
+                tbId.Visibility = Visibility.Collapsed;
                 tbId.Text = "1";
-                Panel.SetZIndex(tbId, 3);
+                //Panel.SetZIndex(tbId, 3);
                 spCard.Children.Add(tbId);
+
+                TextBlock tbDateAdded = new TextBlock();
+                tbDateAdded.Text = "10.11.2024";
+                tbDateAdded.Padding = new Thickness(10, 1, 0, 1);
+                tbDateAdded.FontSize = 10;
+                //Panel.SetZIndex(tbId, 3);
+                spCard.Children.Add(tbDateAdded);
 
                 Image image = new Image();
                 //image.Height = 130;
-                image.Width = 180;
-                image.Margin = new System.Windows.Thickness(0, 0, 0, 0);
+                image.Width = 190;
+                image.Margin = new Thickness(0, 0, 0, 0);
                 BitmapImage src = new BitmapImage();
                 src.BeginInit();
-                src.UriSource = new Uri(@"C:\repos\MyFlatWPF\MyFlatWPF\Images\i1.jpg", UriKind.Absolute);
+                src.UriSource = new Uri(@"C:\repos\MyFlatWPF\MyFlatWPF\Images\b1.jpeg", UriKind.Absolute);
                 src.EndInit();
                 image.Source = src;
-                image.Stretch = System.Windows.Media.Stretch.Uniform;
-                Panel.SetZIndex(image, 2);
+                image.Stretch = Stretch.Uniform;
+                //Panel.SetZIndex(image, 2);
                 spCard.Children.Add(image);
 
                 Button btnProject = new Button();
-                btnProject.Height = 31;
-                btnProject.Width = 180;
-                btnProject.BorderThickness = new Thickness(0, 0, 0, 0);
+                btnProject.Height = 20;
+                btnProject.Width = 190;
+                btnProject.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
                 btnProject.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ececec"));
                 btnProject.BorderBrush = Brushes.Transparent;
                 btnProject.MouseEnter += btn_mouseEnter;
@@ -88,25 +85,38 @@ namespace MyFlatWPF.ViewModel
                 btnProject.VerticalAlignment = System.Windows.VerticalAlignment.Center;
                 btnProject.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                 btnProject.Content = "Details";
-                btnProject.ToolTip = "Project details";
+                btnProject.ToolTip = "Post details";
                 btnProject.OverridesDefaultStyle = true;
+                spCard.Children.Add(btnProject);
                 //Panel.SetZIndex(btnProject, 1);
 
-                ObjectModel project = new ObjectModel();
-                project.TypeObject = "project";
-                project.IdObject = tbId.Text;
-                OpenProjectDetailsCommand = new SwitchViewCommand(project);
-                btnProject.Command = OpenProjectDetailsCommand;
-                
-                btnProject.CommandParameter = project;
+                TextBlock tbPostDescription = new TextBlock();
+                tbPostDescription.Text = "As a builder, we undertake large, complex projects, " +
+                    "foster innovation, embrace emerging technologies, " +
+                    "and make a difference in the community.";
+                tbPostDescription.Padding = new Thickness(2, 1, 2, 1);
+                tbPostDescription.FontSize = 8;
+                tbPostDescription.Background = Brushes.White;
+                tbPostDescription.TextWrapping = TextWrapping.Wrap;
+                //Panel.SetZIndex(tbId, 3);
+                spCard.Children.Add(tbPostDescription);
+
+                ObjectModel post = new ObjectModel();
+                post.TypeObject = "project";
+                post.IdObject = tbId.Text;
+                OpenBlogDetailsCommand = new SwitchViewCommand(post);
+                btnProject.Command = OpenBlogDetailsCommand;
+
+                btnProject.CommandParameter = post;
                 btnProject.Cursor = Cursors.Hand;
 
-                spCard.Children.Add(btnProject);
+                
                 border.Child = spCard;
                 //
-                Panel.SetZIndex(wrapPanel, 6);
+                //Panel.SetZIndex(wrapPanel, 6);
                 wrapPanel.Children.Add(border);
             }
+
         }
 
         private void btn_mouseEnter(object sender, MouseEventArgs e)
@@ -116,10 +126,10 @@ namespace MyFlatWPF.ViewModel
             StackPanel btnParent = (StackPanel)btn.Parent;
             Border spParent = (Border)btnParent.Parent;
             WrapPanel borderParent = (WrapPanel)spParent.Parent;
-            Grid wpParent = (Grid)borderParent.Parent;
+            ScrollViewer wpParent = (ScrollViewer)borderParent.Parent;
             Style styleButton = (Style)wpParent.FindResource("HoverButtonStyle");
 
-            btn.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
+            btn.BorderThickness = new Thickness(0, 0, 0, 0);
             btn.OverridesDefaultStyle = true;
             btn.Style = styleButton;
             btn.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#34b4ff"));

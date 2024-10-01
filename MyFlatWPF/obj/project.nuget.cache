@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "AlDiB2YFsr8KbD6lBpC0xZA7q6vHlu7P14SxxuJEmkf3ebtvQu74XJyuQ9ubQL4vJfW4uE5KxWceKGUfOvlkYQ==",
+  "success": true,
+  "projectFilePath": "C:\\repos\\MyFlatWPF\\MyFlatWPF\\MyFlatWPF.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bolt9\\.nuget\\packages\\microsoft.vcrtforwarders.140\\1.0.6\\microsoft.vcrtforwarders.140.1.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}
