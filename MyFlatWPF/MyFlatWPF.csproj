@@ -176,6 +176,9 @@
     <Compile Include="View\ManagementWindow.xaml.cs">
       <DependentUpon>ManagementWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PostDetailView.xaml.cs">
+      <DependentUpon>PostDetailView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ProjectDetailView.xaml.cs">
       <DependentUpon>ProjectDetailView.xaml</DependentUpon>
     </Compile>
@@ -218,6 +221,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManagementWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PostDetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
