@@ -28,6 +28,8 @@ namespace MyFlatWPF
 
         public static ProjectDetailView ProjectDetailWiew = new ProjectDetailView();
 
+        public static PostDetailView PostDetailView = new PostDetailView();
+
         public static ServicesView ServicesWiew = new ServicesView();
 
         public static BlogView BlogWiew = new BlogView();

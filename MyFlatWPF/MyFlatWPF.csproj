@@ -144,7 +144,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commands\OpenBlogDetailsCommand.cs" />
+    <Compile Include="Commands\OpenPostDetailsCommand.cs" />
     <Compile Include="Commands\OpenProjectDetailsCommand.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Commands\SendOrderFormCommand.cs" />
@@ -153,6 +153,7 @@
     <Compile Include="HelpMethods\ObjectModel.cs" />
     <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\OrderModel.cs" />
+    <Compile Include="Model\PostModel.cs" />
     <Compile Include="Model\ProjectModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\BlogViewModel.cs" />

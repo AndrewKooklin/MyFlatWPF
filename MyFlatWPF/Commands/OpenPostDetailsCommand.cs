@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace MyFlatWPF.Commands
 {
-    public class OpenBlogDetailsCommand : ICommand
+    public class OpenPostDetailsCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
 

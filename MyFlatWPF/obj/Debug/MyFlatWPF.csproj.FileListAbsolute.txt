@@ -87,3 +87,5 @@ C:\repos\MyFlatWPF\MyFlatWPF\bin\Debug\Microsoft.Toolkit.Win32.UI.XamlHost.Manag
 C:\repos\MyFlatWPF\MyFlatWPF\bin\Debug\Microsoft.Toolkit.Win32.UI.XamlHost.winmd
 C:\repos\MyFlatWPF\MyFlatWPF\bin\Debug\Microsoft.Toolkit.Win32.UI.XamlHost.Managed.pdb
 C:\repos\MyFlatWPF\MyFlatWPF\bin\Debug\Microsoft.Toolkit.Win32.UI.XamlHost.Managed.xml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\PostDetailView.g.cs
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\PostDetailView.baml

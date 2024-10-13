@@ -12,8 +12,6 @@ namespace MyFlatWPF.Commands
 {
     public class SwitchViewCommand : ICommand
     {
-        
-       
         private ObjectModel _objectModel;
 
         public event EventHandler CanExecuteChanged;
@@ -104,6 +102,18 @@ namespace MyFlatWPF.Commands
 
                             App.ProjectDetailWiew.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.ProjectDetailWiew;
+                            break;
+                        }
+                    case "post":
+                        {
+                            PostModel post = new PostModel();
+                            //post = GetPostById(id);
+                            //App.PosttDetailWiew.tbPostName.Text = post.PostHeader;
+                            //App.PostDetailWiew.tbPostDescription.Text = post.PostDescription;
+                            //App.PostDetailWiew.iPostImage = (post.PostImage);
+
+                            App.PostDetailView.Visibility = System.Windows.Visibility.Visible;
+                            StaticMainViewModel.MainViewModel.CurrentView = App.PostDetailView;
                             break;
                         }
                     default: break;

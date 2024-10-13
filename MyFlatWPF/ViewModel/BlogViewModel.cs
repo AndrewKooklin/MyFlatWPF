@@ -23,10 +23,10 @@ namespace MyFlatWPF.ViewModel
 
             GetBlogCards(_wrapPanel);
 
-            OpenBlogDetailsCommand = new OpenBlogDetailsCommand();
+            OpenPostDetailsCommand = new OpenPostDetailsCommand();
         }
 
-        public ICommand OpenBlogDetailsCommand { get; set; }
+        public ICommand OpenPostDetailsCommand { get; set; }
 
         private void GetBlogCards(WrapPanel wrapPanel)
         {
@@ -56,6 +56,7 @@ namespace MyFlatWPF.ViewModel
                 tbDateAdded.Text = "10.11.2024";
                 tbDateAdded.Padding = new Thickness(10, 1, 0, 1);
                 tbDateAdded.FontSize = 10;
+                tbDateAdded.Background = Brushes.White;
                 //Panel.SetZIndex(tbId, 3);
                 spCard.Children.Add(tbDateAdded);
 
@@ -102,10 +103,10 @@ namespace MyFlatWPF.ViewModel
                 spCard.Children.Add(tbPostDescription);
 
                 ObjectModel post = new ObjectModel();
-                post.TypeObject = "project";
+                post.TypeObject = "post";
                 post.IdObject = tbId.Text;
-                OpenBlogDetailsCommand = new SwitchViewCommand(post);
-                btnProject.Command = OpenBlogDetailsCommand;
+                OpenPostDetailsCommand = new SwitchViewCommand(post);
+                btnProject.Command = OpenPostDetailsCommand;
 
                 btnProject.CommandParameter = post;
                 btnProject.Cursor = Cursors.Hand;
