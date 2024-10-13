@@ -73,23 +73,23 @@ namespace MyFlatWPF.ViewModel
                 //Panel.SetZIndex(image, 2);
                 spCard.Children.Add(image);
 
-                Button btnProject = new Button();
-                btnProject.Height = 20;
-                btnProject.Width = 190;
-                btnProject.BorderThickness = new Thickness(0, 0, 0, 0);
-                btnProject.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ececec"));
-                btnProject.BorderBrush = Brushes.Transparent;
-                btnProject.MouseEnter += btn_mouseEnter;
-                btnProject.MouseLeave += btn_mouseLeave;
-                btnProject.FontSize = 14;
-                btnProject.FontWeight = FontWeights.SemiBold;
-                btnProject.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#2235ef"));
-                btnProject.VerticalAlignment = System.Windows.VerticalAlignment.Center;
-                btnProject.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                btnProject.Content = "Details";
-                btnProject.ToolTip = "Post details";
-                btnProject.OverridesDefaultStyle = true;
-                spCard.Children.Add(btnProject);
+                Button btnPost = new Button();
+                btnPost.Height = 20;
+                btnPost.Width = 190;
+                btnPost.BorderThickness = new Thickness(0, 0, 0, 0);
+                btnPost.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ececec"));
+                btnPost.BorderBrush = Brushes.Transparent;
+                btnPost.MouseEnter += btn_mouseEnter;
+                btnPost.MouseLeave += btn_mouseLeave;
+                btnPost.FontSize = 14;
+                btnPost.FontWeight = FontWeights.SemiBold;
+                btnPost.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#2235ef"));
+                btnPost.VerticalAlignment = System.Windows.VerticalAlignment.Center;
+                btnPost.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                btnPost.Content = "Details";
+                btnPost.ToolTip = "Post details";
+                btnPost.OverridesDefaultStyle = true;
+                spCard.Children.Add(btnPost);
                 //Panel.SetZIndex(btnProject, 1);
 
                 TextBlock tbPostDescription = new TextBlock();
@@ -107,10 +107,10 @@ namespace MyFlatWPF.ViewModel
                 post.TypeObject = "post";
                 post.IdObject = tbId.Text;
                 OpenPostDetailsCommand = new SwitchViewCommand(post);
-                btnProject.Command = OpenPostDetailsCommand;
+                btnPost.Command = OpenPostDetailsCommand;
 
-                btnProject.CommandParameter = post;
-                btnProject.Cursor = Cursors.Hand;
+                btnPost.CommandParameter = post;
+                btnPost.Cursor = Cursors.Hand;
 
                 
                 border.Child = spCard;
