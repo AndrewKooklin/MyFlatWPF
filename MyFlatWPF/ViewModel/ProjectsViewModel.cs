@@ -85,6 +85,7 @@ namespace MyFlatWPF.ViewModel
                 btnProject.MouseLeave += btn_mouseLeave;
                 btnProject.FontSize = 14;
                 btnProject.FontWeight = FontWeights.SemiBold;
+                btnProject.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#2235ef"));
                 btnProject.VerticalAlignment = System.Windows.VerticalAlignment.Center;
                 btnProject.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
                 btnProject.Content = "Details";
@@ -135,7 +136,7 @@ namespace MyFlatWPF.ViewModel
             btn.OverridesDefaultStyle = true;
             btn.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ececec"));
             btn.BorderBrush = Brushes.Transparent;
-            btn.Foreground = Brushes.Black;
+            btn.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#2235ef"));
         }
     }
 }

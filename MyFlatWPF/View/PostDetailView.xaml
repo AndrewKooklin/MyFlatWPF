@@ -4,10 +4,112 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyFlatWPF.View"
+             xmlns:viewModel="clr-namespace:MyFlatWPF.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="600" 
              d:DesignWidth="678">
     <Grid>
-            
+
+        <Grid.Resources>
+
+            <viewModel:MainWindowViewModel x:Key="MainWindowViewModel"/>
+
+            <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <!--<Setter Property="Padding" Value="5 5 5 8"/>-->
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="3"
+                                    BorderThickness="1"
+                                    BorderBrush="Black"
+                                    Background="DeepSkyBlue">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock x:Name="tbHeaderPost"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="2"
+                   Padding="0 20 0 30"
+                   HorizontalAlignment="Center"
+                   Text="Post Details"
+                   FontSize="24"
+                   FontWeight="DemiBold">
+        </TextBlock>
+
+        <TextBlock x:Name="tbPostName"
+                   Grid.Row="1"
+                   Grid.ColumnSpan="2"
+                   FontSize="20"
+                   FontWeight="Medium"
+                   Text="Kithen Design"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Margin="25 0 0 0">
+
+        </TextBlock>
+
+        <Image x:Name="iProjectImage"
+               Grid.Row="2"
+               Grid.Column="0"
+               Source="C:\repos\MyFlatWPF\MyFlatWPF\Images\b1.jpeg"
+               HorizontalAlignment="Left"
+               Margin="25 10 0 0">
+
+        </Image>
+
+        <TextBlock x:Name="tbPostDescription"
+                   Grid.Row="2"
+                   Grid.Column="2"
+                   FontSize="12"
+                   TextWrapping="Wrap"
+                   Margin="20 10 20 10">
+                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
+                   sed diam nonumy eirmod tempor invidunt ut labore et dolore 
+                   magna aliquyam erat, sed diam voluptua. At vero eos et 
+                   accusam et justo duo dolores et ea rebum. Stet clita kasd 
+                   gubergren, no sea takimata sanctus est Lorem ipsum dolor 
+                   sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing 
+                   elitr.Lorem ipsum dolor sit amet, consetetur sadipscing 
+                   elitr, sed diam nonumy eirmod tempor invidunt ut labore 
+                   et dolore magna aliquyam erat.
+
+        </TextBlock>
+
+        <Button x:Name="btnBackToBlog"
+                Grid.Row="3"
+                Grid.Column="1"
+                Width="100"
+                Height="30"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0 10 25 0"
+                Content="Back"
+                Style="{StaticResource ButtonStyle}"
+                Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
+                CommandParameter="{Binding Name, ElementName=btnBackToBlog}">
+
+        </Button>
+
     </Grid>
 </UserControl>

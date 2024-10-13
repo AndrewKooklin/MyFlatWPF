@@ -70,6 +70,7 @@ namespace MyFlatWPF.Commands
                             break;
                         }
                     case "miBlog":
+                    case "btnBackToBlog":
                         {
                             App.BlogWiew.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.BlogWiew;
