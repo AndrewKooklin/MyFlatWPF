@@ -302,6 +302,27 @@
   <ItemGroup>
     <Resource Include="Images\b1.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\geo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\phone-contact.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\unitymail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\icon-telegram-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\icon-youtube-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\icon-instagram-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\google-map-address.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
