@@ -1,4 +1,6 @@
 ﻿using MyFlatWPF.Commands;
+using MyFlatWPF.Data;
+using MyFlatWPF.Model;
 using MyFlatWPF.View;
 using System;
 using System.Collections.Generic;
@@ -17,15 +19,46 @@ namespace MyFlatWPF.ViewModel
         private string url = @"https://localhost:44388/";
         string urlRequest = "";
         HttpResponseMessage response = new HttpResponseMessage();
+        private Menu _menu;
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(Menu menu)
         {
+            _menu = menu;
+
+            GetMenuItems(menu);
+
             SwitchViewCommand = new SwitchViewCommand(this);
 
-            CurrentView = new HomeView();
+            CurrentView = App.HomeWiew;
 
         }
 
+        private void GetMenuItems(Menu menu)
+        {
+            List<TopMenuLinkNameModel> tmln = DataManager.Rendering.GetTopMenuLinkNames();
+
+            MenuItem miPicture = new MenuItem();
+
+            //miPicture.Background =
+
+            MenuItem miManage = new MenuItem();
+            miManage.Name = "miManagement";
+            miManage.FontSize = 15;
+            miManage.
+
+
+
+            foreach (var linkName in tmln)
+            {
+                MenuItem mi = new MenuItem();
+                mi.Name = linkName.LinkName;
+                mi.Cursor = Cursors.Hand;
+                mi.Command = SwitchViewCommand;
+                mi.CommandParameter = mi.Name;
+
+
+            }
+        }
 
         private UserControl _CurrentView;
 

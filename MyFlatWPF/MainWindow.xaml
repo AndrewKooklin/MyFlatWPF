@@ -53,8 +53,8 @@
             <RowDefinition Height="140*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="450*" MinWidth="450"></ColumnDefinition>
-            <ColumnDefinition Width="190*" MinWidth="190"></ColumnDefinition>
+            <ColumnDefinition Width="45*" MinWidth="450"></ColumnDefinition>
+            <ColumnDefinition Width="19*" MinWidth="190"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         
@@ -172,7 +172,8 @@
             </MenuItem>
         </Menu>
 
-        <TextBlock Grid.Row="1"
+        <TextBlock x:Name="tbRandomPhrase"
+                   Grid.Row="1"
                    Grid.Column="1"
                    Text="ECO-FRIENDLY HOUSES"
                    Margin="0 0 10 0"
