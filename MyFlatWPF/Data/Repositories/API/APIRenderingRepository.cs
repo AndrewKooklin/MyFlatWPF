@@ -1,5 +1,4 @@
-﻿using MyFlatWPF.Data.Repositories.Abstract;
-using MyFlatWPF.Model;
+﻿using MyFlatWPF.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MyFlatWPF.Data.Repositories.API
 {
-    public class APIRenderingRepository : IRenderingRepository
+    public class APIRenderingRepository/* : IRenderingRepository*/
     {
         private HttpClient _httpClient;
         private string url = @"https://localhost:44388/";

@@ -50,7 +50,7 @@ namespace MyFlatWPF.Commands
 
             App.ProjectDetailWiew.Visibility = System.Windows.Visibility.Visible;
 
-            App.mainWindow.ccView = App.ProjectDetailWiew;
+            App.MainWindow.ccView = App.ProjectDetailWiew;
         }
     }
 }

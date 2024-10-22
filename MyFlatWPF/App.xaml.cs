@@ -16,9 +16,9 @@ namespace MyFlatWPF
     /// </summary>
     public partial class App : Application
     {
-        public static MainWindow mainWindow;
+        public static MainWindow MainWindow;
 
-        //public static MainWindowViewModel mainWindowViewModel = new MainWindowViewModel(); 
+        public static MainWindowViewModel MainWindowViewModel = new MainWindowViewModel();
 
         public static HomeView HomeWiew = new HomeView();
 
@@ -44,8 +44,10 @@ namespace MyFlatWPF
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            App.mainWindow = new MainWindow();
-            App.mainWindow.Show();
+            App.MainWindow = new MainWindow();
+            //App.MainWindow.mTopLeft = MainWindowViewModel.GetTopMenu();
+            //App.MainWindow.DataContext = new MainWindowViewModel();
+            App.MainWindow.Show();
 
             base.OnStartup(e);
         }

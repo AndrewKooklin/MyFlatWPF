@@ -43,40 +43,40 @@ namespace MyFlatWPF.Commands
 
                 switch (parameter.ToString())
                 {
-                    case "miHomePicture":
-                    case "miHome":
+                    case "HomePicture":
+                    case "Home":
                         {
                             App.HomeWiew.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.HomeWiew;
                             break;
                         }
-                    case "miManagement":
+                    case "Management":
                         {
                             App.ManagementWindow.Show();
-                            App.mainWindow.Close();
+                            App.MainWindow.Close();
                             break;
                         }
-                    case "miProjects":
+                    case "Projects":
                     case "btnBackToProjects":
                         {
                             App.ProjectsWiew.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.ProjectsWiew;
                             break;
                         }
-                    case "miServices":
+                    case "Services":
                         {
                             App.ServicesWiew.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.ServicesWiew;
                             break;
                         }
-                    case "miBlog":
+                    case "Blog":
                     case "btnBackToBlog":
                         {
                             App.BlogWiew.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.BlogWiew;
                             break;
                         }
-                    case "miContacts":
+                    case "Contacts":
                         {
                             App.ContactsWiew.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.ContactsWiew;
