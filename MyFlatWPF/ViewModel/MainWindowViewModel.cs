@@ -27,18 +27,23 @@ namespace MyFlatWPF.ViewModel
 
         public MainWindowViewModel()
         {
+            
 
             SwitchViewCommand = new SwitchViewCommand(this);
 
             CurrentView = App.HomeWiew;
 
-            MenuItems = GetTopMenu();
+            //MenuItems = GetTopMenu();
 
         }
 
         public List<MenuItem> GetTopMenu()
         {
-
+            Border border = new Border();
+            border.Height = 25;
+            //border.Width = 180;
+            border.BorderBrush = Brushes.Transparent;
+            border.BorderThickness = new Thickness(0, 0, 0, 0);
 
             List<MenuItem> menuItems = new List<MenuItem>();
 
@@ -93,9 +98,11 @@ namespace MyFlatWPF.ViewModel
                 mi.CommandParameter = mi.Name;
                 mi.MouseEnter += menu_mouseEnter;
                 mi.MouseLeave += menu_mouseLeave;
-                menuItems.Add(mi);
+                menuItems.Add(mi); ;
 
             }
+
+            //border.Child = menuItems;
             return menuItems;
         }
 
@@ -103,14 +110,15 @@ namespace MyFlatWPF.ViewModel
         {
             MenuItem mi = sender as MenuItem;
             e.Handled = true;
-            //Border menuBorder = (Border)mi.Parent;
-            Menu miParent = (Menu)mi.Parent;
+            var par = mi.Parent;
+            Border menuBorder = (Border)mi.Parent;
+            //Menu miParent = (Menu)mi.Parent;
             //Border menuBorder = (Border)miParent.Parent;
             //Grid menuParent = (Grid)miParent.Parent;
-            Style styleMenuItem = (Style)menuParent.FindResource("MenuItemStyle");
+            //Style styleMenuItem = (Style)menuParent.FindResource("MenuItemStyle");
 
 
-            mi.Style = styleMenuItem;
+            //mi.Style = styleMenuItem;
             mi.OverridesDefaultStyle = true;
             mi.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
             mi.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#fff"));

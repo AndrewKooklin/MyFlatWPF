@@ -25,7 +25,7 @@ namespace MyFlatWPF
         public MainWindow()
         {
             InitializeComponent();
-
+            this.DataContext = new ViewElements(this.mTopLeft);
         }
     }
 }
