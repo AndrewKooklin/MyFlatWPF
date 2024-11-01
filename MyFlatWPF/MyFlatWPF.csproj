@@ -165,7 +165,7 @@
     <Compile Include="ViewModel\ProjectsViewModel.cs" />
     <Compile Include="ViewModel\ServicesViewModel.cs" />
     <Compile Include="ViewModel\StaticMainViewModel.cs" />
-    <Compile Include="ViewModel\ViewElements.cs" />
+    <Compile Include="ViewModel\ViewMainElements.cs" />
     <Compile Include="View\BlogView.xaml.cs">
       <DependentUpon>BlogView.xaml</DependentUpon>
     </Compile>

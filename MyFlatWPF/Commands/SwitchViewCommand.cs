@@ -1,5 +1,6 @@
 ﻿using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model;
+using MyFlatWPF.View;
 using MyFlatWPF.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,7 @@ namespace MyFlatWPF.Commands
                         }
                     case "Management":
                         {
+                            App.ManagementWindow = new ManagementWindow();
                             App.ManagementWindow.Show();
                             App.MainWindow.Close();
                             break;

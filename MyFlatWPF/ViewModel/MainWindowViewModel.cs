@@ -3,6 +3,7 @@ using MyFlatWPF.Data;
 using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.Model;
 using MyFlatWPF.View;
+using Prism.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,9 +26,13 @@ namespace MyFlatWPF.ViewModel
         HttpResponseMessage response = new HttpResponseMessage();
         private Menu _menu;
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(Grid gridHeader)
         {
-            
+
+            CombineElements(CreateLeftTopMenu(), 
+                            CreateRightTopMenu(), 
+                            
+                            gridHeader);
 
             SwitchViewCommand = new SwitchViewCommand(this);
 
@@ -37,108 +42,215 @@ namespace MyFlatWPF.ViewModel
 
         }
 
-        public List<MenuItem> GetTopMenu()
+        private StackPanel CreateLeftTopMenu()
         {
-            Border border = new Border();
-            border.Height = 25;
-            //border.Width = 180;
-            border.BorderBrush = Brushes.Transparent;
-            border.BorderThickness = new Thickness(0, 0, 0, 0);
+            StackPanel spLeftTopMenu = new StackPanel();
+            spLeftTopMenu.Name = "spLeftTopMenu";
+            spLeftTopMenu.Height = 25;
+            spLeftTopMenu.Orientation = Orientation.Horizontal;
+            spLeftTopMenu.Width = 430;
+            spLeftTopMenu.VerticalAlignment = VerticalAlignment.Top;
+            spLeftTopMenu.HorizontalAlignment = HorizontalAlignment.Left;
+            spLeftTopMenu.Margin = new System.Windows.Thickness(10, 0, 0, 0);
+            spLeftTopMenu.Background = Brushes.White;
 
-            List<MenuItem> menuItems = new List<MenuItem>();
+            Border bManagement = new Border();
+            bManagement.Height = 25;
+            //border.Width = 40;
+            bManagement.BorderBrush = Brushes.Transparent;
+            bManagement.BorderThickness = new Thickness(0, 0, 0, 0);
 
+            Button btnManagement = new Button();
+            btnManagement.Name = "Management";
+            btnManagement.Content = "Management";
+            btnManagement.Cursor = Cursors.Hand;
+            btnManagement.FontSize = 15;
+            btnManagement.Foreground = Brushes.Black;
+            btnManagement.Height = 24;
+            //btnManagement.Padding = new System.Windows.Thickness(5, 0, 2, 2);
+            btnManagement.Margin = new System.Windows.Thickness(7, 0, 0, 0);
+            btnManagement.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
+            btnManagement.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#fff"));
+            btnManagement.Command = SwitchViewCommand;
+            btnManagement.CommandParameter = btnManagement.Name;
+            btnManagement.MouseEnter += menu_MouseEnter;
+            btnManagement.MouseLeave += menu_MouseLeave;
+
+            bManagement.Child = btnManagement;
+            spLeftTopMenu.Children.Add(bManagement);
+
+            List<TopMenuLinkNameModel> tmln = new List<TopMenuLinkNameModel>();
+            tmln = GetLinkNamesFromDB();
+            if(tmln != null)
+            {
+                foreach (var linkName in tmln)
+                {
+                    Border border = new Border();
+                    border.Height = 25;
+                    //border.Width = 40;
+                    border.BorderBrush = Brushes.Transparent;
+                    border.BorderThickness = new Thickness(0, 0, 0, 0);
+
+                    Button btnMenu = new Button();
+                    btnMenu.Name = linkName.LinkName;
+                    btnMenu.Content = linkName.LinkName;
+                    btnMenu.Cursor = Cursors.Hand;
+                    btnMenu.FontSize = 15;
+                    btnMenu.Foreground = Brushes.Black;
+                    btnMenu.Height = 24;
+                    //btnMenu.Padding = new System.Windows.Thickness(5, 0, 2, 2);
+                    btnMenu.Margin = new System.Windows.Thickness(7, 0, 0, 0);
+                    btnMenu.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
+                    btnMenu.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#fff"));
+                    btnMenu.Command = SwitchViewCommand;
+                    btnMenu.CommandParameter = btnMenu.Name;
+                    btnMenu.MouseEnter += menu_MouseEnter;
+                    btnMenu.MouseLeave += menu_MouseLeave;
+                    
+                    border.Child = btnMenu;
+                    spLeftTopMenu.Children.Add(border);
+
+                }
+            }
+            return spLeftTopMenu;
+        }
+
+        private StackPanel CreateRightTopMenu()
+        {
+            StackPanel spRightTopMenu = new StackPanel();
+            spRightTopMenu.Name = "spRightTopMenu";
+            spRightTopMenu.Height = 25;
+            spRightTopMenu.Width = 100;
+            spRightTopMenu.Orientation = Orientation.Horizontal;
+            spRightTopMenu.VerticalAlignment = VerticalAlignment.Top;
+            spRightTopMenu.HorizontalAlignment = HorizontalAlignment.Right;
+            spRightTopMenu.Margin = new System.Windows.Thickness(10, 0, 10, 0);
+            spRightTopMenu.Background = Brushes.White;
+
+            List<Button> listBtns = new List<Button>();
+
+            Button btnLogin = new Button();
+            btnLogin.Name = "Login";
+            btnLogin.Content = "Login";
+            listBtns.Add(btnLogin);
+
+            Button btnRegistration = new Button();
+            btnRegistration.Name = "Register";
+            btnRegistration.Content = "Register";
+            listBtns.Add(btnRegistration);
+
+            Button btnUserName = new Button();
+            btnRegistration.Name = "UserName";
+            btnRegistration.Content = "";
+            btnUserName.Foreground = Brushes.Coral;
+            btnUserName.IsEnabled = false;
+            btnUserName.Cursor = Cursors.Arrow;
+            btnUserName.Visibility = Visibility.Collapsed;
+
+            Button btnLogOut = new Button();
+            btnLogOut.Name = "LogOut";
+            btnLogOut.Content = "LogOut";
+            btnLogOut.Visibility = Visibility.Collapsed;
+            listBtns.Add(btnLogOut);
+
+            foreach(Button btn in listBtns)
+            {
+                btn.Cursor = Cursors.Hand;
+                btn.FontSize = 15;
+                btn.Foreground = Brushes.Black;
+                btn.Height = 24;
+                //btnManagement.Padding = new System.Windows.Thickness(5, 0, 2, 2);
+                btn.Margin = new System.Windows.Thickness(7, 0, 0, 0);
+                btn.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
+                btn.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#fff"));
+                btn.Command = SwitchViewCommand;
+                btn.CommandParameter = btn.Name;
+                btn.MouseEnter += menu_MouseEnter;
+                btn.MouseLeave += menu_MouseLeave;
+
+                Border bbtnRightMenu = new Border();
+                bbtnRightMenu.Height = 25;
+                bbtnRightMenu.Width = 60;
+                bbtnRightMenu.BorderBrush = Brushes.Transparent;
+                bbtnRightMenu.BorderThickness = new Thickness(0, 0, 0, 0);
+                bbtnRightMenu.Child = btn;
+                spRightTopMenu.Children.Add(bbtnRightMenu);
+            }
+            return spRightTopMenu;
+        }
+
+        private void CombineElements(StackPanel spLeftTopMenu, 
+                                     StackPanel spRightTopMenu,
+                                     //StackPanel spRandomPhrase,
+                                     //Border bContent,
+                                     Grid gridHeader)
+        {
+            Grid.SetRow(spLeftTopMenu, 0);
+            Grid.SetColumn(spLeftTopMenu, 0);
+            gridHeader.Children.Add(spLeftTopMenu);
+
+            Grid.SetRow(spRightTopMenu, 0);
+            Grid.SetColumn(spRightTopMenu, 1);
+            gridHeader.Children.Add(spRightTopMenu);
+        }
+
+        private List<TopMenuLinkNameModel> GetLinkNamesFromDB()
+        {
             List<TopMenuLinkNameModel> tmln = new List<TopMenuLinkNameModel>();
             APIRenderingRepository apiRep = new APIRenderingRepository();
             tmln = apiRep.GetTopMenuLinkNames();
+            return tmln;
+        }
 
-            //MenuItem miPicture = new MenuItem();
-            //miPicture.Name = "HomePicture";
-            //miPicture.FontSize = 15;
-            //miPicture.Height = 24;
-            //miPicture.Width = 40;
-            //miPicture.Command = SwitchViewCommand;
-            //miPicture.CommandParameter = miPicture.Name;
-            //miPicture.Padding = new System.Windows.Thickness(5, 0, 2, 2);
-            //ImageBrush ib = new ImageBrush(new BitmapImage(new Uri(
-            //    "C:\\repos\\MyFlatWPF\\MyFlatWPF\\Images\\kind.png")));
-            //miPicture.Background = ib;
-            //miPicture.Cursor = Cursors.Hand;
-            //miPicture.MouseEnter += menu_mouseEnter;
-            //miPicture.MouseLeave += menu_mouseLeave;
-            //menuItems.Add(miPicture);
 
-            MenuItem miManage = new MenuItem();
-            miManage.Name = "miManagement";
-            miManage.Header = "Management";
-            miManage.FontSize = 15;
-            miManage.Height = 24;
-            miManage.Margin = new System.Windows.Thickness(2, 0, 0, 0);
-            miManage.Padding = new System.Windows.Thickness(5, 0, 2, 2);
-            miManage.Background = Brushes.Transparent;
-            miManage.Command = SwitchViewCommand;
-            miManage.CommandParameter = miManage.Name;
-            miManage.Visibility = System.Windows.Visibility.Collapsed;
-            miManage.Cursor = Cursors.Hand;
-            menuItems.Add(miManage);
-
-            foreach (var linkName in tmln)
+        
+        public void menu_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (sender is Button)
             {
-                MenuItem mi = new MenuItem();
-                mi.Name = linkName.LinkName;
-                mi.Header = linkName.LinkName;
-                mi.Cursor = Cursors.Hand;
-                mi.FontSize = 15;
-                mi.Foreground = Brushes.Black;
-                mi.Height = 24;
-                mi.Padding = new System.Windows.Thickness(5, 0, 2, 2);
-                mi.Margin = new System.Windows.Thickness(2, 0, 0, 0);
-                mi.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
-                mi.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#fff"));
-                mi.Command = SwitchViewCommand;
-                mi.CommandParameter = mi.Name;
-                mi.MouseEnter += menu_mouseEnter;
-                mi.MouseLeave += menu_mouseLeave;
-                menuItems.Add(mi); ;
+                Button btnMenu = sender as Button;
+                e.Handled = true;
 
+                Border btnParent = (Border)btnMenu.Parent;
+                StackPanel borderParent = (StackPanel)btnParent.Parent;
+                Grid spParent = (Grid)borderParent.Parent;
+                Style styleMenuItem = (Style)spParent.FindResource("ButtonStyle");
+
+
+                btnMenu.Style = styleMenuItem;
+                btnMenu.OverridesDefaultStyle = true;
+                btnMenu.Cursor = Cursors.Hand;
+                btnMenu.FontSize = 15;
+                btnMenu.Foreground = Brushes.DodgerBlue;
+                btnMenu.Height = 24;
+                //mi.Padding = new System.Windows.Thickness(5, 0, 2, 2);
+                //mi.Margin = new System.Windows.Thickness(4, 0, 0, 0);
+                btnMenu.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
+                btnMenu.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#fff"));
+                //ImageBrush ib = new ImageBrush(new BitmapImage(new Uri(
+                //     "C:\\repos\\MyFlatWPF\\MyFlatWPF\\Images\\kind.png")));
+                //mi.Background = ib;
             }
-
-            //border.Child = menuItems;
-            return menuItems;
         }
 
-        private void menu_mouseEnter(object sender, MouseEventArgs e)
+        public void menu_MouseLeave(object sender, MouseEventArgs e)
         {
-            MenuItem mi = sender as MenuItem;
-            e.Handled = true;
-            var par = mi.Parent;
-            Border menuBorder = (Border)mi.Parent;
-            //Menu miParent = (Menu)mi.Parent;
-            //Border menuBorder = (Border)miParent.Parent;
-            //Grid menuParent = (Grid)miParent.Parent;
-            //Style styleMenuItem = (Style)menuParent.FindResource("MenuItemStyle");
+            if (sender is Button)
+            {
+                Button btnMenu = sender as Button;
+                e.Handled = true;
 
+                btnMenu.OverridesDefaultStyle = true;
 
-            //mi.Style = styleMenuItem;
-            mi.OverridesDefaultStyle = true;
-            mi.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
-            mi.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#fff"));
-            mi.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#fff"));
-            //ImageBrush ib = new ImageBrush(new BitmapImage(new Uri(
-            //     "C:\\repos\\MyFlatWPF\\MyFlatWPF\\Images\\kind.png")));
-            //mi.Background = ib;
-        }
-
-        private void menu_mouseLeave(object sender, MouseEventArgs e)
-        {
-            MenuItem mi = sender as MenuItem;
-            e.Handled = true;
-            mi.OverridesDefaultStyle = true;
-            mi.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
-            mi.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#fff"));
-            mi.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#fff"));
-            //ImageBrush ib = new ImageBrush(new BitmapImage(new Uri(
-            //     "C:\\repos\\MyFlatWPF\\MyFlatWPF\\Images\\kind.png")));
-            //mi.Background = ib;
+                btnMenu.Cursor = Cursors.Hand;
+                btnMenu.FontSize = 15;
+                btnMenu.Foreground = Brushes.Black;
+                btnMenu.Height = 24;
+                //mi.Padding = new System.Windows.Thickness(5, 0, 2, 2);
+                //mi.Margin = new System.Windows.Thickness(4, 0, 0, 0);
+                btnMenu.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
+                btnMenu.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#fff"));
+            }
         }
 
 

@@ -18,7 +18,7 @@ namespace MyFlatWPF
     {
         public static MainWindow MainWindow;
 
-        public static MainWindowViewModel MainWindowViewModel = new MainWindowViewModel();
+        //public static MainWindowViewModel MainWindowViewModel = new MainWindowViewModel();
 
         public static HomeView HomeWiew = new HomeView();
 
