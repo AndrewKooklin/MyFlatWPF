@@ -18,6 +18,10 @@ namespace MyFlatWPF.Commands
 
         public event EventHandler CanExecuteChanged;
 
+        private APIRenderingRepository _api = new APIRenderingRepository();
+
+        private ImageConverter ic = new ImageConverter();
+
         public SwitchViewCommand(MainWindowViewModel mainWindowViewModel)
         {
             StaticMainViewModel.MainViewModel = mainWindowViewModel;
@@ -125,7 +129,7 @@ namespace MyFlatWPF.Commands
             else if(parameter is ObjectModel)
             {
                 var values = (ObjectModel)parameter;
-                string id = values.IdObject.ToString();
+                int id = values.IdObject;
                 string typeValue = values.TypeObject.ToString();
 
                 switch (typeValue)
@@ -133,10 +137,10 @@ namespace MyFlatWPF.Commands
                     case "project":
                         {
                             ProjectModel project = new ProjectModel();
-                            //project = GetProjectById(id);
-                            //App.ProjectDetailWiew.tbProjectName.Text = project.ProjectHeader;
-                            //App.ProjectDetailWiew.tbProjectDescription.Text = project.ProjectDescription;
-                            //App.ProjectDetailWiew.iProjectImage = (project.ProjectImage);
+                            project = _api.GetProjectById(id);
+                            App.ProjectDetailWiew.tbProjectName.Text = project.ProjectHeader;
+                            App.ProjectDetailWiew.tbProjectDescription.Text = project.ProjectDescription;
+                            App.ProjectDetailWiew.iProjectImage.Source = ic.ByteArrayToImage(project.ProjectImage);
 
                             App.ProjectDetailWiew.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.ProjectDetailWiew;

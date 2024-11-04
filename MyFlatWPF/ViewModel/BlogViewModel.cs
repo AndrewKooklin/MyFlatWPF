@@ -105,7 +105,7 @@ namespace MyFlatWPF.ViewModel
 
                 ObjectModel post = new ObjectModel();
                 post.TypeObject = "post";
-                post.IdObject = tbId.Text;
+                post.IdObject = Int32.Parse(tbId.Text);
                 OpenPostDetailsCommand = new SwitchViewCommand(post);
                 btnPost.Command = OpenPostDetailsCommand;
 

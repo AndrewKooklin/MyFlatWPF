@@ -13,11 +13,16 @@ using System.Windows.Media;
 using System.Windows;
 using MyFlatWPF.Commands;
 using MyFlatWPF.HelpMethods;
+using MyFlatWPF.Data.Repositories.API;
 
 namespace MyFlatWPF.ViewModel
 {
     public class ProjectsViewModel : BaseViewModel
     {
+        APIRenderingRepository _api = new APIRenderingRepository();
+        List<ProjectModel> lpm = new List<ProjectModel>();
+        ImageConverter ic = new ImageConverter();
+
         public ProjectsViewModel()
         {
 
@@ -28,10 +33,14 @@ namespace MyFlatWPF.ViewModel
         public ProjectsViewModel(WrapPanel wrapPanel)
         {
             _wrapPanel = wrapPanel;
+            if(lpm.Count <= 0)
+            {
+                lpm = GetProjects();
+            }
 
             GetProjectCards(_wrapPanel);
 
-            OpenProjectDetailsCommand = new OpenProjectDetailsCommand();
+            //OpenProjectDetailsCommand = new OpenProjectDetailsCommand();
         }
 
         public ICommand GetProjectCardsCommand { get; set; }
@@ -40,7 +49,7 @@ namespace MyFlatWPF.ViewModel
 
         public void GetProjectCards(WrapPanel wrapPanel)
         {
-            for (int i = 0; i < 6; i++)
+            foreach (ProjectModel pm in lpm)
             {
                 Border border = new Border();
                 border.Height = 140;
@@ -58,7 +67,7 @@ namespace MyFlatWPF.ViewModel
                 
                 TextBlock tbId = new TextBlock();
                 tbId.Visibility = System.Windows.Visibility.Collapsed;
-                tbId.Text = "1";
+                tbId.Text = pm.Id.ToString();
                 Panel.SetZIndex(tbId, 3);
                 spCard.Children.Add(tbId);
 
@@ -67,9 +76,10 @@ namespace MyFlatWPF.ViewModel
                 image.Width = 180;
                 image.Margin = new System.Windows.Thickness(0, 0, 0, 0);
                 BitmapImage src = new BitmapImage();
-                src.BeginInit();
-                src.UriSource = new Uri(@"C:\repos\MyFlatWPF\MyFlatWPF\Images\i1.jpg", UriKind.Absolute);
-                src.EndInit();
+                //src.BeginInit();
+                src = ic.ByteArrayToImage(pm.ProjectImage);
+                //src.UriSource = new Uri(@"C:\repos\MyFlatWPF\MyFlatWPF\Images\i1.jpg", UriKind.Absolute);
+                //src.EndInit();
                 image.Source = src;
                 image.Stretch = System.Windows.Media.Stretch.Uniform;
                 Panel.SetZIndex(image, 2);
@@ -88,14 +98,14 @@ namespace MyFlatWPF.ViewModel
                 btnProject.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#2235ef"));
                 btnProject.VerticalAlignment = System.Windows.VerticalAlignment.Center;
                 btnProject.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                btnProject.Content = "Details";
+                btnProject.Content = pm.ProjectHeader;
                 btnProject.ToolTip = "Project details";
                 btnProject.OverridesDefaultStyle = true;
                 //Panel.SetZIndex(btnProject, 1);
 
                 ObjectModel project = new ObjectModel();
                 project.TypeObject = "project";
-                project.IdObject = tbId.Text;
+                project.IdObject = Int32.Parse(tbId.Text);
                 OpenProjectDetailsCommand = new SwitchViewCommand(project);
                 btnProject.Command = OpenProjectDetailsCommand;
                 
@@ -137,6 +147,13 @@ namespace MyFlatWPF.ViewModel
             btn.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ececec"));
             btn.BorderBrush = Brushes.Transparent;
             btn.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#2235ef"));
+        }
+
+        private List<ProjectModel> GetProjects()
+        {
+            List<ProjectModel> lp = new List<ProjectModel>();
+            lp = _api.GetProjectsFromDB();
+            return lp;
         }
     }
 }

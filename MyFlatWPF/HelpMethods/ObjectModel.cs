@@ -10,6 +10,6 @@ namespace MyFlatWPF.HelpMethods
     {
         public string TypeObject { get; set; }
 
-        public string IdObject { get; set; }
+        public int IdObject { get; set; }
     }
 }
