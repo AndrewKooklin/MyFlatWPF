@@ -137,7 +137,9 @@
                        FontSize="16"
                        FontWeight="DemiBold"></TextBlock>
             <TextBlock Grid.Row="1"
-                       Text="Order a House Project"
+                       Text="{Binding LeftCentralAreaText, 
+                               Source={StaticResource HomeViewModel}, 
+                               UpdateSourceTrigger=PropertyChanged}"
                        HorizontalAlignment="Center"
                        Margin="0 10 0 10"
                        FontSize="25"
@@ -165,9 +167,11 @@
         </StackPanel>
         <StackPanel x:Name="spImage"
                     Grid.Row="3"
-                    Grid.Column="1">
-            <Image Source="../Images/hand-draft.webp"
-                   Margin="0 30 10 10"></Image>
+                    Grid.Column="1"
+                    Margin="0 30 10 10">
+            <Image Source="{Binding MainPicture,
+                                Source={StaticResource HomeViewModel}, 
+                                UpdateSourceTrigger=PropertyChanged}"></Image>
         </StackPanel>
 
         <StackPanel x:Name="spExpertHelp"
@@ -179,39 +183,41 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Row="0"
-                Text="Get A Help"
-                       FontSize="12"
-                       Foreground="DeepSkyBlue"></TextBlock>
+                           Text="Get A Help"
+                           FontSize="12"
+                           Foreground="DeepSkyBlue"></TextBlock>
                 <TextBlock Grid.Row="1"
-                Text="Need Our Expert Help?"
+                           Text="{Binding BottomAreaHeader, 
+                                Source={StaticResource HomeViewModel}, 
+                                UpdateSourceTrigger=PropertyChanged}"
                        FontSize="25"
                        FontWeight="Medium"
-                       Margin="0 10 0 5"></TextBlock>
+                       TextWrapping="Wrap"
+                       Margin="0 5 0 5"></TextBlock>
                 <TextBlock Grid.Row="2"
-                Text="We're Here!"
-                       FontSize="25"
-                       FontWeight="Medium"></TextBlock>
-                <TextBlock Grid.Row="3"
                 FontSize="10"
                        FontWeight="Medium"
-                       Margin="0 10 0 10">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. <LineBreak/>
+                       Margin="0 5 0 10"
+                       Text="{Binding BottomAreaContent, 
+                                Source={StaticResource HomeViewModel}, 
+                                UpdateSourceTrigger=PropertyChanged}"
+                       TextWrapping="WrapWithOverflow"><!--Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. <LineBreak/>
                         Aliqu diam amet diam et eos.Clita erat ipsum et lorem et sit, sed  <LineBreak/>
                         stet lorem sit clita duo justo. Tempor erat elitr rebum at clita. Diam <LineBreak/>
                         dolor diam ipsum sit. Aliqu diam amet diam et eos.Clita erat ipsum  <LineBreak/>
                         et lorem et sit, sed stet lorem sit clita duo justo. Tempor erat elitr <LineBreak/>
                         rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam <LineBreak/>
                         et eos.Clita erat ipsum et lorem et sit, sed stet lorem sit clita <LineBreak/>
-                        duo justo.
+                        duo justo.-->
                 </TextBlock>
                 <StackPanel Orientation="Horizontal"
-                        Grid.Row="4">
+                        Grid.Row="3">
                     <TextBlock><Image Source="/Images/apps_comm.png"
                               Margin="0 5 0 0"
                               Width="20"

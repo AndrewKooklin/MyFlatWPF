@@ -1,4 +1,5 @@
-﻿using MyFlatWPF.HelpMethods;
+﻿using MyFlatWPF.Data.Repositories.API;
+using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model;
 using MyFlatWPF.View;
 using MyFlatWPF.ViewModel;
@@ -56,6 +57,8 @@ namespace MyFlatWPF.Commands
                         {
                             App.HomeWiew.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.HomeWiew;
+                            StaticMainViewModel.MainViewModel.RandomPhrase = 
+                                StaticMainViewModel.MainViewModel.GetHeaderString();
                             break;
                         }
                     case "btnProjects":
@@ -63,12 +66,16 @@ namespace MyFlatWPF.Commands
                         {
                             App.ProjectsWiew.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.ProjectsWiew;
+                            StaticMainViewModel.MainViewModel.RandomPhrase =
+                                StaticMainViewModel.MainViewModel.GetHeaderString();
                             break;
                         }
                     case "btnServices":
                         {
                             App.ServicesWiew.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.ServicesWiew;
+                            StaticMainViewModel.MainViewModel.RandomPhrase =
+                                StaticMainViewModel.MainViewModel.GetHeaderString();
                             break;
                         }
                     case "btnBlog":
@@ -76,27 +83,40 @@ namespace MyFlatWPF.Commands
                         {
                             App.BlogWiew.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.BlogWiew;
+                            StaticMainViewModel.MainViewModel.RandomPhrase =
+                                StaticMainViewModel.MainViewModel.GetHeaderString();
                             break;
                         }
                     case "btnContacts":
                         {
                             App.ContactsWiew.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.ContactsWiew;
+                            StaticMainViewModel.MainViewModel.RandomPhrase =
+                                StaticMainViewModel.MainViewModel.GetHeaderString();
                             break;
                         }
                     case "btnLogIn":
                         {
-                            
+
+
+                            StaticMainViewModel.MainViewModel.RandomPhrase =
+                                StaticMainViewModel.MainViewModel.GetHeaderString();
                             break;
                         }
                     case "btnRegister":
                         {
-                            
+
+
+                            StaticMainViewModel.MainViewModel.RandomPhrase =
+                                StaticMainViewModel.MainViewModel.GetHeaderString();
                             break;
                         }
                     case "btnLogOut":
                         {
-                            
+
+
+                            StaticMainViewModel.MainViewModel.RandomPhrase =
+                                StaticMainViewModel.MainViewModel.GetHeaderString();
                             break;
                         }
                     default: break;
@@ -138,5 +158,7 @@ namespace MyFlatWPF.Commands
                 }
             }
         }
+
+
     }
 }

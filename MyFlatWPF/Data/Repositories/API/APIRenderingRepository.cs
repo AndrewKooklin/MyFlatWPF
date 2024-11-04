@@ -35,5 +35,37 @@ namespace MyFlatWPF.Data.Repositories.API
 
             return tmln;
         }
+
+        public List<string> GetRandomPhraseNames()
+        {
+            List<string> lrp = new List<string>();
+
+            urlRequest = $"{url}" + "HomePageEditAPI/GetRandomPhraseNames";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                lrp = JsonConvert.DeserializeObject<List<string>>(result);
+            }
+
+            return lrp;
+        }
+
+        public HomePagePlaceholderModel GetHomePagePlaceholder()
+        {
+            HomePagePlaceholderModel phm = new HomePagePlaceholderModel();
+
+            urlRequest = $"{url}" + "HomePageEditAPI/GetHomePagePlaceholder";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                phm = JsonConvert.DeserializeObject<HomePagePlaceholderModel>(result);
+            }
+
+            return phm;
+        }
     }
 }

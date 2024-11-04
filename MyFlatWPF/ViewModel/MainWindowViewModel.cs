@@ -20,12 +20,6 @@ namespace MyFlatWPF.ViewModel
 {
     public class MainWindowViewModel : BaseViewModel
     {
-        private HttpClient _httpClient;
-        private string url = @"https://localhost:44388/";
-        string urlRequest = "";
-        HttpResponseMessage response = new HttpResponseMessage();
-        private Menu _menu;
-
         public MainWindowViewModel()
         {
             SwitchViewCommand = new SwitchViewCommand(this);
@@ -33,6 +27,8 @@ namespace MyFlatWPF.ViewModel
             CurrentView = App.HomeWiew;
 
             AssignNamesLinks();
+
+            AssignRandomPhrase();
         }
 
         private string _home;
@@ -119,6 +115,22 @@ namespace MyFlatWPF.ViewModel
             }
         }
 
+        private string _randomPhrase;
+        public string RandomPhrase
+        {
+            get
+            {
+                return _randomPhrase;
+            }
+            set
+            {
+                _randomPhrase = value;
+                OnPropertyChanged(nameof(RandomPhrase));
+            }
+        }
+
+        public List<string> RandomPhrases { get; set; } = new List<string>();
+
         private void AssignNamesLinks()
         {
             List<TopMenuLinkNameModel> tmln = new List<TopMenuLinkNameModel>();
@@ -130,12 +142,49 @@ namespace MyFlatWPF.ViewModel
             Contacts = tmln[4].LinkName;
         }
 
+        private void AssignRandomPhrase()
+        {
+            RandomPhrase = GetHeaderString();
+        }
+
+        public string GetHeaderString()
+        {
+            if(RandomPhrases.Count <= 0)
+            {
+                RandomPhrases = GetRandomPhrasesFromDB();
+            }
+            string[] Titles = RandomPhrases.ToArray();
+            //{
+            //    "BUILD YOU FLAT!",
+            //    "GOOD HOUSE!",
+            //    "THE BEST SERVICE",
+            //    "EXCELLENT QUALITY",
+            //    "EXCELLENT JOB",
+            //    "LIVE COMFORTABLY",
+            //    "ECO-FRIENDLY HOUSES",
+            //    "SMART CONSTRUCTION"
+            //};
+
+            return Titles[new Random().Next(0, Titles.Length)];
+        }
+
         private List<TopMenuLinkNameModel> GetLinkNamesFromDB()
         {
             List<TopMenuLinkNameModel> tmln = new List<TopMenuLinkNameModel>();
             APIRenderingRepository apiRep = new APIRenderingRepository();
             tmln = apiRep.GetTopMenuLinkNames();
             return tmln;
+        }
+
+        private List<string> GetRandomPhrasesFromDB()
+        {
+            APIRenderingRepository apiRep = new APIRenderingRepository();
+            if(RandomPhrases.Count <= 0)
+            {
+                RandomPhrases = apiRep.GetRandomPhraseNames();
+            }
+            
+            return RandomPhrases;
         }
 
         public void menu_MouseEnter(object sender, MouseEventArgs e)

@@ -1,4 +1,5 @@
 ﻿using MyFlatWPF.Commands;
+using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model;
 using MyFlatWPF.View;
@@ -15,6 +16,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace MyFlatWPF.ViewModel
 {
@@ -26,13 +28,24 @@ namespace MyFlatWPF.ViewModel
         HttpResponseMessage response;
         string apiResponse;
         public bool apiResponseConvert;
+        private APIRenderingRepository _api = new APIRenderingRepository();
+        private ImageConverter _ic = new ImageConverter();
 
         public HomeViewModel()
         {
             SendOrderFormCommand = new RelayCommand(Execute, CanExecute);
+
+            if(HomePagePlaceholder == null)
+            {
+                HomePagePlaceholder = _api.GetHomePagePlaceholder();
+            }
+
+            BlocksAssignText();
         }
 
         public ICommand SendOrderFormCommand { get; set; }
+
+        public HomePagePlaceholderModel HomePagePlaceholder { get; set; }
 
         private string _errorNameInput = "";
         public string ErrorNameInput
@@ -212,6 +225,62 @@ namespace MyFlatWPF.ViewModel
             }
         }
 
+        private string _leftCentralAreaText;
+        public string LeftCentralAreaText
+        {
+            get
+            {
+                return _leftCentralAreaText;
+            }
+            set
+            {
+                _leftCentralAreaText = value;
+                OnPropertyChanged(nameof(LeftCentralAreaText));
+            }
+        }
+
+        private BitmapImage _mainPicture;
+        public BitmapImage MainPicture
+        {
+            get
+            {
+                return _mainPicture;
+            }
+            set
+            {
+                _mainPicture = value;
+                OnPropertyChanged(nameof(MainPicture));
+            }
+        }
+
+        private string _bottomAreaHeader;
+        public string BottomAreaHeader
+        {
+            get
+            {
+                return _bottomAreaHeader;
+            }
+            set
+            {
+                _bottomAreaHeader = value;
+                OnPropertyChanged(nameof(BottomAreaHeader));
+            }
+        }
+
+        private string _bottomAreaContent;
+        public string BottomAreaContent
+        {
+            get
+            {
+                return _bottomAreaContent;
+            }
+            set
+            {
+                _bottomAreaContent = value;
+                OnPropertyChanged(nameof(BottomAreaContent));
+            }
+        }
+
         private bool CanExecute(object parameter)
         {
             if (parameter == null)
@@ -375,5 +444,15 @@ namespace MyFlatWPF.ViewModel
             }
             return apiResponseConvert;
         }
+
+        private void BlocksAssignText()
+        {
+            LeftCentralAreaText = HomePagePlaceholder.LeftCentralAreaText;
+            MainPicture = _ic.ByteArrayToImage(HomePagePlaceholder.MainPicture);
+            BottomAreaHeader = HomePagePlaceholder.BottomAreaHeader;
+            BottomAreaContent = HomePagePlaceholder.BottomAreaContent;
+        }
+
+
     }
 }
