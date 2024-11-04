@@ -157,6 +157,7 @@
     <Compile Include="Model\OrderModel.cs" />
     <Compile Include="Model\PostModel.cs" />
     <Compile Include="Model\ProjectModel.cs" />
+    <Compile Include="Model\RandomPhraseModel.cs" />
     <Compile Include="Model\TopMenuLinkNameModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\BlogViewModel.cs" />
