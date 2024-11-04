@@ -26,172 +26,108 @@ namespace MyFlatWPF.ViewModel
         HttpResponseMessage response = new HttpResponseMessage();
         private Menu _menu;
 
-        public MainWindowViewModel(Grid gridHeader)
+        public MainWindowViewModel()
         {
-
-            CombineElements(CreateLeftTopMenu(), 
-                            CreateRightTopMenu(), 
-                            
-                            gridHeader);
-
             SwitchViewCommand = new SwitchViewCommand(this);
 
             CurrentView = App.HomeWiew;
 
-            //MenuItems = GetTopMenu();
-
+            AssignNamesLinks();
         }
 
-        private StackPanel CreateLeftTopMenu()
+        private string _home;
+        public string Home
         {
-            StackPanel spLeftTopMenu = new StackPanel();
-            spLeftTopMenu.Name = "spLeftTopMenu";
-            spLeftTopMenu.Height = 25;
-            spLeftTopMenu.Orientation = Orientation.Horizontal;
-            spLeftTopMenu.Width = 430;
-            spLeftTopMenu.VerticalAlignment = VerticalAlignment.Top;
-            spLeftTopMenu.HorizontalAlignment = HorizontalAlignment.Left;
-            spLeftTopMenu.Margin = new System.Windows.Thickness(10, 0, 0, 0);
-            spLeftTopMenu.Background = Brushes.White;
+            get
+            {
+                return _home;
+            }
+            set
+            {
+                _home = value;
+                OnPropertyChanged(nameof(Home));
+            }
+        }
 
-            Border bManagement = new Border();
-            bManagement.Height = 25;
-            //border.Width = 40;
-            bManagement.BorderBrush = Brushes.Transparent;
-            bManagement.BorderThickness = new Thickness(0, 0, 0, 0);
+        private string _projects;
+        public string Projects
+        {
+            get
+            {
+                return _projects;
+            }
+            set
+            {
+                _projects = value;
+                OnPropertyChanged(nameof(Projects));
+            }
+        }
 
-            Button btnManagement = new Button();
-            btnManagement.Name = "Management";
-            btnManagement.Content = "Management";
-            btnManagement.Cursor = Cursors.Hand;
-            btnManagement.FontSize = 15;
-            btnManagement.Foreground = Brushes.Black;
-            btnManagement.Height = 24;
-            //btnManagement.Padding = new System.Windows.Thickness(5, 0, 2, 2);
-            btnManagement.Margin = new System.Windows.Thickness(7, 0, 0, 0);
-            btnManagement.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
-            btnManagement.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#fff"));
-            btnManagement.Command = SwitchViewCommand;
-            btnManagement.CommandParameter = btnManagement.Name;
-            btnManagement.MouseEnter += menu_MouseEnter;
-            btnManagement.MouseLeave += menu_MouseLeave;
+        private string _services;
+        public string Services
+        {
+            get
+            {
+                return _services;
+            }
+            set
+            {
+                _services = value;
+                OnPropertyChanged(nameof(Services));
+            }
+        }
 
-            bManagement.Child = btnManagement;
-            spLeftTopMenu.Children.Add(bManagement);
+        private string _blog;
+        public string Blog
+        {
+            get
+            {
+                return _blog;
+            }
+            set
+            {
+                _blog = value;
+                OnPropertyChanged(nameof(Blog));
+            }
+        }
 
+        private string _contacts;
+        public string Contacts
+        {
+            get
+            {
+                return _contacts;
+            }
+            set
+            {
+                _contacts = value;
+                OnPropertyChanged(nameof(Contacts));
+            }
+        }
+
+        private string _userName;
+        public string UserName
+        {
+            get
+            {
+                return _userName;
+            }
+            set
+            {
+                _userName = value;
+                OnPropertyChanged(nameof(UserName));
+            }
+        }
+
+        private void AssignNamesLinks()
+        {
             List<TopMenuLinkNameModel> tmln = new List<TopMenuLinkNameModel>();
             tmln = GetLinkNamesFromDB();
-            if(tmln != null)
-            {
-                foreach (var linkName in tmln)
-                {
-                    Border border = new Border();
-                    border.Height = 25;
-                    //border.Width = 40;
-                    border.BorderBrush = Brushes.Transparent;
-                    border.BorderThickness = new Thickness(0, 0, 0, 0);
-
-                    Button btnMenu = new Button();
-                    btnMenu.Name = linkName.LinkName;
-                    btnMenu.Content = linkName.LinkName;
-                    btnMenu.Cursor = Cursors.Hand;
-                    btnMenu.FontSize = 15;
-                    btnMenu.Foreground = Brushes.Black;
-                    btnMenu.Height = 24;
-                    //btnMenu.Padding = new System.Windows.Thickness(5, 0, 2, 2);
-                    btnMenu.Margin = new System.Windows.Thickness(7, 0, 0, 0);
-                    btnMenu.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
-                    btnMenu.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#fff"));
-                    btnMenu.Command = SwitchViewCommand;
-                    btnMenu.CommandParameter = btnMenu.Name;
-                    btnMenu.MouseEnter += menu_MouseEnter;
-                    btnMenu.MouseLeave += menu_MouseLeave;
-                    
-                    border.Child = btnMenu;
-                    spLeftTopMenu.Children.Add(border);
-
-                }
-            }
-            return spLeftTopMenu;
-        }
-
-        private StackPanel CreateRightTopMenu()
-        {
-            StackPanel spRightTopMenu = new StackPanel();
-            spRightTopMenu.Name = "spRightTopMenu";
-            spRightTopMenu.Height = 25;
-            spRightTopMenu.Width = 100;
-            spRightTopMenu.Orientation = Orientation.Horizontal;
-            spRightTopMenu.VerticalAlignment = VerticalAlignment.Top;
-            spRightTopMenu.HorizontalAlignment = HorizontalAlignment.Right;
-            spRightTopMenu.Margin = new System.Windows.Thickness(10, 0, 10, 0);
-            spRightTopMenu.Background = Brushes.White;
-
-            List<Button> listBtns = new List<Button>();
-
-            Button btnLogin = new Button();
-            btnLogin.Name = "Login";
-            btnLogin.Content = "Login";
-            listBtns.Add(btnLogin);
-
-            Button btnRegistration = new Button();
-            btnRegistration.Name = "Register";
-            btnRegistration.Content = "Register";
-            listBtns.Add(btnRegistration);
-
-            Button btnUserName = new Button();
-            btnRegistration.Name = "UserName";
-            btnRegistration.Content = "";
-            btnUserName.Foreground = Brushes.Coral;
-            btnUserName.IsEnabled = false;
-            btnUserName.Cursor = Cursors.Arrow;
-            btnUserName.Visibility = Visibility.Collapsed;
-
-            Button btnLogOut = new Button();
-            btnLogOut.Name = "LogOut";
-            btnLogOut.Content = "LogOut";
-            btnLogOut.Visibility = Visibility.Collapsed;
-            listBtns.Add(btnLogOut);
-
-            foreach(Button btn in listBtns)
-            {
-                btn.Cursor = Cursors.Hand;
-                btn.FontSize = 15;
-                btn.Foreground = Brushes.Black;
-                btn.Height = 24;
-                //btnManagement.Padding = new System.Windows.Thickness(5, 0, 2, 2);
-                btn.Margin = new System.Windows.Thickness(7, 0, 0, 0);
-                btn.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
-                btn.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#fff"));
-                btn.Command = SwitchViewCommand;
-                btn.CommandParameter = btn.Name;
-                btn.MouseEnter += menu_MouseEnter;
-                btn.MouseLeave += menu_MouseLeave;
-
-                Border bbtnRightMenu = new Border();
-                bbtnRightMenu.Height = 25;
-                bbtnRightMenu.Width = 60;
-                bbtnRightMenu.BorderBrush = Brushes.Transparent;
-                bbtnRightMenu.BorderThickness = new Thickness(0, 0, 0, 0);
-                bbtnRightMenu.Child = btn;
-                spRightTopMenu.Children.Add(bbtnRightMenu);
-            }
-            return spRightTopMenu;
-        }
-
-        private void CombineElements(StackPanel spLeftTopMenu, 
-                                     StackPanel spRightTopMenu,
-                                     //StackPanel spRandomPhrase,
-                                     //Border bContent,
-                                     Grid gridHeader)
-        {
-            Grid.SetRow(spLeftTopMenu, 0);
-            Grid.SetColumn(spLeftTopMenu, 0);
-            gridHeader.Children.Add(spLeftTopMenu);
-
-            Grid.SetRow(spRightTopMenu, 0);
-            Grid.SetColumn(spRightTopMenu, 1);
-            gridHeader.Children.Add(spRightTopMenu);
+            Home = tmln[0].LinkName;
+            Projects = tmln[1].LinkName;
+            Services = tmln[2].LinkName;
+            Blog = tmln[3].LinkName;
+            Contacts = tmln[4].LinkName;
         }
 
         private List<TopMenuLinkNameModel> GetLinkNamesFromDB()
@@ -202,8 +138,6 @@ namespace MyFlatWPF.ViewModel
             return tmln;
         }
 
-
-        
         public void menu_MouseEnter(object sender, MouseEventArgs e)
         {
             if (sender is Button)
@@ -253,33 +187,17 @@ namespace MyFlatWPF.ViewModel
             }
         }
 
-
-        private List<MenuItem> _menuItems;
-
-        public List<MenuItem> MenuItems
-        {
-            get
-            {
-                return _menuItems;
-            }
-            set
-            {
-                _menuItems = value;
-                OnPropertyChanged(nameof(MenuItems));
-            }
-        }
-
-        private UserControl _CurrentView;
+        private UserControl _currentView;
 
         public UserControl CurrentView
         {
             get
             {
-                return _CurrentView;
+                return _currentView;
             }
             set
             {
-                _CurrentView = value;
+                _currentView = value;
                 OnPropertyChanged(nameof(CurrentView));
             }
         }

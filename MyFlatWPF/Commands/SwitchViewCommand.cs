@@ -44,44 +44,59 @@ namespace MyFlatWPF.Commands
 
                 switch (parameter.ToString())
                 {
-                    case "HomePicture":
-                    case "Home":
-                        {
-                            App.HomeWiew.Visibility = System.Windows.Visibility.Visible;
-                            StaticMainViewModel.MainViewModel.CurrentView = App.HomeWiew;
-                            break;
-                        }
-                    case "Management":
+                    case "btnManagement":
                         {
                             App.ManagementWindow = new ManagementWindow();
                             App.ManagementWindow.Show();
                             App.MainWindow.Close();
                             break;
                         }
-                    case "Projects":
+                    case "HomePicture":
+                    case "btnHome":
+                        {
+                            App.HomeWiew.Visibility = System.Windows.Visibility.Visible;
+                            StaticMainViewModel.MainViewModel.CurrentView = App.HomeWiew;
+                            break;
+                        }
+                    case "btnProjects":
                     case "btnBackToProjects":
                         {
                             App.ProjectsWiew.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.ProjectsWiew;
                             break;
                         }
-                    case "Services":
+                    case "btnServices":
                         {
                             App.ServicesWiew.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.ServicesWiew;
                             break;
                         }
-                    case "Blog":
+                    case "btnBlog":
                     case "btnBackToBlog":
                         {
                             App.BlogWiew.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.BlogWiew;
                             break;
                         }
-                    case "Contacts":
+                    case "btnContacts":
                         {
                             App.ContactsWiew.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.ContactsWiew;
+                            break;
+                        }
+                    case "btnLogIn":
+                        {
+                            
+                            break;
+                        }
+                    case "btnRegister":
+                        {
+                            
+                            break;
+                        }
+                    case "btnLogOut":
+                        {
+                            
                             break;
                         }
                     default: break;

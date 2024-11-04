@@ -21,11 +21,9 @@ namespace MyFlatWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new MainWindowViewModel(this.gTopMenu);
         }
 
         private void btn_mouseEnter(object sender, MouseEventArgs e)

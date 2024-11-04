@@ -16,7 +16,7 @@
         WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
-        <!--<viewModel:MainWindowViewModel x:Key="MainWindowViewModel"/>-->
+        <viewModel:MainWindowViewModel x:Key="MainWindowViewModel"/>
         <help:MyMultiValueConverter x:Key="MyMultiValueConverter"/>
     </Window.Resources>
 
@@ -69,7 +69,7 @@
 
 
 
-        <!--<StackPanel x:Name="mTopLeft"
+        <StackPanel x:Name="mTopLeftMenu"
               Grid.Row="0"
               Height="25"
               Orientation="Horizontal"
@@ -77,16 +77,14 @@
               VerticalAlignment="Top"
               HorizontalAlignment="Left"
               Margin="10 0 0 0"
-              Background="White"
-              DataContext="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}, 
-                            UpdateSourceTrigger=PropertyChanged}">-->
-              <!--ItemsSource="{Binding MenuItems, Source={StaticResource MainWindowViewModel}}"-->
+              Background="White">
 
-            <!--<Border x:Name="bManagement"
+            <Border x:Name="bManagement"
                     BorderBrush="White"
                     BorderThickness="0 0 0 0">
-                <Button x:Name="Management"
+                <Button x:Name="btnManagement"
                     Content="Management"
+                    Visibility="Collapsed"
                     Cursor="Hand"
                     FontSize="15"
                     Foreground="Black"
@@ -95,119 +93,211 @@
                     Margin="7 0 0 0"
                     BorderThickness="0 0 0 0"
                     BorderBrush="White"
-                    Command="{Binding Mode=OneWay}"
-                    CommandParameter="{Binding Name, ElementName=Management}"
+                    Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
+                    CommandParameter="{Binding Name, ElementName=btnManagement}"
                     MouseEnter="btn_mouseEnter"
                     MouseLeave="menu_mouseLeave">
 
                 </Button>
-            </Border>-->
-            
+            </Border>
 
-            <!--<MenuItem x:Name="miHomePicture"
-                      Cursor="Hand"
-                      Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
-                      CommandParameter="{Binding Name, ElementName=miHomePicture}">
-                <MenuItem.Header>
-                    <StackPanel>
-                        <Image Source="/Images/kind.png" 
-                               Style="{StaticResource ImageStyle}"/>
-                    </StackPanel>
-                    
-                </MenuItem.Header>
-            </MenuItem>
-            <MenuItem x:Name="miManagement"
-                      Header="Management"
-                      Visibility="Collapsed"
-                      Cursor="Hand"
-                      Style="{StaticResource MenuItemStyle}"
-                      Margin="0 0 2 2"
-                      Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
-                      CommandParameter="{Binding Name, ElementName=miManagement}">
-            </MenuItem>
-            <MenuItem x:Name="miHome"
-                          Header="Home"
-                          Cursor="Hand"
-                          Style="{StaticResource MenuItemStyle}"
-                          Margin="0 0 2 2"
-                          Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
-                          CommandParameter="{Binding Name, ElementName=miHome}">
-            </MenuItem>
-            <MenuItem x:Name="miProjects"
-                          Header="Projects"
-                          Cursor="Hand"
-                          Style="{StaticResource MenuItemStyle}"
-                          Margin="0 0 2 2"
-                          Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
-                          CommandParameter="{Binding Name, ElementName=miProjects}">
-            </MenuItem>
-            <MenuItem x:Name="miServices"
-                          Header="Services"
-                          Cursor="Hand"
-                          Style="{StaticResource MenuItemStyle}"
-                          Margin="0 0 2 2"
-                      Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
-                      CommandParameter="{Binding Name, ElementName=miServices}">
-            </MenuItem>
-            <MenuItem x:Name="miBlog"
-                          Header="Blog"
-                          Cursor="Hand"
-                          Style="{StaticResource MenuItemStyle}"
-                          Margin="0 0 2 2"
-                          Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
-                          CommandParameter="{Binding Name, ElementName=miBlog}">
-            </MenuItem>
-            <MenuItem x:Name="miContacts"
-                          Header="Contacts"
-                          Cursor="Hand"
-                          Style="{StaticResource MenuItemStyle}"
-                          Margin="0 0 2 2"
-                          Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
-                          CommandParameter="{Binding Name, ElementName=miContacts}">
-            </MenuItem>-->
-        <!--</StackPanel>-->
+            <Border x:Name="bHome"
+                    BorderBrush="White"
+                    BorderThickness="0 0 0 0">
+                <Button x:Name="btnHome"
+                    Content="{Binding Home, Source={StaticResource MainWindowViewModel}}"
+                    Cursor="Hand"
+                    FontSize="15"
+                    Foreground="Black"
+                    Background="White"
+                    Height="24"
+                    Margin="7 0 0 0"
+                    BorderThickness="0 0 0 0"
+                    BorderBrush="White"
+                    Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
+                    CommandParameter="{Binding Name, ElementName=btnHome}"
+                    MouseEnter="btn_mouseEnter"
+                    MouseLeave="menu_mouseLeave">
 
-        <!--<Menu x:Name="mTopRight"
+                </Button>
+            </Border>
+
+            <Border x:Name="bProjects"
+                    BorderBrush="White"
+                    BorderThickness="0 0 0 0">
+                <Button x:Name="btnProjects"
+                    Content="{Binding Projects, Source={StaticResource MainWindowViewModel}}"
+                    Cursor="Hand"
+                    FontSize="15"
+                    Foreground="Black"
+                    Background="White"
+                    Height="24"
+                    Margin="7 0 0 0"
+                    BorderThickness="0 0 0 0"
+                    BorderBrush="White"
+                    Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
+                    CommandParameter="{Binding Name, ElementName=btnProjects}"
+                    MouseEnter="btn_mouseEnter"
+                    MouseLeave="menu_mouseLeave">
+
+                </Button>
+            </Border>
+
+            <Border x:Name="bServices"
+                    BorderBrush="White"
+                    BorderThickness="0 0 0 0">
+                <Button x:Name="btnServices"
+                    Content="{Binding Services, Source={StaticResource MainWindowViewModel}}"
+                    Cursor="Hand"
+                    FontSize="15"
+                    Foreground="Black"
+                    Background="White"
+                    Height="24"
+                    Margin="7 0 0 0"
+                    BorderThickness="0 0 0 0"
+                    BorderBrush="White"
+                    Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
+                    CommandParameter="{Binding Name, ElementName=btnServices}"
+                    MouseEnter="btn_mouseEnter"
+                    MouseLeave="menu_mouseLeave">
+
+                </Button>
+            </Border>
+
+            <Border x:Name="bBlog"
+                    BorderBrush="White"
+                    BorderThickness="0 0 0 0">
+                <Button x:Name="btnBlog"
+                    Content="{Binding Blog, Source={StaticResource MainWindowViewModel}}"
+                    Cursor="Hand"
+                    FontSize="15"
+                    Foreground="Black"
+                    Background="White"
+                    Height="24"
+                    Margin="7 0 0 0"
+                    BorderThickness="0 0 0 0"
+                    BorderBrush="White"
+                    Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
+                    CommandParameter="{Binding Name, ElementName=btnBlog}"
+                    MouseEnter="btn_mouseEnter"
+                    MouseLeave="menu_mouseLeave">
+
+                </Button>
+            </Border>
+
+            <Border x:Name="bContacts"
+                    BorderBrush="White"
+                    BorderThickness="0 0 0 0">
+                <Button x:Name="btnContacts"
+                    Content="{Binding Contacts, Source={StaticResource MainWindowViewModel}}"
+                    Cursor="Hand"
+                    FontSize="15"
+                    Foreground="Black"
+                    Background="White"
+                    Height="24"
+                    Margin="7 0 0 0"
+                    BorderThickness="0 0 0 0"
+                    BorderBrush="White"
+                    Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
+                    CommandParameter="{Binding Name, ElementName=btnContacts}"
+                    MouseEnter="btn_mouseEnter"
+                    MouseLeave="menu_mouseLeave">
+
+                </Button>
+            </Border>
+        </StackPanel>
+
+        <StackPanel x:Name="mTopRightMenu"
+              Grid.Row="0"
               Grid.Column="1"
-              Height="24"
-              Width="auto"
+              Height="25"
+              Orientation="Horizontal"
               VerticalAlignment="Top"
               HorizontalAlignment="Right"
-              FontSize="15"
+              Margin="0 0 10 0"
               Background="White">
 
-            <MenuItem x:Name="miLogIn"
-                      Header="Login"
-                      Cursor="Hand"
-                      Margin="0 0 2 0">
-                --><!--Command="{Binding OpenLogInWindowCommand, Source={StaticResource PhoneBookWindowViewModel}}" 
-                      CommandParameter=""--><!--
-            </MenuItem>
-            <MenuItem x:Name="miRegister"
-                   Header="Register"
-                   Foreground="Black"
-                   Margin="0 0 2 0"
-                   Cursor="Hand">
-                --><!--Command="{Binding OpenRegisterWindowCommand, Source={StaticResource PhoneBookWindowViewModel}}" 
-                   CommandParameter=""--><!--
-            </MenuItem>
+            <Border x:Name="bLogIn"
+                    BorderBrush="White"
+                    BorderThickness="0 0 0 0">
+                <Button x:Name="btnLogIn"
+                    Content="LogIn"
+                    Cursor="Hand"
+                    FontSize="15"
+                    Foreground="Black"
+                    Background="White"
+                    Height="24"
+                    Margin="0 0 0 0"
+                    BorderThickness="0 0 0 0"
+                    BorderBrush="White"
+                    Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
+                    CommandParameter="{Binding Name, ElementName=btnLogIn}"
+                    MouseEnter="btn_mouseEnter"
+                    MouseLeave="menu_mouseLeave">
 
-            <MenuItem x:Name="miUserName"
-                   Visibility="Collapsed"
-                   Header=""
-                   Foreground="Coral"
-                   Cursor="Arrow"
-                   Margin="0 0 2 0">
-            </MenuItem>
-            <MenuItem x:Name="miLogOut"
-                      Visibility="Collapsed"
-                      Header="Logout"
-                      Cursor="Hand"
-                      Margin="0 0 2 0">-->
-                <!--Command="{Binding LogOutCommand, Source={StaticResource PhoneBookWindowViewModel}}"
-                      CommandParameter=""-->
-            <!--</MenuItem>
-        </Menu>-->
+                </Button>
+            </Border>
+
+            <Border x:Name="bRegister"
+                    BorderBrush="White"
+                    BorderThickness="0 0 0 0">
+                <Button x:Name="btnRegister"
+                    Content="Register"
+                    Cursor="Hand"
+                    FontSize="15"
+                    Foreground="Black"
+                    Background="White"
+                    Height="24"
+                    Margin="7 0 0 0"
+                    BorderThickness="0 0 0 0"
+                    BorderBrush="White"
+                    Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
+                    CommandParameter="{Binding Name, ElementName=btnRegister}"
+                    MouseEnter="btn_mouseEnter"
+                    MouseLeave="menu_mouseLeave">
+
+                </Button>
+            </Border>
+
+            <Border x:Name="bUserName"
+                    BorderBrush="White"
+                    BorderThickness="0 0 0 0">
+                <Button x:Name="btnUserName"
+                    Content="{Binding UserName, Source={StaticResource MainWindowViewModel}}"
+                    Visibility="Collapsed"
+                    Cursor="Arrow"
+                    FontSize="15"
+                    Foreground="Coral"
+                    Background="White"
+                    Height="24"
+                    Margin="0 0 0 0"
+                    BorderThickness="0 0 0 0"
+                    BorderBrush="White">
+
+                </Button>
+            </Border>
+
+            <Border x:Name="bLogOut"
+                    BorderBrush="White"
+                    BorderThickness="0 0 0 0">
+                <Button x:Name="btnLogOut"
+                    Content="LogOut"
+                    Visibility="Collapsed"
+                    Cursor="Arrow"
+                    FontSize="15"
+                    Foreground="Black"
+                    Background="White"
+                    Height="24"
+                    Margin="0 0 0 0"
+                    BorderThickness="0 0 0 0"
+                    BorderBrush="White"
+                    Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
+                    CommandParameter="{Binding Name, ElementName=btnLogOut}">
+
+                </Button>
+            </Border>
+
+        </StackPanel>
 
         <TextBlock x:Name="tbRandomPhrase"
                    Grid.Row="1"
@@ -239,10 +329,10 @@
                         Grid.Row="3"
                         Grid.ColumnSpan="2">
 
-                <ContentControl x:Name="ccView">
-                    <!--Content="{Binding CurrentView, 
-                            Source={StaticResource MainWindowViewModel}, 
-                            UpdateSourceTrigger=PropertyChanged}">-->
+                <ContentControl x:Name="ccView"
+                                Content="{Binding CurrentView, 
+                                Source={StaticResource MainWindowViewModel}, 
+                                UpdateSourceTrigger=PropertyChanged}">
 
                 </ContentControl>
 
