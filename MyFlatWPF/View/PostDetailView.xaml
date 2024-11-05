@@ -69,7 +69,7 @@
 
         </TextBlock>
 
-        <Image x:Name="iProjectImage"
+        <Image x:Name="iPostImage"
                Grid.Row="2"
                Grid.Column="0"
                Source="C:\repos\MyFlatWPF\MyFlatWPF\Images\b1.jpeg"

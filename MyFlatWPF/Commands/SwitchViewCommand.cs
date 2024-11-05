@@ -149,10 +149,10 @@ namespace MyFlatWPF.Commands
                     case "post":
                         {
                             PostModel post = new PostModel();
-                            //post = GetPostById(id);
-                            //App.PosttDetailWiew.tbPostName.Text = post.PostHeader;
-                            //App.PostDetailWiew.tbPostDescription.Text = post.PostDescription;
-                            //App.PostDetailWiew.iPostImage = (post.PostImage);
+                            post = _api.GetPostById(id);
+                            App.PostDetailView.tbPostName.Text = post.PostHeader;
+                            App.PostDetailView.tbPostDescription.Text = post.PostDescription;
+                            App.PostDetailView.iPostImage.Source = ic.ByteArrayToImage(post.PostImage);
 
                             App.PostDetailView.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.PostDetailView;

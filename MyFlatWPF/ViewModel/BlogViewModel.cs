@@ -100,14 +100,14 @@ namespace MyFlatWPF.ViewModel
                     //Panel.SetZIndex(btnProject, 1);
 
                     TextBlock tbPostDescription = new TextBlock();
-                    tbPostDescription.Text = postItem.PostDescription;
+                    tbPostDescription.Text = postItem.PostDescription.Substring(0, 150);
                         //"As a builder, we undertake large, complex projects, " +
                         //"foster innovation, embrace emerging technologies, " +
                         //"and make a difference in the community.";
                     tbPostDescription.Padding = new Thickness(2, 1, 2, 1);
                     tbPostDescription.FontSize = 8;
                     tbPostDescription.Background = Brushes.White;
-                    tbPostDescription.TextWrapping = TextWrapping.Wrap;
+                    tbPostDescription.TextWrapping = TextWrapping.WrapWithOverflow;
                     //Panel.SetZIndex(tbId, 3);
                     spCard.Children.Add(tbPostDescription);
 
