@@ -76,10 +76,7 @@ namespace MyFlatWPF.ViewModel
                 image.Width = 180;
                 image.Margin = new System.Windows.Thickness(0, 0, 0, 0);
                 BitmapImage src = new BitmapImage();
-                //src.BeginInit();
                 src = ic.ByteArrayToImage(pm.ProjectImage);
-                //src.UriSource = new Uri(@"C:\repos\MyFlatWPF\MyFlatWPF\Images\i1.jpg", UriKind.Absolute);
-                //src.EndInit();
                 image.Source = src;
                 image.Stretch = System.Windows.Media.Stretch.Uniform;
                 Panel.SetZIndex(image, 2);

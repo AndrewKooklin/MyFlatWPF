@@ -115,5 +115,21 @@ namespace MyFlatWPF.Data.Repositories.API
 
             return services;
         }
+
+        public List<PostModel> GetPostsFromDB()
+        {
+            List<PostModel> posts = new List<PostModel>();
+
+            urlRequest = $"{url}" + "BlogPageEditAPI/GetPostsFromDB";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                posts = JsonConvert.DeserializeObject<List<PostModel>>(result);
+            }
+
+            return posts;
+        }
     }
 }
