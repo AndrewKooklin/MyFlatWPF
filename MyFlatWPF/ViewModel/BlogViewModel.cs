@@ -43,7 +43,7 @@ namespace MyFlatWPF.ViewModel
                 {
                     Border border = new Border();
                     border.Height = 215;
-                    border.Width = 190;
+                    border.Width = 188;
                     border.BorderBrush = Brushes.Black;
                     border.BorderThickness = new Thickness(1, 1, 1, 1);
                     //Panel.SetZIndex(border, 5);
@@ -51,8 +51,8 @@ namespace MyFlatWPF.ViewModel
 
                     StackPanel spCard = new StackPanel();
                     spCard.Orientation = Orientation.Vertical;
-                    spCard.Height = 215;
-                    spCard.Width = 190;
+                    //spCard.Height = 215;
+                    //spCard.Width = 190;
                     //Panel.SetZIndex(spCard, 4);
 
                     TextBlock tbId = new TextBlock();
@@ -70,13 +70,14 @@ namespace MyFlatWPF.ViewModel
                     spCard.Children.Add(tbDateAdded);
 
                     Image image = new Image();
-                    //image.Height = 130;
+                    image.Height = 140;
                     image.Width = 190;
                     image.Margin = new Thickness(0, 0, 0, 0);
                     BitmapImage src = new BitmapImage();
                     src = ic.ByteArrayToImage(postItem.PostImage);
                     image.Source = src;
                     image.Stretch = Stretch.Uniform;
+                    image.StretchDirection = StretchDirection.Both;
                     //Panel.SetZIndex(image, 2);
                     spCard.Children.Add(image);
 
@@ -100,7 +101,9 @@ namespace MyFlatWPF.ViewModel
                     //Panel.SetZIndex(btnProject, 1);
 
                     TextBlock tbPostDescription = new TextBlock();
-                    tbPostDescription.Text = postItem.PostDescription.Substring(0, 150);
+                    tbPostDescription.Width = 190;
+                    tbPostDescription.Height = 40;
+                    tbPostDescription.Text = GetSubstring(postItem.PostDescription);
                         //"As a builder, we undertake large, complex projects, " +
                         //"foster innovation, embrace emerging technologies, " +
                         //"and make a difference in the community.";
@@ -127,8 +130,6 @@ namespace MyFlatWPF.ViewModel
                     wrapPanel.Children.Add(border);
                 }
             }
-            
-
         }
 
         private List<PostModel> GetPosts()
@@ -136,6 +137,18 @@ namespace MyFlatWPF.ViewModel
             List<PostModel> lpm = new List<PostModel>();
             lpm = _api.GetPostsFromDB();
             return lpm;
+        }
+
+        private string GetSubstring(string text)
+        {
+            if(text.Length <= 150)
+            {
+                return text;
+            }
+            else
+            {
+                return text.Substring(0, 150);
+            }
         }
 
         private void btn_mouseEnter(object sender, MouseEventArgs e)
