@@ -99,5 +99,21 @@ namespace MyFlatWPF.Data.Repositories.API
 
             return project;
         }
+
+        public List<ServiceModel> GetServicesFromDB()
+        {
+            List<ServiceModel> services = new List<ServiceModel>();
+
+            urlRequest = $"{url}" + "ServicesPageEditAPI/GetServicesFromDB";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                services = JsonConvert.DeserializeObject<List<ServiceModel>>(result);
+            }
+
+            return services;
+        }
     }
 }

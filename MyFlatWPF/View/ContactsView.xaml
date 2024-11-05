@@ -56,7 +56,7 @@
                    Grid.ColumnSpan="3"
                    Padding="0 20 0 40"
                    HorizontalAlignment="Center"
-                   Text="Contacts"
+                   Text="Our Contacts"
                    FontSize="24"
                    FontWeight="DemiBold">
         </TextBlock>
