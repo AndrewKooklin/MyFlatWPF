@@ -40,7 +40,7 @@ namespace MyFlatWPF.ViewModel
 
             List<TopMenuLinkNameModel> tmln = new List<TopMenuLinkNameModel>();
             APIRenderingRepository apiRep = new APIRenderingRepository();
-            tmln = apiRep.GetTopMenuLinkNames();
+            tmln = apiRep.GetTopMenuLinkNames().Result;
 
             //MenuItem miPicture = new MenuItem();
             //miPicture.Name = "HomePicture";

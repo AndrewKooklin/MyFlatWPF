@@ -90,12 +90,28 @@ namespace MyFlatWPF.View
 
         private void OnSelectedChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(sender is ComboBox cb)
-            {
-                ComboBoxItem cbItem = (ComboBoxItem)cb.SelectedItem;
-                string serviceName = cbItem.Content.ToString();
-                App.HomeView.cbiService.Content = serviceName;
-            }
+            //if(sender is ComboBox cb)
+            //{
+            //    ComboBoxItem cbItem = (ComboBoxItem)cb.SelectedItem;
+            //    string serviceName = cbItem.Content.ToString();
+            //    App.HomeView.cbiService.Content = serviceName;
+            //}
         }
+
+        //private void ini_ComboBox(object sender, EventArgs e)
+        //{
+        //    if (sender is ComboBox cBox)
+        //    {
+        //        if (cBox.SelectedIndex == -1)
+        //        {
+        //            cBox.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#a0afc5"));
+        //            cBox.Background = Brushes.White;
+        //        }
+        //        else
+        //        {
+        //            cBox.Foreground = Brushes.Black;
+        //        }
+        //    }
+        //}
     }
 }

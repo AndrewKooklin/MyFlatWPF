@@ -9,8 +9,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" 
              d:DesignWidth="678">
-    
-        <UserControl.Resources>
+
+    <UserControl.Resources>
 
         <ImageBrush x:Key="YourName"
                     ImageSource="/Images/YourName.gif"
@@ -33,8 +33,8 @@
         <viewModel:HomeViewModel x:Key="HomeViewModel"/>
         <help:MyMultiValueConverter x:Key="MultiValueConverter"/>
 
-        
-        </UserControl.Resources>
+
+    </UserControl.Resources>
 
 
     <Grid>
@@ -77,13 +77,12 @@
                 </Setter>
             </Style>
 
-            <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
-                <Setter Property="Background" Value="Transparent"></Setter>
-
+            <Style x:Key="ComboBoxStyle" TargetType="{x:Type ComboBox}">
+                <Setter Property="Background" Value="White"></Setter>
             </Style>
 
-            <Style x:Key="ComboBoxItemStyle" TargetType="ComboBoxItem">
-                <Setter Property="Background" Value="Transparent">
+            <Style x:Key="ComboBoxItemStyle" TargetType="{x:Type ComboBoxItem}">
+                <Setter Property="Background" Value="White">
                 </Setter>
             </Style>
 
@@ -108,8 +107,8 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        
-        
+
+
         <TextBlock x:Name="tbHello"
                    Grid.Row="2"
                    Grid.ColumnSpan="2"
@@ -381,15 +380,21 @@
                                 Source={StaticResource HomeViewModel}, 
                                 UpdateSourceTrigger=PropertyChanged}"
                           FontSize="16"
-                         VerticalAlignment="Center"
+                          VerticalAlignment="Center"
                           Style="{StaticResource ComboBoxStyle}"
                           BorderBrush="Transparent"
                           BorderThickness="0"
-                          SelectionChanged ="OnSelectedChanged">
+                          ItemsSource="{Binding ServiceItems, 
+                                        Source={StaticResource HomeViewModel}, 
+                                        UpdateSourceTrigger=PropertyChanged}">
+                        <!--SelectionChanged ="OnSelectedChanged">-->
 
-                        <ComboBoxItem IsEnabled="False">Choose Service
-                        </ComboBoxItem>
-                        <ComboBoxItem x:Name="cbiService"
+                        <!--<ComboBoxItem IsSelected="True" 
+                                      IsEnabled="False"
+                                      Foreground="#a0afc5"
+                                      Background="White">Choose Service
+                        </ComboBoxItem>-->
+                        <!--<ComboBoxItem x:Name="cbiService"
                                       Visibility="Collapsed">
                         </ComboBoxItem>
                         <ComboBoxItem>Building design
@@ -401,7 +406,7 @@
                         <ComboBoxItem>Room design
                         </ComboBoxItem>
                         <ComboBoxItem>Finishing facilities
-                        </ComboBoxItem>
+                        </ComboBoxItem>-->
                     </ComboBox>
                 </Border>
 
@@ -467,13 +472,15 @@
                         Style="{StaticResource ButtonStyle}"
                         Command="{Binding SendOrderFormCommand, Source={StaticResource HomeViewModel}}">
                     <Button.CommandParameter>
-                    <MultiBinding Converter="{StaticResource MultiValueConverter}">
-                        <Binding Path="Text" ElementName="tbYourName"/>
-                        <Binding Path="Text" ElementName="tbYourEmail"/>
-                        <Binding Path="Text" ElementName="tbYourMobile"/>
-                        <Binding Path="SelectedItem.Content" ElementName="cbServiceChoose"/>
-                        <Binding Path="Text" ElementName="tbMessage"/>
-                    </MultiBinding>
+                        <MultiBinding Converter="{StaticResource MultiValueConverter}">
+                            <Binding Path="Text" ElementName="tbYourName"/>
+                            <Binding Path="Text" ElementName="tbYourEmail"/>
+                            <Binding Path="Text" ElementName="tbYourMobile"/>
+                            <Binding Path="SelectedItem.Content" ElementName="cbServiceChoose"/>
+                            <Binding Path="Text" ElementName="tbMessage"/>
+                            <Binding ElementName="tbServerError"/>
+                            <Binding ElementName="tbOrderSaved"/>
+                        </MultiBinding>
                     </Button.CommandParameter>
 
                 </Button>

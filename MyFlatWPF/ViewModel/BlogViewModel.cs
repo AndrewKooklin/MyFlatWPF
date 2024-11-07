@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -30,10 +27,10 @@ namespace MyFlatWPF.ViewModel
 
             GetBlogCards(_wrapPanel);
 
-            OpenPostDetailsCommand = new OpenPostDetailsCommand();
+            //OpenPostDetailsCommand = new OpenPostDetailsCommand();
         }
 
-        public ICommand OpenPostDetailsCommand { get; set; }
+        //public ICommand OpenPostDetailsCommand { get; set; }
 
         private void GetBlogCards(WrapPanel wrapPanel)
         {
@@ -46,19 +43,14 @@ namespace MyFlatWPF.ViewModel
                     border.Width = 188;
                     border.BorderBrush = Brushes.Black;
                     border.BorderThickness = new Thickness(1, 1, 1, 1);
-                    //Panel.SetZIndex(border, 5);
                     border.Margin = new Thickness(5, 5, 0, 0);
 
                     StackPanel spCard = new StackPanel();
                     spCard.Orientation = Orientation.Vertical;
-                    //spCard.Height = 215;
-                    //spCard.Width = 190;
-                    //Panel.SetZIndex(spCard, 4);
 
                     TextBlock tbId = new TextBlock();
                     tbId.Visibility = Visibility.Collapsed;
                     tbId.Text = postItem.Id.ToString();
-                    //Panel.SetZIndex(tbId, 3);
                     spCard.Children.Add(tbId);
 
                     TextBlock tbDateAdded = new TextBlock();
@@ -66,7 +58,6 @@ namespace MyFlatWPF.ViewModel
                     tbDateAdded.Padding = new Thickness(10, 1, 0, 1);
                     tbDateAdded.FontSize = 10;
                     tbDateAdded.Background = Brushes.White;
-                    //Panel.SetZIndex(tbId, 3);
                     spCard.Children.Add(tbDateAdded);
 
                     Image image = new Image();
@@ -78,7 +69,6 @@ namespace MyFlatWPF.ViewModel
                     image.Source = src;
                     image.Stretch = Stretch.Uniform;
                     image.StretchDirection = StretchDirection.Both;
-                    //Panel.SetZIndex(image, 2);
                     spCard.Children.Add(image);
 
                     Button btnPost = new Button();
@@ -98,7 +88,6 @@ namespace MyFlatWPF.ViewModel
                     btnPost.ToolTip = "Post details";
                     btnPost.OverridesDefaultStyle = true;
                     spCard.Children.Add(btnPost);
-                    //Panel.SetZIndex(btnProject, 1);
 
                     TextBlock tbPostDescription = new TextBlock();
                     tbPostDescription.Width = 190;
@@ -111,22 +100,18 @@ namespace MyFlatWPF.ViewModel
                     tbPostDescription.FontSize = 8;
                     tbPostDescription.Background = Brushes.White;
                     tbPostDescription.TextWrapping = TextWrapping.WrapWithOverflow;
-                    //Panel.SetZIndex(tbId, 3);
                     spCard.Children.Add(tbPostDescription);
 
                     ObjectModel post = new ObjectModel();
                     post.TypeObject = "post";
                     post.IdObject = Int32.Parse(tbId.Text);
-                    OpenPostDetailsCommand = new SwitchViewCommand(post);
-                    btnPost.Command = OpenPostDetailsCommand;
+                    //OpenPostDetailsCommand = new SwitchViewCommand(post);
+                    btnPost.Command = new SwitchViewCommand(post);
 
                     btnPost.CommandParameter = post;
                     btnPost.Cursor = Cursors.Hand;
 
-
                     border.Child = spCard;
-                    //
-                    //Panel.SetZIndex(wrapPanel, 6);
                     wrapPanel.Children.Add(border);
                 }
             }

@@ -40,6 +40,8 @@ namespace MyFlatWPF.ViewModel
                 HomePagePlaceholder = _api.GetHomePagePlaceholder();
             }
 
+            ServiceItems = CreateBoxItems();
+
             BlocksAssignText();
         }
 
@@ -148,6 +150,20 @@ namespace MyFlatWPF.ViewModel
             {
                 _errorServiceChoose = value;
                 OnPropertyChanged(nameof(ErrorServiceChoose));
+            }
+        }
+
+        private List<ComboBoxItem> _serviceItems;
+        public List<ComboBoxItem> ServiceItems
+        {
+            get
+            {
+                return _serviceItems;
+            }
+            set
+            {
+                _serviceItems = value;
+                OnPropertyChanged(nameof(ServiceItems));
             }
         }
 
@@ -375,11 +391,14 @@ namespace MyFlatWPF.ViewModel
 
         private async void Execute(object param)
         {
+            var fieldElements = (object[])param;
             string name = NameInput;
             string email = EmailInput;
             string mobile = MobileInput;
             string serviceName = ServiceChooseItem.Content.ToString();
             string message = MessageInput;
+            TextBlock tbServerError = (TextBlock)fieldElements[5];
+            TextBlock tbOrderSave = (TextBlock)fieldElements[6];
 
             OrderModel order = new OrderModel();
             order.Name = name;
@@ -388,15 +407,15 @@ namespace MyFlatWPF.ViewModel
             order.ServiceName = serviceName;
             order.Message = message;
             order.StatusName = "Recieved";
-            bool resultSendOrder = await SaveOrder(order);
+            bool resultSendOrder = await _api.SaveOrder(order);
 
             if (resultSendOrder)
             {
-                OrderSaved = "Order succesfully accepted";
+                tbOrderSave.Text = "Order succesfully added";
             }
             else
             {
-                ServerError = "API server error";
+                tbServerError.Text = "Server error";
             }
         }
 
@@ -429,22 +448,6 @@ namespace MyFlatWPF.ViewModel
             else return false;
         }
 
-        public async Task<bool> SaveOrder(OrderModel order)
-        {
-            urlRequest = $"{url}" + "OrdersAPI/SaveOrder/" + $"{order}";
-            using (_httpClient = new HttpClient())
-            {
-                _httpClient.DefaultRequestHeaders.Accept.Clear();
-                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                using (response = await _httpClient.PostAsJsonAsync(urlRequest, order))
-                {
-                    apiResponse = await response.Content.ReadAsStringAsync();
-                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
-                }
-            }
-            return apiResponseConvert;
-        }
-
         private void BlocksAssignText()
         {
             LeftCentralAreaText = HomePagePlaceholder.LeftCentralAreaText;
@@ -453,6 +456,24 @@ namespace MyFlatWPF.ViewModel
             BottomAreaContent = HomePagePlaceholder.BottomAreaContent;
         }
 
+        private List<ComboBoxItem> CreateBoxItems()
+        {
+            List<ComboBoxItem> lCbItems = new List<ComboBoxItem>();
+            List<string> lsn = GetServiceNames();
+            foreach(string name in lsn)
+            {
+                ComboBoxItem cbi = new ComboBoxItem();
+                cbi.Content = name;
+                lCbItems.Add(cbi);
+            }
+            return lCbItems;
+        }
 
+        private List<string> GetServiceNames()
+        {
+            List<string> lsn = new List<string>();
+            lsn = _api.GetServiceNames();
+            return lsn;
+        }
     }
 }
