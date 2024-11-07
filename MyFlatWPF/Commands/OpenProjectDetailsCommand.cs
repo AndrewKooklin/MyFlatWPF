@@ -48,9 +48,9 @@ namespace MyFlatWPF.Commands
             //projectDetailView.tbProjectDescription.Text = "";
             //projectDetailView.iProjectImage.Source = "";
 
-            App.ProjectDetailWiew.Visibility = System.Windows.Visibility.Visible;
+            App.ProjectDetailView.Visibility = System.Windows.Visibility.Visible;
 
-            App.MainWindow.ccView = App.ProjectDetailWiew;
+            App.MainWindow.ccView = App.ProjectDetailView;
         }
     }
 }

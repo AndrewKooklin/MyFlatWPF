@@ -24,7 +24,7 @@ namespace MyFlatWPF.ViewModel
         {
             SwitchViewCommand = new SwitchViewCommand(this);
 
-            CurrentView = App.HomeWiew;
+            CurrentView = App.HomeView;
 
             AssignNamesLinks();
 

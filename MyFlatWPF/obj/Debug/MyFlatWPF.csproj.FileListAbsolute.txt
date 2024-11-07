@@ -89,3 +89,7 @@ C:\repos\MyFlatWPF\MyFlatWPF\bin\Debug\Microsoft.Toolkit.Win32.UI.XamlHost.Manag
 C:\repos\MyFlatWPF\MyFlatWPF\bin\Debug\Microsoft.Toolkit.Win32.UI.XamlHost.Managed.xml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\PostDetailView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\PostDetailView.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\LoginView.g.cs
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\RegistrationView.g.cs
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\LoginView.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\RegistrationView.baml

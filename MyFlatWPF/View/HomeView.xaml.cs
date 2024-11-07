@@ -29,8 +29,8 @@ namespace MyFlatWPF.View
         {
             if(sender is TextBox name)
             {
-                App.HomeWiew.tbServerError.Text = "";
-                App.HomeWiew.tbOrderSaved.Text = "";
+                App.HomeView.tbServerError.Text = "";
+                App.HomeView.tbOrderSaved.Text = "";
 
                 if (string.IsNullOrEmpty(name.Text))
                 {
@@ -94,7 +94,7 @@ namespace MyFlatWPF.View
             {
                 ComboBoxItem cbItem = (ComboBoxItem)cb.SelectedItem;
                 string serviceName = cbItem.Content.ToString();
-                App.HomeWiew.cbiService.Content = serviceName;
+                App.HomeView.cbiService.Content = serviceName;
             }
         }
     }

@@ -21,12 +21,12 @@ namespace MyFlatWPF.Commands
                 return false;
             }
 
-            bool result = checkInput.CheckOrderFormFields(App.HomeWiew, parameter);
+            bool result = checkInput.CheckOrderFormFields(App.HomeView, parameter);
             if (!result)
             {
                 return false;
             }
-            App.HomeWiew.btnSendForm.IsEnabled = true;
+            App.HomeView.btnSendForm.IsEnabled = true;
             return true;
         }
 

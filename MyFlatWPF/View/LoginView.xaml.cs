@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace MyFlatWPF.View
 {
     /// <summary>
-    /// Interaction logic for MyFlatWindow.xaml
+    /// Interaction logic for LoginView.xaml
     /// </summary>
-    public partial class MyFlatWindow : Window
+    public partial class LoginView : UserControl
     {
-        public MyFlatWindow()
+        public LoginView()
         {
             InitializeComponent();
         }

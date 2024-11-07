@@ -59,8 +59,8 @@ namespace MyFlatWPF.Commands
                     case "HomePicture":
                     case "btnHome":
                         {
-                            App.HomeWiew.Visibility = System.Windows.Visibility.Visible;
-                            StaticMainViewModel.MainViewModel.CurrentView = App.HomeWiew;
+                            App.HomeView.Visibility = System.Windows.Visibility.Visible;
+                            StaticMainViewModel.MainViewModel.CurrentView = App.HomeView;
                             StaticMainViewModel.MainViewModel.RandomPhrase = 
                                 StaticMainViewModel.MainViewModel.GetHeaderString();
                             break;
@@ -68,16 +68,16 @@ namespace MyFlatWPF.Commands
                     case "btnProjects":
                     case "btnBackToProjects":
                         {
-                            App.ProjectsWiew.Visibility = System.Windows.Visibility.Visible;
-                            StaticMainViewModel.MainViewModel.CurrentView = App.ProjectsWiew;
+                            App.ProjectsView.Visibility = System.Windows.Visibility.Visible;
+                            StaticMainViewModel.MainViewModel.CurrentView = App.ProjectsView;
                             StaticMainViewModel.MainViewModel.RandomPhrase =
                                 StaticMainViewModel.MainViewModel.GetHeaderString();
                             break;
                         }
                     case "btnServices":
                         {
-                            App.ServicesWiew.Visibility = System.Windows.Visibility.Visible;
-                            StaticMainViewModel.MainViewModel.CurrentView = App.ServicesWiew;
+                            App.ServicesView.Visibility = System.Windows.Visibility.Visible;
+                            StaticMainViewModel.MainViewModel.CurrentView = App.ServicesView;
                             StaticMainViewModel.MainViewModel.RandomPhrase =
                                 StaticMainViewModel.MainViewModel.GetHeaderString();
                             break;
@@ -85,24 +85,24 @@ namespace MyFlatWPF.Commands
                     case "btnBlog":
                     case "btnBackToBlog":
                         {
-                            App.BlogWiew.Visibility = System.Windows.Visibility.Visible;
-                            StaticMainViewModel.MainViewModel.CurrentView = App.BlogWiew;
+                            App.BlogView.Visibility = System.Windows.Visibility.Visible;
+                            StaticMainViewModel.MainViewModel.CurrentView = App.BlogView;
                             StaticMainViewModel.MainViewModel.RandomPhrase =
                                 StaticMainViewModel.MainViewModel.GetHeaderString();
                             break;
                         }
                     case "btnContacts":
                         {
-                            App.ContactsWiew.Visibility = System.Windows.Visibility.Visible;
-                            StaticMainViewModel.MainViewModel.CurrentView = App.ContactsWiew;
+                            App.ContactsView.Visibility = System.Windows.Visibility.Visible;
+                            StaticMainViewModel.MainViewModel.CurrentView = App.ContactsView;
                             StaticMainViewModel.MainViewModel.RandomPhrase =
                                 StaticMainViewModel.MainViewModel.GetHeaderString();
                             break;
                         }
                     case "btnLogIn":
                         {
-
-
+                            App.LoginView.Visibility = System.Windows.Visibility.Visible;
+                            StaticMainViewModel.MainViewModel.CurrentView = App.LoginView;
                             StaticMainViewModel.MainViewModel.RandomPhrase =
                                 StaticMainViewModel.MainViewModel.GetHeaderString();
                             break;
@@ -138,12 +138,12 @@ namespace MyFlatWPF.Commands
                         {
                             ProjectModel project = new ProjectModel();
                             project = _api.GetProjectById(id);
-                            App.ProjectDetailWiew.tbProjectName.Text = project.ProjectHeader;
-                            App.ProjectDetailWiew.tbProjectDescription.Text = project.ProjectDescription;
-                            App.ProjectDetailWiew.iProjectImage.Source = ic.ByteArrayToImage(project.ProjectImage);
+                            App.ProjectDetailView.tbProjectName.Text = project.ProjectHeader;
+                            App.ProjectDetailView.tbProjectDescription.Text = project.ProjectDescription;
+                            App.ProjectDetailView.iProjectImage.Source = ic.ByteArrayToImage(project.ProjectImage);
 
-                            App.ProjectDetailWiew.Visibility = System.Windows.Visibility.Visible;
-                            StaticMainViewModel.MainViewModel.CurrentView = App.ProjectDetailWiew;
+                            App.ProjectDetailView.Visibility = System.Windows.Visibility.Visible;
+                            StaticMainViewModel.MainViewModel.CurrentView = App.ProjectDetailView;
                             break;
                         }
                     case "post":

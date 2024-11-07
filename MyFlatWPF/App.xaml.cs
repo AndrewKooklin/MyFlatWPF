@@ -20,23 +20,23 @@ namespace MyFlatWPF
 
         //public static MainWindowViewModel MainWindowViewModel = new MainWindowViewModel();
 
-        public static HomeView HomeWiew = new HomeView();
+        public static HomeView HomeView = new HomeView();
 
         public static ManagementWindow ManagementWindow = new ManagementWindow();
 
-        public static ProjectsView ProjectsWiew = new ProjectsView();
+        public static ProjectsView ProjectsView = new ProjectsView();
 
-        public static ProjectDetailView ProjectDetailWiew = new ProjectDetailView();
+        public static ProjectDetailView ProjectDetailView = new ProjectDetailView();
 
         public static PostDetailView PostDetailView = new PostDetailView();
 
-        public static ServicesView ServicesWiew = new ServicesView();
+        public static ServicesView ServicesView = new ServicesView();
 
-        public static BlogView BlogWiew = new BlogView();
+        public static BlogView BlogView = new BlogView();
 
-        public static ContactsView ContactsWiew = new ContactsView();
+        public static ContactsView ContactsView = new ContactsView();
 
-        //public static LoginWindow LoginWindow = new LoginWindow();
+        public static LoginView LoginView = new LoginView();
 
         //public static RegistrationWindow RegistrationWindow = new RegistrationWindow();
 
