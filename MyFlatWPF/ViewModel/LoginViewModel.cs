@@ -31,23 +31,25 @@ namespace MyFlatWPF.ViewModel
                 return false;
             }
             var values = (object[])param;
-            string eMailValue = values[0].ToString();
+            TextBox tbEmail = (TextBox)values[0];
+            string tbEmailValue = tbEmail.Text;
             PasswordBox passwordBox = (PasswordBox)values[1];
             string passwordValue = passwordBox.Password;
             Label lErrorEmailBox = (Label)values[2];
             Label lErrorPasswordBox = (Label)values[3];
             Label lErrorLogIn = (Label)values[4];
 
-            if (String.IsNullOrEmpty(eMailValue))
+            if (String.IsNullOrEmpty(tbEmailValue))
             {
-                lErrorEmailBox.Content = "Fill field \"EMail!\"";
+                lErrorEmailBox.Content = "Fill field \"EMail\"";
                 return false;
             }
-            else if (!String.IsNullOrEmpty(eMailValue))
+            else if (!String.IsNullOrEmpty(tbEmailValue))
             {
+                lErrorEmailBox.Content = "";
                 try
                 {
-                    var mailAddress = new MailAddress(eMailValue);
+                    var mailAddress = new MailAddress(tbEmailValue);
                 }
                 catch
                 {
@@ -79,29 +81,37 @@ namespace MyFlatWPF.ViewModel
             }
 
             var values = (object[])param;
-            string eMailValue = values[0].ToString();
+            TextBox tbEmail = (TextBox)values[0];
+            string tbEmailValue = tbEmail.Text;
             PasswordBox passwordBox = (PasswordBox)values[1];
             string passwordValue = passwordBox.Password;
             Label lErrorLogIn = (Label)values[4];
 
             LoginModel model = new LoginModel
             {
-                Email = eMailValue,
+                Email = tbEmailValue,
                 Password = passwordValue
             };
 
             bool userExist = await _api.CheckUserToDB(model);
             if (!userExist)
             {
+                tbEmail.Text = "";
+                passwordBox.Password = "";
+
                 lErrorLogIn.Content = "User not found, check login" +
                                       "\nand password or register.";
             }
             else
             {
+                tbEmail.Text = "";
+                passwordBox.Password = "";
                 lErrorLogIn.Content = "";
                 App.MainWindow.btnUserName.Content = model.Email;
                 App.MainWindow.btnLogIn.Visibility = System.Windows.Visibility.Collapsed;
+                App.MainWindow.btnRegister.Visibility = System.Windows.Visibility.Collapsed;
                 App.MainWindow.btnUserName.Visibility = System.Windows.Visibility.Visible;
+                App.MainWindow.btnLogOut.Visibility = System.Windows.Visibility.Visible;
                 userRoles = await _api.GetUserRoles(model);
                 if (userRoles != null && userRoles.Contains("Admin"))
                 {

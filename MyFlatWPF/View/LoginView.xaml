@@ -48,7 +48,7 @@
                 <Setter Property="Width" Value="255"/>
                 <Setter Property="Height" Value="25"/>
                 <Setter Property="Margin" Value="0"/>
-                <Setter Property="Foreground" Value="Yellow"/>
+                <Setter Property="Foreground" Value="Red"/>
                 <Setter Property="Padding" Value="0 0 0 5"/>
             </Style>
 
@@ -239,7 +239,7 @@
                Width="265"
                Height="45"
                FontSize="15"
-               Foreground="Yellow"
+               Foreground="Red"
                Padding="0 0 0 5"
                Margin="0"/>
         <!--Content="{Binding CheckUserLabelContent, Source={StaticResource MainWindowViewModel}}"-->
@@ -265,7 +265,7 @@
                 <!--Command="{Binding LogInCommand, Source={StaticResource MainWindowViewModel}}"-->
                 <Button.CommandParameter>
                     <MultiBinding Converter="{StaticResource MultiValueConverter}">
-                        <Binding Path="Text" ElementName="tbEMail"/>
+                        <Binding ElementName="tbEMail"/>
                         <Binding ElementName="tbPassword"/>
                         <Binding ElementName="lErrorEMailBox"/>
                         <Binding ElementName="lErrorPasswordBox"/>

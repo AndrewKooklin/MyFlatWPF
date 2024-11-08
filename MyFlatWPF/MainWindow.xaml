@@ -238,6 +238,24 @@
                 </Button>
             </Border>
 
+            <Border x:Name="bUserName"
+                    BorderBrush="White"
+                    BorderThickness="0 0 0 0">
+                <Button x:Name="btnUserName"
+                    Content="{Binding UserName, Source={StaticResource MainWindowViewModel}}"
+                    Visibility="Collapsed"
+                    Cursor="Arrow"
+                    FontSize="15"
+                    Foreground="Coral"
+                    Background="White"
+                    Height="24"
+                    Margin="0 0 0 0"
+                    BorderThickness="0 0 0 0"
+                    BorderBrush="White">
+
+                </Button>
+            </Border>
+
             <Border x:Name="bRegister"
                     BorderBrush="White"
                     BorderThickness="0 0 0 0">
@@ -259,24 +277,6 @@
                 </Button>
             </Border>
 
-            <Border x:Name="bUserName"
-                    BorderBrush="White"
-                    BorderThickness="0 0 0 0">
-                <Button x:Name="btnUserName"
-                    Content="{Binding UserName, Source={StaticResource MainWindowViewModel}}"
-                    Visibility="Collapsed"
-                    Cursor="Arrow"
-                    FontSize="15"
-                    Foreground="Coral"
-                    Background="White"
-                    Height="24"
-                    Margin="0 0 0 0"
-                    BorderThickness="0 0 0 0"
-                    BorderBrush="White">
-
-                </Button>
-            </Border>
-
             <Border x:Name="bLogOut"
                     BorderBrush="White"
                     BorderThickness="0 0 0 0">
@@ -292,7 +292,9 @@
                     BorderThickness="0 0 0 0"
                     BorderBrush="White"
                     Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
-                    CommandParameter="{Binding Name, ElementName=btnLogOut}">
+                    CommandParameter="{Binding Name, ElementName=btnLogOut}"
+                    MouseEnter="btn_mouseEnter"
+                    MouseLeave="menu_mouseLeave">
 
                 </Button>
             </Border>
