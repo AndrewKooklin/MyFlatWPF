@@ -4,10 +4,247 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyFlatWPF.View"
+             xmlns:viewModel="clr-namespace:MyFlatWPF.ViewModel"
+             xmlns:help="clr-namespace:MyFlatWPF.HelpMethods"
              mc:Ignorable="d" 
              d:DesignHeight="600" 
              d:DesignWidth="678">
-    <Grid>
+    
+    <Grid x:Name="gRegistration">
+
+        <Grid.Resources>
+
+            <viewModel:MainWindowViewModel x:Key="MainWindowViewModel"/>
+            <viewModel:RegistrationViewModel x:Key="RegistrationViewModel"/>
+            <help:MyMultiValueConverter x:Key="MultiValueConverter"/>
             
+            <Style x:Key="RegistrationLabel" TargetType="{x:Type Label}">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+            </Style>
+
+            <Style x:Key="TextBoxStyle" BasedOn="{x:Null}" TargetType="{x:Type TextBox}">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="Height" Value="37"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="Padding" Value="2 3 2 3"/>
+                <Setter Property="Width" Value="230"/>
+                <Setter Property="BorderThickness" Value="0.56"/>
+                <Setter Property="BorderBrush" Value="#34b4ff"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Border x:Name="bg" 
+                                    BorderBrush="#34b4ff" 
+                                    BorderThickness="1"
+                                    Background="White"
+                                    CornerRadius="3">
+                                <ScrollViewer x:Name="PART_ContentHost" 
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Opacity" 
+                                            TargetName="bg" 
+                                            Value="0.56"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="BorderBrush" 
+                                            TargetName="bg" 
+                                            Value="#3386ff"/>
+                                    <Setter Property="BorderThickness" 
+                                            TargetName="bg" 
+                                            Value="1"/>
+                                </Trigger>
+                                <Trigger Property="IsFocused" Value="True">
+                                    <Setter Property="BorderBrush" 
+                                            TargetName="bg" 
+                                            Value="#3386ff"/>
+                                    <Setter Property="BorderThickness" 
+                                            TargetName="bg" 
+                                            Value="2"/>
+                                </Trigger>
+
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="RegistrationPasswordBox" TargetType="{x:Type PasswordBox}">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="Height" Value="37"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+            </Style>
+            <Style x:Key="RegistrationButton" TargetType="{x:Type Button}">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="Height" Value="33"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Background" Value="#34b4ff"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Padding" Value="0 0 0 5"/>
+            </Style>
+
+            <Style x:Key="LabelInputError" TargetType="{x:Type Label}">
+                <Setter Property="VerticalAlignment" Value="Top"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="Width" Value="255"/>
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="Foreground" Value="Red"/>
+                <Setter Property="Padding" Value="0 0 0 0"/>
+            </Style>
+
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.33*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.7*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.ColumnSpan="2"
+               Content="Registration form" 
+               HorizontalAlignment="Center"
+               FontSize="25"
+               FontWeight="SemiBold"
+               Margin="160,10,0,0" 
+               VerticalAlignment="Top" 
+               Width="272"
+               Height="50"/>
+        <Label x:Name="lErrorEMail"
+               Grid.Row="1"
+               Grid.Column="1"
+               Content=""
+               Style="{StaticResource LabelInputError}"/>
+        <Label Content="EMail"
+               Grid.Row="2"
+               Style="{StaticResource RegistrationLabel}" 
+               Width="73"/>
+        <Label x:Name="lErrorPassword"
+               Grid.Row="3"
+               Grid.Column="1"
+               Content=""
+               Style="{StaticResource LabelInputError}"/>
+        <Label Content="Password" 
+               Grid.Row="4"
+               Style="{StaticResource RegistrationLabel}" 
+               Width="107"/>
+        <Label x:Name="lErrorConfirmPassword"
+               Grid.Row="5"
+               Grid.Column="1"
+               Content=""
+               Style="{StaticResource LabelInputError}"/>
+        <Label Content="Confirm password" 
+               Grid.Row="6"
+               Style="{StaticResource RegistrationLabel}" 
+               Width="185"/>
+        <TextBox x:Name="tbEMail"
+                 Grid.Row="2"
+                 Grid.Column="1"
+                 Style="{StaticResource TextBoxStyle}" 
+                 Width="230"/>
+        <TextBox x:Name="tbPassword"
+                 Grid.Row="4"
+                 Grid.Column="1"
+                 Style="{StaticResource TextBoxStyle}" 
+                 Width="230"/>
+
+        <TextBox x:Name="tbConfirmPassword"
+                     Grid.Row="6"
+                     Grid.Column="1"
+                     Style="{StaticResource TextBoxStyle}" 
+                     Width="230"/>
+
+        <!--<CheckBox x:Name="chbRememberMe"
+                  Grid.Row="7"
+                  Grid.Column="1"
+                  HorizontalAlignment="Left" 
+                  VerticalAlignment="Center"
+                  BorderThickness="2"
+                  BorderBrush="Black"
+                  Margin="20,10,0,0"
+                  Height="25" 
+                  Width="25"
+                  IsChecked="{Binding CkeckRememberMe, Source={StaticResource RegistrationViewModel}}"/>
+        <Label Content="Remember me"
+               Grid.Row="7"
+               Grid.Column="1"
+               FontSize="20"
+               Margin="50,0,0,0"
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Center" 
+               Width="151"/>-->
+
+        <Label x:Name="lErrorRegistration"
+               Content=""
+               Grid.Row="7"
+               Grid.Column="1"
+               Height="50"
+               Width="240"
+               HorizontalAlignment="Left"
+               FontSize="15"
+               Foreground="Yellow"/>
+
+        <StackPanel
+            Grid.Row="8"
+            Grid.Column="1"
+            Orientation="Horizontal"
+            VerticalAlignment="Top">
+            <Button x:Name="btnRedirectToLogin"
+                Content="Log in"  
+                Margin="0,0,0,0"
+                Style="{StaticResource RegistrationButton}" 
+                Width="80"
+                Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}" 
+                CommandParameter="{Binding Name, ElementName=btnRedirectToLogin}">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="3"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            
+            <Button x:Name="btnRegistration"
+                Content="Register" 
+                Margin="30,0,0,0"
+                Style="{StaticResource RegistrationButton}"   
+                Width="118"
+                Command="{Binding RegisterCommand, Source={StaticResource RegistrationViewModel}}">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="3"/>
+                    </Style>
+                </Button.Resources>
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource MultiValueConverter}">
+                        <Binding ElementName="tbEMail"/>
+                        <Binding ElementName="tbPassword"/>
+                        <Binding ElementName="tbConfirmPassword"/>
+                        <Binding ElementName="lErrorEMail"/>
+                        <Binding ElementName="lErrorPassword"/>
+                        <Binding ElementName="lErrorConfirmPassword"/>
+                        <Binding ElementName="lErrorRegistration"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+            </Button>
+
+        </StackPanel>
+
     </Grid>
 </UserControl>

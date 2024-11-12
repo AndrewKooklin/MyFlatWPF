@@ -14,6 +14,7 @@
         <Grid.Resources>
 
             <viewModel:LoginViewModel x:Key="LoginViewModel"/>
+            <viewModel:MainWindowViewModel x:Key="MainWindowViewModel"/>
             <help:MyMultiValueConverter x:Key="MultiValueConverter"/>
 
             <Style x:Key="LogInLabel" TargetType="{x:Type Label}">
@@ -21,6 +22,7 @@
                 <Setter Property="VerticalAlignment" Value="Center"/>
                 <Setter Property="HorizontalAlignment" Value="Right"/>
             </Style>
+            
             <Style x:Key="LogInButton" TargetType="{x:Type Button}">
                 <Setter Property="FontSize" Value="20"/>
                 <Setter Property="Height" Value="33"/>
@@ -262,7 +264,6 @@
                 <Button.Command>
                     <Binding Path="LoginCommand" Source="{StaticResource LoginViewModel}"/>
                 </Button.Command>
-                <!--Command="{Binding LogInCommand, Source={StaticResource MainWindowViewModel}}"-->
                 <Button.CommandParameter>
                     <MultiBinding Converter="{StaticResource MultiValueConverter}">
                         <Binding ElementName="tbEMail"/>
@@ -274,18 +275,20 @@
                 </Button.CommandParameter>
             </Button>
 
-            <Button Content="Registration" 
+            <Button x:Name="btnRedirectToRegistration"
+                Content="Registration" 
                     Margin="20,0,0,12" 
                     Width="128" 
-                    Style="{StaticResource LogInButton}">
+                    Style="{StaticResource LogInButton}"
+                    Command="{Binding SwitchViewCommand, 
+                              Source={StaticResource MainWindowViewModel}}"
+                    CommandParameter="{Binding Name, ElementName=btnRedirectToRegistration}">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="3"/>
                     </Style>
                 </Button.Resources>
             </Button>
-            <!--Command="{Binding RedirectRegistrationCommand, Source={StaticResource MainWindowViewModel}}" 
-                    CommandParameter="{Binding ElementName=window, Mode=OneWay}"-->
         </StackPanel>
 
     </Grid>

@@ -38,6 +38,8 @@ namespace MyFlatWPF
 
         public static LoginView LoginView = new LoginView();
 
+        public static RegistrationView RegistrationView = new RegistrationView();
+
         //public static RegistrationWindow RegistrationWindow = new RegistrationWindow();
 
 

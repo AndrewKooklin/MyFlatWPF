@@ -253,6 +253,5 @@ namespace MyFlatWPF.ViewModel
 
         public ICommand SwitchViewCommand { get; set; }
 
-        
     }
 }

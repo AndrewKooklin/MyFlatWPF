@@ -100,6 +100,7 @@ namespace MyFlatWPF.Commands
                             break;
                         }
                     case "btnLogIn":
+                    case "btnRedirectToLogin":
                         {
                             App.LoginView.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.LoginView;
@@ -108,9 +109,10 @@ namespace MyFlatWPF.Commands
                             break;
                         }
                     case "btnRegister":
+                    case "btnRedirectToRegistration":
                         {
-
-
+                            App.RegistrationView.Visibility = System.Windows.Visibility.Visible;
+                            StaticMainViewModel.MainViewModel.CurrentView = App.RegistrationView;
                             StaticMainViewModel.MainViewModel.RandomPhrase =
                                 StaticMainViewModel.MainViewModel.GetHeaderString();
                             break;

@@ -168,6 +168,7 @@
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\ProjectsViewModel.cs" />
+    <Compile Include="ViewModel\RegistrationViewModel.cs" />
     <Compile Include="ViewModel\ServicesViewModel.cs" />
     <Compile Include="ViewModel\StaticMainViewModel.cs" />
     <Compile Include="View\BlogView.xaml.cs">
