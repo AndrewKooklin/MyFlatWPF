@@ -72,5 +72,16 @@ namespace MyFlatWPF.Data.Repositories.API
 
             return apiResponseConvert;
         }
+
+        public async void LogoutUser()
+        {
+            urlRequest = $"{url}" + "LogoutAPI/LogoutUser";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                await _httpClient.GetAsync(urlRequest);
+            }
+        }
     }
 }

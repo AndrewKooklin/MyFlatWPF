@@ -117,14 +117,6 @@ namespace MyFlatWPF.Commands
                                 StaticMainViewModel.MainViewModel.GetHeaderString();
                             break;
                         }
-                    case "btnLogOut":
-                        {
-
-
-                            StaticMainViewModel.MainViewModel.RandomPhrase =
-                                StaticMainViewModel.MainViewModel.GetHeaderString();
-                            break;
-                        }
                     default: break;
                 }
             }

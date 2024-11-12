@@ -246,10 +246,12 @@
                     Visibility="Collapsed"
                     Cursor="Arrow"
                     FontSize="15"
+                    FontWeight="SemiBold"
                     Foreground="Coral"
                     Background="White"
                     Height="24"
                     Margin="0 0 0 0"
+                    Padding="0 2 0 0"
                     BorderThickness="0 0 0 0"
                     BorderBrush="White">
 
@@ -288,10 +290,10 @@
                     Foreground="Black"
                     Background="White"
                     Height="24"
-                    Margin="0 0 0 0"
+                    Margin="3 0 0 0"
                     BorderThickness="0 0 0 0"
                     BorderBrush="White"
-                    Command="{Binding SwitchViewCommand, Source={StaticResource MainWindowViewModel}}"
+                    Command="{Binding LogoutCommand, Source={StaticResource MainWindowViewModel}}"
                     CommandParameter="{Binding Name, ElementName=btnLogOut}"
                     MouseEnter="btn_mouseEnter"
                     MouseLeave="menu_mouseLeave">

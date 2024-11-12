@@ -24,6 +24,8 @@ namespace MyFlatWPF.ViewModel
         {
             SwitchViewCommand = new SwitchViewCommand(this);
 
+            LogoutCommand = new LogoutCommand();
+
             CurrentView = App.HomeView;
 
             AssignNamesLinks();
@@ -252,6 +254,8 @@ namespace MyFlatWPF.ViewModel
         }
 
         public ICommand SwitchViewCommand { get; set; }
+
+        public ICommand LogoutCommand { get; set; }
 
     }
 }

@@ -114,6 +114,9 @@ namespace MyFlatWPF.ViewModel
                 App.MainWindow.btnRegister.Visibility = System.Windows.Visibility.Collapsed;
                 App.MainWindow.lUserName.Visibility = System.Windows.Visibility.Visible;
                 App.MainWindow.btnLogOut.Visibility = System.Windows.Visibility.Visible;
+                App.LoginView.btnLogin.IsEnabled = false;
+                App.RegistrationView.btnRegistration.IsEnabled = false;
+
                 userRoles = await _api.GetUserRoles(model);
                 if (userRoles != null && userRoles.Contains("Admin"))
                 {
