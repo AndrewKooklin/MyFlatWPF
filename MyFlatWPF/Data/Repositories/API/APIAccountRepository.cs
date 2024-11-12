@@ -55,5 +55,22 @@ namespace MyFlatWPF.Data.Repositories.API
 
             return userRoles;
         }
+
+        public async Task<bool> CreateUser(RegisterModel model)
+        {
+            urlRequest = $"{url}" + "RegisterAPI/CreateUser/" + $"{model}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, model))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
     }
 }

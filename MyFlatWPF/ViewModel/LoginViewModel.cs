@@ -107,10 +107,12 @@ namespace MyFlatWPF.ViewModel
                 tbEmail.Text = "";
                 passwordBox.Password = "";
                 lErrorLogIn.Content = "";
-                App.MainWindow.btnUserName.Content = model.Email;
+                string[] email = model.Email.Split('@');
+                string userName = email[0];
+                App.MainWindow.lUserName.Content = userName;
                 App.MainWindow.btnLogIn.Visibility = System.Windows.Visibility.Collapsed;
                 App.MainWindow.btnRegister.Visibility = System.Windows.Visibility.Collapsed;
-                App.MainWindow.btnUserName.Visibility = System.Windows.Visibility.Visible;
+                App.MainWindow.lUserName.Visibility = System.Windows.Visibility.Visible;
                 App.MainWindow.btnLogOut.Visibility = System.Windows.Visibility.Visible;
                 userRoles = await _api.GetUserRoles(model);
                 if (userRoles != null && userRoles.Contains("Admin"))

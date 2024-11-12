@@ -118,14 +118,13 @@
             <ColumnDefinition Width="1.5*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.ColumnSpan="2"
+        <Label Grid.Column="1"
                Content="Registration form" 
-               HorizontalAlignment="Center"
+               HorizontalAlignment="Left"
                FontSize="25"
                FontWeight="SemiBold"
-               Margin="160,10,0,0" 
-               VerticalAlignment="Top" 
-               Width="272"
+               Margin="0,30,0,40" 
+               VerticalAlignment="Top"
                Height="50"/>
         <Label x:Name="lErrorEMail"
                Grid.Row="1"
@@ -191,7 +190,7 @@
                VerticalAlignment="Center" 
                Width="151"/>-->
 
-        <Label x:Name="lErrorRegistration"
+        <Label x:Name="lResultRegistration"
                Content=""
                Grid.Row="7"
                Grid.Column="1"
@@ -199,7 +198,7 @@
                Width="240"
                HorizontalAlignment="Left"
                FontSize="15"
-               Foreground="Yellow"/>
+               Foreground="Green"/>
 
         <StackPanel
             Grid.Row="8"
@@ -239,7 +238,7 @@
                         <Binding ElementName="lErrorEMail"/>
                         <Binding ElementName="lErrorPassword"/>
                         <Binding ElementName="lErrorConfirmPassword"/>
-                        <Binding ElementName="lErrorRegistration"/>
+                        <Binding ElementName="lResultRegistration"/>
                     </MultiBinding>
                 </Button.CommandParameter>
             </Button>
