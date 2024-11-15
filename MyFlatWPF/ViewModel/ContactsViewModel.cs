@@ -85,7 +85,7 @@ namespace MyFlatWPF.ViewModel
                     UseShellExecute = true,
                 };
                 System.Diagnostics.Process.Start(sInfo);
-                //open link to browser
+                //open link to browser by default
             }
         }
     }

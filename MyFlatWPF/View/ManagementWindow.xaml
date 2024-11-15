@@ -5,8 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyFlatWPF.View"
         mc:Ignorable="d"
-        Title="ManagementWindow" Height="450" Width="800">
+        Title="Management"
+        WindowStartupLocation="CenterScreen" 
+        Height="650" 
+        Width="800">
+
     <Grid>
-        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15*" MinWidth="150"></ColumnDefinition>
+            <ColumnDefinition Width="50*" MinWidth="500"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel x:Name="spLeftMenu"
+                    Orientation="Vertical"
+                    Background="#1b2a47"
+                    Width="180"
+                    HorizontalAlignment="Center">
+
+            <Image x:Name="iLinkToHome"
+               Source="../Images/kind.png"
+               Width="60"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Center"
+               Margin="0 10 0 20"
+               Cursor="Hand">
+            </Image>
+
+            <Expander x:Name="expDesktop"
+                      Header="Desktop"
+                      Foreground="White"
+                      FontSize="22"
+                      Margin="10 0 0 0"
+                      HorizontalAlignment="Left">
+                <StackPanel>
+                    <Button x:Name="btnOrderBServices"
+                        Content="OrderByServices"
+                        FontSize="20"
+                        Foreground="White"
+                        Background="Transparent"
+                        HorizontalAlignment="Left">
+                    </Button>
+                    <Button x:Name="btnAllOrders"
+                        Content="All Orders"
+                        FontSize="20"
+                        Foreground="White"
+                        Background="Transparent"
+                        HorizontalAlignment="Left">
+                    </Button>
+                </StackPanel>
+            </Expander>
+            
+            
+
+        </StackPanel>
+
+
     </Grid>
 </Window>
