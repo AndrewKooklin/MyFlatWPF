@@ -155,6 +155,7 @@
     <Compile Include="HelpMethods\ImageConverter.cs" />
     <Compile Include="HelpMethods\ObjectModel.cs" />
     <Compile Include="Model\BaseModel.cs" />
+    <Compile Include="Model\ContactModel.cs" />
     <Compile Include="Model\HomePagePlaceholderModel.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\OrderModel.cs" />
@@ -163,9 +164,11 @@
     <Compile Include="Model\RandomPhraseModel.cs" />
     <Compile Include="Model\RegisterModel.cs" />
     <Compile Include="Model\ServiceModel.cs" />
+    <Compile Include="Model\SocialModel.cs" />
     <Compile Include="Model\TopMenuLinkNameModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\BlogViewModel.cs" />
+    <Compile Include="ViewModel\ContactsViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />

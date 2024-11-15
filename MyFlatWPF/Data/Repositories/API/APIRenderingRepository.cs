@@ -179,5 +179,37 @@ namespace MyFlatWPF.Data.Repositories.API
 
             return post;
         }
+
+        public ContactModel GetContactsFromDB()
+        {
+            ContactModel contacts = new ContactModel();
+
+            urlRequest = $"{url}" + "ContactsPageEditAPI/GetContactsFromDB";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                contacts = JsonConvert.DeserializeObject<ContactModel>(result);
+            }
+
+            return contacts;
+        }
+
+        public List<SocialModel> GetSocialLinksFromDB()
+        {
+            List<SocialModel> social = new List<SocialModel>();
+
+            urlRequest = $"{url}" + "ContactsPageEditAPI/GetSocialLinksFromDB";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                social = JsonConvert.DeserializeObject<List<SocialModel>>(result);
+            }
+
+            return social;
+        }
     }
 }

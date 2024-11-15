@@ -4,14 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyFlatWPF.View"
+             xmlns:viewModel="clr-namespace:MyFlatWPF.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="600" 
              d:DesignWidth="678">
 
-    <Grid>
+    <Grid x:Name="gContacts">
         <Grid.Resources>
 
             <!--<viewModel:MainWindowViewModel x:Key="MainWindowViewModel"/>-->
+            <!--<viewModel:ContactsViewModel x:Key="ContactsViewModel"/>-->
 
             <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
                 <Setter Property="FontSize" Value="16"/>
@@ -85,7 +87,7 @@
             </TextBlock>
 
             <TextBlock x:Name="tbaddressDescription"
-                       Text="123 Street, Krasnoyarsk, Russia"
+                       Text="{Binding Address}"
                        FontSize="14"
                        TextWrapping="Wrap"
                        Margin="20 10 0 0">
@@ -97,7 +99,7 @@
                    Margin="15 0 0 0"
                    Background="Gray"
                    Height="1">
-            
+
         </TextBlock>
 
         <Image x:Name="iPhoneImage"
@@ -124,7 +126,7 @@
             </TextBlock>
 
             <TextBlock x:Name="tbPhone"
-                       Text="+7 012 345 67 89"
+                       Text="{Binding Phone}"
                        FontSize="14"
                        TextWrapping="Wrap"
                        Margin="20 10 0 0">
@@ -162,7 +164,7 @@
             </TextBlock>
 
             <TextBlock x:Name="tbEmail"
-                       Text="info@example.com"
+                       Text="{Binding Email}"
                        FontSize="14"
                        TextWrapping="Wrap"
                        Margin="20 10 0 0">
@@ -182,12 +184,12 @@
                     Grid.ColumnSpan="2"
                     Orientation="Horizontal"
                     Margin="0 30 0 0">
-            <TextBlock x:Name="tbTelegram"
+            <!--<TextBlock x:Name="tbTelegram"
                        Margin="30 0 0 0"
                        Height="36"
                        Width="36">
             <Hyperlink x:Name="hlTelegram"
-                       NavigateUri="https://telegram.org"
+                       NavigateUri="https://telegram.org/"
                        TextDecorations="none"
                        ToolTip="Navigate to Telegram web"
                        Cursor="Hand">
@@ -212,7 +214,7 @@
                        Height="36"
                        Width="36">
             <Hyperlink x:Name="hlYouTube"
-                       NavigateUri="https://www.youtube.com"
+                       NavigateUri="https://www.youtube.com/"
                        TextDecorations="none"
                        ToolTip="Navigate to YouTube"
                        Cursor="Hand">
@@ -237,7 +239,7 @@
                        Height="36"
                        Width="36">
             <Hyperlink x:Name="hlInstagram"
-                       NavigateUri="https://www.instagram.com"
+                       NavigateUri="https://www.instagram.com/"
                        TextDecorations="none"
                        ToolTip="Navigate to Instagram"
                        Cursor="Hand">
@@ -255,7 +257,7 @@
                     </Border.Background>
                 </Border>
             </Hyperlink>
-            </TextBlock>
+            </TextBlock>-->
 
         </StackPanel>
 
@@ -266,7 +268,7 @@
                Source="C:\repos\MyFlatWPF\MyFlatWPF\Images\google-map-address.jpg"
                VerticalAlignment="Top"
                Margin="25 0 10 0">
-            
+
         </Image>
 
     </Grid>
