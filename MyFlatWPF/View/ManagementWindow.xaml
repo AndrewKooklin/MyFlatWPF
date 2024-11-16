@@ -10,54 +10,177 @@
         Height="650" 
         Width="800">
 
-    <Grid>
+    <Grid x:Name="gManagement">
 
+        <Grid.Resources>
+
+            <Style x:Key="ExpanderStyle" TargetType="{x:Type Expander}">
+                <Setter Property="FlowDirection" Value="RightToLeft"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="BorderThickness" Value="0 0 0 0"/>
+            </Style>
+
+            <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="BorderThickness" Value="0 0 0 0"/>
+            </Style>
+
+            <Style x:Key="HoverButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="OverridesDefaultStyle" Value="True"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*" MaxHeight="1"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15*" MinWidth="150"></ColumnDefinition>
             <ColumnDefinition Width="50*" MinWidth="500"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
+        <Border Grid.ColumnSpan="2"
+                Background="Black"
+                Height="1">
+        </Border>
+
         <StackPanel x:Name="spLeftMenu"
+                    Grid.Row="1"
                     Orientation="Vertical"
                     Background="#1b2a47"
                     Width="180"
-                    HorizontalAlignment="Center">
+                    Margin="0"
+                    HorizontalAlignment="Left">
 
             <Image x:Name="iLinkToHome"
                Source="../Images/kind.png"
                Width="60"
                VerticalAlignment="Top"
                HorizontalAlignment="Center"
-               Margin="0 10 0 20"
+               Margin="0 15 0 20"
                Cursor="Hand">
             </Image>
 
-            <Expander x:Name="expDesktop"
+            <StackPanel x:Name="spMenuLinks"
+                        Margin="20 20 0 0"
+                        Orientation="Vertical">
+                <Expander x:Name="expDesktop"
                       Header="Desktop"
-                      Foreground="White"
-                      FontSize="22"
-                      Margin="10 0 0 0"
-                      HorizontalAlignment="Left">
-                <StackPanel>
-                    <Button x:Name="btnOrderBServices"
-                        Content="OrderByServices"
-                        FontSize="20"
-                        Foreground="White"
-                        Background="Transparent"
-                        HorizontalAlignment="Left">
-                    </Button>
-                    <Button x:Name="btnAllOrders"
+                      Padding="-10 0 0 0"
+                      Style="{StaticResource ExpanderStyle}">
+                    <StackPanel x:Name="spDesktopLinks">
+                        <Border BorderThickness="0 0 0 0"
+                                Background="Transparent">
+                            <Button x:Name="btnOrdersBServices"
+                        Content="Orders By Services"
+                        Margin="-47 10 0 0"
+                        Style="{StaticResource ButtonStyle}"
+                        MouseEnter="btn_mouseEnter"
+                        MouseLeave="btn_mouseLeave">
+                            </Button>
+                        </Border>
+                        <Border BorderThickness="0 0 0 0">
+                            <Button x:Name="btnAllOrders"
                         Content="All Orders"
-                        FontSize="20"
-                        Foreground="White"
-                        Background="Transparent"
-                        HorizontalAlignment="Left">
-                    </Button>
-                </StackPanel>
-            </Expander>
-            
-            
+                        Margin="10 10 0 0"
+                        Style="{StaticResource ButtonStyle}">
+                            </Button>
+                        </Border>
+                    </StackPanel>
+                </Expander>
 
+                <Button x:Name="btnHome"
+                        Content="Home"
+                        Margin="0 10 0 0"
+                        Style="{StaticResource ButtonStyle}">
+                </Button>
+
+                <Button x:Name="btnProjects"
+                        Content="Projects"
+                        Margin="0 10 0 0"
+                        Style="{StaticResource ButtonStyle}">
+                </Button>
+
+                <Button x:Name="btnServices"
+                        Content="Services"
+                        Margin="0 10 0 0"
+                        Style="{StaticResource ButtonStyle}">
+                </Button>
+
+                <Button x:Name="btnBlog"
+                        Content="Blog"
+                        Margin="0 10 0 0"
+                        Style="{StaticResource ButtonStyle}">
+                </Button>
+
+                <Button x:Name="btnContacts"
+                        Content="Contacts"
+                        Margin="0 10 0 0"
+                        Style="{StaticResource ButtonStyle}">
+                </Button>
+
+                <Expander x:Name="expUsers"
+                      Header="Users "
+                      Width="157"
+                      Margin="0 10 0 0"
+                      Padding="92 0 0 0"
+                      Style="{StaticResource ExpanderStyle}">
+                    <StackPanel x:Name="spUsersLinks">
+                        <Button x:Name="btnAllUsers"
+                        Content="All Users"
+                        Margin="-7,10,0,0"
+                        Style="{StaticResource ButtonStyle}">
+                        </Button>
+                        <Button x:Name="btnAddRoleToUser"
+                        Content="Add Role User"
+                        Style="{StaticResource ButtonStyle}" 
+                        Margin="-72,10,0,0" 
+                        Width="151">
+                        </Button>
+                    </StackPanel>
+                </Expander>
+
+                <Expander x:Name="expRoles"
+                      Header="Roles"
+                      Margin="0 10 0 0"
+                      Padding="98 0 0 0"
+                      Style="{StaticResource ExpanderStyle}">
+                    <StackPanel x:Name="spRolesLinks">
+                        <Button x:Name="btnRoles"
+                        Content="All Roles"
+                        Margin="-25 10 0 0"
+                        Width="100"
+                        Style="{StaticResource ButtonStyle}">
+                        </Button>
+                        <Button x:Name="btnAddRole"
+                        Content="Add Role"
+                        Style="{StaticResource ButtonStyle}"
+                        Margin="-38 10 0 0" 
+                        Width="120">
+                        </Button>
+                    </StackPanel>
+                </Expander>
+
+            </StackPanel>
         </StackPanel>
 
 

@@ -23,5 +23,45 @@ namespace MyFlatWPF.View
         {
             InitializeComponent();
         }
+
+        private void btn_mouseEnter(object sender, MouseEventArgs e)
+        {
+            if (sender is Button)
+            {
+                Button btnMenu = sender as Button;
+                e.Handled = true;
+                Border btnParent = (Border)btnMenu.Parent;
+                StackPanel bParent = (StackPanel)btnParent.Parent;
+                Expander spParent = (Expander)bParent.Parent;
+                StackPanel expParent = (StackPanel)spParent.Parent;
+                StackPanel spLeftMenu = (StackPanel)expParent.Parent;
+                Grid grid = (Grid)spLeftMenu.Parent;
+                Style styleMenuItem = (Style)grid.FindResource("HoverButtonStyle");
+
+                btnMenu.Style = styleMenuItem;
+                btnMenu.OverridesDefaultStyle = true;
+                btnMenu.Cursor = Cursors.Hand;
+                btnMenu.Margin = new System.Windows.Thickness(-52, 10, 0, 0);
+                btnMenu.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF1653FF"));
+                btnMenu.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FF1653FF"));
+                btnMenu.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
+                btnMenu.Background = Brushes.Transparent;
+                //btnParent.Background = Brushes.Transparent;
+            }
+        }
+
+        private void btn_mouseLeave(object sender, MouseEventArgs e)
+        {
+            if (sender is Button)
+            {
+                Button btnMenu = sender as Button;
+                e.Handled = true;
+                btnMenu.OverridesDefaultStyle = true;
+                btnMenu.Cursor = Cursors.Hand;
+                btnMenu.Foreground = Brushes.White;
+                btnMenu.Height = 24;
+                btnMenu.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
+            }
+        }
     }
 }
