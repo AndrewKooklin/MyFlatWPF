@@ -15,11 +15,12 @@
         <Grid.Resources>
 
             <Style x:Key="ExpanderStyle" TargetType="{x:Type Expander}">
-                <Setter Property="FlowDirection" Value="RightToLeft"/>
+                <Setter Property="FlowDirection" Value="LeftToRight"/>
                 <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Width" Value="150"/>
+                <Setter Property="Margin" Value="-6 10 10 0"/>
                 <Setter Property="Foreground" Value="White"/>
                 <Setter Property="Background" Value="Transparent"/>
-                <Setter Property="HorizontalAlignment" Value="Left"/>
                 <Setter Property="Cursor" Value="Hand"/>
                 <Setter Property="BorderThickness" Value="0 0 0 0"/>
             </Style>
@@ -33,13 +34,22 @@
                 <Setter Property="BorderThickness" Value="0 0 0 0"/>
             </Style>
 
+            <Style x:Key="ButtonExpanderStyle" TargetType="{x:Type Button}">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="BorderThickness" Value="0 0 0 0"/>
+            </Style>
+
             <Style x:Key="HoverButtonStyle" TargetType="{x:Type Button}">
                 <Setter Property="OverridesDefaultStyle" Value="True"/>
+                <Setter Property="BorderThickness" Value="1"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border Background="{TemplateBinding Background}">
-                                <ContentPresenter HorizontalAlignment="Center" 
+                                <ContentPresenter HorizontalAlignment="Left" 
                                                   VerticalAlignment="Center"/>
                             </Border>
                         </ControlTemplate>
@@ -84,99 +94,146 @@
                         Margin="20 20 0 0"
                         Orientation="Vertical">
                 <Expander x:Name="expDesktop"
-                      Header="Desktop"
-                      Padding="-10 0 0 0"
+                      Header="Desktop"     
                       Style="{StaticResource ExpanderStyle}">
-                    <StackPanel x:Name="spDesktopLinks">
+                    <StackPanel x:Name="spDesktopLinks"
+                                Width="140"
+                                Margin="10 0 0 0">
                         <Border BorderThickness="0 0 0 0"
                                 Background="Transparent">
-                            <Button x:Name="btnOrdersBServices"
+                            <Button x:Name="btnOrdersByServices"
                         Content="Orders By Services"
-                        Margin="-47 10 0 0"
-                        Style="{StaticResource ButtonStyle}"
-                        MouseEnter="btn_mouseEnter"
-                        MouseLeave="btn_mouseLeave">
+                        Margin="0 10 0 0"
+                        Width="140"
+                        Style="{StaticResource ButtonExpanderStyle}"
+                        HorizontalContentAlignment="Left"
+                        MouseEnter="btnExpander_mouseEnter"
+                        MouseLeave="btnExpander_mouseLeave">
                             </Button>
                         </Border>
                         <Border BorderThickness="0 0 0 0">
                             <Button x:Name="btnAllOrders"
                         Content="All Orders"
-                        Margin="10 10 0 0"
-                        Style="{StaticResource ButtonStyle}">
+                        Margin="0 10 0 0"
+                        Width="140"
+                        Style="{StaticResource ButtonExpanderStyle}"
+                        HorizontalContentAlignment="Left"
+                        MouseEnter="btnExpander_mouseEnter"
+                        MouseLeave="btnExpander_mouseLeave">
                             </Button>
                         </Border>
                     </StackPanel>
                 </Expander>
 
-                <Button x:Name="btnHome"
+                <Border BorderThickness="0 0 0 0">
+                    <Button x:Name="btnHome"
                         Content="Home"
                         Margin="0 10 0 0"
-                        Style="{StaticResource ButtonStyle}">
-                </Button>
+                        Style="{StaticResource ButtonStyle}"
+                        MouseEnter="btn_mouseEnter"
+                        MouseLeave="btn_mouseLeave">
+                    </Button>
+                </Border>
 
-                <Button x:Name="btnProjects"
+                <Border BorderThickness="0 0 0 0">
+                    <Button x:Name="btnProjects"
                         Content="Projects"
                         Margin="0 10 0 0"
-                        Style="{StaticResource ButtonStyle}">
-                </Button>
+                        Style="{StaticResource ButtonStyle}"
+                        MouseEnter="btn_mouseEnter"
+                        MouseLeave="btn_mouseLeave">
+                    </Button>
+                </Border>
 
-                <Button x:Name="btnServices"
+                <Border BorderThickness="0 0 0 0">
+                    <Button x:Name="btnServices"
                         Content="Services"
                         Margin="0 10 0 0"
-                        Style="{StaticResource ButtonStyle}">
-                </Button>
+                        Style="{StaticResource ButtonStyle}"
+                        MouseEnter="btn_mouseEnter"
+                        MouseLeave="btn_mouseLeave">
+                    </Button>
+                </Border>
 
-                <Button x:Name="btnBlog"
+                <Border BorderThickness="0 0 0 0">
+                    <Button x:Name="btnBlog"
                         Content="Blog"
                         Margin="0 10 0 0"
-                        Style="{StaticResource ButtonStyle}">
-                </Button>
+                        Style="{StaticResource ButtonStyle}"
+                        MouseEnter="btn_mouseEnter"
+                        MouseLeave="btn_mouseLeave">
+                    </Button>
+                </Border>
 
-                <Button x:Name="btnContacts"
+                <Border BorderThickness="0 0 0 0">
+                    <Button x:Name="btnContacts"
                         Content="Contacts"
                         Margin="0 10 0 0"
-                        Style="{StaticResource ButtonStyle}">
-                </Button>
+                        Style="{StaticResource ButtonStyle}"
+                        MouseEnter="btn_mouseEnter"
+                        MouseLeave="btn_mouseLeave">
+                    </Button>
+                </Border>
 
                 <Expander x:Name="expUsers"
-                      Header="Users "
-                      Width="157"
-                      Margin="0 10 0 0"
-                      Padding="92 0 0 0"
+                      Header="Users"
                       Style="{StaticResource ExpanderStyle}">
-                    <StackPanel x:Name="spUsersLinks">
-                        <Button x:Name="btnAllUsers"
+                    <StackPanel x:Name="spUsersLinks"
+                                Width="140"
+                                Margin="10 0 0 0">
+                        <Border BorderThickness="0 0 0 0">
+                            <Button x:Name="btnAllUsers"
                         Content="All Users"
-                        Margin="-7,10,0,0"
-                        Style="{StaticResource ButtonStyle}">
-                        </Button>
-                        <Button x:Name="btnAddRoleToUser"
+                        Margin="0 10 0 0"
+                        Width="140"
+                        Style="{StaticResource ButtonExpanderStyle}"
+                        HorizontalContentAlignment="Left"
+                        MouseEnter="btnExpander_mouseEnter"
+                        MouseLeave="btnExpander_mouseLeave">
+                            </Button>
+                        </Border>
+                        <Border BorderThickness="0 0 0 0">
+                            <Button x:Name="btnAddRoleToUser"
                         Content="Add Role User"
-                        Style="{StaticResource ButtonStyle}" 
-                        Margin="-72,10,0,0" 
-                        Width="151">
-                        </Button>
+                        Margin="0 10 0 0"
+                        Width="140"
+                        Style="{StaticResource ButtonExpanderStyle}"
+                        HorizontalContentAlignment="Left"
+                        MouseEnter="btnExpander_mouseEnter"
+                        MouseLeave="btnExpander_mouseLeave">
+                            </Button>
+                        </Border>
                     </StackPanel>
                 </Expander>
 
                 <Expander x:Name="expRoles"
                       Header="Roles"
-                      Margin="0 10 0 0"
-                      Padding="98 0 0 0"
                       Style="{StaticResource ExpanderStyle}">
-                    <StackPanel x:Name="spRolesLinks">
-                        <Button x:Name="btnRoles"
+                    <StackPanel x:Name="spRolesLinks"
+                                Width="140"
+                                Margin="10 0 0 0">
+                        <Border BorderThickness="0 0 0 0">
+                            <Button x:Name="btnRoles"
                         Content="All Roles"
-                        Margin="-25 10 0 0"
-                        Width="100"
-                        Style="{StaticResource ButtonStyle}">
-                        </Button>
-                        <Button x:Name="btnAddRole"
+                        Margin="0 10 0 0"
+                        Width="140"
+                        Style="{StaticResource ButtonExpanderStyle}"
+                        HorizontalContentAlignment="Left"
+                        MouseEnter="btnExpander_mouseEnter"
+                        MouseLeave="btnExpander_mouseLeave">
+                            </Button>
+                        </Border>
+                        <Border BorderThickness="0 0 0 0">
+                            <Button x:Name="btnAddRole"
                         Content="Add Role"
-                        Style="{StaticResource ButtonStyle}"
-                        Margin="-38 10 0 0" 
-                        Width="120">
-                        </Button>
+                        Margin="0 10 0 0" 
+                        Width="140"
+                        Style="{StaticResource ButtonExpanderStyle}"
+                        HorizontalContentAlignment="Left"
+                        MouseEnter="btnExpander_mouseEnter"
+                        MouseLeave="btnExpander_mouseLeave">
+                            </Button>
+                        </Border>
                     </StackPanel>
                 </Expander>
 
