@@ -53,7 +53,7 @@ namespace MyFlatWPF.Commands
                         {
                             App.ManagementWindow = new ManagementWindow();
                             App.ManagementWindow.Show();
-                            App.MainWindow.Close();
+                            App.MainWindow.Hide();
                             break;
                         }
                     case "HomePicture":

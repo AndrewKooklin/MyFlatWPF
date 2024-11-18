@@ -46,6 +46,8 @@ namespace MyFlatWPF.View
                 btnMenu.Margin = new System.Windows.Thickness(0, 10, 0, 0);
                 btnMenu.Cursor = Cursors.Hand;
                 btnMenu.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#69baff"));
+
+                btnParent.BorderThickness = new System.Windows.Thickness(1, 1, 1, 1);
             }
         }
 
@@ -80,6 +82,8 @@ namespace MyFlatWPF.View
                 btnMenu.Margin = new System.Windows.Thickness(0, 10, 0, 0);
                 btnMenu.Cursor = Cursors.Hand;
                 btnMenu.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#69baff"));
+
+                btnParent.BorderThickness = new System.Windows.Thickness(1, 1, 1, 1);
             }
         }
 

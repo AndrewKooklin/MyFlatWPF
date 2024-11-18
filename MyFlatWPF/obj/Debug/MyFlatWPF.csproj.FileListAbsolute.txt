@@ -93,3 +93,7 @@ C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\LoginView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\RegistrationView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\LoginView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\RegistrationView.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\OrdersByServicesView.g.cs
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\OrdersByServicesView.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\AllOrdersView.g.cs
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\AllOrdersView.baml

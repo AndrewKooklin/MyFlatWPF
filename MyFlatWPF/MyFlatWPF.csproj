@@ -145,6 +145,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\LogoutCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\SwitchManagementViewCommand.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Commands\SendOrderFormCommand.cs" />
     <Compile Include="Commands\SwitchViewCommand.cs" />
@@ -172,6 +173,8 @@
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\Management\ManagementWindowViewModel.cs" />
+    <Compile Include="ViewModel\Management\StaticManagementViewModel.cs" />
     <Compile Include="ViewModel\ProjectsViewModel.cs" />
     <Compile Include="ViewModel\RegistrationViewModel.cs" />
     <Compile Include="ViewModel\ServicesViewModel.cs" />
@@ -190,6 +193,12 @@
     </Compile>
     <Compile Include="View\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManagementView\AllOrdersView.xaml.cs">
+      <DependentUpon>AllOrdersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManagementView\OrdersByServicesView.xaml.cs">
+      <DependentUpon>OrdersByServicesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ManagementWindow.xaml.cs">
       <DependentUpon>ManagementWindow.xaml</DependentUpon>
@@ -244,6 +253,14 @@
     <Page Include="View\LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="View\ManagementView\AllOrdersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManagementView\OrdersByServicesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManagementWindow.xaml">
       <SubType>Designer</SubType>

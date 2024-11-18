@@ -1,4 +1,5 @@
 ﻿using MyFlatWPF.View;
+using MyFlatWPF.View.ManagementView;
 using MyFlatWPF.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,10 @@ namespace MyFlatWPF
         public static LoginView LoginView = new LoginView();
 
         public static RegistrationView RegistrationView = new RegistrationView();
+
+        public static OrdersByServicesView OrdersByServicesView = new OrdersByServicesView();
+
+        public static AllOrdersView AllOrdersView = new AllOrdersView();
 
         //public static RegistrationWindow RegistrationWindow = new RegistrationWindow();
 

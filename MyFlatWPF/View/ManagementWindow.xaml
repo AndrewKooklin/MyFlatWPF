@@ -4,15 +4,45 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyFlatWPF.View"
+        xmlns:viewModel="clr-namespace:MyFlatWPF.ViewModel.Management"
         mc:Ignorable="d"
-        Title="Management"
+        Title="MyFlat Management"
+        Icon="/Images/i.ico"
         WindowStartupLocation="CenterScreen" 
         Height="650" 
         Width="800">
 
+    <Window.Resources>
+        <viewModel:ManagementWindowViewModel x:Key="ManagementWindowViewModel"/>
+    </Window.Resources>
+
     <Grid x:Name="gManagement">
 
         <Grid.Resources>
+
+            <Style x:Key="ButtonHomeStyle" TargetType="{x:Type Button}">
+                <Setter Property="OverridesDefaultStyle" Value="True"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border" 
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter  HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background">
+                                        <Setter.Value>
+                                            <ImageBrush ImageSource="../Images/kind.png"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
 
             <Style x:Key="ExpanderStyle" TargetType="{x:Type Expander}">
                 <Setter Property="FlowDirection" Value="LeftToRight"/>
@@ -81,17 +111,27 @@
                     Margin="0"
                     HorizontalAlignment="Left">
 
-            <Image x:Name="iLinkToHome"
-               Source="../Images/kind.png"
-               Width="60"
+            <Border BorderThickness="0 0 0 0">
+                <Button x:Name="btnLinkToHome"
+               Width="50"
+               Height="35"
                VerticalAlignment="Top"
                HorizontalAlignment="Center"
                Margin="0 15 0 20"
-               Cursor="Hand">
-            </Image>
+               Cursor="Hand"
+               ToolTip="To App"
+               Style="{StaticResource ButtonHomeStyle}"
+               Command="{Binding SwitchManagementView, 
+                         Source={StaticResource ManagementWindowViewModel}}"
+               CommandParameter="{Binding Name, ElementName=btnLinkToHome}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="../Images/kind.png"/>
+                    </Button.Background>
+                </Button>
+            </Border>
 
             <StackPanel x:Name="spMenuLinks"
-                        Margin="20 20 0 0"
+                        Margin="20 10 0 0"
                         Orientation="Vertical">
                 <Expander x:Name="expDesktop"
                       Header="Desktop"     
@@ -108,7 +148,10 @@
                         Style="{StaticResource ButtonExpanderStyle}"
                         HorizontalContentAlignment="Left"
                         MouseEnter="btnExpander_mouseEnter"
-                        MouseLeave="btnExpander_mouseLeave">
+                        MouseLeave="btnExpander_mouseLeave"
+                        Command="{Binding SwitchManagementView, 
+                                  Source={StaticResource ManagementWindowViewModel}}"
+                        CommandParameter="{Binding Name, ElementName=btnOrdersByServices}">
                             </Button>
                         </Border>
                         <Border BorderThickness="0 0 0 0">
@@ -119,7 +162,10 @@
                         Style="{StaticResource ButtonExpanderStyle}"
                         HorizontalContentAlignment="Left"
                         MouseEnter="btnExpander_mouseEnter"
-                        MouseLeave="btnExpander_mouseLeave">
+                        MouseLeave="btnExpander_mouseLeave"
+                        Command="{Binding SwitchManagementView, 
+                                  Source={StaticResource ManagementWindowViewModel}}"
+                        CommandParameter="{Binding Name, ElementName=btnAllOrders}">
                             </Button>
                         </Border>
                     </StackPanel>
@@ -240,6 +286,26 @@
             </StackPanel>
         </StackPanel>
 
+        <Border Grid.Row="2"
+            Grid.Column="1">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
+                    <GradientStop Color="Transparent" Offset="0.0"/>
+                    <GradientStop Color="Transparent" Offset="0.2"/>
+                    <GradientStop Color="#8ed5ff" Offset="0.85"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <StackPanel x:Name="spManagementContent">
+                <ContentControl x:Name="ccManagementView"
+                                Content="{Binding CurrentManagementView, 
+                                Source={StaticResource ManagementWindowViewModel}, 
+                                UpdateSourceTrigger=PropertyChanged}">
+
+                </ContentControl>
+
+            </StackPanel>
+        </Border>
 
     </Grid>
 </Window>
