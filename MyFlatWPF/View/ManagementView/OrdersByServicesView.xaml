@@ -9,15 +9,12 @@
              d:DesignWidth="500">
     <Grid>
 
-        <TextBlock
-            FontSize="30"
+        <StackPanel x:Name="spOrdersByService"
             Margin="0 20 0 0"
-            Height="60"
             HorizontalAlignment="Center"
             VerticalAlignment="Top">
-            OrdersByServices
-        </TextBlock>
-        
+            
+        </StackPanel>
         
     </Grid>
 </UserControl>

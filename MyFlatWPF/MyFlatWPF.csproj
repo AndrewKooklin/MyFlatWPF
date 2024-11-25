@@ -145,12 +145,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\LogoutCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ShowOrdersByServiceNameCommand.cs" />
     <Compile Include="Commands\ManagementCommand\SwitchManagementViewCommand.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Commands\SendOrderFormCommand.cs" />
     <Compile Include="Commands\SwitchViewCommand.cs" />
     <Compile Include="Data\DataManager.cs" />
     <Compile Include="Data\Repositories\API\APIAccountRepository.cs" />
+    <Compile Include="Data\Repositories\API\APIManagementRepository.cs" />
     <Compile Include="Data\Repositories\API\APIRenderingRepository.cs" />
     <Compile Include="HelpMethods\CheckInputFields.cs" />
     <Compile Include="HelpMethods\ImageConverter.cs" />
@@ -159,6 +161,7 @@
     <Compile Include="Model\ContactModel.cs" />
     <Compile Include="Model\HomePagePlaceholderModel.cs" />
     <Compile Include="Model\LoginModel.cs" />
+    <Compile Include="Model\ManagementModel\ServiceOrdersCountModel.cs" />
     <Compile Include="Model\OrderModel.cs" />
     <Compile Include="Model\PostModel.cs" />
     <Compile Include="Model\ProjectModel.cs" />
@@ -174,6 +177,7 @@
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\Management\ManagementWindowViewModel.cs" />
+    <Compile Include="ViewModel\Management\OrdersByServiceViewModel.cs" />
     <Compile Include="ViewModel\Management\StaticManagementViewModel.cs" />
     <Compile Include="ViewModel\ProjectsViewModel.cs" />
     <Compile Include="ViewModel\RegistrationViewModel.cs" />
