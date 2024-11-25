@@ -46,6 +46,7 @@ namespace MyFlatWPF.ViewModel.Management
             panel.Children.Add(tbTotalOrders);
 
             Grid grid = new Grid();
+            grid.Width = 220;
             grid.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
             grid.Margin = new System.Windows.Thickness(0, 10, 0, 20);
 
@@ -55,22 +56,28 @@ namespace MyFlatWPF.ViewModel.Management
             grid.ColumnDefinitions.Add(col1);
             ColumnDefinition col2 = new ColumnDefinition();
             grid.ColumnDefinitions.Add(col2);
+            grid.ColumnDefinitions[0].Width = new GridLength(160, GridUnitType.Pixel);
+            grid.ColumnDefinitions[1].Width = new GridLength(50, GridUnitType.Pixel);
 
-            Label lService = new Label();
-            lService.Content = "Service Name";
+            TextBlock lService = new TextBlock();
+            lService.Text = "Service Name";
             lService.FontSize = 16;
+            lService.MinWidth = 150;
+            lService.HorizontalAlignment = HorizontalAlignment.Center;
+            lService.Padding = new System.Windows.Thickness(15, 3, 15, 3);
             lService.FontWeight = System.Windows.FontWeights.SemiBold;
-            lService.Margin = new System.Windows.Thickness(5, 5, 5, 5);
             lService.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ececec"));
             Grid.SetRow(lService, 0);
             Grid.SetColumn(lService, 0);
             grid.Children.Add(lService);
 
-            Label lCount = new Label();
-            lCount.Content = "Count";
+            TextBlock lCount = new TextBlock();
+            lCount.Text = "Count";
             lCount.FontSize = 16;
+            lCount.MinWidth = 50;
+            lCount.HorizontalAlignment = HorizontalAlignment.Center;
+            lCount.Padding = new System.Windows.Thickness(15, 3, 15, 3);
             lCount.FontWeight = System.Windows.FontWeights.SemiBold;
-            lCount.Padding = new System.Windows.Thickness(5, 5, 5, 5);
             lCount.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ececec"));
             Grid.SetRow(lCount, 0);
             Grid.SetColumn(lCount, 1);
@@ -88,12 +95,15 @@ namespace MyFlatWPF.ViewModel.Management
                     RowDefinition row = new RowDefinition();
                     grid.RowDefinitions.Add(row);
                     ColumnDefinition colService = new ColumnDefinition();
+                    colService.Width = new GridLength(150);
                     grid.ColumnDefinitions.Add(colService);
                     ColumnDefinition colCount = new ColumnDefinition();
+                    colCount.Width = new GridLength(40);
                     grid.ColumnDefinitions.Add(colCount);
 
                     Button btn = new Button();
                     btn.Content = service.ServiceName;
+                    btn.Width = 150;
                     btn.FontSize = 14;
                     btn.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#2235ef"));
                     btn.Margin = new System.Windows.Thickness(5, 5, 5, 5);
@@ -105,8 +115,9 @@ namespace MyFlatWPF.ViewModel.Management
                     grid.Children.Add(btn);
 
                     Label lbl = new Label();
-                    lbl.Content = service.ServiceName;
+                    lbl.Content = service.OrdersByServiceCount;
                     lbl.FontSize = 14;
+                    lbl.HorizontalAlignment = HorizontalAlignment.Center;
                     lbl.Margin = new System.Windows.Thickness(5, 5, 5, 5);
                     lbl.Cursor = Cursors.Arrow;
                     Grid.SetRow(lbl, rowNumber);
