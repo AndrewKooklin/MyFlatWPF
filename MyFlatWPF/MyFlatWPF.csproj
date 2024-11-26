@@ -161,6 +161,7 @@
     <Compile Include="Model\ContactModel.cs" />
     <Compile Include="Model\HomePagePlaceholderModel.cs" />
     <Compile Include="Model\LoginModel.cs" />
+    <Compile Include="Model\ManagementModel\ChangeStatusModel.cs" />
     <Compile Include="Model\ManagementModel\ServiceOrdersCountModel.cs" />
     <Compile Include="Model\OrderModel.cs" />
     <Compile Include="Model\PostModel.cs" />
@@ -178,6 +179,7 @@
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\Management\ManagementWindowViewModel.cs" />
     <Compile Include="ViewModel\Management\OrdersByServiceViewModel.cs" />
+    <Compile Include="ViewModel\Management\OrdersViewModel.cs" />
     <Compile Include="ViewModel\Management\StaticManagementViewModel.cs" />
     <Compile Include="ViewModel\ProjectsViewModel.cs" />
     <Compile Include="ViewModel\RegistrationViewModel.cs" />

@@ -39,7 +39,7 @@ namespace MyFlatWPF.View.ManagementView {
     /// <summary>
     /// OrdersView
     /// </summary>
-    public partial class OrdersView : System.Windows.Controls.UserControl, System.Windows.Markup.IComponentConnector, System.Windows.Markup.IStyleConnector {
+    public partial class OrdersView : System.Windows.Controls.UserControl, System.Windows.Markup.IComponentConnector {
         
         
         #line 29 "..\..\..\..\View\ManagementView\OrdersView.xaml"
@@ -117,30 +117,6 @@ namespace MyFlatWPF.View.ManagementView {
             return;
             }
             this._contentLoaded = true;
-        }
-        
-        [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "4.0.0.0")]
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
-        void System.Windows.Markup.IStyleConnector.Connect(int connectionId, object target) {
-            System.Windows.EventSetter eventSetter;
-            switch (connectionId)
-            {
-            case 5:
-            eventSetter = new System.Windows.EventSetter();
-            eventSetter.Event = System.Windows.Controls.Primitives.Selector.SelectionChangedEvent;
-            
-            #line 184 "..\..\..\..\View\ManagementView\OrdersView.xaml"
-            eventSetter.Handler = new System.Windows.Controls.SelectionChangedEventHandler(this.Cb_SelectionChanged);
-            
-            #line default
-            #line hidden
-            ((System.Windows.Style)(target)).Setters.Add(eventSetter);
-            break;
-            }
         }
     }
 }

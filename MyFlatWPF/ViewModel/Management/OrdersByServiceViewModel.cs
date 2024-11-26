@@ -25,8 +25,8 @@ namespace MyFlatWPF.ViewModel.Management
         public OrdersByServiceViewModel(StackPanel panel)
         {
             _sp = panel;
-            GetMarkupOrdersByServiceCountView(_sp);
             ShowOrdersByServiceNameCommand = new ShowOrdersByServiceNameCommand();
+            GetMarkupOrdersByServiceCountView(_sp);
         }
 
         private void GetMarkupOrdersByServiceCountView(StackPanel panel)

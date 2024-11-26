@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -50,6 +51,42 @@ namespace MyFlatWPF.Data.Repositories.API
             }
 
             return orders;
+        }
+
+        public List<string> GetStatusNames()
+        {
+            List<string> names = new List<string>();
+            urlRequest = $"{url}" + "StatusesAPI/GetStatusNames";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                names = JsonConvert.DeserializeObject<List<string>>(result);
+            }
+
+            return names;
+        }
+
+        public async Task<bool> ChangeStatusOrder(ChangeStatusModel model)
+        {
+            urlRequest = $"{url}" + "StatusesAPI/ChangeStatusOrder/" + $"{model}";
+
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                response = await _httpClient.PostAsJsonAsync(urlRequest, model);
+            }
+
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

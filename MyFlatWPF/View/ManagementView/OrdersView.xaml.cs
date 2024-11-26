@@ -1,5 +1,9 @@
-﻿using System;
+﻿using MyFlatWPF.Data.Repositories.API;
+using MyFlatWPF.Model;
+using MyFlatWPF.Model.ManagementModel;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +24,29 @@ namespace MyFlatWPF.View.ManagementView
     /// </summary>
     public partial class OrdersView : UserControl
     {
+        APIManagementRepository _api = new APIManagementRepository();
+
         public OrdersView()
         {
             InitializeComponent();
+        }
+
+        private void Cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(sender is ComboBox)
+            {
+                var comboBox = sender as ComboBox;
+
+                if (this.dgOrders.SelectedItem != null && comboBox.SelectedItem != null)
+                {
+                    OrderModel om = (OrderModel)this.dgOrders.SelectedItem;
+                    var selectedStatus = comboBox.SelectedItem;
+                    ChangeStatusModel csm = new ChangeStatusModel();
+                    csm.Id = om.Id;
+                    csm.Status = selectedStatus.ToString();
+                    bool result =_api.ChangeStatusOrder(csm).GetAwaiter().GetResult();
+                }
+            }
         }
     }
 }

@@ -97,3 +97,5 @@ C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\OrdersByServicesView.
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\OrdersByServicesView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\AllOrdersView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\AllOrdersView.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\OrdersView.g.cs
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\OrdersView.baml
