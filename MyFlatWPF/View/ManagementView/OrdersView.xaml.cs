@@ -31,11 +31,15 @@ namespace MyFlatWPF.View.ManagementView
             InitializeComponent();
         }
 
-        private void Cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void Cb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(sender is ComboBox)
             {
                 var comboBox = sender as ComboBox;
+                if(comboBox.SelectedItem == comboBox.SelectionBoxItem)
+                {
+                    return;
+                }
 
                 if (this.dgOrders.SelectedItem != null && comboBox.SelectedItem != null)
                 {
@@ -44,9 +48,11 @@ namespace MyFlatWPF.View.ManagementView
                     ChangeStatusModel csm = new ChangeStatusModel();
                     csm.Id = om.Id;
                     csm.Status = selectedStatus.ToString();
-                    bool result =_api.ChangeStatusOrder(csm).GetAwaiter().GetResult();
+                    bool result = await _api.ChangeStatusOrder(csm);
+                    return;
                 }
             }
         }
+
     }
 }

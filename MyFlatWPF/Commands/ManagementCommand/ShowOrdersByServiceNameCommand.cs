@@ -17,14 +17,11 @@ namespace MyFlatWPF.Commands.ManagementCommand
     {
         public event EventHandler CanExecuteChanged;
         public event PropertyChangedEventHandler PropertyChanged;
-
-        ObservableCollection<OrderModel> _lOm;
         APIManagementRepository _api = new APIManagementRepository();
-        OrdersViewModel _ovm;
 
         public ShowOrdersByServiceNameCommand()
         {
-            //_ovm = ovm;
+            StatusNames = new ObservableCollection<string>(_api.GetStatusNames());
         }
 
         public bool CanExecute(object parameter)
@@ -38,15 +35,13 @@ namespace MyFlatWPF.Commands.ManagementCommand
             {
                 string service = parameter.ToString();
                 Orders = new ObservableCollection<OrderModel>(_api.GetOrdersByService(service));
-                StatusNames = new ObservableCollection<string>(_api.GetStatusNames());
+                
                 App.OrdersView.tbHeader.Text = $"Service : {service}";
                 App.OrdersView.tbOrdersCount.Text = $"Orders count : {_orders.Count}";
                 App.OrdersView.dgOrders.ItemsSource = null;
                 App.OrdersView.dgOrders.Items.Clear();
                 App.OrdersView.dgOrders.ItemsSource = Orders;
                 App.OrdersView.dgOrders.Items.Refresh();
-                App.OrdersView.dgComboBox.ItemsSource = null;
-                App.OrdersView.dgComboBox.ItemsSource = StatusNames;
                 App.OrdersView.Visibility = System.Windows.Visibility.Visible;
                 StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
                     App.OrdersView;

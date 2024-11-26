@@ -64,6 +64,14 @@
                                 IsReadOnly="True"
                                 Binding="{Binding Id,
                                             UpdateSourceTrigger=PropertyChanged}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="Background" Value="LightGray"/>
+                            <Setter Property="BorderThickness" Value="1 1 1 1"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.ElementStyle>
                         <Style>
                             <Setter Property="TextBlock.HorizontalAlignment" Value="Center" />
@@ -73,11 +81,19 @@
                 </DataGridTextColumn>
                 
             <DataGridTextColumn Header="Date Create" 
-                                Width="70"
+                                Width="75"
                                 IsReadOnly="True"
                                 Binding="{Binding DateCreate,
                                 StringFormat=dd.MM.yyyy HH:mm:ss,
                                 Mode=OneWay}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="Background" Value="LightGray"/>
+                            <Setter Property="BorderThickness" Value="0 1 1 1"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.ElementStyle>
                         <Style>
                             <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
@@ -88,9 +104,17 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Header="Name"
-                                    Width="*"
+                                    Width="60"
                                     IsReadOnly="True"
                                     Binding="{Binding Name}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="Background" Value="LightGray"/>
+                            <Setter Property="BorderThickness" Value="0 1 1 1"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.ElementStyle>
                         <Style>
                             <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
@@ -104,6 +128,14 @@
                                     Width="80"
                                     IsReadOnly="True"
                                 Binding="{Binding Email}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="Background" Value="LightGray"/>
+                            <Setter Property="BorderThickness" Value="0 1 1 1"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.ElementStyle>
                         <Style>
                             <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
@@ -116,6 +148,14 @@
                 <DataGridTextColumn Header="Mobile"
                                     IsReadOnly="True"
                                 Binding="{Binding Mobile}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="Background" Value="LightGray"/>
+                            <Setter Property="BorderThickness" Value="0 1 1 1"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.ElementStyle>
                         <Style>
                             <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
@@ -124,12 +164,20 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                
-            <DataGridTextColumn Header="Message"
+
+                <DataGridTextColumn Header="Message"
                                 Width="80"
                                 FontSize="8"
                                     IsReadOnly="True"
                                 Binding="{Binding Message}">
+                    <DataGridTextColumn.HeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="Background" Value="LightGray"/>
+                            <Setter Property="BorderThickness" Value="0 1 1 1"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.ElementStyle>
                         <Style>
                             <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
@@ -140,9 +188,18 @@
                 </DataGridTextColumn>
                 
                 <DataGridTextColumn Header="Service Name"
-                                    Width="85"
+                                    Width="*"
+                                    FontSize="10"
                                     IsReadOnly="True"
                                     Binding="{Binding ServiceName}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="Background" Value="LightGray"/>
+                            <Setter Property="BorderThickness" Value="0 1 1 1"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.ElementStyle>
                         <Style>
                             <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
@@ -151,14 +208,16 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                
-                <DataGridComboBoxColumn x:Name="dgComboBox"
+
+                <DataGridTemplateColumn x:Name="dgComboBox"
                                         Header="Status Name (changeable)"
-                                        Width="90"
-                                        SelectedItemBinding="{Binding StatusName}" 
-                                        SelectedValuePath="Id">
-                    <DataGridComboBoxColumn.HeaderStyle>
+                                        Width="90">
+                    <DataGridTemplateColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="Background" Value="LightGray"/>
+                            <Setter Property="BorderThickness" Value="0 1 1 1"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
                             <Setter Property="ContentTemplate">
                                 <Setter.Value>
                                     <DataTemplate>
@@ -170,21 +229,19 @@
                                 </Setter.Value>
                             </Setter>
                         </Style>
-                    </DataGridComboBoxColumn.HeaderStyle>
-                    <DataGridComboBoxColumn.ElementStyle>
-                        <Style>
-                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                            <Setter Property="TextBlock.HorizontalAlignment" Value="Center" />
-                            <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
-                        </Style>
-                    </DataGridComboBoxColumn.ElementStyle>
-                    <DataGridComboBoxColumn.EditingElementStyle>
-                        <Style TargetType="{x:Type ComboBox}">
-                            <EventSetter Event="SelectionChanged" 
-                                         Handler="Cb_SelectionChanged" />
-                        </Style>
-                    </DataGridComboBoxColumn.EditingElementStyle>
-                </DataGridComboBoxColumn>
+                    </DataGridTemplateColumn.HeaderStyle>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox x:Name="cbStatus"
+                                      BorderBrush="Transparent"
+                                      BorderThickness="0 0 0 0"
+                                ItemsSource="{Binding StatusNames, 
+                                Source={StaticResource ShowOrdersByServiceNameCommand}}"
+                              SelectedItem="{Binding StatusName}"
+                                      SelectionChanged="Cb_SelectionChanged"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
 
 
             </DataGrid.Columns>
