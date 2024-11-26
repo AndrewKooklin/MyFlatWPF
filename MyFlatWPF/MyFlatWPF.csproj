@@ -204,6 +204,9 @@
     <Compile Include="View\ManagementView\OrdersByServicesView.xaml.cs">
       <DependentUpon>OrdersByServicesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ManagementView\OrdersView.xaml.cs">
+      <DependentUpon>OrdersView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ManagementWindow.xaml.cs">
       <DependentUpon>ManagementWindow.xaml</DependentUpon>
     </Compile>
@@ -263,6 +266,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManagementView\OrdersByServicesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManagementView\OrdersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,4 +1,5 @@
-﻿using MyFlatWPF.Model.ManagementModel;
+﻿using MyFlatWPF.Model;
+using MyFlatWPF.Model.ManagementModel;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,22 @@ namespace MyFlatWPF.Data.Repositories.API
             }
 
             return serviceOrdersCount;
+        }
+
+        public List<OrderModel> GetOrdersByService(string serviceName)
+        {
+            List<OrderModel> orders = new List<OrderModel>();
+            urlRequest = $"{url}" + "OrdersAPI/GetOrdersByService/" + $"{serviceName}";
+
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string json = _httpClient.GetStringAsync(urlRequest).Result;
+                orders = JsonConvert.DeserializeObject<List<OrderModel>>(json);
+            }
+
+            return orders;
         }
     }
 }

@@ -45,15 +45,13 @@ namespace MyFlatWPF
 
         public static AllOrdersView AllOrdersView = new AllOrdersView();
 
-        //public static RegistrationWindow RegistrationWindow = new RegistrationWindow();
+        public static OrdersView OrdersView = new OrdersView();
 
 
 
         protected override void OnStartup(StartupEventArgs e)
         {
             App.MainWindow = new MainWindow();
-            //App.MainWindow.mTopLeft = MainWindowViewModel.GetTopMenu();
-            //App.MainWindow.DataContext = new MainWindowViewModel();
             App.MainWindow.Show();
 
             base.OnStartup(e);

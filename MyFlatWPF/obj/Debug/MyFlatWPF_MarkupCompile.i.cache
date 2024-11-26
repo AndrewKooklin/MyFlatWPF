@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\repos\MyFlatWPF\MyFlatWPF\App.xaml
-15-828204665
+16-1771027890
 
-60-504973260
+61-1361990108
 150-469644763
-MainWindow.xaml;View\BlogView.xaml;View\ContactsView.xaml;View\HomeView.xaml;View\LoginView.xaml;View\LoginWindow.xaml;View\ManagementView\AllOrdersView.xaml;View\ManagementView\OrdersByServicesView.xaml;View\ManagementWindow.xaml;View\PostDetailView.xaml;View\ProjectDetailView.xaml;View\ProjectsView.xaml;View\RegistrationView.xaml;View\RegistrationWindow.xaml;View\ServicesView.xaml;
+MainWindow.xaml;View\BlogView.xaml;View\ContactsView.xaml;View\HomeView.xaml;View\LoginView.xaml;View\LoginWindow.xaml;View\ManagementView\AllOrdersView.xaml;View\ManagementView\OrdersByServicesView.xaml;View\ManagementView\OrdersView.xaml;View\ManagementWindow.xaml;View\PostDetailView.xaml;View\ProjectDetailView.xaml;View\ProjectsView.xaml;View\RegistrationView.xaml;View\RegistrationWindow.xaml;View\ServicesView.xaml;
 
-False
+True
 
