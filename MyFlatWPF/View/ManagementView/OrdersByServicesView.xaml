@@ -7,7 +7,26 @@
              mc:Ignorable="d" 
              d:DesignHeight="800" 
              d:DesignWidth="500">
+    
     <Grid>
+
+        <Grid.Resources>
+
+            <Style x:Key="HoverButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="OverridesDefaultStyle" Value="True"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
+        </Grid.Resources>
 
         <StackPanel x:Name="spOrdersByService"
             Margin="0 20 0 0"

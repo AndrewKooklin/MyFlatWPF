@@ -18,12 +18,14 @@ namespace MyFlatWPF.ViewModel.Management
     public class OrdersByServiceViewModel : BaseViewModel
     {
         APIManagementRepository _api = new APIManagementRepository();
+        StackPanel _sp;
 
         public ICommand ShowOrdersByServiceNameCommand { get; set; }
 
         public OrdersByServiceViewModel(StackPanel panel)
         {
-            GetMarkupOrdersByServiceCountView(panel);
+            _sp = panel;
+            GetMarkupOrdersByServiceCountView(_sp);
             ShowOrdersByServiceNameCommand = new ShowOrdersByServiceNameCommand();
         }
 
@@ -57,14 +59,14 @@ namespace MyFlatWPF.ViewModel.Management
             ColumnDefinition col2 = new ColumnDefinition();
             grid.ColumnDefinitions.Add(col2);
             grid.ColumnDefinitions[0].Width = new GridLength(160, GridUnitType.Pixel);
-            grid.ColumnDefinitions[1].Width = new GridLength(50, GridUnitType.Pixel);
+            grid.ColumnDefinitions[1].Width = new GridLength(60, GridUnitType.Pixel);
 
             TextBlock lService = new TextBlock();
             lService.Text = "Service Name";
             lService.FontSize = 16;
             lService.MinWidth = 150;
             lService.HorizontalAlignment = HorizontalAlignment.Center;
-            lService.Padding = new System.Windows.Thickness(15, 3, 15, 3);
+            lService.Padding = new System.Windows.Thickness(25, 3, 15, 3);
             lService.FontWeight = System.Windows.FontWeights.SemiBold;
             lService.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ececec"));
             Grid.SetRow(lService, 0);
@@ -74,7 +76,7 @@ namespace MyFlatWPF.ViewModel.Management
             TextBlock lCount = new TextBlock();
             lCount.Text = "Count";
             lCount.FontSize = 16;
-            lCount.MinWidth = 50;
+            lCount.MinWidth = 60;
             lCount.HorizontalAlignment = HorizontalAlignment.Center;
             lCount.Padding = new System.Windows.Thickness(15, 3, 15, 3);
             lCount.FontWeight = System.Windows.FontWeights.SemiBold;
@@ -107,9 +109,20 @@ namespace MyFlatWPF.ViewModel.Management
                     btn.FontSize = 14;
                     btn.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#2235ef"));
                     btn.Margin = new System.Windows.Thickness(5, 5, 5, 5);
+                    btn.Padding = new System.Windows.Thickness(15, 0, 0, 0);
                     btn.Cursor = Cursors.Hand;
+                    btn.OverridesDefaultStyle = true;
+                    Grid spParent = (Grid)_sp.Parent;
+                    Style styleButton = (Style)spParent.FindResource("HoverButtonStyle");
+                    btn.Style = styleButton;
+                    btn.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
+                    btn.HorizontalContentAlignment = HorizontalAlignment.Center;
+                    btn.Background = Brushes.Transparent;
+                    btn.BorderBrush = Brushes.Transparent;
                     btn.Command = ShowOrdersByServiceNameCommand;
                     btn.CommandParameter = service.ServiceName;
+                    btn.MouseEnter += Btn_MouseEnter;
+                    btn.MouseLeave += Btn_MouseLeave;
                     Grid.SetRow(btn, rowNumber);
                     Grid.SetColumn(btn, columnNumber);
                     grid.Children.Add(btn);
@@ -131,6 +144,43 @@ namespace MyFlatWPF.ViewModel.Management
             
             tbTotalOrders.Text = $"Total orders : {totalOrders}";
             panel.Children.Add(grid);
+        }
+
+        private void Btn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (sender is Button)
+            {
+                Button btn = sender as Button;
+                e.Handled = true;
+                Grid spParent = (Grid)_sp.Parent;
+                Style styleButton = (Style)spParent.FindResource("HoverButtonStyle");
+                btn.OverridesDefaultStyle = true;
+                btn.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
+                btn.Style = styleButton;
+                btn.FontWeight = FontWeights.SemiBold;
+                btn.Background = Brushes.Transparent;
+                btn.BorderBrush = Brushes.Transparent;
+                btn.Padding = new System.Windows.Thickness(15, 0, 0, 0);
+                btn.HorizontalContentAlignment = HorizontalAlignment.Center;
+            }
+        }
+
+        private void Btn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if(sender is Button)
+            {
+                Button btn = sender as Button;
+                e.Handled = true;
+                Grid spParent = (Grid)_sp.Parent;
+                Style styleButton = (Style)spParent.FindResource("HoverButtonStyle");
+                btn.OverridesDefaultStyle = true;
+                btn.FontWeight = FontWeights.Normal;
+                btn.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
+                btn.Background = Brushes.Transparent;
+                btn.BorderBrush = Brushes.Transparent;
+                btn.Padding = new System.Windows.Thickness(15, 0, 0, 0);
+                btn.HorizontalContentAlignment = HorizontalAlignment.Center;
+            }
         }
 
         private List<ServiceOrdersCountModel> GetListServiceOrdersCount()
