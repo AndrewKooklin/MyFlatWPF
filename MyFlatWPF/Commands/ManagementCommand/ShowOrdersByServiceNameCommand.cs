@@ -18,10 +18,12 @@ namespace MyFlatWPF.Commands.ManagementCommand
         public event EventHandler CanExecuteChanged;
         public event PropertyChangedEventHandler PropertyChanged;
         APIManagementRepository _api = new APIManagementRepository();
+        public ICommand BackToOrdersByService { get; set; }
 
         public ShowOrdersByServiceNameCommand()
         {
             StatusNames = new ObservableCollection<string>(_api.GetStatusNames());
+            BackToOrdersByService = this;
         }
 
         public bool CanExecute(object parameter)
@@ -45,6 +47,12 @@ namespace MyFlatWPF.Commands.ManagementCommand
                 App.OrdersView.Visibility = System.Windows.Visibility.Visible;
                 StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
                     App.OrdersView;
+            }
+            else
+            {
+                App.OrdersByServicesView.Visibility = System.Windows.Visibility.Visible;
+                StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                    App.OrdersByServicesView;
             }
         }
 

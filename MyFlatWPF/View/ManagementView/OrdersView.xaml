@@ -13,7 +13,26 @@
         <Grid.Resources>
 
             <viewModel:ShowOrdersByServiceNameCommand x:Key="ShowOrdersByServiceNameCommand"/>
-            
+
+            <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <!--<Setter Property="Padding" Value="5 5 5 8"/>-->
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="3"
+                                    BorderThickness="1"
+                                    BorderBrush="Black"
+                                    Background="DeepSkyBlue">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
         </Grid.Resources>
         
 
@@ -24,10 +43,12 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <TextBlock x:Name="tbHeader"
                    Grid.Row="0"
+                   Grid.ColumnSpan="2"
                    Text=""
                    FontSize="24"
                    Margin="20 20 0 20">
@@ -36,14 +57,32 @@
 
         <TextBlock x:Name="tbOrdersCount"
                    Grid.Row="1"
+                   Grid.Column="0"
                    Text=""
                    FontSize="20"
-                   Margin="20 0 0 20">
+                   Margin="20 0 0 10">
 
         </TextBlock>
 
+        <Button x:Name="btnBackToBlog"
+                Grid.Row="1"
+                Grid.Column="1"
+                Width="80"
+                Height="30"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0 0 15 10"
+                Content="Back"
+                ToolTip="To Orders By Service"
+                Style="{StaticResource ButtonStyle}"
+                Command="{Binding BackToOrdersByService, 
+                          Source={StaticResource ShowOrdersByServiceNameCommand}}">
+
+        </Button>
+
         <DataGrid x:Name="dgOrders"
                   Grid.Row="2"
+                  Grid.ColumnSpan="2"
                   Width="600"
                   Padding="10 0 10 20"
                   Background="Transparent"
@@ -51,7 +90,8 @@
                   BorderThickness="0 1 0 0"
                   HorizontalAlignment="Center"
                   HorizontalContentAlignment="Center"
-                  CanUserAddRows="false"
+                  CanUserAddRows="false" 
+                  LoadingRow="DataGrid_LoadingRow"
                   ItemsSource="{Binding Orders, 
             Source={StaticResource ShowOrdersByServiceNameCommand},
             UpdateSourceTrigger=PropertyChanged}"
@@ -64,6 +104,12 @@
                                 IsReadOnly="True"
                                 Binding="{Binding Id,
                                             UpdateSourceTrigger=PropertyChanged}">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="BorderBrush" Value="Black" />
+                            <Setter Property="BorderThickness" Value="0.8 0 0 0" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="HorizontalContentAlignment" Value="Center"/>
