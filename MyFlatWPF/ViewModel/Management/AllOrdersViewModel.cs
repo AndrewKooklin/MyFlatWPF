@@ -15,6 +15,7 @@ namespace MyFlatWPF.ViewModel.Management
 
         public AllOrdersViewModel()
         {
+            _orders = GetOrders();
             _statusNames = new ObservableCollection<string>(_api.GetStatusNames());
         }
 
@@ -27,13 +28,13 @@ namespace MyFlatWPF.ViewModel.Management
             }
             set
             {
-                _orders = GetOrders();
+                _orders = value;
                 OnPropertyChanged(nameof(Orders));
             }
         }
 
-        private int _ordersCount;
-        public int OrdersCount
+        private string _ordersCount;
+        public string OrdersCount
         {
             get
             {
@@ -64,7 +65,7 @@ namespace MyFlatWPF.ViewModel.Management
         {
             ObservableCollection<OrderModel> orders =
                 new ObservableCollection<OrderModel>(_api.GetAllOrders());
-            _ordersCount = orders.Count;
+            _ordersCount = $"Orders count : {orders.Count}";
             return orders;
         }
     }

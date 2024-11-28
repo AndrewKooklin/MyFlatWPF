@@ -12,7 +12,7 @@
 
         <Grid.Resources>
 
-            <viewModel:AllOrdersViewModel x:Name="AllOrdersViewModel"/>
+            <viewModel:AllOrdersViewModel x:Key="AllOrdersViewModel"/>
 
         </Grid.Resources>
 
@@ -248,7 +248,7 @@
                                       BorderBrush="Transparent"
                                       BorderThickness="0 0 0 0"
                                 ItemsSource="{Binding StatusNames, 
-                                Source={StaticResource ShowOrdersByServiceNameCommand}}"
+                                Source={StaticResource AllOrdersViewModel}}"
                               SelectedItem="{Binding StatusName}"
                                       SelectionChanged="Cb_SelectionChanged"/>
                         </DataTemplate>
