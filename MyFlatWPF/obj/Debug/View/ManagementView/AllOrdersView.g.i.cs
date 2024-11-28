@@ -38,7 +38,39 @@ namespace MyFlatWPF.View.ManagementView {
     /// <summary>
     /// AllOrdersView
     /// </summary>
-    public partial class AllOrdersView : System.Windows.Controls.UserControl, System.Windows.Markup.IComponentConnector {
+    public partial class AllOrdersView : System.Windows.Controls.UserControl, System.Windows.Markup.IComponentConnector, System.Windows.Markup.IStyleConnector {
+        
+        
+        #line 26 "..\..\..\..\View\ManagementView\AllOrdersView.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBlock tbHeader;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 35 "..\..\..\..\View\ManagementView\AllOrdersView.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBlock tbOrdersCount;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 44 "..\..\..\..\View\ManagementView\AllOrdersView.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.DataGrid dgOrders;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 219 "..\..\..\..\View\ManagementView\AllOrdersView.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.DataGridTemplateColumn dgComboBox;
+        
+        #line default
+        #line hidden
         
         private bool _contentLoaded;
         
@@ -68,7 +100,48 @@ namespace MyFlatWPF.View.ManagementView {
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
         void System.Windows.Markup.IComponentConnector.Connect(int connectionId, object target) {
+            switch (connectionId)
+            {
+            case 1:
+            this.tbHeader = ((System.Windows.Controls.TextBlock)(target));
+            return;
+            case 2:
+            this.tbOrdersCount = ((System.Windows.Controls.TextBlock)(target));
+            return;
+            case 3:
+            this.dgOrders = ((System.Windows.Controls.DataGrid)(target));
+            
+            #line 55 "..\..\..\..\View\ManagementView\AllOrdersView.xaml"
+            this.dgOrders.LoadingRow += new System.EventHandler<System.Windows.Controls.DataGridRowEventArgs>(this.DataGrid_LoadingRow);
+            
+            #line default
+            #line hidden
+            return;
+            case 4:
+            this.dgComboBox = ((System.Windows.Controls.DataGridTemplateColumn)(target));
+            return;
+            }
             this._contentLoaded = true;
+        }
+        
+        [System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "4.0.0.0")]
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
+        void System.Windows.Markup.IStyleConnector.Connect(int connectionId, object target) {
+            switch (connectionId)
+            {
+            case 5:
+            
+            #line 248 "..\..\..\..\View\ManagementView\AllOrdersView.xaml"
+            ((System.Windows.Controls.ComboBox)(target)).SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.Cb_SelectionChanged);
+            
+            #line default
+            #line hidden
+            break;
+            }
         }
     }
 }
