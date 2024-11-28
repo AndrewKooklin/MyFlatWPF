@@ -22,7 +22,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
 
         public ShowOrdersByServiceNameCommand()
         {
-            StatusNames = new ObservableCollection<string>(_api.GetStatusNames());
+            _statusNames = new ObservableCollection<string>(_api.GetStatusNames());
             BackToOrdersByService = this;
         }
 
@@ -56,7 +56,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
             }
         }
 
-        public ObservableCollection<OrderModel> _orders;
+        private ObservableCollection<OrderModel> _orders;
         public ObservableCollection<OrderModel> Orders
         {
             get
@@ -70,7 +70,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
             }
         }
 
-        public ObservableCollection<string> _statusNames;
+        private ObservableCollection<string> _statusNames;
         public ObservableCollection<string> StatusNames
         {
             get

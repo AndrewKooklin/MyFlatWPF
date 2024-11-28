@@ -4,12 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyFlatWPF.View.ManagementView"
+             xmlns:viewModel="clr-namespace:MyFlatWPF.ViewModel.Management"
              mc:Ignorable="d" 
              d:DesignHeight="800" 
              d:DesignWidth="500">
     <Grid>
 
         <Grid.Resources>
+
+            <viewModel:AllOrdersViewModel x:Name="AllOrdersViewModel"/>
 
         </Grid.Resources>
 
@@ -35,7 +38,9 @@
         <TextBlock x:Name="tbOrdersCount"
                    Grid.Row="1"
                    Grid.Column="0"
-                   Text="{Binding}"
+                   Text="{Binding OrdersCount, 
+            Source={StaticResource AllOrdersViewModel},
+            UpdateSourceTrigger=PropertyChanged}"
                    FontSize="20"
                    Margin="20 0 0 10">
 
@@ -54,7 +59,7 @@
                   CanUserAddRows="false" 
                   LoadingRow="DataGrid_LoadingRow"
                   ItemsSource="{Binding Orders, 
-            Source={StaticResource ShowOrdersByServiceNameCommand},
+            Source={StaticResource AllOrdersViewModel},
             UpdateSourceTrigger=PropertyChanged}"
                   AutoGenerateColumns="False"
                   Margin="0 10 0 20">
