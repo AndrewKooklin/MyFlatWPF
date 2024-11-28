@@ -69,6 +69,7 @@ namespace MyFlatWPF.ViewModel
                 lErrorEmailBox.Content = "";
                 lErrorPasswordBox.Content = "";
                 lErrorLogIn.Content = "";
+                App.LoginView.btnLogin.IsEnabled = true;
                 return true;
             }
         }
@@ -98,9 +99,9 @@ namespace MyFlatWPF.ViewModel
             {
                 tbEmail.Text = "";
                 passwordBox.Password = "";
-
                 lErrorLogIn.Content = "User not found, check login" +
                                       "\nand password or register.";
+                App.LoginView.btnLogin.IsEnabled = false;
             }
             else
             {
@@ -114,8 +115,11 @@ namespace MyFlatWPF.ViewModel
                 App.MainWindow.btnRegister.Visibility = System.Windows.Visibility.Collapsed;
                 App.MainWindow.lUserName.Visibility = System.Windows.Visibility.Visible;
                 App.MainWindow.btnLogOut.Visibility = System.Windows.Visibility.Visible;
-                App.LoginView.btnLogin.IsEnabled = false;
                 App.RegistrationView.btnRegistration.IsEnabled = false;
+                App.HomeView.Visibility = System.Windows.Visibility.Visible;
+                StaticMainViewModel.MainViewModel.CurrentView = App.HomeView;
+                StaticMainViewModel.MainViewModel.RandomPhrase =
+                    StaticMainViewModel.MainViewModel.GetHeaderString();
 
                 userRoles = await _api.GetUserRoles(model);
                 if (userRoles != null && userRoles.Contains("Admin"))

@@ -56,14 +56,6 @@ namespace MyFlatWPF.Commands.ManagementCommand
                                 App.AllOrdersView;
                             break;
                         }
-                    //case "btnManagement":
-                    //    {
-                    //        App.ManagementWindow = new ManagementWindow();
-                    //        App.ManagementWindow.Show();
-                    //        App.MainWindow.Close();
-                    //        break;
-                    //    }
-
                     //case "btnProjects":
                     //case "btnBackToProjects":
                     //    {

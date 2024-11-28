@@ -55,6 +55,11 @@ namespace MyFlatWPF
             App.MainWindow.Show();
 
             base.OnStartup(e);
+
+            Style dpStyle = new Style(typeof(System.Windows.Controls.DatePicker));
+            dpStyle.Setters.Add(new Setter(System.Windows.Controls.DatePicker.LanguageProperty,
+                System.Windows.Markup.XmlLanguage.GetLanguage("ru-RU")));
+            this.Resources.Add(typeof(System.Windows.Controls.DatePicker), dpStyle);
         }
     }
 }
