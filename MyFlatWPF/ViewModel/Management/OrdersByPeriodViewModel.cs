@@ -17,6 +17,7 @@ namespace MyFlatWPF.ViewModel.Management
 
         public OrdersByPeriodViewModel()
         {
+            _orders = GetAllOrders();
             _statusNames = new ObservableCollection<string>(_api.GetStatusNames());
             ShowOrdersByPeriodCommand = new ShowOrdersByPeriodCommand(this);
         }
@@ -112,6 +113,7 @@ namespace MyFlatWPF.ViewModel.Management
             ObservableCollection<OrderModel> orders =
                 new ObservableCollection<OrderModel>(_api.GetAllOrders());
             _ordersCount = orders.Count;
+            _periodName = "All Orders";
             return orders;
         }
     }

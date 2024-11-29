@@ -71,10 +71,8 @@ namespace MyFlatWPF.Commands.ManagementCommand
                             pm.DateFrom = _dateTodayStart;
                             pm.DateTo = _dateTodayNow;
                             App.OrdersByPeriodView = new OrdersByPeriodView();
-                            //App.OrdersByPeriodView.dgOrders.Items.Clear();
                             var orders = await GetOrdersByPeriod(pm);
                             App.OrdersByPeriodView.dgOrders.ItemsSource = orders;
-                            //App.OrdersByPeriodView.dgOrders.Items.Refresh();
                             App.OrdersByPeriodView.tbOrdersCount.Text = orders.Count.ToString();
                             App.OrdersByPeriodView.tbHeaderPeriod.Text = "Today";
                             App.OrdersByPeriodView.Visibility = System.Windows.Visibility.Visible;
@@ -87,15 +85,72 @@ namespace MyFlatWPF.Commands.ManagementCommand
                             pm.DateFrom = _dateYesterdayStart;
                             pm.DateTo = _dateYesterdayEnd;
                             App.OrdersByPeriodView = new OrdersByPeriodView();
-                            //App.OrdersByPeriodView.dgOrders.Items.Clear();
                             var orders = await GetOrdersByPeriod(pm);
                             App.OrdersByPeriodView.dgOrders.ItemsSource = orders;
-                            //App.OrdersByPeriodView.dgOrders.Items.Refresh();
                             App.OrdersByPeriodView.tbOrdersCount.Text = orders.Count.ToString();
-                            App.OrdersByPeriodView.tbHeaderPeriod.Text = "Today";
+                            App.OrdersByPeriodView.tbHeaderPeriod.Text = "Yesterday";
                             App.OrdersByPeriodView.Visibility = System.Windows.Visibility.Visible;
                             StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
                                 App.OrdersByPeriodView;
+                            break;
+                        }
+                    case "btnWeek":
+                        {
+                            pm.DateFrom = _dateWeekEarlier;
+                            pm.DateTo = _dateYesterdayEnd;
+                            App.OrdersByPeriodView = new OrdersByPeriodView();
+                            var orders = await GetOrdersByPeriod(pm);
+                            App.OrdersByPeriodView.dgOrders.ItemsSource = orders;
+                            App.OrdersByPeriodView.tbOrdersCount.Text = orders.Count.ToString();
+                            App.OrdersByPeriodView.tbHeaderPeriod.Text = "Week";
+                            App.OrdersByPeriodView.Visibility = System.Windows.Visibility.Visible;
+                            StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                                App.OrdersByPeriodView;
+                            break;
+                        }
+                    case "btnMonth":
+                        {
+                            pm.DateFrom = _dateMonthEarlier;
+                            pm.DateTo = _dateYesterdayEnd;
+                            App.OrdersByPeriodView = new OrdersByPeriodView();
+                            var orders = await GetOrdersByPeriod(pm);
+                            App.OrdersByPeriodView.dgOrders.ItemsSource = orders;
+                            App.OrdersByPeriodView.tbOrdersCount.Text = orders.Count.ToString();
+                            App.OrdersByPeriodView.tbHeaderPeriod.Text = "Month";
+                            App.OrdersByPeriodView.Visibility = System.Windows.Visibility.Visible;
+                            StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                                App.OrdersByPeriodView;
+                            break;
+                        }
+                    case "btnByPeriod":
+                        {
+                            _dateFrom = Convert.ToDateTime(_ordersByPeriodVM.DateFrom);
+                            _dateTo = Convert.ToDateTime(_ordersByPeriodVM.DateTo);
+                            if (_dateFrom == null || _dateTo == null)
+                            {
+                                return;
+                            }
+                            if (_dateFrom > _dateTo)
+                            {
+                                return;
+                            }
+                            if (_dateTo > DateTime.Now)
+                            {
+                                return;
+                            }
+                            else
+                            {
+                                pm.DateFrom = _dateFrom;
+                                pm.DateTo = _dateTo;
+                                App.OrdersByPeriodView = new OrdersByPeriodView();
+                                var orders = await GetOrdersByPeriod(pm);
+                                App.OrdersByPeriodView.dgOrders.ItemsSource = orders;
+                                App.OrdersByPeriodView.tbOrdersCount.Text = orders.Count.ToString();
+                                App.OrdersByPeriodView.tbHeaderPeriod.Text = "ByPeriod";
+                                App.OrdersByPeriodView.Visibility = System.Windows.Visibility.Visible;
+                                StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                                    App.OrdersByPeriodView;
+                            }
                             break;
                         }
                     default: break;
