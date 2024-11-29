@@ -165,7 +165,7 @@
                         MouseLeave="btnExpander_mouseLeave"
                         Command="{Binding SwitchManagementView, 
                                   Source={StaticResource ManagementWindowViewModel}}"
-                        CommandParameter="{Binding Name, ElementName=btnAllOrders}">
+                        CommandParameter="{Binding Name, ElementName=btnOrdersByPeriod}">
                             </Button>
                         </Border>
                     </StackPanel>

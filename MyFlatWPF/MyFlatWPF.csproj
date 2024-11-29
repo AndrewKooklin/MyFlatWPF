@@ -163,6 +163,7 @@
     <Compile Include="Model\HomePagePlaceholderModel.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\ManagementModel\ChangeStatusModel.cs" />
+    <Compile Include="Model\ManagementModel\PeriodModel.cs" />
     <Compile Include="Model\ManagementModel\ServiceOrdersCountModel.cs" />
     <Compile Include="Model\OrderModel.cs" />
     <Compile Include="Model\PostModel.cs" />
@@ -178,6 +179,7 @@
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\Management\AllOrdersViewModel.cs" />
     <Compile Include="ViewModel\Management\ManagementWindowViewModel.cs" />
     <Compile Include="ViewModel\Management\OrdersByPeriodViewModel.cs" />
     <Compile Include="ViewModel\Management\OrdersByServiceViewModel.cs" />
@@ -200,6 +202,9 @@
     </Compile>
     <Compile Include="View\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManagementView\AllOrdersView.xaml.cs">
+      <DependentUpon>AllOrdersView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ManagementView\OrdersByPeriodView.xaml.cs">
       <DependentUpon>OrdersByPeriodView.xaml</DependentUpon>
@@ -261,6 +266,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="View\ManagementView\AllOrdersView.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>

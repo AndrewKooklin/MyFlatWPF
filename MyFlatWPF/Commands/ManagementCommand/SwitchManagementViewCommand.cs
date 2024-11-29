@@ -1,4 +1,5 @@
-﻿using MyFlatWPF.ViewModel.Management;
+﻿using MyFlatWPF.Data.Repositories.API;
+using MyFlatWPF.ViewModel.Management;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
     public class SwitchManagementViewCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
+        APIManagementRepository _api = new APIManagementRepository();
 
         public SwitchManagementViewCommand(ManagementWindowViewModel mwvm)
         {
@@ -51,9 +53,13 @@ namespace MyFlatWPF.Commands.ManagementCommand
                         }
                     case "btnOrdersByPeriod":
                         {
-                            App.OrdersByPeriodView.Visibility = System.Windows.Visibility.Visible;
+                            //App.OrdersByPeriodView.dgOrders.Items.Clear();
+                            //App.OrdersByPeriodView.dgOrders.ItemsSource = _api.GetAllOrders();
+                            //App.OrdersByPeriodView.tbHeaderPeriod.Text = "All orders";
+                            //App.OrdersByPeriodView.dgOrders.Items.Refresh();
+                            App.AllOrdersView.Visibility = System.Windows.Visibility.Visible;
                             StaticManagementViewModel.ManagementViewModel.CurrentManagementView = 
-                                App.OrdersByPeriodView;
+                                App.AllOrdersView;
                             break;
                         }
                     //case "btnProjects":

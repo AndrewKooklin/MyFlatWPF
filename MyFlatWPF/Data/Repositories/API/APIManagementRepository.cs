@@ -103,5 +103,28 @@ namespace MyFlatWPF.Data.Repositories.API
 
             return orders;
         }
+
+        public async Task<List<OrderModel>> GetOrdersByPeriod(PeriodModel model)
+        {
+            List<OrderModel> orders = new List<OrderModel>();
+            urlRequest = $"{url}" + "OrdersAPI/GetOrdersByPeriod/" + $"{model}";
+
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, model))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    if (String.IsNullOrEmpty(apiResponse))
+                    {
+                        return null;
+                    }
+                    orders = JsonConvert.DeserializeObject<List<OrderModel>>(apiResponse);
+                }
+            }
+
+            return orders;
+        }
     }
 }

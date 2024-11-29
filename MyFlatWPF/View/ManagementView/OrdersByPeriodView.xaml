@@ -115,46 +115,63 @@
                 Content="Today"
                 Margin="20 0 0 0"
                 ToolTip="Orders for Today"
-                Style="{StaticResource ButtonStyle}">
+                Style="{StaticResource ButtonStyle}"
+                Command="{Binding ShowOrdersByPeriodCommand, 
+                Source={StaticResource OrdersByPeriodViewModel}}"
+                CommandParameter="{Binding Name, ElementName=btnToday}">
             </Button>
 
             <Button x:Name="btnYesterday"
                 Width="70"
                 Content="Yesterday"
                 ToolTip="Orders for Yesterday"
-                Style="{StaticResource ButtonStyle}">
+                Style="{StaticResource ButtonStyle}"
+                Command="{Binding ShowOrdersByPeriodCommand, 
+                Source={StaticResource OrdersByPeriodViewModel}}"
+                CommandParameter="{Binding Name, ElementName=btnYesterday}">
             </Button>
 
             <Button x:Name="btnWeek"
                 Width="50"
                 Content="Week"
                 ToolTip="Orders for Week"
-                Style="{StaticResource ButtonStyle}">
+                Style="{StaticResource ButtonStyle}"
+                Command="{Binding ShowOrdersByPeriodCommand, 
+                Source={StaticResource OrdersByPeriodViewModel}}"
+                CommandParameter="{Binding Name, ElementName=btnWeek}">
             </Button>
 
             <Button x:Name="btnMonth"
                 Width="55"
                 Content="Month"
                 ToolTip="Orders for Month"
-                Style="{StaticResource ButtonStyle}">
+                Style="{StaticResource ButtonStyle}"
+                Command="{Binding ShowOrdersByPeriodCommand, 
+                Source={StaticResource OrdersByPeriodViewModel}}"
+                CommandParameter="{Binding Name, ElementName=btnMonth}">
             </Button>
 
-            <Button x:Name="btnByPeriod"
+            <Button x:Name="btnPeriod"
                 Width="80"
                 Content="Period from"
                 ToolTip="Orders by Period"
-                Style="{StaticResource ButtonByPeriodStyle}">
+                Style="{StaticResource ButtonByPeriodStyle}"
+                Command="{Binding ShowOrdersByPeriodCommand, 
+                Source={StaticResource OrdersByPeriodViewModel}}"
+                CommandParameter="{Binding Name, ElementName=btnPeriod}">
             </Button>
 
             <DatePicker x:Name="dpDateFrom" 
-                        xml:lang="en-US"  
+                        xml:lang="en-US" 
+                        Text="{Binding DateFrom,
+                               Source={StaticResource OrdersByPeriodViewModel}}"
                         Style="{StaticResource DatePickerStyle}"
+                        ToolTip="Date from"
                         BorderThickness="0 1 0 1"
                         FirstDayOfWeek="Monday"
                         Padding="0 5 0 5">
                 <DatePicker.Resources>
                     <Style TargetType="DatePickerTextBox">
-                        <Setter Property="Text" Value=" Date from"/>
                         <Setter Property="IsReadOnly" Value="True"/>
                         <Setter Property="Focusable" Value="False"/>
                         <Setter Property="Control.Template">
@@ -190,13 +207,15 @@
 
             <DatePicker x:Name="dpDateTo" 
                         xml:lang="en-US"
+                        Text="{Binding DateTo,
+                               Source={StaticResource OrdersByPeriodViewModel}}"
                         Style="{StaticResource DatePickerStyle}"
+                        ToolTip="Date to"
                         BorderThickness="0 1 0 1"
                         FirstDayOfWeek="Monday"
                         Padding="0 5 0 5">
                 <DatePicker.Resources>
                     <Style TargetType="DatePickerTextBox">
-                        <Setter Property="Text" Value=" Date to"/>
                         <Setter Property="IsReadOnly" Value="True"/>
                         <Setter Property="Focusable" Value="False"/>
                         <Setter Property="Control.Template">
@@ -227,12 +246,12 @@
 
         <StackPanel x:Name="spCount"
                     Grid.Row="2"
+                    Margin="25 10 0 0"
                     Orientation="Horizontal">
 
             <TextBlock x:Name="tbOrdersCountText"
-                   Text="Orders Count :"
+                   Text="Orders Count : "
                    FontSize="20"
-                   Margin="25 10 0 0"
                    VerticalAlignment="Center">
             </TextBlock>
 
@@ -241,8 +260,7 @@
             Source={StaticResource OrdersByPeriodViewModel},
             UpdateSourceTrigger=PropertyChanged}"
                    FontSize="20"
-                       Width="20"
-                   Margin="10 10 0 0"
+                   Width="20"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left">
             </TextBlock>

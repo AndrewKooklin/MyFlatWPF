@@ -33,6 +33,20 @@ namespace MyFlatWPF.ViewModel.Management
             }
         }
 
+        private string _periodName;
+        public string PeriodName
+        {
+            get
+            {
+                return _periodName;
+            }
+            set
+            {
+                _periodName = value;
+                OnPropertyChanged(nameof(PeriodName));
+            }
+        }
+
         private string _ordersCount;
         public string OrdersCount
         {

@@ -19,7 +19,7 @@ namespace MyFlatWPF.ViewModel.Management
         {
             _orders = GetAllOrders();
             _statusNames = new ObservableCollection<string>(_api.GetStatusNames());
-            ShowOrdersByPeriodCommand = new ShowOrdersByPeriodCommand();
+            ShowOrdersByPeriodCommand = new ShowOrdersByPeriodCommand(this);
         }
 
         public ICommand ShowOrdersByPeriodCommand { get; set; }
@@ -77,6 +77,34 @@ namespace MyFlatWPF.ViewModel.Management
             {
                 _statusNames = value;
                 OnPropertyChanged(nameof(StatusNames));
+            }
+        }
+
+        private string _dateFrom;
+        public string DateFrom
+        {
+            get
+            {
+                return _dateFrom;
+            }
+            set
+            {
+                _dateFrom = value;
+                OnPropertyChanged(nameof(DateFrom));
+            }
+        }
+
+        private string _dateTo;
+        public string DateTo
+        {
+            get
+            {
+                return _dateTo;
+            }
+            set
+            {
+                _dateTo = value;
+                OnPropertyChanged(nameof(DateTo));
             }
         }
 
