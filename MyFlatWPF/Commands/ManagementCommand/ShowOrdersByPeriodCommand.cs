@@ -82,7 +82,23 @@ namespace MyFlatWPF.Commands.ManagementCommand
                                 App.OrdersByPeriodView;
                             break;
                         }
-                            
+                    case "btnYesterday":
+                        {
+                            pm.DateFrom = _dateYesterdayStart;
+                            pm.DateTo = _dateYesterdayEnd;
+                            App.OrdersByPeriodView = new OrdersByPeriodView();
+                            //App.OrdersByPeriodView.dgOrders.Items.Clear();
+                            var orders = await GetOrdersByPeriod(pm);
+                            App.OrdersByPeriodView.dgOrders.ItemsSource = orders;
+                            //App.OrdersByPeriodView.dgOrders.Items.Refresh();
+                            App.OrdersByPeriodView.tbOrdersCount.Text = orders.Count.ToString();
+                            App.OrdersByPeriodView.tbHeaderPeriod.Text = "Today";
+                            App.OrdersByPeriodView.Visibility = System.Windows.Visibility.Visible;
+                            StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                                App.OrdersByPeriodView;
+                            break;
+                        }
+                    default: break;
                 }
             }
         }

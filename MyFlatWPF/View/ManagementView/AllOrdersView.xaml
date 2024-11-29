@@ -126,28 +126,40 @@
                 Width="70"
                 Content="Yesterday"
                 ToolTip="Orders for Yesterday"
-                Style="{StaticResource ButtonStyle}">
+                Style="{StaticResource ButtonStyle}"
+                Command="{Binding ShowOrdersByPeriodCommand, 
+                Source={StaticResource OrdersByPeriodViewModel}}"
+                CommandParameter="{Binding Name, ElementName=btnYesterday}">
             </Button>
 
             <Button x:Name="btnWeek"
                 Width="50"
                 Content="Week"
                 ToolTip="Orders for Week"
-                Style="{StaticResource ButtonStyle}">
+                Style="{StaticResource ButtonStyle}"
+                Command="{Binding ShowOrdersByPeriodCommand, 
+                Source={StaticResource OrdersByPeriodViewModel}}"
+                CommandParameter="{Binding Name, ElementName=btnWeek}">
             </Button>
 
             <Button x:Name="btnMonth"
                 Width="55"
                 Content="Month"
                 ToolTip="Orders for Month"
-                Style="{StaticResource ButtonStyle}">
+                Style="{StaticResource ButtonStyle}"
+                Command="{Binding ShowOrdersByPeriodCommand, 
+                Source={StaticResource OrdersByPeriodViewModel}}"
+                CommandParameter="{Binding Name, ElementName=btnMonth}">
             </Button>
 
             <Button x:Name="btnByPeriod"
                 Width="80"
                 Content="Period from"
                 ToolTip="Orders by Period"
-                Style="{StaticResource ButtonByPeriodStyle}">
+                Style="{StaticResource ButtonByPeriodStyle}"
+                Command="{Binding ShowOrdersByPeriodCommand, 
+                Source={StaticResource OrdersByPeriodViewModel}}"
+                CommandParameter="{Binding Name, ElementName=btnPeriod}">
             </Button>
 
             <DatePicker x:Name="dpDateFrom" 
