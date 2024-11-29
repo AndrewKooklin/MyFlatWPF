@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using MyFlatWPF.Commands.ManagementCommand;
+using MyFlatWPF.View.ManagementView;
 
 namespace MyFlatWPF.ViewModel.Management
 {
@@ -13,6 +14,7 @@ namespace MyFlatWPF.ViewModel.Management
     {
         public ManagementWindowViewModel()
         {
+            App.OrdersByServicesView = new OrdersByServicesView();
             CurrentManagementView = App.OrdersByServicesView;
             SwitchManagementView = new SwitchManagementViewCommand(this);
         }

@@ -23,13 +23,9 @@ namespace MyFlatWPF.ViewModel
         public MainWindowViewModel()
         {
             SwitchViewCommand = new SwitchViewCommand(this);
-
             LogoutCommand = new LogoutCommand();
-
             CurrentView = App.HomeView;
-
             AssignNamesLinks();
-
             AssignRandomPhrase();
         }
 

@@ -1,6 +1,7 @@
 ﻿using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.Model;
 using MyFlatWPF.Model.ManagementModel;
+using MyFlatWPF.View.ManagementView;
 using MyFlatWPF.ViewModel.Management;
 using System;
 using System.Collections.Generic;
@@ -69,9 +70,16 @@ namespace MyFlatWPF.Commands.ManagementCommand
                         {
                             pm.DateFrom = _dateTodayStart;
                             pm.DateTo = _dateTodayNow;
-                            _ordersByPeriodVM.Orders = await GetOrdersByPeriod(pm);
-                            _ordersByPeriodVM.OrdersCount = _ordersByPeriodVM.Orders.Count;
-                            _ordersByPeriodVM.PeriodName = "Today";
+                            App.OrdersByPeriodView = new OrdersByPeriodView();
+                            //App.OrdersByPeriodView.dgOrders.Items.Clear();
+                            var orders = await GetOrdersByPeriod(pm);
+                            App.OrdersByPeriodView.dgOrders.ItemsSource = orders;
+                            //App.OrdersByPeriodView.dgOrders.Items.Refresh();
+                            App.OrdersByPeriodView.tbOrdersCount.Text = orders.Count.ToString();
+                            App.OrdersByPeriodView.tbHeaderPeriod.Text = "Today";
+                            App.OrdersByPeriodView.Visibility = System.Windows.Visibility.Visible;
+                            StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                                App.OrdersByPeriodView;
                             break;
                         }
                             

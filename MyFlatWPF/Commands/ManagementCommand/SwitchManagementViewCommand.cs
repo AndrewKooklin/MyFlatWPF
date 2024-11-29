@@ -1,4 +1,5 @@
 ﻿using MyFlatWPF.Data.Repositories.API;
+using MyFlatWPF.View.ManagementView;
 using MyFlatWPF.ViewModel.Management;
 using System;
 using System.Collections.Generic;
@@ -46,6 +47,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
                         }
                     case "btnOrdersByServices":
                         {
+                            App.OrdersByServicesView = new OrdersByServicesView();
                             App.OrdersByServicesView.Visibility = System.Windows.Visibility.Visible;
                             StaticManagementViewModel.ManagementViewModel.CurrentManagementView = 
                                 App.OrdersByServicesView;
@@ -53,10 +55,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
                         }
                     case "btnOrdersByPeriod":
                         {
-                            //App.OrdersByPeriodView.dgOrders.Items.Clear();
-                            //App.OrdersByPeriodView.dgOrders.ItemsSource = _api.GetAllOrders();
-                            //App.OrdersByPeriodView.tbHeaderPeriod.Text = "All orders";
-                            //App.OrdersByPeriodView.dgOrders.Items.Refresh();
+                            App.AllOrdersView = new AllOrdersView();
                             App.AllOrdersView.Visibility = System.Windows.Visibility.Visible;
                             StaticManagementViewModel.ManagementViewModel.CurrentManagementView = 
                                 App.AllOrdersView;

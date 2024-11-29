@@ -51,7 +51,6 @@ namespace MyFlatWPF.Commands
                 {
                     case "btnManagement":
                         {
-                            App.ManagementWindow = new ManagementWindow();
                             App.ManagementWindow.Show();
                             App.MainWindow.Hide();
                             break;
@@ -59,6 +58,7 @@ namespace MyFlatWPF.Commands
                     case "HomePicture":
                     case "btnHome":
                         {
+                            App.HomeView = new HomeView();
                             App.HomeView.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.HomeView;
                             StaticMainViewModel.MainViewModel.RandomPhrase = 
@@ -68,6 +68,7 @@ namespace MyFlatWPF.Commands
                     case "btnProjects":
                     case "btnBackToProjects":
                         {
+                            App.ProjectsView = new ProjectsView();
                             App.ProjectsView.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.ProjectsView;
                             StaticMainViewModel.MainViewModel.RandomPhrase =
@@ -76,6 +77,7 @@ namespace MyFlatWPF.Commands
                         }
                     case "btnServices":
                         {
+                            App.ServicesView = new ServicesView();
                             App.ServicesView.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.ServicesView;
                             StaticMainViewModel.MainViewModel.RandomPhrase =
@@ -85,6 +87,7 @@ namespace MyFlatWPF.Commands
                     case "btnBlog":
                     case "btnBackToBlog":
                         {
+                            App.BlogView = new BlogView();
                             App.BlogView.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.BlogView;
                             StaticMainViewModel.MainViewModel.RandomPhrase =
@@ -93,6 +96,7 @@ namespace MyFlatWPF.Commands
                         }
                     case "btnContacts":
                         {
+                            App.ContactsView = new ContactsView();
                             App.ContactsView.Visibility = System.Windows.Visibility.Visible;
                             StaticMainViewModel.MainViewModel.CurrentView = App.ContactsView;
                             StaticMainViewModel.MainViewModel.RandomPhrase =

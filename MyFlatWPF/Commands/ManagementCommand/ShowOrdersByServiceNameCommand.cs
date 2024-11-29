@@ -42,7 +42,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
                 App.OrdersView.tbOrdersCount.Text = $"Orders count : {_orders.Count}";
                 App.OrdersView.dgOrders.ItemsSource = null;
                 App.OrdersView.dgOrders.Items.Clear();
-                App.OrdersView.dgOrders.ItemsSource = Orders;
+                App.OrdersView.dgOrders.ItemsSource = _orders;
                 App.OrdersView.dgOrders.Items.Refresh();
                 App.OrdersView.Visibility = System.Windows.Visibility.Visible;
                 StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
