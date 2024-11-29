@@ -145,6 +145,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\LogoutCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ShowOrdersByPeriodCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ShowOrdersByServiceNameCommand.cs" />
     <Compile Include="Commands\ManagementCommand\SwitchManagementViewCommand.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
@@ -179,6 +180,7 @@
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\Management\AllOrdersViewModel.cs" />
     <Compile Include="ViewModel\Management\ManagementWindowViewModel.cs" />
+    <Compile Include="ViewModel\Management\OrdersByPeriodViewModel.cs" />
     <Compile Include="ViewModel\Management\OrdersByServiceViewModel.cs" />
     <Compile Include="ViewModel\Management\StaticManagementViewModel.cs" />
     <Compile Include="ViewModel\ProjectsViewModel.cs" />
@@ -200,8 +202,8 @@
     <Compile Include="View\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ManagementView\AllOrdersView.xaml.cs">
-      <DependentUpon>AllOrdersView.xaml</DependentUpon>
+    <Compile Include="View\ManagementView\OrdersByPeriodView.xaml.cs">
+      <DependentUpon>OrdersByPeriodView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ManagementView\OrdersByServicesView.xaml.cs">
       <DependentUpon>OrdersByServicesView.xaml</DependentUpon>
@@ -263,7 +265,7 @@
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
-    <Page Include="View\ManagementView\AllOrdersView.xaml">
+    <Page Include="View\ManagementView\OrdersByPeriodView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

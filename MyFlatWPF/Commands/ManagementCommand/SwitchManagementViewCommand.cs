@@ -49,11 +49,11 @@ namespace MyFlatWPF.Commands.ManagementCommand
                                 App.OrdersByServicesView;
                             break;
                         }
-                    case "btnAllOrders":
+                    case "btnOrdersByPeriod":
                         {
-                            App.AllOrdersView.Visibility = System.Windows.Visibility.Visible;
+                            App.OrdersByPeriodView.Visibility = System.Windows.Visibility.Visible;
                             StaticManagementViewModel.ManagementViewModel.CurrentManagementView = 
-                                App.AllOrdersView;
+                                App.OrdersByPeriodView;
                             break;
                         }
                     //case "btnProjects":
