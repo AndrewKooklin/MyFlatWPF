@@ -128,14 +128,26 @@ namespace MyFlatWPF.Commands.ManagementCommand
                             _dateTo = Convert.ToDateTime(_ordersByPeriodVM.DateTo);
                             if (_dateFrom == null || _dateTo == null)
                             {
+                                App.OrdersByPeriodView = new OrdersByPeriodView();
+                                App.OrdersByPeriodView.Visibility = System.Windows.Visibility.Visible;
+                                StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                                    App.OrdersByPeriodView;
                                 return;
                             }
                             if (_dateFrom > _dateTo)
                             {
+                                App.OrdersByPeriodView = new OrdersByPeriodView();
+                                App.OrdersByPeriodView.Visibility = System.Windows.Visibility.Visible;
+                                StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                                    App.OrdersByPeriodView;
                                 return;
                             }
                             if (_dateTo > DateTime.Now)
                             {
+                                App.OrdersByPeriodView = new OrdersByPeriodView();
+                                App.OrdersByPeriodView.Visibility = System.Windows.Visibility.Visible;
+                                StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                                    App.OrdersByPeriodView;
                                 return;
                             }
                             else

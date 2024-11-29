@@ -157,8 +157,7 @@
                 Content="Period from"
                 ToolTip="Orders by Period"
                 Style="{StaticResource ButtonByPeriodStyle}"
-                Command="{Binding ShowOrdersByPeriodCommand, 
-                Source={StaticResource OrdersByPeriodViewModel}}"
+                Command="{Binding ShowOrdersByPeriodCommand, Source={StaticResource OrdersByPeriodViewModel}}"
                 CommandParameter="{Binding Name, ElementName=btnPeriod}">
             </Button>
 
