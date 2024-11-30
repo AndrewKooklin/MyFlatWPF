@@ -52,6 +52,20 @@ namespace MyFlatWPF.ViewModel.Management
             }
         }
 
+        public string _errorPeriod;
+        public string ErrorPeriod
+        {
+            get
+            {
+                return _errorPeriod;
+            }
+            set
+            {
+                _errorPeriod = value;
+                OnPropertyChanged(nameof(ErrorPeriod));
+            }
+        }
+
         private int _ordersCount;
         public int OrdersCount
         {

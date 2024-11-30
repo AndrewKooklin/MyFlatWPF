@@ -45,7 +45,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
             if(parameter != null)
             {
                 PeriodModel pm = new PeriodModel();
-                App.OrdersByPeriodView.tbHeaderPeriod.Foreground = Brushes.Black;
+                App.OrdersByPeriodView.tbErrorPeriod.Text = "";
                 string param = parameter.ToString();
                 switch (param)
                 {
@@ -53,8 +53,6 @@ namespace MyFlatWPF.Commands.ManagementCommand
                         {
                             pm.DateFrom = _dateTodayStart;
                             pm.DateTo = _dateTodayNow;
-                            //App.OrdersByPeriodView = null;
-                            //App.OrdersByPeriodView = new OrdersByPeriodView();
                             var orders = await GetOrdersByPeriod(pm);
                             App.OrdersByPeriodView.dgOrders.ItemsSource = orders;
                             App.OrdersByPeriodView.tbOrdersCount.Text = orders.Count.ToString();
@@ -68,7 +66,6 @@ namespace MyFlatWPF.Commands.ManagementCommand
                         {
                             pm.DateFrom = _dateYesterdayStart;
                             pm.DateTo = _dateYesterdayEnd;
-                            //App.OrdersByPeriodView = new OrdersByPeriodView();
                             var orders = await GetOrdersByPeriod(pm);
                             App.OrdersByPeriodView.dgOrders.ItemsSource = orders;
                             App.OrdersByPeriodView.tbOrdersCount.Text = orders.Count.ToString();
@@ -82,7 +79,6 @@ namespace MyFlatWPF.Commands.ManagementCommand
                         {
                             pm.DateFrom = _dateWeekEarlier;
                             pm.DateTo = _dateYesterdayEnd;
-                            //App.OrdersByPeriodView = new OrdersByPeriodView();
                             var orders = await GetOrdersByPeriod(pm);
                             App.OrdersByPeriodView.dgOrders.ItemsSource = orders;
                             App.OrdersByPeriodView.tbOrdersCount.Text = orders.Count.ToString();
@@ -96,8 +92,6 @@ namespace MyFlatWPF.Commands.ManagementCommand
                         {
                             pm.DateFrom = _dateMonthEarlier;
                             pm.DateTo = _dateYesterdayEnd;
-                            //App.OrdersByPeriodView = null;
-                            //App.OrdersByPeriodView = new OrdersByPeriodView();
                             var orders = await GetOrdersByPeriod(pm);
                             App.OrdersByPeriodView.dgOrders.ItemsSource = orders;
                             App.OrdersByPeriodView.tbOrdersCount.Text = orders.Count.ToString();
@@ -118,8 +112,9 @@ namespace MyFlatWPF.Commands.ManagementCommand
                             {
                                 App.OrdersByPeriodView.dgOrders.ItemsSource = null;
                                 App.OrdersByPeriodView.tbOrdersCount.Text = "0";
-                                App.OrdersByPeriodView.tbHeaderPeriod.Text = "Select date !";
-                                App.OrdersByPeriodView.tbHeaderPeriod.Foreground = Brushes.Red;
+                                App.OrdersByPeriodView.tbErrorPeriod.Text = "Select date !";
+                                App.OrdersByPeriodView.tbHeaderPeriod.Text = "";
+                                App.OrdersByPeriodView.dgOrders.ItemsSource = null;
                                 App.OrdersByPeriodView.Visibility = System.Windows.Visibility.Visible;
                                 StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
                                     App.OrdersByPeriodView;
@@ -128,8 +123,9 @@ namespace MyFlatWPF.Commands.ManagementCommand
                             if (_dateFrom > _dateTo)
                             {
                                 App.OrdersByPeriodView.tbOrdersCount.Text = "0";
-                                App.OrdersByPeriodView.tbHeaderPeriod.Text = "Date From is greater than date To !";
-                                App.OrdersByPeriodView.tbHeaderPeriod.Foreground = Brushes.Red;
+                                App.OrdersByPeriodView.tbErrorPeriod.Text = "Date From is greater than date To !";
+                                App.OrdersByPeriodView.tbHeaderPeriod.Text = "";
+                                App.OrdersByPeriodView.dgOrders.ItemsSource = null;
                                 App.OrdersByPeriodView.Visibility = System.Windows.Visibility.Visible;
                                 StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
                                     App.OrdersByPeriodView;
@@ -138,8 +134,9 @@ namespace MyFlatWPF.Commands.ManagementCommand
                             if (_dateTo > DateTime.Now)
                             {
                                 App.OrdersByPeriodView.tbOrdersCount.Text = "0";
-                                App.OrdersByPeriodView.tbHeaderPeriod.Text = "Date To is greater than Now !";
-                                App.OrdersByPeriodView.tbHeaderPeriod.Foreground = Brushes.Red;
+                                App.OrdersByPeriodView.tbErrorPeriod.Text = "Date To is greater than Now !";
+                                App.OrdersByPeriodView.tbHeaderPeriod.Text = "";
+                                App.OrdersByPeriodView.dgOrders.ItemsSource = null;
                                 App.OrdersByPeriodView.Visibility = System.Windows.Visibility.Visible;
                                 StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
                                     App.OrdersByPeriodView;
@@ -153,6 +150,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
                                 App.OrdersByPeriodView.dgOrders.ItemsSource = orders;
                                 App.OrdersByPeriodView.tbOrdersCount.Text = orders.Count.ToString();
                                 App.OrdersByPeriodView.tbHeaderPeriod.Text = "Period";
+                                App.OrdersByPeriodView.tbErrorPeriod.Text = "";
                                 App.OrdersByPeriodView.Visibility = System.Windows.Visibility.Visible;
                                 StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
                                     App.OrdersByPeriodView;

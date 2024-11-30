@@ -75,6 +75,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="15*"/>
+            <RowDefinition Height="4*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="140*"/>
@@ -85,12 +86,14 @@
 
         <StackPanel x:Name="spHeaders"
                     Grid.Row="0"
-                    Orientation="Horizontal">
+                    Margin="25 20 0 10"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Left">
 
             <TextBlock x:Name="tbHeader"
                    Text="Orders by :"
                    FontSize="24"
-                   Margin="25 20 0 20">
+                   HorizontalAlignment="Left">
             </TextBlock>
 
             <TextBlock x:Name="tbHeaderPeriod"
@@ -98,14 +101,26 @@
                           Source={StaticResource OrdersByPeriodViewModel},
                           UpdateSourceTrigger=PropertyChanged}"
                    FontSize="24"
-                   Margin="5 20 0 20"
+                   Margin="5 0 0 0"
                    HorizontalAlignment="Left">
             </TextBlock>
 
         </StackPanel>
 
+        <TextBlock x:Name="tbErrorPeriod"
+                   Grid.Row="1"
+                   Grid.ColumnSpan="2"
+                   Text="{Binding ErrorPeriod, 
+                          Source={StaticResource OrdersByPeriodViewModel},
+                          UpdateSourceTrigger=PropertyChanged}"
+                   FontSize="12"
+                   Foreground="Red"
+                   Margin="0 0 30 0"
+                   HorizontalAlignment="Right">
+        </TextBlock>
+
         <StackPanel x:Name="spOrdersByPeriod"
-                    Grid.Row="1"
+                    Grid.Row="2"
                     Grid.ColumnSpan="2"
                     Orientation="Horizontal"
                     VerticalAlignment="Center"
@@ -245,7 +260,8 @@
         </StackPanel>
 
         <StackPanel x:Name="spCount"
-                    Grid.Row="2"
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2"
                     Margin="25 10 0 0"
                     Orientation="Horizontal">
 
@@ -266,7 +282,7 @@
         </StackPanel>
 
         <DataGrid x:Name="dgOrders"
-                  Grid.Row="3"
+                  Grid.Row="4"
                   Grid.ColumnSpan="2"
                   Width="600"
                   Height="450"
