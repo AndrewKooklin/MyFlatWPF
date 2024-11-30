@@ -36,25 +36,6 @@ namespace MyFlatWPF.Commands.ManagementCommand
 
         public bool CanExecute(object parameter)
         {
-            if (parameter != null && parameter.ToString() == "btnPeriod")
-            {
-                if (String.IsNullOrEmpty(_ordersByPeriodVM.DateFrom) ||
-                    String.IsNullOrEmpty(_ordersByPeriodVM.DateTo))
-                {
-                    return false;
-                }
-                if (DateTime.ParseExact(_ordersByPeriodVM.DateFrom, "dd.MM.yyyy", null) >
-                    DateTime.ParseExact(_ordersByPeriodVM.DateTo, "dd.MM.yyyy", null))
-                {
-                    return false;
-                }
-                if (DateTime.ParseExact(_ordersByPeriodVM.DateTo, "dd.MM.yyyy", null) >
-                    DateTime.Now)
-                {
-                    return false;
-                }
-                return true;
-            }
             return true;
         }
 
@@ -63,6 +44,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
             if(parameter != null)
             {
                 PeriodModel pm = new PeriodModel();
+                App.OrdersByPeriodView = new OrdersByPeriodView();
                 string param = parameter.ToString();
                 switch (param)
                 {
@@ -70,7 +52,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
                         {
                             pm.DateFrom = _dateTodayStart;
                             pm.DateTo = _dateTodayNow;
-                            App.OrdersByPeriodView = new OrdersByPeriodView();
+                            //App.OrdersByPeriodView = new OrdersByPeriodView();
                             var orders = await GetOrdersByPeriod(pm);
                             App.OrdersByPeriodView.dgOrders.ItemsSource = orders;
                             App.OrdersByPeriodView.tbOrdersCount.Text = orders.Count.ToString();
@@ -84,7 +66,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
                         {
                             pm.DateFrom = _dateYesterdayStart;
                             pm.DateTo = _dateYesterdayEnd;
-                            App.OrdersByPeriodView = new OrdersByPeriodView();
+                            //App.OrdersByPeriodView = new OrdersByPeriodView();
                             var orders = await GetOrdersByPeriod(pm);
                             App.OrdersByPeriodView.dgOrders.ItemsSource = orders;
                             App.OrdersByPeriodView.tbOrdersCount.Text = orders.Count.ToString();
@@ -98,7 +80,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
                         {
                             pm.DateFrom = _dateWeekEarlier;
                             pm.DateTo = _dateYesterdayEnd;
-                            App.OrdersByPeriodView = new OrdersByPeriodView();
+                            //App.OrdersByPeriodView = new OrdersByPeriodView();
                             var orders = await GetOrdersByPeriod(pm);
                             App.OrdersByPeriodView.dgOrders.ItemsSource = orders;
                             App.OrdersByPeriodView.tbOrdersCount.Text = orders.Count.ToString();
@@ -112,7 +94,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
                         {
                             pm.DateFrom = _dateMonthEarlier;
                             pm.DateTo = _dateYesterdayEnd;
-                            App.OrdersByPeriodView = new OrdersByPeriodView();
+                            //App.OrdersByPeriodView = new OrdersByPeriodView();
                             var orders = await GetOrdersByPeriod(pm);
                             App.OrdersByPeriodView.dgOrders.ItemsSource = orders;
                             App.OrdersByPeriodView.tbOrdersCount.Text = orders.Count.ToString();
@@ -128,7 +110,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
                             _dateTo = Convert.ToDateTime(_ordersByPeriodVM.DateTo);
                             if (_dateFrom == null || _dateTo == null)
                             {
-                                App.OrdersByPeriodView = new OrdersByPeriodView();
+                                //App.OrdersByPeriodView = new OrdersByPeriodView();
                                 App.OrdersByPeriodView.Visibility = System.Windows.Visibility.Visible;
                                 StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
                                     App.OrdersByPeriodView;
@@ -136,7 +118,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
                             }
                             if (_dateFrom > _dateTo)
                             {
-                                App.OrdersByPeriodView = new OrdersByPeriodView();
+                                //App.OrdersByPeriodView = new OrdersByPeriodView();
                                 App.OrdersByPeriodView.Visibility = System.Windows.Visibility.Visible;
                                 StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
                                     App.OrdersByPeriodView;
@@ -144,7 +126,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
                             }
                             if (_dateTo > DateTime.Now)
                             {
-                                App.OrdersByPeriodView = new OrdersByPeriodView();
+                                //App.OrdersByPeriodView = new OrdersByPeriodView();
                                 App.OrdersByPeriodView.Visibility = System.Windows.Visibility.Visible;
                                 StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
                                     App.OrdersByPeriodView;
@@ -154,7 +136,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
                             {
                                 pm.DateFrom = _dateFrom;
                                 pm.DateTo = _dateTo;
-                                App.OrdersByPeriodView = new OrdersByPeriodView();
+                                //App.OrdersByPeriodView = new OrdersByPeriodView();
                                 var orders = await GetOrdersByPeriod(pm);
                                 App.OrdersByPeriodView.dgOrders.ItemsSource = orders;
                                 App.OrdersByPeriodView.tbOrdersCount.Text = orders.Count.ToString();
