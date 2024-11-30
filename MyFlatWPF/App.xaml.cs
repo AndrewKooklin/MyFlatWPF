@@ -43,7 +43,7 @@ namespace MyFlatWPF
 
         public static AllOrdersView AllOrdersView;
 
-        public static OrdersByPeriodView OrdersByPeriodView;
+        public static OrdersByPeriodView OrdersByPeriodView = new OrdersByPeriodView();
 
         public static OrdersView OrdersView = new OrdersView();
 
