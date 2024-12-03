@@ -47,6 +47,8 @@ namespace MyFlatWPF
 
         public static OrdersView OrdersView = new OrdersView();
 
+        public static HomeEditView HomeEditView;
+
 
 
         protected override void OnStartup(StartupEventArgs e)

@@ -1,0 +1,305 @@
+﻿<UserControl x:Class="MyFlatWPF.View.ManagementView.HomeEditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyFlatWPF.View.ManagementView"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" 
+             d:DesignWidth="600">
+    <Grid>
+
+        <Grid.Resources>
+
+            <Style x:Key="BorderStyle" TargetType="Border">
+                <Setter Property="Background" Value="LightSkyBlue"></Setter>
+                <Setter Property="Height" Value="0.5"></Setter>
+            </Style>
+
+        </Grid.Resources>
+
+        <StackPanel x:Name="spCommon"
+                    Margin="10 0 0 10">
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="40*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+
+                <TextBlock x:Name="tbHeader"
+                           Grid.ColumnSpan="2"
+                   Text="Changable fields on the home page"
+                   FontSize="24"
+                           Margin="0 10 0 10">
+
+                </TextBlock>
+
+                <Border Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        Style="{StaticResource BorderStyle}"></Border>
+
+                <StackPanel x:Name="spTopMenuEdit"
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Margin="0 10 0 10"
+                    HorizontalAlignment="Left"
+                    Orientation="Vertical">
+
+                    <TextBlock x:Name="tbHeaderTopMenu"
+                               Text="Top menu links"
+                               FontSize="20"
+                               Margin="0 5 0 5">
+
+                    </TextBlock>
+
+                    <WrapPanel x:Name="wpTopMenuLinks">
+
+                    </WrapPanel>
+
+                </StackPanel>
+
+                <Border Grid.Row="3"
+                        Grid.ColumnSpan="2"
+                        Style="{StaticResource BorderStyle}"></Border>
+
+                <StackPanel x:Name="spRandomPhraseEdit"
+                    Grid.Row="4"
+                    Grid.ColumnSpan="2"
+                    Margin="0 10 0 10"
+                    HorizontalAlignment="Left"
+                    Orientation="Vertical">
+
+                    <TextBlock x:Name="tbHeaderRandomPhrase"
+                               Text="Random Phrase"
+                               FontSize="20"
+                               Margin="0 5 0 5">
+
+                    </TextBlock>
+
+                    <TextBlock x:Name="tbAddRandomPhrase"
+                               Text="Add Phrase"
+                               FontSize="20"
+                               Margin="0 5 0 5">
+
+                    </TextBlock>
+
+                    <StackPanel x:Name="spInputPhrase"
+                                Orientation="Horizontal"
+                                Margin="0 5 0 5">
+                        <TextBox x:Name="tbInputPhrase"
+                                 Width="150"
+                             FontSize="12">
+                        </TextBox>
+
+                        <Border x:Name="bAddPhrase"
+                                Margin="10 0 0 0"
+                                CornerRadius="10">
+                            <Button x:Name="btnAddPhrase"
+                                Content="+"
+                                FontWeight="DemiBold"
+                                Background="LightSkyBlue"
+                                Width="20"
+                                ToolTip="Add phrase"></Button>
+                        </Border>
+
+                    </StackPanel>
+
+                    <WrapPanel x:Name="wpRandomPhrases"
+                                Margin="0 5 0 5">
+
+                    </WrapPanel>
+
+                </StackPanel>
+
+                <Border Grid.Row="5"
+                        Grid.ColumnSpan="2"
+                        Style="{StaticResource BorderStyle}"></Border>
+
+                <StackPanel x:Name="spCentralArea"
+                            Grid.Row="6"
+                            Grid.Column="0"
+                            Orientation="Vertical">
+
+                    <TextBlock x:Name="tbHeaderCentralArea"
+                               Text="Central area left side text"
+                               FontSize="20"
+                               Margin="0 5 0 5">
+
+                    </TextBlock>
+
+                    <StackPanel x:Name="spInputHeaderCentralArea"
+                                Grid.Row="6"
+                                Width="200"
+                                HorizontalAlignment="Left">
+
+                        <TextBox x:Name="tbInputCentralArea"
+                               Width="200"
+                             HorizontalAlignment="Left"
+                             FontSize="12">
+
+                        </TextBox>
+
+                        <Border x:Name="bAddHeaderCentralArea"
+                                Margin="0 5 0 0"
+                                CornerRadius="10"
+                            Width="20"
+                            HorizontalAlignment="Right">
+                            <Button x:Name="btnAddHeaderCentralArea"
+                                Content="+"
+                                FontWeight="DemiBold"
+                                Background="LightSkyBlue"
+                                Width="20"
+                                ToolTip="Add header text"></Button>
+                        </Border>
+                    </StackPanel>
+
+                </StackPanel>
+
+                <StackPanel x:Name="spChangeImageHomePage"
+                            Grid.Row="6"
+                            Grid.Column="1"
+                            Orientation="Vertical">
+                    <TextBlock x:Name="tbHomePageImage"
+                               Text="Home page image"
+                               FontSize="20"
+                               Margin="10 5 0 5">
+
+                    </TextBlock>
+
+                    <Image x:Name="iHomePage"
+                           Margin="0 5 10 5"
+                           Width="160"
+                           Height="110"
+                           HorizontalAlignment="Right"></Image>
+
+                    <StackPanel x:Name="spButtunsChangeImage"
+                                Grid.Row="6"
+                                Grid.Column="1"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right"
+                                Margin="0 10 10 10">
+
+                        <Border x:Name="bChooseImage"
+                                CornerRadius="3"
+                            Width="95"
+                                Height="25">
+                            <Button x:Name="btnChooseImage"
+                                Content="Choose image"
+                                    FontSize="12"
+                                FontWeight="SemiBold"
+                                Background="LightSkyBlue"
+                                ToolTip="Choose image"></Button>
+                        </Border>
+
+                        <Border x:Name="bChangeImage"
+                                Margin="10 0 0 0"
+                                CornerRadius="3"
+                            Width="55"
+                                Height="25">
+                            <Button x:Name="btnChangeImage"
+                                Content="Change"
+                                FontWeight="SemiBold"
+                                Background="LightSkyBlue"
+                                ToolTip="Change image"></Button>
+                        </Border>
+
+                    </StackPanel>
+
+                </StackPanel>
+
+                <Border Grid.Row="7"
+                        Grid.ColumnSpan="2"
+                        Style="{StaticResource BorderStyle}"></Border>
+
+                <StackPanel x:Name="spBottomLeftText"
+                            Grid.Row="8"
+                            Grid.ColumnSpan="2"
+                            Orientation="Vertical">
+
+                    <TextBlock x:Name="tbHeaderBottomLeftText"
+                               Text="Bottom header left text"
+                               FontSize="20"
+                               Margin="0 5 0 5">
+
+                    </TextBlock>
+
+                    <StackPanel x:Name="spInputHeaderBottom"
+                                Grid.Row="8"
+                                Width="200"
+                                HorizontalAlignment="Left">
+
+                        <TextBox x:Name="tbInputHeaderLeftText"
+                               Width="200"
+                               FontSize="12"
+                               Text="">
+
+                        </TextBox>
+
+                        <Border x:Name="bChangeBottomLeftText"
+                                Margin="0 5 0 0"
+                                CornerRadius="3"
+                            Width="60"
+                                Height="25"
+                            HorizontalAlignment="Right">
+                            <Button x:Name="btnChangeBotomLeftText"
+                                Content="Change"
+                                FontWeight="SemiBold"
+                                Background="LightSkyBlue"
+                                Width="60"
+                                ToolTip="Change header text"></Button>
+                        </Border>
+                    </StackPanel>
+
+                    <TextBlock x:Name="tbHeaderContent"
+                               Text="Bottom content"
+                               FontSize="20"
+                               Margin="0 5 0 5">
+
+                    </TextBlock>
+
+                    <StackPanel x:Name="spInputBottomContent"
+                                Width="300"
+                                HorizontalAlignment="Left">
+
+                        <TextBox x:Name="tbInputBottomContent"
+                               Width="300"
+                               MinLines="6"
+                               FontSize="12">
+
+                        </TextBox>
+
+                        <Border x:Name="bChangeBottomContent"
+                                Margin="0 5 0 0"
+                                CornerRadius="3"
+                            Width="60"
+                                Height="25"
+                            HorizontalAlignment="Right">
+                            <Button x:Name="btnChangeBotomContent"
+                                Content="Change"
+                                FontWeight="SemiBold"
+                                Background="LightSkyBlue"
+                                Width="60"
+                                ToolTip="Change bottom content"></Button>
+                        </Border>
+                    </StackPanel>
+
+                </StackPanel>
+
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

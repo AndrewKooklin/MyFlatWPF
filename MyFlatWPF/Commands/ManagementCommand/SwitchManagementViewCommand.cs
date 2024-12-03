@@ -61,6 +61,14 @@ namespace MyFlatWPF.Commands.ManagementCommand
                                 App.AllOrdersView;
                             break;
                         }
+                    case "btnHomeEdit":
+                        {
+                            App.HomeEditView = new HomeEditView();
+                            App.AllOrdersView.Visibility = System.Windows.Visibility.Visible;
+                            StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                                App.HomeEditView;
+                            break;
+                        }
                     //case "btnProjects":
                     //case "btnBackToProjects":
                     //    {
