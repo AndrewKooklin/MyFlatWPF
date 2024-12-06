@@ -38,6 +38,10 @@ namespace MyFlatWPF.ViewModel.Management
 
         private ICommand ChangeNameLinkCommand { get; set; }
 
+        private ICommand ChangeRandomPhraseCommand { get; set; }
+
+        private ICommand DeleteRandomPhraseCommand { get; set; }
+
         public void AddElementsTopMenuLinks(WrapPanel wrapPanel)
         {
             List<TopMenuLinkNameModel> ltml = new List<TopMenuLinkNameModel>();
@@ -116,18 +120,35 @@ namespace MyFlatWPF.ViewModel.Management
                 tbox.FontSize = 12;
                 spRandomPhrases.Children.Add(tbox);
 
-                Button btn = new Button();
-                btn.Content = "Change";
-                btn.ToolTip = "Change phrase";
-                btn.OverridesDefaultStyle = true;
-                btn.HorizontalAlignment = HorizontalAlignment.Right;
-                btn.Margin = new Thickness(0, 5, 1, 0);
-                btn.Style = btnStyle;
-                btn.Command = ChangeNameLinkCommand;
-                btn.CommandParameter = phrase.Id;
+                StackPanel spButtons = new StackPanel();
+                spButtons.Orientation = Orientation.Horizontal;
+                spButtons.HorizontalAlignment = HorizontalAlignment.Right;
+                spButtons.Margin = new Thickness(0, 5, 1, 0);
 
-                spRandomPhrases.Children.Add(btn);
-                _wpRandomPrases.Children.Add(sp);
+                Button btnChange = new Button();
+                btnChange.Content = "Change";
+                btnChange.ToolTip = "Change phrase";
+                btnChange.OverridesDefaultStyle = true;
+                btnChange.HorizontalAlignment = HorizontalAlignment.Right;
+                btnChange.Margin = new Thickness(0, 0, 0, 0);
+                btnChange.Style = btnStyle;
+                btnChange.Command = ChangeRandomPhraseCommand;
+                btnChange.CommandParameter = phrase.Id;
+                spButtons.Children.Add(btnChange);
+
+                Button btnDelete = new Button();
+                btnDelete.Content = "Delete";
+                btnDelete.ToolTip = "Delete phrase";
+                btnDelete.OverridesDefaultStyle = true;
+                btnDelete.HorizontalAlignment = HorizontalAlignment.Right;
+                btnDelete.Margin = new Thickness(5, 0, 0, 0);
+                btnDelete.Style = btnStyle;
+                btnDelete.Command = DeleteRandomPhraseCommand;
+                btnDelete.CommandParameter = phrase.Id;
+                spButtons.Children.Add(btnDelete);
+
+                spRandomPhrases.Children.Add(spButtons);
+                _wpRandomPrases.Children.Add(spRandomPhrases);
             }
         }
 
