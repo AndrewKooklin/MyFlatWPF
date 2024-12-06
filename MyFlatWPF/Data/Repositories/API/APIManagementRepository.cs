@@ -126,5 +126,38 @@ namespace MyFlatWPF.Data.Repositories.API
 
             return orders;
         }
+
+        public List<TopMenuLinkNameModel> GetTopLinks()
+        {
+            List<TopMenuLinkNameModel> topLinks = new List<TopMenuLinkNameModel>();
+
+            urlRequest = $"{url}" + "HomePageEditAPI/GetTopMenuLinkNames";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                topLinks = JsonConvert.DeserializeObject<List<TopMenuLinkNameModel>>(result);
+            }
+
+            return topLinks;
+        }
+
+        public async Task<bool> ChangeNameLinkTopMenu(TopMenuLinkNameModel model)
+        {
+            urlRequest = $"{url}" + "HomePageEditAPI/ChangeNameLinkTopMenu/" + $"{model}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, model))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
     }
 }
