@@ -101,3 +101,5 @@ C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\OrdersByPeriodView.g.
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\OrdersByPeriodView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\AllOrdersView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\AllOrdersView.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\HomeEditView.g.cs
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\HomeEditView.baml

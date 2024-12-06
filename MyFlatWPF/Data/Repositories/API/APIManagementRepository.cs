@@ -159,5 +159,21 @@ namespace MyFlatWPF.Data.Repositories.API
 
             return apiResponseConvert;
         }
+
+        public List<RandomPhraseModel> GetRandomPhrasesFromDB()
+        {
+            List<RandomPhraseModel> phrases = new List<RandomPhraseModel>();
+
+            urlRequest = $"{url}" + "ProjectsPageEditAPI/GetRandomPhrases";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                phrases = JsonConvert.DeserializeObject<List<RandomPhraseModel>>(result);
+            }
+
+            return phrases;
+        }
     }
 }

@@ -7,7 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="800" 
              d:DesignWidth="600">
-    <Grid>
+    
+    <Grid x:Name="gHomeEdit"
+          Margin="10 0 10 0">
 
         <Grid.Resources>
 
@@ -16,14 +18,95 @@
                 <Setter Property="Height" Value="0.5"></Setter>
             </Style>
 
+            <Style x:Key="ButtonCircleStyle" TargetType="{x:Type Button}">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="FontWeight" Value="DemiBold"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Width" Value="20"/>
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="10"
+                                    Height="20"
+                                    Padding="0 0 0 2"
+                                    BorderThickness="1"
+                                    BorderBrush="Black"
+                                    Background="DeepSkyBlue">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="FontSize" Value="10"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="Padding" Value="5 0 5 0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="3"
+                                    Height="20"
+                                    Padding="5 0 5 0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    BorderThickness="1"
+                                    BorderBrush="Black"
+                                    Background="DeepSkyBlue">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="InputTextBox" TargetType="TextBox">
+                <Setter Property="BorderBrush" Value="LightGray"/>
+                <Setter Property="BorderThickness" Value="0.75"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Border
+                        x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="True"
+                                CornerRadius="2">
+                                <ScrollViewer
+                            x:Name="PART_ContentHost"
+                            Focusable="false"
+                            HorizontalScrollBarVisibility="Hidden"
+                            VerticalScrollBarVisibility="Hidden" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <!--<Trigger Property="IsEnabled" Value="false">
+                                    <Setter TargetName="border" Property="Opacity" Value="0.56" />
+                                </Trigger>-->
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#FF7EB4EA" />
+                                    <Setter TargetName="border" Property="BorderThickness" Value="0.75" />
+                                </Trigger>
+                                <Trigger Property="IsFocused" Value="true">
+                                    <Setter TargetName="border" Property="BorderBrush" Value="Blue" />
+                                    <Setter TargetName="border" Property="BorderThickness" Value="1" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
         </Grid.Resources>
 
-        <StackPanel x:Name="spCommon"
-                    Margin="10 0 0 10">
-
-            <Grid>
-
-                <Grid.RowDefinitions>
+        <Grid.RowDefinitions>
                     <RowDefinition Height="6*"/>
                     <RowDefinition Height="0.5*"/>
                     <RowDefinition Height="20*"/>
@@ -43,8 +126,8 @@
                 <TextBlock x:Name="tbHeader"
                            Grid.ColumnSpan="2"
                    Text="Changable fields on the home page"
-                   FontSize="24"
-                           Margin="0 10 0 10">
+                   FontSize="20"
+                           Margin="0 5 0 5">
 
                 </TextBlock>
 
@@ -55,14 +138,14 @@
                 <StackPanel x:Name="spTopMenuEdit"
                     Grid.Row="2"
                     Grid.ColumnSpan="2"
-                    Margin="0 10 0 10"
+                    Margin="0 2 0 5"
                     HorizontalAlignment="Left"
                     Orientation="Vertical">
 
                     <TextBlock x:Name="tbHeaderTopMenu"
                                Text="Top menu links"
-                               FontSize="20"
-                               Margin="0 5 0 5">
+                               FontSize="16"
+                               Margin="0 0 0 2">
 
                     </TextBlock>
 
@@ -79,47 +162,44 @@
                 <StackPanel x:Name="spRandomPhraseEdit"
                     Grid.Row="4"
                     Grid.ColumnSpan="2"
-                    Margin="0 10 0 10"
+                    Margin="0 5 0 0"
                     HorizontalAlignment="Left"
                     Orientation="Vertical">
 
                     <TextBlock x:Name="tbHeaderRandomPhrase"
                                Text="Random Phrase"
-                               FontSize="20"
-                               Margin="0 5 0 5">
+                               FontSize="16"
+                               Margin="0 0 0 0">
 
                     </TextBlock>
 
                     <TextBlock x:Name="tbAddRandomPhrase"
                                Text="Add Phrase"
-                               FontSize="20"
-                               Margin="0 5 0 5">
-
+                               FontSize="16"
+                               Margin="0 0 0 0">
                     </TextBlock>
 
                     <StackPanel x:Name="spInputPhrase"
                                 Orientation="Horizontal"
-                                Margin="0 5 0 5">
+                                Margin="0 5 0 0">
+                        
                         <TextBox x:Name="tbInputPhrase"
                                  Width="150"
                              FontSize="12">
                         </TextBox>
 
-                        <Border x:Name="bAddPhrase"
-                                Margin="10 0 0 0"
-                                CornerRadius="10">
-                            <Button x:Name="btnAddPhrase"
+                        <Button x:Name="btnAddPhrase"
                                 Content="+"
+                                Margin="10 0 0 0"
                                 FontWeight="DemiBold"
-                                Background="LightSkyBlue"
-                                Width="20"
-                                ToolTip="Add phrase"></Button>
-                        </Border>
+                                ToolTip="Add phrase"
+                                Style="{StaticResource ButtonCircleStyle}">
+                        </Button>
 
                     </StackPanel>
 
                     <WrapPanel x:Name="wpRandomPhrases"
-                                Margin="0 5 0 5">
+                                Margin="0 5 0 0">
 
                     </WrapPanel>
 
@@ -136,8 +216,8 @@
 
                     <TextBlock x:Name="tbHeaderCentralArea"
                                Text="Central area left side text"
-                               FontSize="20"
-                               Margin="0 5 0 5">
+                               FontSize="16"
+                               Margin="0 5 0 0">
 
                     </TextBlock>
 
@@ -150,21 +230,17 @@
                                Width="200"
                              HorizontalAlignment="Left"
                              FontSize="12">
-
                         </TextBox>
 
-                        <Border x:Name="bAddHeaderCentralArea"
-                                Margin="0 5 0 0"
-                                CornerRadius="10"
-                            Width="20"
-                            HorizontalAlignment="Right">
-                            <Button x:Name="btnAddHeaderCentralArea"
+
+                        <Button x:Name="btnAddHeaderCentralArea"
                                 Content="+"
+                                HorizontalAlignment="Right"
+                                Margin="0 5 0 0"
                                 FontWeight="DemiBold"
-                                Background="LightSkyBlue"
-                                Width="20"
-                                ToolTip="Add header text"></Button>
-                        </Border>
+                                ToolTip="Add header text"
+                                Style="{StaticResource ButtonCircleStyle}">
+                        </Button>
                     </StackPanel>
 
                 </StackPanel>
@@ -175,15 +251,15 @@
                             Orientation="Vertical">
                     <TextBlock x:Name="tbHomePageImage"
                                Text="Home page image"
-                               FontSize="20"
+                               FontSize="16"
                                Margin="10 5 0 5">
 
                     </TextBlock>
 
                     <Image x:Name="iHomePage"
                            Margin="0 5 10 5"
-                           Width="160"
-                           Height="110"
+                           Width="140"
+                           Height="100"
                            HorizontalAlignment="Right"></Image>
 
                     <StackPanel x:Name="spButtunsChangeImage"
@@ -193,29 +269,18 @@
                                 HorizontalAlignment="Right"
                                 Margin="0 10 10 10">
 
-                        <Border x:Name="bChooseImage"
-                                CornerRadius="3"
-                            Width="95"
-                                Height="25">
                             <Button x:Name="btnChooseImage"
                                 Content="Choose image"
-                                    FontSize="12"
-                                FontWeight="SemiBold"
-                                Background="LightSkyBlue"
-                                ToolTip="Choose image"></Button>
-                        </Border>
+                                ToolTip="Choose image"
+                                Style="{StaticResource ButtonStyle}"></Button>
 
-                        <Border x:Name="bChangeImage"
-                                Margin="10 0 0 0"
-                                CornerRadius="3"
-                            Width="55"
-                                Height="25">
-                            <Button x:Name="btnChangeImage"
+
+                        <Button x:Name="btnChangeImage"
                                 Content="Change"
-                                FontWeight="SemiBold"
-                                Background="LightSkyBlue"
-                                ToolTip="Change image"></Button>
-                        </Border>
+                                Margin="10 0 0 0"
+                                ToolTip="Change image"
+                                Style="{StaticResource ButtonStyle}">
+                        </Button>
 
                     </StackPanel>
 
@@ -232,47 +297,40 @@
 
                     <TextBlock x:Name="tbHeaderBottomLeftText"
                                Text="Bottom header left text"
-                               FontSize="20"
+                               FontSize="16"
                                Margin="0 5 0 5">
 
                     </TextBlock>
 
                     <StackPanel x:Name="spInputHeaderBottom"
                                 Grid.Row="8"
-                                Width="200"
+                                Orientation="Horizontal"
                                 HorizontalAlignment="Left">
 
                         <TextBox x:Name="tbInputHeaderLeftText"
-                               Width="200"
+                               Width="300"
                                FontSize="12"
                                Text="">
 
                         </TextBox>
 
-                        <Border x:Name="bChangeBottomLeftText"
-                                Margin="0 5 0 0"
-                                CornerRadius="3"
-                            Width="60"
-                                Height="25"
-                            HorizontalAlignment="Right">
-                            <Button x:Name="btnChangeBotomLeftText"
+                        <Button x:Name="btnChangeBotomLeftText"
                                 Content="Change"
-                                FontWeight="SemiBold"
-                                Background="LightSkyBlue"
-                                Width="60"
-                                ToolTip="Change header text"></Button>
-                        </Border>
+                                Margin="10 1 2 0"
+                                HorizontalAlignment="Left"
+                                ToolTip="Change header text"
+                                Style="{StaticResource ButtonStyle}"></Button>
                     </StackPanel>
 
                     <TextBlock x:Name="tbHeaderContent"
                                Text="Bottom content"
-                               FontSize="20"
+                               FontSize="16"
                                Margin="0 5 0 5">
 
                     </TextBlock>
 
                     <StackPanel x:Name="spInputBottomContent"
-                                Width="300"
+                                Orientation="Horizontal"
                                 HorizontalAlignment="Left">
 
                         <TextBox x:Name="tbInputBottomContent"
@@ -282,24 +340,15 @@
 
                         </TextBox>
 
-                        <Border x:Name="bChangeBottomContent"
-                                Margin="0 5 0 0"
-                                CornerRadius="3"
-                            Width="60"
-                                Height="25"
-                            HorizontalAlignment="Right">
-                            <Button x:Name="btnChangeBotomContent"
+                        <Button x:Name="btnChangeBotomContent"
                                 Content="Change"
-                                FontWeight="SemiBold"
-                                Background="LightSkyBlue"
-                                Width="60"
-                                ToolTip="Change bottom content"></Button>
-                        </Border>
+                                Margin="10 1 2 0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                ToolTip="Change bottom content"
+                                Style="{StaticResource ButtonStyle}"></Button>
                     </StackPanel>
 
                 </StackPanel>
-
             </Grid>
-        </StackPanel>
-    </Grid>
 </UserControl>

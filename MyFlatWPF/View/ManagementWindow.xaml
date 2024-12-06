@@ -180,7 +180,7 @@
                         MouseLeave="btn_mouseLeave"
                         Command="{Binding SwitchManagementView, 
                                   Source={StaticResource ManagementWindowViewModel}}"
-                        CommandParameter="{Binding Name, ElementName=btnHome}">
+                        CommandParameter="{Binding Name, ElementName=btnHomeEdit}">
                     </Button>
                 </Border>
 
