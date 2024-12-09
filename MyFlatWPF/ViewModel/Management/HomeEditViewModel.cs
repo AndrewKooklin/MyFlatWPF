@@ -10,6 +10,8 @@ using MyFlatWPF.Model;
 using MyFlatWPF.Data.Repositories.API;
 using System.Windows.Input;
 using MyFlatWPF.Commands.ManagementCommand;
+using System.Windows.Media.Imaging;
+using MyFlatWPF.HelpMethods;
 
 namespace MyFlatWPF.ViewModel.Management
 {
@@ -17,23 +19,36 @@ namespace MyFlatWPF.ViewModel.Management
     {
         WrapPanel _wpMenuLinks;
         WrapPanel _wpRandomPrases;
-        APIManagementRepository _api = new APIManagementRepository();
+        APIRenderingRepository _api = new APIRenderingRepository();
+        HomePagePlaceholderModel _hpphm = new HomePagePlaceholderModel();
+        Style styleButton = new Style();
+        Style styleTextBox = new Style();
+        private ImageConverter _ic = new ImageConverter();
 
         public HomeEditViewModel()
         {
-
+            
             ChangeNameLinkCommand = new ChangeNameLinkCommand();
             AddElementsTopMenuLinks(_wpMenuLinks);
         }
 
         public HomeEditViewModel(WrapPanel wpMenuLinks, 
-                                 WrapPanel wpRandomPrases)
+                                 WrapPanel wpRandomPrases,
+                                 Image image)
         {
             _wpMenuLinks = wpMenuLinks;
             _wpRandomPrases = wpRandomPrases;
             ChangeNameLinkCommand = new ChangeNameLinkCommand();
+            _hpphm = _api.GetHomePagePlaceholder();
             AddElementsTopMenuLinks(_wpMenuLinks);
             AddElementsRandomPhrases(_wpRandomPrases);
+            GetHomePageImage(image);
+        }
+
+        private void GetHomePageImage(Image image)
+        {
+            image.Source = _ic.ByteArrayToImage(_hpphm.MainPicture);
+            image.Stretch = Stretch.Fill;
         }
 
         private ICommand ChangeNameLinkCommand { get; set; }
@@ -45,7 +60,7 @@ namespace MyFlatWPF.ViewModel.Management
         public void AddElementsTopMenuLinks(WrapPanel wrapPanel)
         {
             List<TopMenuLinkNameModel> ltml = new List<TopMenuLinkNameModel>();
-            ltml = GetTopLinks();
+            ltml = _hpphm.LinkNames;
 
             foreach(TopMenuLinkNameModel link in ltml)
             {
@@ -56,22 +71,16 @@ namespace MyFlatWPF.ViewModel.Management
 
                 StackPanel spMenuLinksParent = (StackPanel)_wpMenuLinks.Parent;
                 Grid gHomeEdit = (Grid)spMenuLinksParent.Parent;
-                Style btnStyle = (Style)gHomeEdit.FindResource("ButtonStyle");
-                Style tbInput = (Style)gHomeEdit.FindResource("InputTextBox");
+                styleButton = (Style)gHomeEdit.FindResource("ButtonStyle");
+                styleTextBox = (Style)gHomeEdit.FindResource("InputTextBox");
 
                 TextBox tbox = new TextBox();
                 tbox.OverridesDefaultStyle = true;
-                tbox.Style = tbInput;
+                tbox.Style = styleTextBox;
                 tbox.Text = link.LinkName;
-                //tbox.HorizontalAlignment = HorizontalAlignment.Right;
                 tbox.Width = 80;
                 tbox.FontSize = 12;
                 sp.Children.Add(tbox);
-
-                //Border brd = new Border();
-                //brd.Width = 20;
-                //brd.Height = 20;
-                
 
                 Button btn = new Button();
                 btn.Content = "Change";
@@ -79,7 +88,7 @@ namespace MyFlatWPF.ViewModel.Management
                 btn.OverridesDefaultStyle = true;
                 btn.HorizontalAlignment = HorizontalAlignment.Right;
                 btn.Margin = new Thickness(0, 5, 1, 0);
-                btn.Style = btnStyle;
+                btn.Style = styleButton;
                 btn.Command = ChangeNameLinkCommand;
                 btn.CommandParameter = link.Id;
 
@@ -89,34 +98,28 @@ namespace MyFlatWPF.ViewModel.Management
             }
         }
 
-        private List<TopMenuLinkNameModel> GetTopLinks()
-        {
-            return _api.GetTopLinks();
-        }
-
-
         private void AddElementsRandomPhrases(WrapPanel wpRandomPrases)
         {
             List<RandomPhraseModel> rpm = new List<RandomPhraseModel>();
-            rpm = GetRandomPhrases();
+            rpm = _hpphm.RandomPhrases;
 
             foreach (RandomPhraseModel phrase in rpm)
             {
                 StackPanel spRandomPhrases = new StackPanel();
                 spRandomPhrases.Orientation = Orientation.Vertical;
                 spRandomPhrases.HorizontalAlignment = HorizontalAlignment.Right;
-                spRandomPhrases.Margin = new Thickness(5, 0, 0, 0);
+                spRandomPhrases.Margin = new Thickness(0, 0, 5, 0);
 
-                StackPanel spMenuLinksParent = (StackPanel)_wpMenuLinks.Parent;
-                Grid gHomeEdit = (Grid)spMenuLinksParent.Parent;
-                Style btnStyle = (Style)gHomeEdit.FindResource("ButtonStyle");
-                Style tbInput = (Style)gHomeEdit.FindResource("InputTextBox");
+                //StackPanel spMenuLinksParent = (StackPanel)_wpMenuLinks.Parent;
+                //Grid gHomeEdit = (Grid)spMenuLinksParent.Parent;
+                //Style btnStyle = (Style)gHomeEdit.FindResource("ButtonStyle");
+                //Style tbInput = (Style)gHomeEdit.FindResource("InputTextBox");
 
                 TextBox tbox = new TextBox();
                 tbox.OverridesDefaultStyle = true;
-                tbox.Style = tbInput;
+                tbox.Style = styleTextBox;
                 tbox.Text = phrase.Phrase;
-                tbox.Width = 80;
+                tbox.Width = 140;
                 tbox.FontSize = 12;
                 spRandomPhrases.Children.Add(tbox);
 
@@ -130,8 +133,8 @@ namespace MyFlatWPF.ViewModel.Management
                 btnChange.ToolTip = "Change phrase";
                 btnChange.OverridesDefaultStyle = true;
                 btnChange.HorizontalAlignment = HorizontalAlignment.Right;
-                btnChange.Margin = new Thickness(0, 0, 0, 0);
-                btnChange.Style = btnStyle;
+                btnChange.Margin = new Thickness(0, 0, 0, 5);
+                btnChange.Style = styleButton;
                 btnChange.Command = ChangeRandomPhraseCommand;
                 btnChange.CommandParameter = phrase.Id;
                 spButtons.Children.Add(btnChange);
@@ -141,8 +144,8 @@ namespace MyFlatWPF.ViewModel.Management
                 btnDelete.ToolTip = "Delete phrase";
                 btnDelete.OverridesDefaultStyle = true;
                 btnDelete.HorizontalAlignment = HorizontalAlignment.Right;
-                btnDelete.Margin = new Thickness(5, 0, 0, 0);
-                btnDelete.Style = btnStyle;
+                btnDelete.Margin = new Thickness(5, 0, 0, 5);
+                btnDelete.Style = styleButton;
                 btnDelete.Command = DeleteRandomPhraseCommand;
                 btnDelete.CommandParameter = phrase.Id;
                 spButtons.Children.Add(btnDelete);
@@ -150,11 +153,6 @@ namespace MyFlatWPF.ViewModel.Management
                 spRandomPhrases.Children.Add(spButtons);
                 _wpRandomPrases.Children.Add(spRandomPhrases);
             }
-        }
-
-        private List<RandomPhraseModel> GetRandomPhrases()
-        {
-            return _api.GetRandomPhrasesFromDB();
         }
     }
 }

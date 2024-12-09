@@ -10,7 +10,9 @@
         Icon="/Images/i.ico"
         WindowStartupLocation="CenterScreen" 
         Height="650" 
-        Width="800">
+        Width="800"
+        MaxWidth="800"
+        MinWidth="650">
 
     <Window.Resources>
         <viewModel:ManagementWindowViewModel x:Key="ManagementWindowViewModel"/>
