@@ -167,10 +167,15 @@
         <StackPanel x:Name="spImage"
                     Grid.Row="3"
                     Grid.Column="1"
-                    Margin="0 30 10 10">
+                    Margin="0 30 0 0">
             <Image Source="{Binding MainPicture,
                                 Source={StaticResource HomeViewModel}, 
-                                UpdateSourceTrigger=PropertyChanged}"></Image>
+                                UpdateSourceTrigger=PropertyChanged}"
+                   Stretch="Fill"
+                    MinWidth="80"
+                    MinHeight="50"
+                   MaxWidth="310"
+                   MaxHeight="190"></Image>
         </StackPanel>
 
         <StackPanel x:Name="spExpertHelp"

@@ -22,17 +22,13 @@ namespace MyFlatWPF.HelpMethods
 
         public byte[] ImageToByteArray(string path)
         {
-            MemoryStream _ms;
+            FileStream _fs;
             byte[] imageBytes;
-            using(Image image = Image.FromFile(path))
-            {
-                using(_ms = new MemoryStream())
+                using(_fs = new FileStream(path, FileMode.Open, FileAccess.Read))
                 {
-                    image.Save(_ms, image.RawFormat);
-                    imageBytes = new byte[_ms.Length];
-                    imageBytes = _ms.ToArray();
+                    imageBytes = new byte[_fs.Length];
+                    _fs.Read(imageBytes, 0, Convert.ToInt32(_fs.Length));
                 }
-            }
             return imageBytes;
         }
     }

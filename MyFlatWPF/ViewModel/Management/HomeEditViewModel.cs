@@ -35,6 +35,7 @@ namespace MyFlatWPF.ViewModel.Management
         public HomeEditViewModel(WrapPanel wpMenuLinks, 
                                  WrapPanel wpRandomPrases,
                                  Image image,
+                                 TextBlock tbImageName,
                                  Button btnChooseImage,
                                  Button btnSaveNewImage,
                                  TextBox tbInputCentral,
@@ -46,8 +47,11 @@ namespace MyFlatWPF.ViewModel.Management
             ChangeNameLinkCommand = new ChangeNameLinkCommand();
             ChooseMainImageCommand = new ChooseMainImageCommand();
             btnChooseImage.Command = ChooseMainImageCommand;
+            btnChooseImage.CommandParameter = tbImageName;
             SaveMainImageCommand = new SaveMainImageCommand();
-            btnSaveNewImage = SaveMainImageCommand;
+            btnSaveNewImage.Command = SaveMainImageCommand;
+            SaveImageParameters _sip= new SaveImageParameters{ NewImage = image, Text = tbImageName };
+            btnSaveNewImage.CommandParameter = _sip;
             _hpphm = _api.GetHomePagePlaceholder();
             AddElementsTopMenuLinks(_wpMenuLinks);
             AddElementsRandomPhrases(_wpRandomPrases);

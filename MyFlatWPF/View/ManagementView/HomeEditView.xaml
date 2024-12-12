@@ -258,16 +258,26 @@
             </TextBlock>
 
             <Image x:Name="iHomePage"
-                           Width="200"
-                           Height="130"
-                           HorizontalAlignment="Left">
+                   Width="170"
+                   Height="120"
+                   MinWidth="160"
+                   MinHeight="110"
+                   MaxWidth="170"
+                   MaxHeight="120"
+                   HorizontalAlignment="Left">
             </Image>
+
+            <TextBlock x:Name="tbImageName"
+                       Text="Image not choosed"
+                       FontSize="10"
+                       Foreground="Red"
+                       Margin="0 0 0 0"></TextBlock>
 
             <StackPanel x:Name="spButtunsChangeImage"
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Top"
-                                Margin="0 5 0 5">
+                                Margin="0 2 0 5">
 
                 <Button x:Name="btnChooseImage"
                                 Content="Choose image"
@@ -279,8 +289,8 @@
 
                 <Button x:Name="btnSaveNewImage"
                                 Content="Save"
-                                Margin="10 0 0 0"
-                                ToolTip="save new image"
+                                Margin="63 0 0 0"
+                                ToolTip="Save new image"
                                 Style="{StaticResource ButtonStyle}">
                 </Button>
 
