@@ -129,7 +129,6 @@
                    Text="Changable fields on the home page"
                    FontSize="20"
                            Margin="0 5 0 5">
-
         </TextBlock>
 
         <Border Grid.Row="1"
@@ -147,7 +146,6 @@
                                Text="Top menu links"
                                FontSize="16"
                                Margin="0 0 0 2">
-
             </TextBlock>
 
             <WrapPanel x:Name="wpTopMenuLinks">
@@ -171,7 +169,6 @@
                                Text="Random Phrases"
                                FontSize="16"
                                Margin="0 0 0 0">
-
             </TextBlock>
 
             <StackPanel x:Name="spInputPhrase"
@@ -222,7 +219,6 @@
                                Text="Central area left side text"
                                FontSize="16"
                                Margin="0 0 0 0">
-
             </TextBlock>
 
             <StackPanel x:Name="spInputHeaderCentralArea"
@@ -238,14 +234,12 @@
                              Style="{StaticResource InputTextBox}">
                 </TextBox>
 
-
                 <Button x:Name="btnAddHeaderCentralArea"
-                                Content="+"
+                                Content="Change"
                                 HorizontalAlignment="Right"
-                                Margin="0 5 0 0"
-                                FontWeight="DemiBold"
-                                ToolTip="Add header text"
-                                Style="{StaticResource ButtonCircleStyle}">
+                                Margin="0 5 1 0"
+                                ToolTip="Change text"
+                                Style="{StaticResource ButtonStyle}">
                 </Button>
             </StackPanel>
 
@@ -266,11 +260,10 @@
             <Image x:Name="iHomePage"
                            Width="200"
                            Height="130"
-                           HorizontalAlignment="Left"></Image>
+                           HorizontalAlignment="Left">
+            </Image>
 
             <StackPanel x:Name="spButtunsChangeImage"
-                                Grid.Row="6"
-                                Grid.Column="1"
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Top"
@@ -280,13 +273,14 @@
                                 Content="Choose image"
                                 ToolTip="Choose image"
                                 Style="{StaticResource ButtonStyle}"
-                        VerticalContentAlignment="Top"></Button>
+                        VerticalContentAlignment="Top"
+                        Command="{Binding}">
+                </Button>
 
-
-                <Button x:Name="btnChangeImage"
-                                Content="Change"
+                <Button x:Name="btnSaveNewImage"
+                                Content="Save"
                                 Margin="10 0 0 0"
-                                ToolTip="Change image"
+                                ToolTip="save new image"
                                 Style="{StaticResource ButtonStyle}">
                 </Button>
 
@@ -307,7 +301,6 @@
                                Text="Bottom header left text"
                                FontSize="16"
                                Margin="0 0 0 0">
-
             </TextBlock>
 
             <StackPanel x:Name="spInputHeaderBottom"
@@ -315,11 +308,10 @@
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Left">
 
-                <TextBox x:Name="tbInputHeaderLeftText"
+                <TextBox x:Name="tbInputHeaderBottom"
                                Width="300"
                                  Height="18"
                                FontSize="12"
-                               Text=""
                              Style="{StaticResource InputTextBox}">
                 </TextBox>
 
@@ -328,14 +320,15 @@
                                 Margin="10 1 2 0"
                                 HorizontalAlignment="Left"
                                 ToolTip="Change header text"
-                                Style="{StaticResource ButtonStyle}"></Button>
+                                Style="{StaticResource ButtonStyle}">
+                </Button>
+                
             </StackPanel>
 
             <TextBlock x:Name="tbHeaderContent"
                                Text="Bottom content"
                                FontSize="16"
                                Margin="0 0 0 0">
-
             </TextBlock>
 
             <StackPanel x:Name="spInputBottomContent"
@@ -345,6 +338,9 @@
                 <TextBox x:Name="tbInputBottomContent"
                                Width="300"
                                MinLines="6"
+                         MaxLines="6"
+                         TextWrapping="Wrap"
+                         VerticalScrollBarVisibility="Auto"
                                FontSize="12"
                              Style="{StaticResource InputTextBox}">
                 </TextBox>
@@ -355,7 +351,9 @@
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Top"
                                 ToolTip="Change bottom content"
-                                Style="{StaticResource ButtonStyle}"></Button>
+                                Style="{StaticResource ButtonStyle}">
+                </Button>
+                
             </StackPanel>
 
         </StackPanel>

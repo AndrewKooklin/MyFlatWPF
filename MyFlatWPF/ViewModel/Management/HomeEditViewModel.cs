@@ -34,15 +34,27 @@ namespace MyFlatWPF.ViewModel.Management
 
         public HomeEditViewModel(WrapPanel wpMenuLinks, 
                                  WrapPanel wpRandomPrases,
-                                 Image image)
+                                 Image image,
+                                 Button btnChooseImage,
+                                 Button btnSaveNewImage,
+                                 TextBox tbInputCentral,
+                                 TextBox tbInputHeaderBottom,
+                                 TextBox tbInputBottomContent)
         {
             _wpMenuLinks = wpMenuLinks;
             _wpRandomPrases = wpRandomPrases;
             ChangeNameLinkCommand = new ChangeNameLinkCommand();
+            ChooseMainImageCommand = new ChooseMainImageCommand();
+            btnChooseImage.Command = ChooseMainImageCommand;
+            SaveMainImageCommand = new SaveMainImageCommand();
+            btnSaveNewImage = SaveMainImageCommand;
             _hpphm = _api.GetHomePagePlaceholder();
             AddElementsTopMenuLinks(_wpMenuLinks);
             AddElementsRandomPhrases(_wpRandomPrases);
             GetHomePageImage(image);
+            tbInputCentral.Text = _hpphm.LeftCentralAreaText;
+            tbInputHeaderBottom.Text = _hpphm.BottomAreaHeader;
+            tbInputBottomContent.Text = _hpphm.BottomAreaContent;
         }
 
         private void GetHomePageImage(Image image)
@@ -56,6 +68,10 @@ namespace MyFlatWPF.ViewModel.Management
         private ICommand ChangeRandomPhraseCommand { get; set; }
 
         private ICommand DeleteRandomPhraseCommand { get; set; }
+
+        private ICommand ChooseMainImageCommand { get; set; }
+
+        private ICommand SaveMainImageCommand { get; set; }
 
         public void AddElementsTopMenuLinks(WrapPanel wrapPanel)
         {

@@ -25,8 +25,13 @@ namespace MyFlatWPF.View.ManagementView
         {
             InitializeComponent();
             this.DataContext = new HomeEditViewModel(this.wpTopMenuLinks, 
-                                                     this.wpRandomPhrases,
-                                                     this.iHomePage);
+                                                     this.wpRandomPhraes,
+                                                     this.iHomePage,
+                                                     this.btnChooseImage,
+                                                     this.btnSaveNewImage,
+                                                     this.tbInputCentralArea,
+                                                     this.tbInputHeaderBottom,
+                                                     this.tbInputBottomContent);
         }
     }
 }

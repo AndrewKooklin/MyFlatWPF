@@ -146,6 +146,8 @@
     </ApplicationDefinition>
     <Compile Include="Commands\LogoutCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChangeNameLinkCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ChooseMainImageCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\SaveMainImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ShowOrdersByPeriodCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ShowOrdersByServiceNameCommand.cs" />
     <Compile Include="Commands\ManagementCommand\SwitchManagementViewCommand.cs" />
@@ -159,6 +161,7 @@
     <Compile Include="HelpMethods\CheckInputFields.cs" />
     <Compile Include="HelpMethods\ImageConverter.cs" />
     <Compile Include="HelpMethods\ObjectModel.cs" />
+    <Compile Include="HelpMethods\StaticImage.cs" />
     <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\ContactModel.cs" />
     <Compile Include="Model\HomePagePlaceholderModel.cs" />

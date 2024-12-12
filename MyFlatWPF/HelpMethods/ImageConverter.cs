@@ -20,10 +20,20 @@ namespace MyFlatWPF.HelpMethods
             return bi;
         }
 
-        //public byte[] ImageToByteArray(Image image)
-        //{
-
-            
-        //}
+        public byte[] ImageToByteArray(string path)
+        {
+            MemoryStream _ms;
+            byte[] imageBytes;
+            using(Image image = Image.FromFile(path))
+            {
+                using(_ms = new MemoryStream())
+                {
+                    image.Save(_ms, image.RawFormat);
+                    imageBytes = new byte[_ms.Length];
+                    imageBytes = _ms.ToArray();
+                }
+            }
+            return imageBytes;
+        }
     }
 }
