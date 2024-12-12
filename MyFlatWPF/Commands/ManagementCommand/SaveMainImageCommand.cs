@@ -38,6 +38,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
                     TextBlock tbImageName = (TextBlock)elements.Text;
                     if (StaticImage.NewImage == null)
                     {
+                        tbImageName.Text = "Image not choosed";
                         return;
                     }
                     else
@@ -50,6 +51,11 @@ namespace MyFlatWPF.Commands.ManagementCommand
                             newImage.Source = null;
                             newImage.Source = _ic.ByteArrayToImage(StaticImage.NewImage);
                             tbImageName.Text = "Image not choosed";
+                            StaticImage.NewImage = null;
+                        }
+                        else
+                        {
+                            tbImageName.Text = "Choose another";
                             StaticImage.NewImage = null;
                         }
                     }
