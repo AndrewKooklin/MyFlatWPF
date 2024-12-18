@@ -158,6 +158,7 @@
     <Compile Include="Data\Repositories\API\APIAccountRepository.cs" />
     <Compile Include="Data\Repositories\API\APIManagementRepository.cs" />
     <Compile Include="Data\Repositories\API\APIRenderingRepository.cs" />
+    <Compile Include="HelpMethods\ChangeNameLinkParameters.cs" />
     <Compile Include="HelpMethods\CheckInputFields.cs" />
     <Compile Include="HelpMethods\ImageConverter.cs" />
     <Compile Include="HelpMethods\ObjectModel.cs" />

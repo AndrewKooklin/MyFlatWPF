@@ -80,11 +80,13 @@ namespace MyFlatWPF.ViewModel.Management
         public void AddElementsTopMenuLinks(WrapPanel wrapPanel)
         {
             List<TopMenuLinkNameModel> ltml = new List<TopMenuLinkNameModel>();
-            ltml = _hpphm.LinkNames;
+            var placeHolder = _api.GetHomePagePlaceholder();
+            ltml = placeHolder.LinkNames;
 
             foreach(TopMenuLinkNameModel link in ltml)
             {
                 StackPanel sp = new StackPanel();
+                sp.Name = $"sp{link.Id}";
                 sp.Orientation = Orientation.Vertical;
                 sp.HorizontalAlignment = HorizontalAlignment.Right;
                 sp.Margin = new Thickness(5, 0, 0, 0);
@@ -94,7 +96,7 @@ namespace MyFlatWPF.ViewModel.Management
                 styleButton = (Style)gHomeEdit.FindResource("ButtonStyle");
                 styleTextBox = (Style)gHomeEdit.FindResource("InputTextBox");
 
-                TextBox tbox = new TextBox();
+                TextBox tbox = new TextBox(); 
                 tbox.OverridesDefaultStyle = true;
                 tbox.Style = styleTextBox;
                 tbox.Text = link.LinkName;
@@ -112,7 +114,6 @@ namespace MyFlatWPF.ViewModel.Management
                 btn.Command = ChangeNameLinkCommand;
                 btn.CommandParameter = link.Id;
 
-                //brd.Child = btn;
                 sp.Children.Add(btn);
                 _wpMenuLinks.Children.Add(sp);
             }

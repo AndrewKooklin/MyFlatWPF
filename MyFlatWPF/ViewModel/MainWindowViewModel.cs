@@ -129,7 +129,7 @@ namespace MyFlatWPF.ViewModel
 
         public List<string> RandomPhrases { get; set; } = new List<string>();
 
-        private void AssignNamesLinks()
+        public void AssignNamesLinks()
         {
             List<TopMenuLinkNameModel> tmln = new List<TopMenuLinkNameModel>();
             tmln = GetLinkNamesFromDB();
