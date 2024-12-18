@@ -140,7 +140,7 @@ namespace MyFlatWPF.ViewModel
             Contacts = tmln[4].LinkName;
         }
 
-        private void AssignRandomPhrase()
+        public void AssignRandomPhrase()
         {
             RandomPhrase = GetHeaderString();
         }

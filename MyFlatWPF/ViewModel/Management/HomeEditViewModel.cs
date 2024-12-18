@@ -128,6 +128,7 @@ namespace MyFlatWPF.ViewModel.Management
             foreach (RandomPhraseModel phrase in rpm)
             {
                 StackPanel spRandomPhrases = new StackPanel();
+                spRandomPhrases.Name = $"sp{phrase.Id}";
                 spRandomPhrases.Orientation = Orientation.Vertical;
                 spRandomPhrases.HorizontalAlignment = HorizontalAlignment.Right;
                 spRandomPhrases.Margin = new Thickness(0, 0, 5, 0);
