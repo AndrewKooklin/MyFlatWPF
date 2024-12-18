@@ -135,7 +135,8 @@
                        HorizontalAlignment="Center"
                        FontSize="16"
                        FontWeight="DemiBold"></TextBlock>
-            <TextBlock Grid.Row="1"
+            <TextBlock x:Name="tbLeftCentralHeader"
+                        Grid.Row="1"
                        Text="{Binding LeftCentralAreaText, 
                                Source={StaticResource HomeViewModel}, 
                                UpdateSourceTrigger=PropertyChanged}"

@@ -20,6 +20,7 @@ namespace MyFlatWPF.ViewModel.Management
         WrapPanel _wpMenuLinks;
         WrapPanel _wpRandomPrases;
         APIRenderingRepository _api = new APIRenderingRepository();
+        APIManagementRepository _apiManage = new APIManagementRepository();
         HomePagePlaceholderModel _hpphm = new HomePagePlaceholderModel();
         Style styleButton = new Style();
         Style styleTextBox = new Style();
@@ -27,25 +28,30 @@ namespace MyFlatWPF.ViewModel.Management
 
         public HomeEditViewModel()
         {
-            
             ChangeNameLinkCommand = new ChangeNameLinkCommand();
+            AddRandomPhraseCommand = new AddRandomPhraseCommand();
             AddElementsTopMenuLinks(_wpMenuLinks);
         }
 
-        public HomeEditViewModel(WrapPanel wpMenuLinks, 
+        public HomeEditViewModel(WrapPanel wpMenuLinks,
+                                 Button btnAddPhrase,
                                  WrapPanel wpRandomPrases,
                                  Image image,
                                  TextBlock tbImageName,
                                  Button btnChooseImage,
                                  Button btnSaveNewImage,
                                  TextBox tbInputCentral,
+                                 Button btnChangeCentralAreaHeader,
                                  TextBox tbInputHeaderBottom,
                                  TextBox tbInputBottomContent)
         {
             _wpMenuLinks = wpMenuLinks;
             _wpRandomPrases = wpRandomPrases;
             ChangeNameLinkCommand = new ChangeNameLinkCommand();
+            AddRandomPhraseCommand = new AddRandomPhraseCommand();
+            btnAddPhrase.Command = AddRandomPhraseCommand;
             ChangeRandomPhraseCommand = new ChangeRandomPhraseCommand();
+            DeleteRandomPhraseCommand = new DeleteRandomPhraseCommand();
             ChooseMainImageCommand = new ChooseMainImageCommand();
             btnChooseImage.Command = ChooseMainImageCommand;
             btnChooseImage.CommandParameter = tbImageName;
@@ -53,6 +59,9 @@ namespace MyFlatWPF.ViewModel.Management
             btnSaveNewImage.Command = SaveMainImageCommand;
             SaveImageParameters _sip= new SaveImageParameters{ NewImage = image, Text = tbImageName };
             btnSaveNewImage.CommandParameter = _sip;
+            ChangeCentralAreaHeaderCommand = new ChangeCentralAreaHeaderCommand();
+            btnChangeCentralAreaHeader.Command = ChangeCentralAreaHeaderCommand;
+            btnChangeCentralAreaHeader.CommandParameter = tbInputCentral;
             _hpphm = _api.GetHomePagePlaceholder();
             AddElementsTopMenuLinks(_wpMenuLinks);
             AddElementsRandomPhrases(_wpRandomPrases);
@@ -60,6 +69,7 @@ namespace MyFlatWPF.ViewModel.Management
             tbInputCentral.Text = _hpphm.LeftCentralAreaText;
             tbInputHeaderBottom.Text = _hpphm.BottomAreaHeader;
             tbInputBottomContent.Text = _hpphm.BottomAreaContent;
+            StaticManagementViewModel.EditViewModel = this;
         }
 
         private void GetHomePageImage(Image image)
@@ -70,6 +80,8 @@ namespace MyFlatWPF.ViewModel.Management
 
         private ICommand ChangeNameLinkCommand { get; set; }
 
+        private ICommand AddRandomPhraseCommand { get; set; }
+
         private ICommand ChangeRandomPhraseCommand { get; set; }
 
         private ICommand DeleteRandomPhraseCommand { get; set; }
@@ -77,6 +89,8 @@ namespace MyFlatWPF.ViewModel.Management
         private ICommand ChooseMainImageCommand { get; set; }
 
         private ICommand SaveMainImageCommand { get; set; }
+
+        private ICommand ChangeCentralAreaHeaderCommand { get; set; }
 
         public void AddElementsTopMenuLinks(WrapPanel wrapPanel)
         {
@@ -120,10 +134,10 @@ namespace MyFlatWPF.ViewModel.Management
             }
         }
 
-        private void AddElementsRandomPhrases(WrapPanel wpRandomPrases)
+        public void AddElementsRandomPhrases(WrapPanel wpRandomPrases)
         {
             List<RandomPhraseModel> rpm = new List<RandomPhraseModel>();
-            rpm = _hpphm.RandomPhrases;
+            rpm = _apiManage.GetRandomPhrasesFromDB();
 
             foreach (RandomPhraseModel phrase in rpm)
             {
@@ -170,6 +184,20 @@ namespace MyFlatWPF.ViewModel.Management
 
                 spRandomPhrases.Children.Add(spButtons);
                 _wpRandomPrases.Children.Add(spRandomPhrases);
+            }
+        }
+
+        private string _phrase;
+        public string Phrase
+        {
+            get
+            {
+                return _phrase;
+            }
+            set
+            {
+                _phrase = value;
+                OnPropertyChanged(nameof(Phrase));
             }
         }
     }

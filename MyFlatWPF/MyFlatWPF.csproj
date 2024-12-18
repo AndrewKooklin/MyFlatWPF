@@ -145,9 +145,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\LogoutCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\AddRandomPhraseCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ChangeCentralAreaHeaderCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChangeNameLinkCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChangeRandomPhraseCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChooseMainImageCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\DeleteRandomPhraseCommand.cs" />
     <Compile Include="Commands\ManagementCommand\SaveMainImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ShowOrdersByPeriodCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ShowOrdersByServiceNameCommand.cs" />

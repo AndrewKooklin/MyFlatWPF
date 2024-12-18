@@ -182,11 +182,12 @@
                 </TextBlock>
 
                 <TextBox x:Name="tbInputPhrase"
-                                 Width="140"
-                                 Height="18"
-                             FontSize="12"
-                                 Margin="5 0 0 0"
-                             Style="{StaticResource InputTextBox}">
+                         Text="{Binding Phrase, UpdateSourceTrigger=PropertyChanged}"
+                         Width="140"
+                         Height="18"
+                         FontSize="12"
+                         Margin="5 0 0 0"
+                         Style="{StaticResource InputTextBox}">
                 </TextBox>
 
                 <Button x:Name="btnAddPhrase"
@@ -194,7 +195,8 @@
                                 Margin="10 0 0 0"
                                 FontWeight="DemiBold"
                                 ToolTip="Add phrase"
-                                Style="{StaticResource ButtonCircleStyle}">
+                                Style="{StaticResource ButtonCircleStyle}"
+                                CommandParameter="{Binding Text, ElementName=tbInputPhrase}">
                 </Button>
 
             </StackPanel>
@@ -234,7 +236,7 @@
                              Style="{StaticResource InputTextBox}">
                 </TextBox>
 
-                <Button x:Name="btnAddHeaderCentralArea"
+                <Button x:Name="btnChangeHeaderCentralArea"
                                 Content="Change"
                                 HorizontalAlignment="Right"
                                 Margin="0 5 1 0"

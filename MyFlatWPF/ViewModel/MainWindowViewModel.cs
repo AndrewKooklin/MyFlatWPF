@@ -142,15 +142,12 @@ namespace MyFlatWPF.ViewModel
 
         public void AssignRandomPhrase()
         {
-            RandomPhrase = GetHeaderString();
+            _randomPhrase = GetHeaderString();
         }
 
         public string GetHeaderString()
         {
-            if(RandomPhrases.Count <= 0)
-            {
-                RandomPhrases = GetRandomPhrasesFromDB();
-            }
+            RandomPhrases = GetRandomPhrasesFromDB();
             string[] Titles = RandomPhrases.ToArray();
             //{
             //    "BUILD YOU FLAT!",
@@ -177,12 +174,7 @@ namespace MyFlatWPF.ViewModel
         private List<string> GetRandomPhrasesFromDB()
         {
             APIRenderingRepository apiRep = new APIRenderingRepository();
-            if(RandomPhrases.Count <= 0)
-            {
-                RandomPhrases = apiRep.GetRandomPhraseNames();
-            }
-            
-            return RandomPhrases;
+            return apiRep.GetRandomPhraseNames();
         }
 
         public void menu_MouseEnter(object sender, MouseEventArgs e)
