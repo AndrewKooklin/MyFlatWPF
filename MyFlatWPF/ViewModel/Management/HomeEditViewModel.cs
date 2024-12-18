@@ -45,6 +45,7 @@ namespace MyFlatWPF.ViewModel.Management
             _wpMenuLinks = wpMenuLinks;
             _wpRandomPrases = wpRandomPrases;
             ChangeNameLinkCommand = new ChangeNameLinkCommand();
+            ChangeRandomPhraseCommand = new ChangeRandomPhraseCommand();
             ChooseMainImageCommand = new ChooseMainImageCommand();
             btnChooseImage.Command = ChooseMainImageCommand;
             btnChooseImage.CommandParameter = tbImageName;
@@ -130,11 +131,6 @@ namespace MyFlatWPF.ViewModel.Management
                 spRandomPhrases.Orientation = Orientation.Vertical;
                 spRandomPhrases.HorizontalAlignment = HorizontalAlignment.Right;
                 spRandomPhrases.Margin = new Thickness(0, 0, 5, 0);
-
-                //StackPanel spMenuLinksParent = (StackPanel)_wpMenuLinks.Parent;
-                //Grid gHomeEdit = (Grid)spMenuLinksParent.Parent;
-                //Style btnStyle = (Style)gHomeEdit.FindResource("ButtonStyle");
-                //Style tbInput = (Style)gHomeEdit.FindResource("InputTextBox");
 
                 TextBox tbox = new TextBox();
                 tbox.OverridesDefaultStyle = true;
