@@ -43,6 +43,8 @@ namespace MyFlatWPF.ViewModel
             ServiceItems = CreateBoxItems();
 
             BlocksAssignText();
+
+            StaticMainViewModel.HomeViewModel = this;
         }
 
         public ICommand SendOrderFormCommand { get; set; }

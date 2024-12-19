@@ -260,5 +260,39 @@ namespace MyFlatWPF.Data.Repositories.API
 
             return apiResponseConvert;
         }
+
+        public async Task<bool> ChangeBottomAreaHeader(HomePagePlaceholderModel model)
+        {
+            urlRequest = $"{url}" + "HomePageEditAPI/ChangeBottomAreaHeader/" + $"{model}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, model))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
+
+        public async Task<bool> ChangeBottomAreaContent(HomePagePlaceholderModel model)
+        {
+            urlRequest = $"{url}" + "HomePageEditAPI/ChangeBottomAreaContent/" + $"{model}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, model))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
     }
 }

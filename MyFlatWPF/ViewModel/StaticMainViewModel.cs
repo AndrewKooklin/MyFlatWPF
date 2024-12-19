@@ -11,6 +11,6 @@ namespace MyFlatWPF.ViewModel
     {
         public static MainWindowViewModel MainViewModel { get; set; }
 
-        public static List<string> RandomPhrases { get; set; }
+        public static HomeViewModel HomeViewModel { get; set; }
     }
 }

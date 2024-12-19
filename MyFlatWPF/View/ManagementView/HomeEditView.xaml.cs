@@ -34,7 +34,9 @@ namespace MyFlatWPF.View.ManagementView
                                                      this.tbInputCentralArea,
                                                      this.btnChangeHeaderCentralArea,
                                                      this.tbInputHeaderBottom,
-                                                     this.tbInputBottomContent);
+                                                     this.btnChangeBottomHeader,
+                                                     this.tbInputBottomContent,
+                                                     this.btnChangeBotomContent);
         }
     }
 }

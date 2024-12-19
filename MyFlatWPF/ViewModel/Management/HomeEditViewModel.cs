@@ -42,8 +42,10 @@ namespace MyFlatWPF.ViewModel.Management
                                  Button btnSaveNewImage,
                                  TextBox tbInputCentral,
                                  Button btnChangeCentralAreaHeader,
-                                 TextBox tbInputHeaderBottom,
-                                 TextBox tbInputBottomContent)
+                                 TextBox tbInputBottomHeader,
+                                 Button btnChangeBottomHeader,
+                                 TextBox tbInputBottomContent,
+                                 Button btnChangeBottomContent)
         {
             _wpMenuLinks = wpMenuLinks;
             _wpRandomPrases = wpRandomPrases;
@@ -67,8 +69,14 @@ namespace MyFlatWPF.ViewModel.Management
             AddElementsRandomPhrases(_wpRandomPrases);
             GetHomePageImage(image);
             tbInputCentral.Text = _hpphm.LeftCentralAreaText;
-            tbInputHeaderBottom.Text = _hpphm.BottomAreaHeader;
+            tbInputBottomHeader.Text = _hpphm.BottomAreaHeader;
             tbInputBottomContent.Text = _hpphm.BottomAreaContent;
+            ChangeBottomHeaderCommand = new ChangeBottomHeaderCommand();
+            btnChangeBottomHeader.Command = ChangeBottomHeaderCommand;
+            btnChangeBottomHeader.CommandParameter = tbInputBottomHeader;
+            ChangeBottomContentCommand = new ChangeBottomContentCommand();
+            btnChangeBottomContent.Command = ChangeBottomContentCommand;
+            btnChangeBottomContent.CommandParameter = tbInputBottomContent;
             StaticManagementViewModel.EditViewModel = this;
         }
 
@@ -91,6 +99,10 @@ namespace MyFlatWPF.ViewModel.Management
         private ICommand SaveMainImageCommand { get; set; }
 
         private ICommand ChangeCentralAreaHeaderCommand { get; set; }
+
+        private ICommand ChangeBottomHeaderCommand { get; set; }
+
+        private ICommand ChangeBottomContentCommand { get; set; }
 
         public void AddElementsTopMenuLinks(WrapPanel wrapPanel)
         {

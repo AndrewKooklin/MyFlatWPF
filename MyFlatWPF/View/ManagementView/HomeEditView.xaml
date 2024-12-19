@@ -327,7 +327,7 @@
                              Style="{StaticResource InputTextBox}">
                 </TextBox>
 
-                <Button x:Name="btnChangeBotomLeftText"
+                <Button x:Name="btnChangeBottomHeader"
                                 Content="Change"
                                 Margin="10 1 2 0"
                                 HorizontalAlignment="Left"

@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace MyFlatWPF.Commands.ManagementCommand
 {
-    public class ChangeCentralAreaHeaderCommand : ICommand
+    public class ChangeBottomContentCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
         APIManagementRepository _api = new APIManagementRepository();
@@ -23,7 +23,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
 
         public async void Execute(object parameter)
         {
-            if(parameter == null)
+            if (parameter == null)
             {
                 return;
             }
@@ -32,12 +32,11 @@ namespace MyFlatWPF.Commands.ManagementCommand
                 TextBox tb = (TextBox)parameter;
                 string text = tb.Text;
                 HomePagePlaceholderModel hpphm = new HomePagePlaceholderModel();
-                hpphm.LeftCentralAreaText = text;
-                bool result = await _api.ChangeLeftCentralAreaText(hpphm);
+                hpphm.BottomAreaContent = text;
+                bool result = await _api.ChangeBottomAreaContent(hpphm);
                 if (result)
                 {
-                    StaticMainViewModel.HomeViewModel.LeftCentralAreaText = text;
-                    //App.HomeView.tbLeftCentralHeader.Text = text;
+                    StaticMainViewModel.HomeViewModel.BottomAreaContent = text;
                 }
             }
         }

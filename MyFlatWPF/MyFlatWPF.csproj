@@ -146,6 +146,8 @@
     </ApplicationDefinition>
     <Compile Include="Commands\LogoutCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AddRandomPhraseCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ChangeBottomContentCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ChangeBottomHeaderCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChangeCentralAreaHeaderCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChangeNameLinkCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChangeRandomPhraseCommand.cs" />
@@ -210,9 +212,6 @@
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\ManagementView\AllOrdersView.xaml.cs">
       <DependentUpon>AllOrdersView.xaml</DependentUpon>
     </Compile>
@@ -228,6 +227,9 @@
     <Compile Include="View\ManagementView\OrdersView.xaml.cs">
       <DependentUpon>OrdersView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ManagementView\ProjectsEditView.xaml.cs">
+      <DependentUpon>ProjectsEditView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ManagementWindow.xaml.cs">
       <DependentUpon>ManagementWindow.xaml</DependentUpon>
     </Compile>
@@ -242,9 +244,6 @@
     </Compile>
     <Compile Include="View\RegistrationView.xaml.cs">
       <DependentUpon>RegistrationView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\RegistrationWindow.xaml.cs">
-      <DependentUpon>RegistrationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ServicesView.xaml.cs">
       <DependentUpon>ServicesView.xaml</DependentUpon>
@@ -278,10 +277,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\LoginWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
     <Page Include="View\ManagementView\AllOrdersView.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
@@ -302,6 +297,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ManagementView\ProjectsEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ManagementWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -319,10 +318,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RegistrationView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\RegistrationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
