@@ -24,7 +24,10 @@ namespace MyFlatWPF.View.ManagementView
         public ProjectsEditView()
         {
             InitializeComponent();
-            this.DataContext = new ProjectsEditViewModel(this.wpProjects);
+            this.DataContext = new ProjectsEditViewModel(this.wpProjects,
+                                                         this.btnAddProject);
         }
+
+        
     }
 }
