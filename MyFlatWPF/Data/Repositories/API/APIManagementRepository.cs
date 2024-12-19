@@ -294,5 +294,21 @@ namespace MyFlatWPF.Data.Repositories.API
 
             return apiResponseConvert;
         }
+
+        public List<ProjectModel> GetProjectsFromDB()
+        {
+            List<ProjectModel> projects = new List<ProjectModel>();
+
+            urlRequest = $"{url}" + "ProjectsPageEditAPI/GetProjectsFromDB";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                projects = JsonConvert.DeserializeObject<List<ProjectModel>>(result);
+            }
+
+            return projects;
+        }
     }
 }

@@ -116,7 +116,7 @@ namespace MyFlatWPF.View {
         
         #line 190 "..\..\..\View\ManagementWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button btnProjects;
+        internal System.Windows.Controls.Button btnProjectsEdit;
         
         #line default
         #line hidden
@@ -124,7 +124,7 @@ namespace MyFlatWPF.View {
         
         #line 200 "..\..\..\View\ManagementWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button btnServices;
+        internal System.Windows.Controls.Button btnServicesEdit;
         
         #line default
         #line hidden
@@ -132,7 +132,7 @@ namespace MyFlatWPF.View {
         
         #line 210 "..\..\..\View\ManagementWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button btnBlog;
+        internal System.Windows.Controls.Button btnBlogEdit;
         
         #line default
         #line hidden
@@ -140,7 +140,7 @@ namespace MyFlatWPF.View {
         
         #line 220 "..\..\..\View\ManagementWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button btnContacts;
+        internal System.Windows.Controls.Button btnContactsEdit;
         
         #line default
         #line hidden
@@ -319,61 +319,61 @@ namespace MyFlatWPF.View {
             #line hidden
             return;
             case 10:
-            this.btnProjects = ((System.Windows.Controls.Button)(target));
+            this.btnProjectsEdit = ((System.Windows.Controls.Button)(target));
             
             #line 194 "..\..\..\View\ManagementWindow.xaml"
-            this.btnProjects.MouseEnter += new System.Windows.Input.MouseEventHandler(this.btn_mouseEnter);
+            this.btnProjectsEdit.MouseEnter += new System.Windows.Input.MouseEventHandler(this.btn_mouseEnter);
             
             #line default
             #line hidden
             
             #line 195 "..\..\..\View\ManagementWindow.xaml"
-            this.btnProjects.MouseLeave += new System.Windows.Input.MouseEventHandler(this.btn_mouseLeave);
+            this.btnProjectsEdit.MouseLeave += new System.Windows.Input.MouseEventHandler(this.btn_mouseLeave);
             
             #line default
             #line hidden
             return;
             case 11:
-            this.btnServices = ((System.Windows.Controls.Button)(target));
+            this.btnServicesEdit = ((System.Windows.Controls.Button)(target));
             
             #line 204 "..\..\..\View\ManagementWindow.xaml"
-            this.btnServices.MouseEnter += new System.Windows.Input.MouseEventHandler(this.btn_mouseEnter);
+            this.btnServicesEdit.MouseEnter += new System.Windows.Input.MouseEventHandler(this.btn_mouseEnter);
             
             #line default
             #line hidden
             
             #line 205 "..\..\..\View\ManagementWindow.xaml"
-            this.btnServices.MouseLeave += new System.Windows.Input.MouseEventHandler(this.btn_mouseLeave);
+            this.btnServicesEdit.MouseLeave += new System.Windows.Input.MouseEventHandler(this.btn_mouseLeave);
             
             #line default
             #line hidden
             return;
             case 12:
-            this.btnBlog = ((System.Windows.Controls.Button)(target));
+            this.btnBlogEdit = ((System.Windows.Controls.Button)(target));
             
             #line 214 "..\..\..\View\ManagementWindow.xaml"
-            this.btnBlog.MouseEnter += new System.Windows.Input.MouseEventHandler(this.btn_mouseEnter);
+            this.btnBlogEdit.MouseEnter += new System.Windows.Input.MouseEventHandler(this.btn_mouseEnter);
             
             #line default
             #line hidden
             
             #line 215 "..\..\..\View\ManagementWindow.xaml"
-            this.btnBlog.MouseLeave += new System.Windows.Input.MouseEventHandler(this.btn_mouseLeave);
+            this.btnBlogEdit.MouseLeave += new System.Windows.Input.MouseEventHandler(this.btn_mouseLeave);
             
             #line default
             #line hidden
             return;
             case 13:
-            this.btnContacts = ((System.Windows.Controls.Button)(target));
+            this.btnContactsEdit = ((System.Windows.Controls.Button)(target));
             
             #line 224 "..\..\..\View\ManagementWindow.xaml"
-            this.btnContacts.MouseEnter += new System.Windows.Input.MouseEventHandler(this.btn_mouseEnter);
+            this.btnContactsEdit.MouseEnter += new System.Windows.Input.MouseEventHandler(this.btn_mouseEnter);
             
             #line default
             #line hidden
             
             #line 225 "..\..\..\View\ManagementWindow.xaml"
-            this.btnContacts.MouseLeave += new System.Windows.Input.MouseEventHandler(this.btn_mouseLeave);
+            this.btnContactsEdit.MouseLeave += new System.Windows.Input.MouseEventHandler(this.btn_mouseLeave);
             
             #line default
             #line hidden

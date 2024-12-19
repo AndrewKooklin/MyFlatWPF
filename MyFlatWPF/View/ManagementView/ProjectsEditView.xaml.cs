@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyFlatWPF.ViewModel.Management;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace MyFlatWPF.View.ManagementView
         public ProjectsEditView()
         {
             InitializeComponent();
+            this.DataContext = new ProjectsEditViewModel(this.wpProjects);
         }
     }
 }

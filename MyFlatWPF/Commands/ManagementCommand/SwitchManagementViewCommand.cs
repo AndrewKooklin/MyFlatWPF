@@ -70,15 +70,15 @@ namespace MyFlatWPF.Commands.ManagementCommand
                                 App.HomeEditView;
                             break;
                         }
-                    //case "btnProjects":
-                    //case "btnBackToProjects":
-                    //    {
-                    //        App.ProjectsView.Visibility = System.Windows.Visibility.Visible;
-                    //        StaticMainViewModel.MainViewModel.CurrentView = App.ProjectsView;
-                    //        StaticMainViewModel.MainViewModel.RandomPhrase =
-                    //            StaticMainViewModel.MainViewModel.GetHeaderString();
-                    //        break;
-                    //    }
+                    case "btnProjectsEdit":
+                        {
+                            App.ProjectsEditView = null;
+                            App.ProjectsEditView = new ProjectsEditView();
+                            App.ProjectsEditView.Visibility = System.Windows.Visibility.Visible;
+                            StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                                App.ProjectsEditView;
+                            break;
+                        }
                     //case "btnServices":
                     //    {
                     //        App.ServicesView.Visibility = System.Windows.Visibility.Visible;

@@ -56,14 +56,12 @@ C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\MyFlatWPF.csproj.CoreCompileInputs.cache
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\MyFlatWPF.csproj.CopyComplete
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\MyFlatWPF.exe
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\MyFlatWPF.pdb
-C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\LoginWindow.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\LoginWindow.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\BlogView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ContactsView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\HomeView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementWindow.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ProjectsView.g.cs
-C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\RegistrationWindow.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ServicesView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\BlogView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ContactsView.baml
@@ -103,3 +101,5 @@ C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\AllOrdersView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\AllOrdersView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\HomeEditView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\HomeEditView.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ProjectsEditView.g.cs
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ProjectsEditView.baml

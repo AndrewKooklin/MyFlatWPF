@@ -153,6 +153,8 @@
     <Compile Include="Commands\ManagementCommand\ChangeRandomPhraseCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChooseMainImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\DeleteRandomPhraseCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ProjectsCommand\DeleteProjectCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ProjectsCommand\OpenChangeProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\SaveMainImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ShowOrdersByPeriodCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ShowOrdersByServiceNameCommand.cs" />
@@ -195,6 +197,7 @@
     <Compile Include="ViewModel\Management\ManagementWindowViewModel.cs" />
     <Compile Include="ViewModel\Management\OrdersByPeriodViewModel.cs" />
     <Compile Include="ViewModel\Management\OrdersByServiceViewModel.cs" />
+    <Compile Include="ViewModel\Management\ProjectsEditViewModel.cs" />
     <Compile Include="ViewModel\Management\StaticManagementViewModel.cs" />
     <Compile Include="ViewModel\ProjectsViewModel.cs" />
     <Compile Include="ViewModel\RegistrationViewModel.cs" />
