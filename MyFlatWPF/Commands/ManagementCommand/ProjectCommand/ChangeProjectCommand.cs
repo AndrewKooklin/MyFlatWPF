@@ -1,6 +1,7 @@
 ﻿using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model;
+using MyFlatWPF.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,8 @@ namespace MyFlatWPF.Commands.ManagementCommand.ProjectCommand
                 if (result)
                 {
                     App.ProjectEditView.tblImageName.Text = "";
-
+                    App.ProjectsView.wpProjects.Children.Clear();
+                    StaticViewModel.ProjectsViewModel.GetProjectCards(App.ProjectsView.wpProjects);
                 }
             }
         }
