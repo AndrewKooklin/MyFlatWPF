@@ -8,6 +8,7 @@ namespace MyFlatWPF.HelpMethods
 {
     public class StaticImage
     {
-        public static byte[] NewImage { get; set; }
+        public static byte[] NewMainImage { get; set; }
+        public static byte[] NewProjectImage { get; set; }
     }
 }

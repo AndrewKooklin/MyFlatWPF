@@ -55,7 +55,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
                 bool result = await _api.ChangeNameLinkTopMenu(model);
                 if (result)
                 {
-                    StaticMainViewModel.MainViewModel.AssignNamesLinks();
+                    StaticViewModel.MainViewModel.AssignNamesLinks();
                 }
             }
         }

@@ -33,14 +33,9 @@ namespace MyFlatWPF.ViewModel
         public ProjectsViewModel(WrapPanel wrapPanel)
         {
             _wrapPanel = wrapPanel;
-            if(lpm.Count <= 0)
-            {
-                lpm = GetProjects();
-            }
+            lpm = GetProjects();
 
             GetProjectCards(_wrapPanel);
-
-            //OpenProjectDetailsCommand = new OpenProjectDetailsCommand();
         }
 
         public ICommand GetProjectCardsCommand { get; set; }

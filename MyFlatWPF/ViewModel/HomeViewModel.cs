@@ -44,7 +44,7 @@ namespace MyFlatWPF.ViewModel
 
             BlocksAssignText();
 
-            StaticMainViewModel.HomeViewModel = this;
+            StaticViewModel.HomeViewModel = this;
         }
 
         public ICommand SendOrderFormCommand { get; set; }

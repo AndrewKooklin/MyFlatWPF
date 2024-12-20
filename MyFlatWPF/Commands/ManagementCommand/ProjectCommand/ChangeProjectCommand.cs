@@ -1,17 +1,16 @@
 ﻿using MyFlatWPF.Data.Repositories.API;
+using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model;
-using MyFlatWPF.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace MyFlatWPF.Commands.ManagementCommand
+namespace MyFlatWPF.Commands.ManagementCommand.ProjectCommand
 {
-    public class ChangeCentralAreaHeaderCommand : ICommand
+    public class ChangeProjectCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
         APIManagementRepository _api = new APIManagementRepository();
@@ -29,15 +28,17 @@ namespace MyFlatWPF.Commands.ManagementCommand
             }
             else
             {
-                TextBox tb = (TextBox)parameter;
-                string text = tb.Text;
-                HomePagePlaceholderModel hpphm = new HomePagePlaceholderModel();
-                hpphm.LeftCentralAreaText = text;
-                bool result = await _api.ChangeLeftCentralAreaText(hpphm);
+                int id = (Int32)parameter;
+                ProjectModel project = new ProjectModel();
+                project.Id = id;
+                project.ProjectHeader = App.ProjectEditView.tblHeaderEdit.Text;
+                project.ProjectDescription = App.ProjectEditView.tbContentEdit.Text;
+                project.ProjectImage = StaticImage.NewProjectImage;
+                bool result = await _api.ChangeProject(project);
                 if (result)
                 {
-                    StaticViewModel.HomeViewModel.LeftCentralAreaText = text;
-                    //App.HomeView.tbLeftCentralHeader.Text = text;
+                    App.ProjectEditView.tblImageName.Text = "";
+
                 }
             }
         }

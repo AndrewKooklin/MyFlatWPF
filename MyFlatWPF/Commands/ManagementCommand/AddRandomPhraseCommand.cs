@@ -39,7 +39,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
                 {
                     App.HomeEditView.wpRandomPhrases.Children.Clear();
                     StaticManagementViewModel.EditViewModel.AddElementsRandomPhrases(App.HomeEditView.wpRandomPhrases);
-                    StaticMainViewModel.MainViewModel.AssignRandomPhrase();
+                    StaticViewModel.MainViewModel.AssignRandomPhrase();
                     App.HomeEditView.tbInputPhrase.Text = "";
                 }
             }

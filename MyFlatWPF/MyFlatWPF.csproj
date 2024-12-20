@@ -153,6 +153,8 @@
     <Compile Include="Commands\ManagementCommand\ChangeRandomPhraseCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChooseMainImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\DeleteRandomPhraseCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ProjectCommand\ChangeProjectCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ProjectCommand\ChooseProjectImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectsCommand\DeleteProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectsCommand\OpenChangeProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\SaveMainImageCommand.cs" />
@@ -197,12 +199,13 @@
     <Compile Include="ViewModel\Management\ManagementWindowViewModel.cs" />
     <Compile Include="ViewModel\Management\OrdersByPeriodViewModel.cs" />
     <Compile Include="ViewModel\Management\OrdersByServiceViewModel.cs" />
+    <Compile Include="ViewModel\Management\ProjectEditViewModel.cs" />
     <Compile Include="ViewModel\Management\ProjectsEditViewModel.cs" />
     <Compile Include="ViewModel\Management\StaticManagementViewModel.cs" />
     <Compile Include="ViewModel\ProjectsViewModel.cs" />
     <Compile Include="ViewModel\RegistrationViewModel.cs" />
     <Compile Include="ViewModel\ServicesViewModel.cs" />
-    <Compile Include="ViewModel\StaticMainViewModel.cs" />
+    <Compile Include="ViewModel\StaticViewModel.cs" />
     <Compile Include="View\BlogView.xaml.cs">
       <DependentUpon>BlogView.xaml</DependentUpon>
     </Compile>
@@ -229,6 +232,9 @@
     </Compile>
     <Compile Include="View\ManagementView\OrdersView.xaml.cs">
       <DependentUpon>OrdersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManagementView\ProjectEditView.xaml.cs">
+      <DependentUpon>ProjectEditView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ManagementView\ProjectsEditView.xaml.cs">
       <DependentUpon>ProjectsEditView.xaml</DependentUpon>
@@ -297,6 +303,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManagementView\OrdersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManagementView\ProjectEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

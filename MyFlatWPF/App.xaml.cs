@@ -51,6 +51,8 @@ namespace MyFlatWPF
 
         public static ProjectsEditView ProjectsEditView = new ProjectsEditView();
 
+        public static ProjectEditView ProjectEditView = new ProjectEditView();
+
 
 
         protected override void OnStartup(StartupEventArgs e)

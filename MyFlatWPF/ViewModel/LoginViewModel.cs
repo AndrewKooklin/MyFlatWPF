@@ -117,9 +117,9 @@ namespace MyFlatWPF.ViewModel
                 App.MainWindow.btnLogOut.Visibility = System.Windows.Visibility.Visible;
                 App.RegistrationView.btnRegistration.IsEnabled = false;
                 App.HomeView.Visibility = System.Windows.Visibility.Visible;
-                StaticMainViewModel.MainViewModel.CurrentView = App.HomeView;
-                StaticMainViewModel.MainViewModel.RandomPhrase =
-                    StaticMainViewModel.MainViewModel.GetHeaderString();
+                StaticViewModel.MainViewModel.CurrentView = App.HomeView;
+                StaticViewModel.MainViewModel.RandomPhrase =
+                    StaticViewModel.MainViewModel.GetHeaderString();
 
                 userRoles = await _api.GetUserRoles(model);
                 if (userRoles != null && userRoles.Contains("Admin"))

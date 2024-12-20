@@ -36,7 +36,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
                 bool result = await _api.ChangeBottomAreaContent(hpphm);
                 if (result)
                 {
-                    StaticMainViewModel.HomeViewModel.BottomAreaContent = text;
+                    StaticViewModel.HomeViewModel.BottomAreaContent = text;
                 }
             }
         }

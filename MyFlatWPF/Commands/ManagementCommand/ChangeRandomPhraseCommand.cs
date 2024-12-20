@@ -51,7 +51,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
                 bool result = await _api.ChangeRandomPhrase(model);
                 if (result)
                 {
-                    StaticMainViewModel.MainViewModel.AssignRandomPhrase();
+                    StaticViewModel.MainViewModel.AssignRandomPhrase();
                 }
             }
         }

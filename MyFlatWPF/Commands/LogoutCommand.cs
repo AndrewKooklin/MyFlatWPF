@@ -34,8 +34,8 @@ namespace MyFlatWPF.Commands
 
             _api.LogoutUser();
 
-            StaticMainViewModel.MainViewModel.RandomPhrase =
-                                StaticMainViewModel.MainViewModel.GetHeaderString();
+            StaticViewModel.MainViewModel.RandomPhrase =
+                                StaticViewModel.MainViewModel.GetHeaderString();
         }
     }
 }

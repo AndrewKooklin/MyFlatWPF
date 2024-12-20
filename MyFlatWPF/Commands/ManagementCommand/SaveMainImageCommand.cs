@@ -2,10 +2,6 @@
 using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -36,7 +32,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
                 {
                     Image newImage = (Image)elements.NewImage;
                     TextBlock tbImageName = (TextBlock)elements.Text;
-                    if (StaticImage.NewImage == null)
+                    if (StaticImage.NewMainImage == null)
                     {
                         tbImageName.Text = "Image not choosed";
                         return;
@@ -44,25 +40,23 @@ namespace MyFlatWPF.Commands.ManagementCommand
                     else
                     {
                         HomePagePlaceholderModel _hpphm = new HomePagePlaceholderModel();
-                        _hpphm.MainPicture = StaticImage.NewImage;
+                        _hpphm.MainPicture = StaticImage.NewMainImage;
                         bool result = await _api.ChangeMainImage(_hpphm);
                         if (result)
                         {
                             newImage.Source = null;
-                            newImage.Source = _ic.ByteArrayToImage(StaticImage.NewImage);
+                            newImage.Source = _ic.ByteArrayToImage(StaticImage.NewMainImage);
                             tbImageName.Text = "Image not choosed";
-                            StaticImage.NewImage = null;
+                            StaticImage.NewMainImage = null;
                         }
                         else
                         {
                             tbImageName.Text = "Choose another";
-                            StaticImage.NewImage = null;
+                            StaticImage.NewMainImage = null;
                         }
                     }
                 }
             }
-            
-            
         }
     }
 }
