@@ -56,7 +56,6 @@ C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\MyFlatWPF.csproj.CoreCompileInputs.cache
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\MyFlatWPF.csproj.CopyComplete
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\MyFlatWPF.exe
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\MyFlatWPF.pdb
-C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\LoginWindow.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\BlogView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ContactsView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\HomeView.g.cs
@@ -68,7 +67,6 @@ C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ContactsView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\HomeView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementWindow.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ProjectsView.baml
-C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\RegistrationWindow.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ServicesView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 C:\repos\MyFlatWPF\MyFlatWPF\bin\Debug\Prism.dll
@@ -105,3 +103,7 @@ C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ProjectsEditView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ProjectsEditView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ProjectEditView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ProjectEditView.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\AddProjectView.g.cs
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\AddProjectView.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\LoginWindow.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\RegistrationWindow.baml

@@ -37,15 +37,10 @@ namespace MyFlatWPF.Commands.ManagementCommand.ProjectCommand
             {
                 string filePath = dialog.FileName;
                 image = _ic.ImageToByteArray(filePath);
-                dialog.FileOk += File_OK;
                 StaticImage.NewProjectImage = image;
+                App.AddProjectView.iProjectImage.Source = _ic.ByteArrayToImage(StaticImage.NewProjectImage);
                 App.AddProjectView.tblImageName.Text = $"Choosed : \"{dialog.SafeFileName}\"";
             }
-        }
-
-        private void File_OK(object sender, CancelEventArgs e)
-        {
-            App.AddProjectView.iProjectImage.Source = _ic.ByteArrayToImage(image);
         }
     }
 }

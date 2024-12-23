@@ -1,7 +1,9 @@
 ﻿using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model;
+using MyFlatWPF.View.ManagementView;
 using MyFlatWPF.ViewModel;
+using MyFlatWPF.ViewModel.Management;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,11 +41,17 @@ namespace MyFlatWPF.Commands.ManagementCommand.ProjectCommand
                 bool result = await _api.ChangeProject(project);
                 if (result)
                 {
-                    App.ProjectEditView.tbHeaderEdit.Text = project.ProjectHeader;
-                    App.ProjectEditView.iProjectImage.Source = _ic.ByteArrayToImage(project.ProjectImage);
-                    App.ProjectEditView.tbContentEdit.Text = project.ProjectDescription;
+                    App.ProjectEditView.tbHeaderEdit.Text = "";
+                    App.ProjectEditView.iProjectImage.Source = null;
+                    App.ProjectEditView.tbContentEdit.Text = "";
                     App.ProjectEditView.tblImageName.Text = "Image not choosed";
                     StaticImage.NewProjectImage = null;
+
+                    App.ProjectsEditView = null;
+                    App.ProjectsEditView = new ProjectsEditView();
+                    App.ProjectsEditView.Visibility = System.Windows.Visibility.Visible;
+                    StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                        App.ProjectsEditView;
                 }
             }
         }

@@ -167,10 +167,10 @@
 
         <Border x:Name="bImage"
                Grid.Row="5"
-               Width="190"
-               Height="150"
                Margin="1"
-                Background="LightGray"
+               BorderThickness="0.75"
+                BorderBrush="LightGray"
+                Background="Transparent"
                 HorizontalAlignment="Left">
             <Image x:Name="iProjectImage"
                Width="190"

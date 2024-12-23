@@ -40,6 +40,7 @@ namespace MyFlatWPF.Commands.ManagementCommand.ProjectCommand
                 {
                     TextBlock tbImageName = (TextBlock)parameter;
                     tbImageName.Text = $"Choosed : \"{dialog.SafeFileName}\"";
+                    App.ProjectEditView.iProjectImage.Source = _ic.ByteArrayToImage(StaticImage.NewProjectImage);
                 }
             }
         }

@@ -21,12 +21,8 @@ namespace MyFlatWPF.ViewModel.Management
         Style styleButton = new Style();
         Style styleButtonHover = new Style();
         Style styleTextBox = new Style();
-        APIManagementRepository _api = new APIManagementRepository();
-        private ImageConverter _ic = new ImageConverter();
 
-        public AddProjectViewModel(Image image,
-                                   Button btnChooseImage,
-                                   TextBlock tblImageName,
+        public AddProjectViewModel(Button btnChooseImage,
                                    Button btnChange,
                                    Button btnCancel)
         {
@@ -39,7 +35,6 @@ namespace MyFlatWPF.ViewModel.Management
             AddProjectCommand = new AddProjectCommand();
             CancelChangeProjectCommand = new CancelChangeProjectCommand();
             AddElementsToGrid(btnChooseImage,
-                              tblImageName,
                               btnChange,
                               btnCancel);
         }
@@ -49,7 +44,6 @@ namespace MyFlatWPF.ViewModel.Management
         private ICommand CancelChangeProjectCommand { get; set; }
 
         private void AddElementsToGrid(Button btnChooseImage,
-                                       TextBlock tblImageName,
                                        Button btnAdd,
                                        Button btnCancel)
         {

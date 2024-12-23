@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyFlatWPF.View.ManagementView;
+using MyFlatWPF.ViewModel.Management;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +20,15 @@ namespace MyFlatWPF.Commands.ManagementCommand.ProjectCommand
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            App.AddProjectView = null;
+            App.AddProjectView = new AddProjectView();
+            AddProjectViewModel pevm =
+                    new AddProjectViewModel(App.AddProjectView.btnChooseImage,
+                                            App.AddProjectView.btnAddProject,
+                                            App.AddProjectView.btnCancel);
+            App.AddProjectView.Visibility = System.Windows.Visibility.Visible;
+            StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                App.AddProjectView;
         }
     }
 }
