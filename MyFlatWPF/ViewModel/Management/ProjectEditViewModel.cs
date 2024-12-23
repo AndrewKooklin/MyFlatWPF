@@ -1,5 +1,6 @@
 ﻿using MyFlatWPF.Commands.ManagementCommand.ProjectCommand;
 using MyFlatWPF.Data.Repositories.API;
+using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace MyFlatWPF.ViewModel.Management
 {
@@ -21,9 +23,11 @@ namespace MyFlatWPF.ViewModel.Management
         Style styleButtonHover = new Style();
         Style styleTextBox = new Style();
         APIManagementRepository _api = new APIManagementRepository();
+        private ImageConverter _ic = new ImageConverter();
 
         public ProjectEditViewModel(TextBox tbHeader,
                                     TextBox tbContent,
+                                    Image image,
                                     Button btnChooseImage,
                                     TextBlock tblImageName,
                                     Button btnChange,
@@ -37,8 +41,10 @@ namespace MyFlatWPF.ViewModel.Management
             styleTextBox = (Style)grid.FindResource("InputTextBox");
             ChooseProjectImageCommand = new ChooseProjectImageCommand();
             ChangeProjectCommand = new ChangeProjectCommand();
+            CancelChangeProjectCommand = new CancelChangeProjectCommand();
             AddElementsToGrid(tbHeader,
                               tbContent,
+                              image,
                               btnChooseImage,
                               tblImageName,
                               btnChange,
@@ -48,9 +54,11 @@ namespace MyFlatWPF.ViewModel.Management
 
         private ICommand ChooseProjectImageCommand { get; set; }
         private ICommand ChangeProjectCommand { get; set; }
+        private ICommand CancelChangeProjectCommand { get; set; }
 
         private void AddElementsToGrid(TextBox tbHeader,
                                        TextBox tbContent,
+                                       Image image,
                                        Button btnChooseImage,
                                        TextBlock tblImageName,
                                        Button btnChange,
@@ -63,6 +71,8 @@ namespace MyFlatWPF.ViewModel.Management
 
             tbContent.Text = project.ProjectDescription;
 
+            image.Source = _ic.ByteArrayToImage(project.ProjectImage);
+
             btnChooseImage.Command = ChooseProjectImageCommand;
             btnChooseImage.CommandParameter = tblImageName;
 
@@ -71,6 +81,7 @@ namespace MyFlatWPF.ViewModel.Management
             btnChange.MouseEnter += Btn_mouseEnter;
             btnChange.MouseLeave += Btn_mouseLeave;
 
+            btnCancel.Command = CancelChangeProjectCommand;
             btnCancel.MouseEnter += Btn_mouseEnter;
             btnCancel.MouseLeave += Btn_mouseLeave;
 

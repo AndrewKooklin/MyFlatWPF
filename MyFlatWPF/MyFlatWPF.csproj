@@ -153,6 +153,7 @@
     <Compile Include="Commands\ManagementCommand\ChangeRandomPhraseCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChooseMainImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\DeleteRandomPhraseCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ProjectCommand\CancelChangeProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectCommand\ChangeProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectCommand\ChooseProjectImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectsCommand\DeleteProjectCommand.cs" />

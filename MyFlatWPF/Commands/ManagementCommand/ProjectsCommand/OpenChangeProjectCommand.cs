@@ -28,12 +28,12 @@ namespace MyFlatWPF.Commands.ManagementCommand.ProjectsCommand
             {
                 int id = (Int32)parameter;
 
-
                 App.ProjectEditView = null;
                 App.ProjectEditView = new ProjectEditView();
                 ProjectEditViewModel pevm = 
                     new ProjectEditViewModel(App.ProjectEditView.tbHeaderEdit,
                                              App.ProjectEditView.tbContentEdit,
+                                             App.ProjectEditView.iProjectImage,
                                              App.ProjectEditView.btnChooseImage,
                                              App.ProjectEditView.tblImageName,
                                              App.ProjectEditView.btnChange,

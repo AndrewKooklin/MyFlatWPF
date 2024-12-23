@@ -117,17 +117,19 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="0.3*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4.5*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="20*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBlock x:Name="tbHeader"
+        <TextBlock x:Name="tblHeader"
                    Text="Project Edit"
                    FontSize="20"
                    Margin="0 5 0 5"
@@ -154,22 +156,22 @@
                  HorizontalAlignment="Left">
         </TextBox>
 
-        <TextBlock x:Name="tblContentEdit"
+        <TextBlock x:Name="tblImage"
                    Grid.Row="4"
-                   Text="Content"
-                   Width="250"
+                   Text="Image"
                    FontSize="16"
-                   Margin="0 5 0 5"
+                   Margin="0 0 0 0"
                    HorizontalAlignment="Left">
         </TextBlock>
 
-        <TextBox x:Name="tbContentEdit"
-                 Grid.Row="5"
-                 Style="{Binding Source={StaticResource InputTextBox}}"
-                 Width="250"
-                 MinLines="9"
-                 HorizontalAlignment="Left">
-        </TextBox>
+        <Image x:Name="iProjectImage"
+               Grid.Row="5"
+                 Width="190"
+               Height="150"
+               Margin="1"
+               HorizontalAlignment="Left">
+        </Image>
+
 
         <Button x:Name="btnChooseImage"
                 Grid.Row="6"
@@ -184,12 +186,29 @@
                    Text="Image not choosed"
                    FontSize="12"
                    Foreground="Red"
-                   Margin="85 5 0 5"
+                   Margin="85 10 0 5"
                    HorizontalAlignment="Left">
         </TextBlock>
 
+        <TextBlock x:Name="tblContentEdit"
+                   Grid.Row="7"
+                   Text="Content"
+                   Width="250"
+                   FontSize="16"
+                   Margin="0 5 0 5"
+                   HorizontalAlignment="Left">
+        </TextBlock>
+
+        <TextBox x:Name="tbContentEdit"
+                 Grid.Row="8"
+                 Style="{Binding Source={StaticResource InputTextBox}}"
+                 Width="250"
+                 MinLines="7"
+                 HorizontalAlignment="Left">
+        </TextBox>
+
         <Button x:Name="btnChange"
-                Grid.Row="7"
+                Grid.Row="9"
                 Content="Change"
                 Style="{Binding Source={StaticResource ButtonStyle}}"
                 HorizontalAlignment="Left"
@@ -198,7 +217,7 @@
         </Button>
 
         <Button x:Name="btnCancel"
-                Grid.Row="7"
+                Grid.Row="9"
                 Content="Cancel"
                 Style="{Binding Source={StaticResource ButtonStyle}}"
                 HorizontalAlignment="Left"

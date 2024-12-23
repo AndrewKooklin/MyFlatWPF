@@ -15,6 +15,7 @@ namespace MyFlatWPF.Commands.ManagementCommand.ProjectCommand
     {
         public event EventHandler CanExecuteChanged;
         APIManagementRepository _api = new APIManagementRepository();
+        private ImageConverter _ic = new ImageConverter();
 
         public bool CanExecute(object parameter)
         {
@@ -38,7 +39,11 @@ namespace MyFlatWPF.Commands.ManagementCommand.ProjectCommand
                 bool result = await _api.ChangeProject(project);
                 if (result)
                 {
-                    App.ProjectEditView.tblImageName.Text = "";
+                    App.ProjectEditView.tbHeaderEdit.Text = project.ProjectHeader;
+                    App.ProjectEditView.iProjectImage.Source = _ic.ByteArrayToImage(project.ProjectImage);
+                    App.ProjectEditView.tbContentEdit.Text = project.ProjectDescription;
+                    App.ProjectEditView.tblImageName.Text = "Image not choosed";
+                    StaticImage.NewProjectImage = null;
                     App.ProjectsView.wpProjects.Children.Clear();
                     StaticViewModel.ProjectsViewModel.GetProjectCards(App.ProjectsView.wpProjects);
                 }
