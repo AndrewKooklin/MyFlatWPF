@@ -73,7 +73,7 @@ namespace MyFlatWPF.ViewModel
                 BitmapImage src = new BitmapImage();
                 src = ic.ByteArrayToImage(pm.ProjectImage);
                 image.Source = src;
-                image.Stretch = System.Windows.Media.Stretch.Uniform;
+                image.Stretch = System.Windows.Media.Stretch.Fill;
                 Panel.SetZIndex(image, 2);
                 spCard.Children.Add(image);
 

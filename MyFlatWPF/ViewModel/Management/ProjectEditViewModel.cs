@@ -75,6 +75,8 @@ namespace MyFlatWPF.ViewModel.Management
 
             btnChooseImage.Command = ChooseProjectImageCommand;
             btnChooseImage.CommandParameter = tblImageName;
+            btnChooseImage.MouseEnter += Btn_mouseEnter;
+            btnChooseImage.MouseLeave += Btn_mouseLeave;
 
             btnChange.Command = ChangeProjectCommand;
             btnChange.CommandParameter = id;

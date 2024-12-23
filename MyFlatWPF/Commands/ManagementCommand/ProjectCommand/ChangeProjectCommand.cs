@@ -33,7 +33,7 @@ namespace MyFlatWPF.Commands.ManagementCommand.ProjectCommand
                 int id = (Int32)parameter;
                 ProjectModel project = new ProjectModel();
                 project.Id = id;
-                project.ProjectHeader = App.ProjectEditView.tblHeaderEdit.Text;
+                project.ProjectHeader = App.ProjectEditView.tbHeaderEdit.Text;
                 project.ProjectDescription = App.ProjectEditView.tbContentEdit.Text;
                 project.ProjectImage = StaticImage.NewProjectImage;
                 bool result = await _api.ChangeProject(project);
@@ -44,8 +44,6 @@ namespace MyFlatWPF.Commands.ManagementCommand.ProjectCommand
                     App.ProjectEditView.tbContentEdit.Text = project.ProjectDescription;
                     App.ProjectEditView.tblImageName.Text = "Image not choosed";
                     StaticImage.NewProjectImage = null;
-                    App.ProjectsView.wpProjects.Children.Clear();
-                    StaticViewModel.ProjectsViewModel.GetProjectCards(App.ProjectsView.wpProjects);
                 }
             }
         }

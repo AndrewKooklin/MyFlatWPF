@@ -28,13 +28,18 @@ namespace MyFlatWPF.ViewModel.Management
                                      Button btnAdd)
         {
             _wpEditProjects = wpEditProjects;
+            OpenAddProjectCommand = new OpenAddProjectCommand();
             OpenChangeProjectCommand = new OpenChangeProjectCommand();
             DeleteProjectCommand = new DeleteProjectCommand();
             AddElementsWrapPanel(_wpEditProjects);
+            btnAdd.Command = OpenAddProjectCommand;
             btnAdd.MouseEnter += Btn_mouseEnter;
             btnAdd.MouseLeave += Btn_mouseLeave;
 
         }
+
+
+        private ICommand OpenAddProjectCommand { get; set; }
 
         private ICommand OpenChangeProjectCommand { get; set; }
 

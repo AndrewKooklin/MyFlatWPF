@@ -156,6 +156,7 @@
     <Compile Include="Commands\ManagementCommand\ProjectCommand\CancelChangeProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectCommand\ChangeProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectCommand\ChooseProjectImageCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ProjectCommand\OpenAddProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectsCommand\DeleteProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectsCommand\OpenChangeProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\SaveMainImageCommand.cs" />
@@ -218,6 +219,9 @@
     </Compile>
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManagementView\AddProjectView.xaml.cs">
+      <DependentUpon>AddProjectView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ManagementView\AllOrdersView.xaml.cs">
       <DependentUpon>AllOrdersView.xaml</DependentUpon>
@@ -284,6 +288,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManagementView\AddProjectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
