@@ -23,6 +23,9 @@ namespace MyFlatWPF.Commands.ManagementCommand.ProjectCommand
         {
             StaticImage.NewProjectImage = null;
             App.ProjectEditView.tblImageName.Text = "Image not choosed";
+            App.AddProjectView.tblImageName.Text = "Image not choosed";
+            App.ProjectEditView.iProjectImage.Source = null;
+            App.AddProjectView.iProjectImage.Source = null;
             App.ProjectsEditView = null;
             App.ProjectsEditView = new ProjectsEditView();
             App.ProjectsEditView.Visibility = System.Windows.Visibility.Visible;

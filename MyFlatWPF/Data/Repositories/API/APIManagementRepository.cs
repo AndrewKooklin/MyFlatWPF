@@ -343,5 +343,22 @@ namespace MyFlatWPF.Data.Repositories.API
 
             return apiResponseConvert;
         }
+
+        public async Task<bool> AddProjectToDB(ProjectModel model)
+        {
+            urlRequest = $"{url}" + "ProjectsPageEditAPI/AddProjectToDB/" + $"{model}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, model))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
     }
 }

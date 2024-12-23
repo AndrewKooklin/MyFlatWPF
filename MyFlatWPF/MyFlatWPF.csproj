@@ -153,8 +153,10 @@
     <Compile Include="Commands\ManagementCommand\ChangeRandomPhraseCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChooseMainImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\DeleteRandomPhraseCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ProjectCommand\AddProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectCommand\CancelChangeProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectCommand\ChangeProjectCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ProjectCommand\ChooseAddProjectImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectCommand\ChooseProjectImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectCommand\OpenAddProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectsCommand\DeleteProjectCommand.cs" />
@@ -196,6 +198,7 @@
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\Management\AddProjectViewModel.cs" />
     <Compile Include="ViewModel\Management\AllOrdersViewModel.cs" />
     <Compile Include="ViewModel\Management\HomeEditViewModel.cs" />
     <Compile Include="ViewModel\Management\ManagementWindowViewModel.cs" />
