@@ -1,6 +1,7 @@
 ﻿using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.View.ManagementView;
 using MyFlatWPF.View.ManagementView.BlogView;
+using MyFlatWPF.View.ManagementView.ContactsView;
 using MyFlatWPF.View.ManagementView.ServicesView;
 using MyFlatWPF.ViewModel.Management;
 using System;
@@ -102,7 +103,7 @@ namespace MyFlatWPF.Commands.ManagementCommand
                     case "btnContactsEdit":
                         {
                             App.ContactsEditView = null;
-                            App.ContactsEditView = new PostsEditView();
+                            App.ContactsEditView = new ContactsEditView();
                             App.ContactsEditView.Visibility = System.Windows.Visibility.Visible;
                             StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
                                 App.ContactsEditView;
