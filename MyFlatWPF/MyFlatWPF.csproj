@@ -152,6 +152,8 @@
     <Compile Include="Commands\ManagementCommand\ChangeNameLinkCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChangeRandomPhraseCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChooseMainImageCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ContactsCommand\AddLinkCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ContactsCommand\CancelChangeLinkCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ContactsCommand\ChangeContactsCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ContactsCommand\ChooseAddLinkImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ContactsCommand\ChooseLinkImageCommand.cs" />
