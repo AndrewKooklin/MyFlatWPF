@@ -444,5 +444,38 @@ namespace MyFlatWPF.Data.Repositories.API
 
             return apiResponseConvert;
         }
+
+        public PostModel GetPostById(int id)
+        {
+            PostModel post = new PostModel();
+
+            urlRequest = $"{url}" + "BlogPageEditAPI/GetPostById/" + $"{id}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                post = JsonConvert.DeserializeObject<PostModel>(result);
+            }
+
+            return post;
+        }
+
+        public async Task<bool> DeletePostById(int id)
+        {
+            urlRequest = $"{url}" + "BlogPageEditAPI/DeletePostById/" + $"{id}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, id))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
     }
 }

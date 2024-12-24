@@ -153,7 +153,9 @@
     <Compile Include="Commands\ManagementCommand\ChangeRandomPhraseCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChooseMainImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\DeleteRandomPhraseCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\PostsCommand\DeletePostCommand.cs" />
     <Compile Include="Commands\ManagementCommand\PostsCommand\OpenAddPostCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\PostsCommand\OpenChangePostCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectCommand\AddProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectCommand\CancelChangeProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectCommand\ChangeProjectCommand.cs" />
@@ -213,6 +215,7 @@
     <Compile Include="ViewModel\Management\ManagementWindowViewModel.cs" />
     <Compile Include="ViewModel\Management\OrdersByPeriodViewModel.cs" />
     <Compile Include="ViewModel\Management\OrdersByServiceViewModel.cs" />
+    <Compile Include="ViewModel\Management\PostEditViewModel.cs" />
     <Compile Include="ViewModel\Management\PostsEditViewModel.cs" />
     <Compile Include="ViewModel\Management\ProjectEditViewModel.cs" />
     <Compile Include="ViewModel\Management\ProjectsEditViewModel.cs" />
