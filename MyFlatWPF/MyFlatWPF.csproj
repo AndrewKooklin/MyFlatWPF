@@ -162,6 +162,9 @@
     <Compile Include="Commands\ManagementCommand\ProjectsCommand\DeleteProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectsCommand\OpenChangeProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\SaveMainImageCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ServicesCommand\DeleteServiceCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ServicesCommand\OpenAddServiceCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ServicesCommand\OpenChangeServiceCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ShowOrdersByPeriodCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ShowOrdersByServiceNameCommand.cs" />
     <Compile Include="Commands\ManagementCommand\SwitchManagementViewCommand.cs" />
@@ -206,6 +209,7 @@
     <Compile Include="ViewModel\Management\OrdersByServiceViewModel.cs" />
     <Compile Include="ViewModel\Management\ProjectEditViewModel.cs" />
     <Compile Include="ViewModel\Management\ProjectsEditViewModel.cs" />
+    <Compile Include="ViewModel\Management\ServicesEditViewModel.cs" />
     <Compile Include="ViewModel\Management\StaticManagementViewModel.cs" />
     <Compile Include="ViewModel\ProjectsViewModel.cs" />
     <Compile Include="ViewModel\RegistrationViewModel.cs" />
@@ -246,6 +250,9 @@
     </Compile>
     <Compile Include="View\ManagementView\ProjectsEditView.xaml.cs">
       <DependentUpon>ProjectsEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManagementView\ServicesView\ServicesEditView.xaml.cs">
+      <DependentUpon>ServicesEditView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ManagementWindow.xaml.cs">
       <DependentUpon>ManagementWindow.xaml</DependentUpon>
@@ -323,6 +330,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManagementView\ProjectsEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManagementView\ServicesView\ServicesEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
