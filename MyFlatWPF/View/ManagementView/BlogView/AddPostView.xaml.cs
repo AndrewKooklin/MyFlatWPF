@@ -1,5 +1,4 @@
-﻿using MyFlatWPF.ViewModel.Management;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,15 +16,13 @@ using System.Windows.Shapes;
 namespace MyFlatWPF.View.ManagementView.BlogView
 {
     /// <summary>
-    /// Interaction logic for PostsEditView.xaml
+    /// Interaction logic for AddPostView.xaml
     /// </summary>
-    public partial class PostsEditView : UserControl
+    public partial class AddPostView : UserControl
     {
-        public PostsEditView()
+        public AddPostView()
         {
             InitializeComponent();
-            this.DataContext = new PostsEditViewModel(this.wpPosts,
-                                                         this.btnAddPost);
         }
     }
 }

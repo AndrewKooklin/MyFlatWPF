@@ -153,6 +153,7 @@
     <Compile Include="Commands\ManagementCommand\ChangeRandomPhraseCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChooseMainImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\DeleteRandomPhraseCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\PostsCommand\OpenAddPostCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectCommand\AddProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectCommand\CancelChangeProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectCommand\ChangeProjectCommand.cs" />
@@ -204,6 +205,7 @@
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\Management\AddPostViewModel.cs" />
     <Compile Include="ViewModel\Management\AddProjectViewModel.cs" />
     <Compile Include="ViewModel\Management\AddServiceViewModel.cs" />
     <Compile Include="ViewModel\Management\AllOrdersViewModel.cs" />
@@ -211,6 +213,7 @@
     <Compile Include="ViewModel\Management\ManagementWindowViewModel.cs" />
     <Compile Include="ViewModel\Management\OrdersByPeriodViewModel.cs" />
     <Compile Include="ViewModel\Management\OrdersByServiceViewModel.cs" />
+    <Compile Include="ViewModel\Management\PostsEditViewModel.cs" />
     <Compile Include="ViewModel\Management\ProjectEditViewModel.cs" />
     <Compile Include="ViewModel\Management\ProjectsEditViewModel.cs" />
     <Compile Include="ViewModel\Management\ServiceEditViewModel.cs" />
@@ -237,6 +240,9 @@
     </Compile>
     <Compile Include="View\ManagementView\AllOrdersView.xaml.cs">
       <DependentUpon>AllOrdersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManagementView\BlogView\AddPostView.xaml.cs">
+      <DependentUpon>AddPostView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ManagementView\BlogView\PostEditView.xaml.cs">
       <DependentUpon>PostEditView.xaml</DependentUpon>
@@ -325,6 +331,10 @@
     <Page Include="View\ManagementView\AllOrdersView.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="View\ManagementView\BlogView\AddPostView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManagementView\BlogView\PostEditView.xaml">
       <SubType>Designer</SubType>
