@@ -153,7 +153,10 @@
     <Compile Include="Commands\ManagementCommand\ChangeRandomPhraseCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChooseMainImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ContactsCommand\ChangeContactsCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ContactsCommand\ChooseAddLinkImageCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ContactsCommand\DeleteSocialLinkCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ContactsCommand\OpenAddLinkCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ContactsCommand\OpenChangeSocialLinkCommand.cs" />
     <Compile Include="Commands\ManagementCommand\DeleteRandomPhraseCommand.cs" />
     <Compile Include="Commands\ManagementCommand\PostsCommand\AddPostCommand.cs" />
     <Compile Include="Commands\ManagementCommand\PostsCommand\CancelChangePostCommand.cs" />
@@ -221,6 +224,7 @@
     <Compile Include="ViewModel\Management\AllOrdersViewModel.cs" />
     <Compile Include="ViewModel\Management\ContactsEditViewModel.cs" />
     <Compile Include="ViewModel\Management\HomeEditViewModel.cs" />
+    <Compile Include="ViewModel\Management\LinkEditViewModel.cs" />
     <Compile Include="ViewModel\Management\ManagementWindowViewModel.cs" />
     <Compile Include="ViewModel\Management\OrdersByPeriodViewModel.cs" />
     <Compile Include="ViewModel\Management\OrdersByServiceViewModel.cs" />
@@ -265,8 +269,11 @@
     <Compile Include="View\ManagementView\ContactsView\AddLinkView.xaml.cs">
       <DependentUpon>AddLinkView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ManagementView\ContactsView\ContastsEditView.xaml.cs">
-      <DependentUpon>ContastsEditView.xaml</DependentUpon>
+    <Compile Include="View\ManagementView\ContactsView\ContactsEditView.xaml.cs">
+      <DependentUpon>ContactsEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManagementView\ContactsView\LinkEditView.xaml.cs">
+      <DependentUpon>LinkEditView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ManagementView\HomeEditView.xaml.cs">
       <DependentUpon>HomeEditView.xaml</DependentUpon>
@@ -366,7 +373,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ManagementView\ContactsView\ContastsEditView.xaml">
+    <Page Include="View\ManagementView\ContactsView\ContactsEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManagementView\ContactsView\LinkEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

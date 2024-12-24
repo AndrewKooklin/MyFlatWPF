@@ -70,9 +70,11 @@ namespace MyFlatWPF
 
         public static AddPostView AddPostView = new AddPostView();
 
-        public static ContastsEditView ContastsEditView = new ContastsEditView();
+        public static ContactsEditView ContactsEditView = new ContactsEditView();
 
         public static AddLinkView AddLinkView = new AddLinkView();
+
+        public static LinkEditView LinkEditView = new LinkEditView();
 
 
 

@@ -101,11 +101,11 @@ namespace MyFlatWPF.Commands.ManagementCommand
                         }
                     case "btnContactsEdit":
                         {
-                            App.ContastsEditView = null;
-                            App.ContastsEditView = new PostsEditView();
-                            App.ContastsEditView.Visibility = System.Windows.Visibility.Visible;
+                            App.ContactsEditView = null;
+                            App.ContactsEditView = new PostsEditView();
+                            App.ContactsEditView.Visibility = System.Windows.Visibility.Visible;
                             StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
-                                App.ContastsEditView;
+                                App.ContactsEditView;
                             break;
                         }
                     default: break;

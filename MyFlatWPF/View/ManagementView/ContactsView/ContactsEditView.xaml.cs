@@ -19,9 +19,9 @@ namespace MyFlatWPF.View.ManagementView.ContactsView
     /// <summary>
     /// Interaction logic for ContastsEditView.xaml
     /// </summary>
-    public partial class ContastsEditView : UserControl
+    public partial class ContactsEditView : UserControl
     {
-        public ContastsEditView()
+        public ContactsEditView()
         {
             InitializeComponent();
             this.DataContext = new ContactsEditViewModel(this.tbAddress,
