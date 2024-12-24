@@ -90,9 +90,11 @@ namespace MyFlatWPF.ViewModel.Management
                 tblock.Text = social.SocialLink;
                 tblock.HorizontalAlignment = HorizontalAlignment.Center;
                 tblock.Width = 200;
+                tblock.Height = 25;
                 tblock.FontSize = 12;
                 tblock.FontWeight = FontWeights.DemiBold;
                 tblock.Background = Brushes.LightGray;
+                tblock.Margin = new Thickness(5, 0, 0, 0);
                 tblock.Padding = new Thickness(3, 3, 3, 3);
                 tblock.TextWrapping = TextWrapping.Wrap;
                 spSocial.Children.Add(tblock);
