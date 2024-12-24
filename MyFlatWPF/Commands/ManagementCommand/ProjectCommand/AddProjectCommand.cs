@@ -25,7 +25,8 @@ namespace MyFlatWPF.Commands.ManagementCommand.ProjectCommand
         public async void Execute(object parameter)
         {
             ProjectModel project = new ProjectModel();
-            if (String.IsNullOrEmpty(App.AddProjectView.tbHeaderEdit.Text))
+            if (String.IsNullOrEmpty(App.AddProjectView.tbHeaderEdit.Text) ||
+                String.IsNullOrEmpty(App.AddProjectView.tbContentEdit.Text))
             {
                 return;
             }

@@ -24,7 +24,8 @@ namespace MyFlatWPF.Commands.ManagementCommand.ServicesCommand
         public async void Execute(object parameter)
         {
             ServiceModel service = new ServiceModel();
-            if (String.IsNullOrEmpty(App.AddServiceView.tbHeaderEdit.Text))
+            if (String.IsNullOrEmpty(App.AddServiceView.tbHeaderEdit.Text) ||
+                String.IsNullOrEmpty(App.AddServiceView.tbContentEdit.Text))
             {
                 return;
             }
