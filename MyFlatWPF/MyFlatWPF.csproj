@@ -154,6 +154,7 @@
     <Compile Include="Commands\ManagementCommand\ChooseMainImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ContactsCommand\ChangeContactsCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ContactsCommand\ChooseAddLinkImageCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ContactsCommand\ChooseLinkImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ContactsCommand\DeleteSocialLinkCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ContactsCommand\OpenAddLinkCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ContactsCommand\OpenChangeSocialLinkCommand.cs" />
