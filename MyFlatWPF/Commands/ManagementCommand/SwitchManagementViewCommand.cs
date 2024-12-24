@@ -1,5 +1,6 @@
 ﻿using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.View.ManagementView;
+using MyFlatWPF.View.ManagementView.ServicesView;
 using MyFlatWPF.ViewModel.Management;
 using System;
 using System.Collections.Generic;
@@ -79,14 +80,15 @@ namespace MyFlatWPF.Commands.ManagementCommand
                                 App.ProjectsEditView;
                             break;
                         }
-                    //case "btnServices":
-                    //    {
-                    //        App.ServicesView.Visibility = System.Windows.Visibility.Visible;
-                    //        StaticMainViewModel.MainViewModel.CurrentView = App.ServicesView;
-                    //        StaticMainViewModel.MainViewModel.RandomPhrase =
-                    //            StaticMainViewModel.MainViewModel.GetHeaderString();
-                    //        break;
-                    //    }
+                    case "btnServicesEdit":
+                        {
+                            App.ServicesEditView = null;
+                            App.ServicesEditView = new ServicesEditView();
+                            App.ServicesEditView.Visibility = System.Windows.Visibility.Visible;
+                            StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                                App.ServicesEditView;
+                            break;
+                        }
                     //case "btnBlog":
                     //case "btnBackToBlog":
                     //    {
@@ -104,62 +106,9 @@ namespace MyFlatWPF.Commands.ManagementCommand
                     //            StaticMainViewModel.MainViewModel.GetHeaderString();
                     //        break;
                     //    }
-                    //case "btnLogIn":
-                    //case "btnRedirectToLogin":
-                    //    {
-                    //        App.LoginView.Visibility = System.Windows.Visibility.Visible;
-                    //        StaticMainViewModel.MainViewModel.CurrentView = App.LoginView;
-                    //        StaticMainViewModel.MainViewModel.RandomPhrase =
-                    //            StaticMainViewModel.MainViewModel.GetHeaderString();
-                    //        break;
-                    //    }
-                    //case "btnRegister":
-                    //case "btnRedirectToRegistration":
-                    //    {
-                    //        App.RegistrationView.Visibility = System.Windows.Visibility.Visible;
-                    //        StaticMainViewModel.MainViewModel.CurrentView = App.RegistrationView;
-                    //        StaticMainViewModel.MainViewModel.RandomPhrase =
-                    //            StaticMainViewModel.MainViewModel.GetHeaderString();
-                    //        break;
-                    //    }
                     default: break;
                 }
             }
-            //else if (parameter is ObjectModel)
-            //{
-            //    var values = (ObjectModel)parameter;
-            //    int id = values.IdObject;
-            //    string typeValue = values.TypeObject.ToString();
-
-            //    switch (typeValue)
-            //    {
-            //        case "project":
-            //            {
-            //                ProjectModel project = new ProjectModel();
-            //                project = _api.GetProjectById(id);
-            //                App.ProjectDetailView.tbProjectName.Text = project.ProjectHeader;
-            //                App.ProjectDetailView.tbProjectDescription.Text = project.ProjectDescription;
-            //                App.ProjectDetailView.iProjectImage.Source = ic.ByteArrayToImage(project.ProjectImage);
-
-            //                App.ProjectDetailView.Visibility = System.Windows.Visibility.Visible;
-            //                StaticMainViewModel.MainViewModel.CurrentView = App.ProjectDetailView;
-            //                break;
-            //            }
-            //        case "post":
-            //            {
-            //                PostModel post = new PostModel();
-            //                post = _api.GetPostById(id);
-            //                App.PostDetailView.tbPostName.Text = post.PostHeader;
-            //                App.PostDetailView.tbPostDescription.Text = post.PostDescription;
-            //                App.PostDetailView.iPostImage.Source = ic.ByteArrayToImage(post.PostImage);
-
-            //                App.PostDetailView.Visibility = System.Windows.Visibility.Visible;
-            //                StaticMainViewModel.MainViewModel.CurrentView = App.PostDetailView;
-            //                break;
-            //            }
-            //        default: break;
-            //    }
-            //}
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using MyFlatWPF.View;
 using MyFlatWPF.View.ManagementView;
+using MyFlatWPF.View.ManagementView.ServicesView;
 using MyFlatWPF.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -54,6 +55,8 @@ namespace MyFlatWPF
         public static ProjectEditView ProjectEditView = new ProjectEditView();
 
         public static AddProjectView AddProjectView = new AddProjectView();
+
+        public static ServicesEditView ServicesEditView = new ServicesEditView();
 
 
 

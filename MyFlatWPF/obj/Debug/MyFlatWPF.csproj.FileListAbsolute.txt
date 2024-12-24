@@ -107,3 +107,5 @@ C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\AddProjectView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\AddProjectView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\LoginWindow.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\RegistrationWindow.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ServicesView\ServicesEditView.g.cs
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ServicesView\ServicesEditView.baml

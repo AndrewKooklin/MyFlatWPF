@@ -21,9 +21,18 @@ namespace MyFlatWPF.View.ManagementView
     /// </summary>
     public partial class HomeEditView : UserControl
     {
+        Style styleButton = new Style();
+        Style styleHoverButton = new Style();
+        Style styleCircleButton = new Style();
+        Style styleHoverCircleButton = new Style();
+
         public HomeEditView()
         {
             InitializeComponent();
+            styleButton = (Style)this.gHomeEdit.FindResource("ButtonStyle");
+            styleHoverButton = (Style)this.gHomeEdit.FindResource("ButtonHoverStyle");
+            styleCircleButton = (Style)this.gHomeEdit.FindResource("ButtonCircleStyle");
+            styleHoverCircleButton = (Style)this.gHomeEdit.FindResource("HoverButtonCircleStyle");
             this.DataContext = new HomeEditViewModel(this.wpTopMenuLinks, 
                                                      this.btnAddPhrase,
                                                      this.wpRandomPhrases,
@@ -37,6 +46,60 @@ namespace MyFlatWPF.View.ManagementView
                                                      this.btnChangeBottomHeader,
                                                      this.tbInputBottomContent,
                                                      this.btnChangeBotomContent);
+        }
+
+
+
+        private void Btn_mouseEnter(object sender, MouseEventArgs e)
+        {
+            if (sender is Button)
+            {
+                Button btnMenu = sender as Button;
+                e.Handled = true;
+                btnMenu.Style = styleHoverButton;
+                btnMenu.OverridesDefaultStyle = true;
+                btnMenu.Cursor = Cursors.Hand;
+                btnMenu.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#0082ff"));
+            }
+        }
+
+        private void Btn_mouseLeave(object sender, MouseEventArgs e)
+        {
+            if (sender is Button)
+            {
+                Button btnMenu = sender as Button;
+                e.Handled = true;
+                btnMenu.Style = styleButton;
+                btnMenu.OverridesDefaultStyle = true;
+                btnMenu.Cursor = Cursors.Hand;
+                btnMenu.Background = Brushes.DeepSkyBlue;
+            }
+        }
+
+        private void BtnCircle_mouseEnter(object sender, MouseEventArgs e)
+        {
+            if (sender is Button)
+            {
+                Button btnMenu = sender as Button;
+                e.Handled = true;
+                btnMenu.Style = styleHoverCircleButton;
+                btnMenu.OverridesDefaultStyle = true;
+                btnMenu.Cursor = Cursors.Hand;
+                btnMenu.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#0082ff"));
+            }
+        }
+
+        private void BtnCircle_mouseLeave(object sender, MouseEventArgs e)
+        {
+            if (sender is Button)
+            {
+                Button btnMenu = sender as Button;
+                e.Handled = true;
+                btnMenu.Style = styleCircleButton;
+                btnMenu.OverridesDefaultStyle = true;
+                btnMenu.Cursor = Cursors.Hand;
+                btnMenu.Background = Brushes.DeepSkyBlue;
+            }
         }
     }
 }

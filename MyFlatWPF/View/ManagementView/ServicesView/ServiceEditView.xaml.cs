@@ -1,5 +1,4 @@
-﻿using MyFlatWPF.ViewModel.Management;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,15 +16,13 @@ using System.Windows.Shapes;
 namespace MyFlatWPF.View.ManagementView.ServicesView
 {
     /// <summary>
-    /// Interaction logic for ServicesEditView.xaml
+    /// Interaction logic for ServiceEditView.xaml
     /// </summary>
-    public partial class ServicesEditView : UserControl
+    public partial class ServiceEditView : UserControl
     {
-        public ServicesEditView()
+        public ServiceEditView()
         {
             InitializeComponent();
-            this.DataContext = new ServicesEditViewModel(this.wpServices,
-                                                         this.btnAddService);
         }
     }
 }

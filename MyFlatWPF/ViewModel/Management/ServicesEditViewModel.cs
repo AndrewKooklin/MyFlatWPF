@@ -67,12 +67,13 @@ namespace MyFlatWPF.ViewModel.Management
                 StackPanel spService = new StackPanel();
                 spService.Orientation = Orientation.Horizontal;
                 spService.HorizontalAlignment = HorizontalAlignment.Left;
-                spService.Margin = new Thickness(0, 0, 0, 5);
+                spService.Margin = new Thickness(0, 0, 30, 5);
 
                 Border border = new Border();
                 border.BorderThickness = new Thickness(1, 1, 1, 1);
                 border.BorderBrush = Brushes.Blue;
-                
+                border.CornerRadius = new CornerRadius(3, 3, 3, 3);
+
                 TextBlock tblock = new TextBlock();
                 tblock.OverridesDefaultStyle = true;
                 tblock.Text = service.ServiceName;

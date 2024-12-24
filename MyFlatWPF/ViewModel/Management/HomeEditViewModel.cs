@@ -23,7 +23,8 @@ namespace MyFlatWPF.ViewModel.Management
         APIManagementRepository _apiManage = new APIManagementRepository();
         HomePagePlaceholderModel _hpphm = new HomePagePlaceholderModel();
         Style styleButton = new Style();
-        Style styleTextBox = new Style();
+        Style styleHoverButton = new Style();
+        Style styleTextBox = new Style(); 
         private ImageConverter _ic = new ImageConverter();
 
         public HomeEditViewModel()
@@ -121,6 +122,7 @@ namespace MyFlatWPF.ViewModel.Management
                 StackPanel spMenuLinksParent = (StackPanel)_wpMenuLinks.Parent;
                 Grid gHomeEdit = (Grid)spMenuLinksParent.Parent;
                 styleButton = (Style)gHomeEdit.FindResource("ButtonStyle");
+                styleHoverButton = (Style)gHomeEdit.FindResource("ButtonHoverStyle");
                 styleTextBox = (Style)gHomeEdit.FindResource("InputTextBox");
 
                 TextBox tbox = new TextBox(); 
@@ -140,6 +142,8 @@ namespace MyFlatWPF.ViewModel.Management
                 btn.Style = styleButton;
                 btn.Command = ChangeNameLinkCommand;
                 btn.CommandParameter = link.Id;
+                btn.MouseEnter += Btn_mouseEnter;
+                btn.MouseLeave += Btn_mouseLeave;
 
                 sp.Children.Add(btn);
                 _wpMenuLinks.Children.Add(sp);
@@ -181,6 +185,8 @@ namespace MyFlatWPF.ViewModel.Management
                 btnChange.Style = styleButton;
                 btnChange.Command = ChangeRandomPhraseCommand;
                 btnChange.CommandParameter = phrase.Id;
+                btnChange.MouseEnter += Btn_mouseEnter;
+                btnChange.MouseLeave += Btn_mouseLeave;
                 spButtons.Children.Add(btnChange);
 
                 Button btnDelete = new Button();
@@ -192,6 +198,8 @@ namespace MyFlatWPF.ViewModel.Management
                 btnDelete.Style = styleButton;
                 btnDelete.Command = DeleteRandomPhraseCommand;
                 btnDelete.CommandParameter = phrase.Id;
+                btnDelete.MouseEnter += Btn_mouseEnter;
+                btnDelete.MouseLeave += Btn_mouseLeave;
                 spButtons.Children.Add(btnDelete);
 
                 spRandomPhrases.Children.Add(spButtons);
@@ -210,6 +218,32 @@ namespace MyFlatWPF.ViewModel.Management
             {
                 _phrase = value;
                 OnPropertyChanged(nameof(Phrase));
+            }
+        }
+
+        private void Btn_mouseEnter(object sender, MouseEventArgs e)
+        {
+            if (sender is Button)
+            {
+                Button btnMenu = sender as Button;
+                e.Handled = true;
+                btnMenu.Style = styleHoverButton;
+                btnMenu.OverridesDefaultStyle = true;
+                btnMenu.Cursor = Cursors.Hand;
+                btnMenu.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#0082ff"));
+            }
+        }
+
+        private void Btn_mouseLeave(object sender, MouseEventArgs e)
+        {
+            if (sender is Button)
+            {
+                Button btnMenu = sender as Button;
+                e.Handled = true;
+                btnMenu.Style = styleButton;
+                btnMenu.OverridesDefaultStyle = true;
+                btnMenu.Cursor = Cursors.Hand;
+                btnMenu.Background = Brushes.DeepSkyBlue;
             }
         }
     }
