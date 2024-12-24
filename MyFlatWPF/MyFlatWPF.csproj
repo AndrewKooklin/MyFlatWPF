@@ -254,6 +254,9 @@
     <Compile Include="View\ManagementView\ProjectsEditView.xaml.cs">
       <DependentUpon>ProjectsEditView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ManagementView\ServicesView\AddServiceView.xaml.cs">
+      <DependentUpon>AddServiceView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ManagementView\ServicesView\ServiceEditView.xaml.cs">
       <DependentUpon>ServiceEditView.xaml</DependentUpon>
     </Compile>
@@ -336,6 +339,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManagementView\ProjectsEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManagementView\ServicesView\AddServiceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

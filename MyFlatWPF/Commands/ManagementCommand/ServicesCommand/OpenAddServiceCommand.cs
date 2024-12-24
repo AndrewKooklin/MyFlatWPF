@@ -18,7 +18,15 @@ namespace MyFlatWPF.Commands.ManagementCommand.ServicesCommand
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            App.AddProjectView = null;
+            App.AddProjectView = new AddProjectView();
+            AddProjectViewModel pevm =
+                    new AddProjectViewModel(App.AddProjectView.btnChooseImage,
+                                            App.AddProjectView.btnAddProject,
+                                            App.AddProjectView.btnCancel);
+            App.AddProjectView.Visibility = System.Windows.Visibility.Visible;
+            StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                App.AddProjectView;
         }
     }
 }
