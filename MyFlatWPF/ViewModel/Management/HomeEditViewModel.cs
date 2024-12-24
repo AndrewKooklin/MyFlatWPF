@@ -107,6 +107,12 @@ namespace MyFlatWPF.ViewModel.Management
 
         public void AddElementsTopMenuLinks(WrapPanel wrapPanel)
         {
+            StackPanel spMenuLinksParent = (StackPanel)_wpMenuLinks.Parent;
+            Grid gHomeEdit = (Grid)spMenuLinksParent.Parent;
+            styleButton = (Style)gHomeEdit.FindResource("ButtonStyle");
+            styleHoverButton = (Style)gHomeEdit.FindResource("ButtonHoverStyle");
+            styleTextBox = (Style)gHomeEdit.FindResource("InputTextBox");
+
             List<TopMenuLinkNameModel> ltml = new List<TopMenuLinkNameModel>();
             var placeHolder = _api.GetHomePagePlaceholder();
             ltml = placeHolder.LinkNames;
@@ -118,12 +124,6 @@ namespace MyFlatWPF.ViewModel.Management
                 sp.Orientation = Orientation.Vertical;
                 sp.HorizontalAlignment = HorizontalAlignment.Right;
                 sp.Margin = new Thickness(5, 0, 0, 0);
-
-                StackPanel spMenuLinksParent = (StackPanel)_wpMenuLinks.Parent;
-                Grid gHomeEdit = (Grid)spMenuLinksParent.Parent;
-                styleButton = (Style)gHomeEdit.FindResource("ButtonStyle");
-                styleHoverButton = (Style)gHomeEdit.FindResource("ButtonHoverStyle");
-                styleTextBox = (Style)gHomeEdit.FindResource("InputTextBox");
 
                 TextBox tbox = new TextBox(); 
                 tbox.OverridesDefaultStyle = true;

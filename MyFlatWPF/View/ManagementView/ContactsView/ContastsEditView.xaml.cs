@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyFlatWPF.ViewModel.Management;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace MyFlatWPF.View.ManagementView.ContactsView
         public ContastsEditView()
         {
             InitializeComponent();
+            this.DataContext = new ContactsEditViewModel(this.tbAddress,
+                                                         this.tbPhone,
+                                                         this.tbEmail,
+                                                         this.btnChangeContacts,
+                                                         this.btnAddLink,
+                                                         this.spSocialLinks);
         }
     }
 }

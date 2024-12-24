@@ -1,5 +1,4 @@
-﻿using MyFlatWPF.Commands.ManagementCommand.ServicesCommand;
-using MyFlatWPF.Data.Repositories.API;
+﻿using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model;
 using System;
@@ -14,9 +13,10 @@ using System.Windows.Media;
 
 namespace MyFlatWPF.ViewModel.Management
 {
-    public class ServicesEditViewModel : BaseViewModel
+    public class ContactsEditViewModel : BaseViewModel
     {
-        WrapPanel _wpEditServices;
+        StackPanel _spEditContacts;
+        ContactModel _contacts;
         APIRenderingRepository _api = new APIRenderingRepository();
         APIManagementRepository _apiManage = new APIManagementRepository();
         Style styleButton = new Style();
@@ -24,96 +24,105 @@ namespace MyFlatWPF.ViewModel.Management
         Style styleCircleButton = new Style();
         Style styleHoverCircleButton = new Style();
         private ImageConverter _ic = new ImageConverter();
-        public ServicesEditViewModel(WrapPanel wpEditServices,
-                                     Button btnAdd)
-        {
-            _wpEditServices = wpEditServices;
-            OpenAddServiceCommand = new OpenAddServiceCommand();
-            OpenChangeServiceCommand = new OpenChangeServiceCommand();
-            DeleteServiceCommand = new DeleteServiceCommand();
-            AddElementsWrapPanel(_wpEditServices);
-            btnAdd.Command = OpenAddServiceCommand;
-            btnAdd.MouseEnter += Btn_mouseEnter;
-            btnAdd.MouseLeave += Btn_mouseLeave;
 
+        public ContactsEditViewModel(TextBox tbAddress,
+                                     TextBox tbPhone,
+                                     TextBox tbEmail,
+                                     Button btnChangeContacts,
+                                     Button btnAddLink,
+                                     StackPanel spSocialLinks)
+        {
+            _spEditContacts = spSocialLinks;
+            _contacts = new ContactModel();
+            _contacts = _api.GetContactsFromDB();
+            tbAddress.Text = _contacts.ContactAddress;
+            tbPhone.Text = _contacts.ContactPhone;
+            tbEmail.Text = _contacts.ContactEmail;
+            ChangeContactsCommand = new ChangeContactsCommand();
+            OpenAddLinkCommand = new OpenAddLinkCommand();
+            OpenChangeSocialLinkCommand = new OpenChangeSocialLinkCommand();
+            DeleteSocialLinkCommand = new DeleteSocialLinkCommand();
+            AddElementsWrapPanel(_spEditContacts);
+            btnChangeContacts.Command = ChangeContactsCommand;
+            btnChangeContacts.CommandParameter = _contacts;
+            btnChangeContacts.MouseEnter += Btn_mouseEnter;
+            btnChangeContacts.MouseLeave += Btn_mouseLeave;
+            btnAddLink.Command = OpenAddLinkCommand;
+            btnAddLink.MouseEnter += Btn_mouseEnter;
+            btnAddLink.MouseLeave += Btn_mouseLeave;
         }
 
+        private ICommand ChangeContactsCommand { get; set; }
 
-        private ICommand OpenAddServiceCommand { get; set; }
+        private ICommand OpenAddLinkCommand { get; set; }
 
-        private ICommand OpenChangeServiceCommand { get; set; }
+        private ICommand OpenChangeSocialLinkCommand { get; set; }
 
-        private ICommand DeleteServiceCommand { get; set; }
+        private ICommand DeleteSocialLinkCommand { get; set; }
 
-        private void AddElementsWrapPanel(WrapPanel wpEditServices)
+        private void AddElementsWrapPanel(StackPanel spEditContacts)
         {
-            Grid gServicesEdit = (Grid)wpEditServices.Parent;
-            styleButton = (Style)gServicesEdit.FindResource("ButtonStyle");
-            styleHoverButton = (Style)gServicesEdit.FindResource("ButtonHoverStyle");
-            styleCircleButton = (Style)gServicesEdit.FindResource("ButtonCircleStyle");
-            styleHoverCircleButton = (Style)gServicesEdit.FindResource("HoverButtonCircleStyle");
+            Grid gContactsEdit = (Grid)spEditContacts.Parent;
+            styleButton = (Style)gContactsEdit.FindResource("ButtonStyle");
+            styleHoverButton = (Style)gContactsEdit.FindResource("ButtonHoverStyle");
+            styleCircleButton = (Style)gContactsEdit.FindResource("ButtonCircleStyle");
+            styleHoverCircleButton = (Style)gContactsEdit.FindResource("HoverButtonCircleStyle");
 
-            List<ServiceModel> ls = new List<ServiceModel>();
-            ls = _api.GetServicesFromDB();
+            List<SocialModel> lsocial = new List<SocialModel>();
+            lsocial = _api.GetSocialLinksFromDB();
 
-            foreach (ServiceModel service in ls)
+            foreach (SocialModel social in lsocial)
             {
-                StackPanel sp = new StackPanel();
-                sp.Orientation = Orientation.Vertical;
-                sp.HorizontalAlignment = HorizontalAlignment.Left;
-                //sp.Width = 130;
-                sp.Margin = new Thickness(0, 10, 0, 10);
+                StackPanel spSocial = new StackPanel();
+                spSocial.Orientation = Orientation.Horizontal;
+                spSocial.HorizontalAlignment = HorizontalAlignment.Left;
+                spSocial.Margin = new Thickness(0, 0, 5, 0);
 
-                StackPanel spService = new StackPanel();
-                spService.Orientation = Orientation.Horizontal;
-                spService.HorizontalAlignment = HorizontalAlignment.Left;
-                spService.Margin = new Thickness(0, 0, 30, 5);
-
-                Border border = new Border();
-                border.BorderThickness = new Thickness(1, 1, 1, 1);
-                border.BorderBrush = Brushes.Blue;
-                border.CornerRadius = new CornerRadius(3, 3, 3, 3);
+                Image img = new Image();
+                img.Source = _ic.ByteArrayToImage(social.SocialImage);
+                img.Width = 30;
+                img.Height = 30;
+                img.Stretch = Stretch.Fill;
+                spSocial.Children.Add(img);
 
                 TextBlock tblock = new TextBlock();
                 tblock.OverridesDefaultStyle = true;
-                tblock.Text = service.ServiceName;
+                tblock.Text = social.SocialLink;
                 tblock.HorizontalAlignment = HorizontalAlignment.Center;
-                tblock.Width = 150;
+                tblock.Width = 130;
                 tblock.FontSize = 12;
                 tblock.FontWeight = FontWeights.DemiBold;
-                tblock.Background = Brushes.LightSkyBlue;
+                tblock.Background = Brushes.LightGray;
                 tblock.Padding = new Thickness(5, 5, 5, 5);
-                border.Child = tblock;
-                spService.Children.Add(border);
+                spSocial.Children.Add(tblock);
 
                 Button btnOpenChange = new Button();
                 btnOpenChange.Content = "🖉";
-                btnOpenChange.ToolTip = "Change service";
+                btnOpenChange.ToolTip = "Change link";
                 btnOpenChange.OverridesDefaultStyle = true;
                 btnOpenChange.HorizontalAlignment = HorizontalAlignment.Left;
                 btnOpenChange.Margin = new Thickness(5, 0, 0, 0);
                 btnOpenChange.Style = styleCircleButton;
                 btnOpenChange.MouseEnter += BtnCircle_mouseEnter;
                 btnOpenChange.MouseLeave += BtnCircle_mouseLeave;
-                btnOpenChange.Command = OpenChangeServiceCommand;
-                btnOpenChange.CommandParameter = service.Id;
-                spService.Children.Add(btnOpenChange);
+                btnOpenChange.Command = OpenChangeSocialLinkCommand;
+                btnOpenChange.CommandParameter = social.Id;
+                spSocial.Children.Add(btnOpenChange);
 
                 Button btnDelete = new Button();
                 btnDelete.Content = "✖";
-                btnDelete.ToolTip = "Delete service";
+                btnDelete.ToolTip = "Delete link";
                 btnDelete.OverridesDefaultStyle = true;
                 btnDelete.HorizontalAlignment = HorizontalAlignment.Left;
                 btnDelete.Margin = new Thickness(5, 0, 0, 0);
                 btnDelete.Style = styleCircleButton;
                 btnDelete.MouseEnter += BtnCircle_mouseEnter;
                 btnDelete.MouseLeave += BtnCircle_mouseLeave;
-                btnDelete.Command = DeleteServiceCommand;
-                btnDelete.CommandParameter = service.Id;
-                spService.Children.Add(btnDelete);
+                btnDelete.Command = DeleteSocialLinkCommand;
+                btnDelete.CommandParameter = social.Id;
+                spSocial.Children.Add(btnDelete);
 
-                sp.Children.Add(spService);
-                wpEditServices.Children.Add(sp);
+                spEditContacts.Children.Add(spSocial);
             }
         }
 

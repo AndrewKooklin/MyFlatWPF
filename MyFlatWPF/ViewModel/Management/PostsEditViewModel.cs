@@ -47,6 +47,12 @@ namespace MyFlatWPF.ViewModel.Management
 
         private void AddElementsWrapPanel(WrapPanel wpEditProjects)
         {
+            Grid gProjectsEdit = (Grid)wpEditProjects.Parent;
+            styleButton = (Style)gProjectsEdit.FindResource("ButtonStyle");
+            styleHoverButton = (Style)gProjectsEdit.FindResource("ButtonHoverStyle");
+            styleCircleButton = (Style)gProjectsEdit.FindResource("ButtonCircleStyle");
+            styleHoverCircleButton = (Style)gProjectsEdit.FindResource("HoverButtonCircleStyle");
+
             List<PostModel> lposts = new List<PostModel>();
             lposts = _api.GetPostsFromDB();
 
@@ -57,12 +63,6 @@ namespace MyFlatWPF.ViewModel.Management
                 sp.HorizontalAlignment = HorizontalAlignment.Left;
                 sp.Width = 130;
                 sp.Margin = new Thickness(0, 10, 5, 0);
-
-                Grid gProjectsEdit = (Grid)wpEditProjects.Parent;
-                styleButton = (Style)gProjectsEdit.FindResource("ButtonStyle");
-                styleHoverButton = (Style)gProjectsEdit.FindResource("ButtonHoverStyle");
-                styleCircleButton = (Style)gProjectsEdit.FindResource("ButtonCircleStyle");
-                styleHoverCircleButton = (Style)gProjectsEdit.FindResource("HoverButtonCircleStyle");
 
                 Image img = new Image();
                 img.Source = _ic.ByteArrayToImage(post.PostImage);
@@ -88,7 +88,6 @@ namespace MyFlatWPF.ViewModel.Management
                 spButtons.HorizontalAlignment = HorizontalAlignment.Right;
 
                 Button btnOpenChange = new Button();
-
                 btnOpenChange.Content = "🖉";
                 btnOpenChange.ToolTip = "Change post";
                 btnOpenChange.OverridesDefaultStyle = true;

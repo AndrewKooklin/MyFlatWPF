@@ -152,6 +152,7 @@
     <Compile Include="Commands\ManagementCommand\ChangeNameLinkCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChangeRandomPhraseCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChooseMainImageCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ContactsCommand\ChangeContactsCommand.cs" />
     <Compile Include="Commands\ManagementCommand\DeleteRandomPhraseCommand.cs" />
     <Compile Include="Commands\ManagementCommand\PostsCommand\AddPostCommand.cs" />
     <Compile Include="Commands\ManagementCommand\PostsCommand\CancelChangePostCommand.cs" />
@@ -216,6 +217,7 @@
     <Compile Include="ViewModel\Management\AddProjectViewModel.cs" />
     <Compile Include="ViewModel\Management\AddServiceViewModel.cs" />
     <Compile Include="ViewModel\Management\AllOrdersViewModel.cs" />
+    <Compile Include="ViewModel\Management\ContactsEditViewModel.cs" />
     <Compile Include="ViewModel\Management\HomeEditViewModel.cs" />
     <Compile Include="ViewModel\Management\ManagementWindowViewModel.cs" />
     <Compile Include="ViewModel\Management\OrdersByPeriodViewModel.cs" />
