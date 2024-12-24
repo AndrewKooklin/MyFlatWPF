@@ -99,14 +99,15 @@ namespace MyFlatWPF.Commands.ManagementCommand
                                 App.PostsEditView;
                             break;
                         }
-                    //case "btnContacts":
-                    //    {
-                    //        App.ContactsView.Visibility = System.Windows.Visibility.Visible;
-                    //        StaticMainViewModel.MainViewModel.CurrentView = App.ContactsView;
-                    //        StaticMainViewModel.MainViewModel.RandomPhrase =
-                    //            StaticMainViewModel.MainViewModel.GetHeaderString();
-                    //        break;
-                    //    }
+                    case "btnContactsEdit":
+                        {
+                            App.ContastsEditView = null;
+                            App.ContastsEditView = new PostsEditView();
+                            App.ContastsEditView.Visibility = System.Windows.Visibility.Visible;
+                            StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                                App.ContastsEditView;
+                            break;
+                        }
                     default: break;
                 }
             }

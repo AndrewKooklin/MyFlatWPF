@@ -258,6 +258,9 @@
     <Compile Include="View\ManagementView\BlogView\PostsEditView.xaml.cs">
       <DependentUpon>PostsEditView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ManagementView\ContactsView\ContastsEditView.xaml.cs">
+      <DependentUpon>ContastsEditView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ManagementView\HomeEditView.xaml.cs">
       <DependentUpon>HomeEditView.xaml</DependentUpon>
     </Compile>
@@ -349,6 +352,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManagementView\BlogView\PostsEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManagementView\ContactsView\ContastsEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
