@@ -24,12 +24,6 @@ namespace MyFlatWPF.View.ManagementView
         public ProjectEditView()
         {
             InitializeComponent();
-            //this.DataContext = new ProjectEditViewModel(this.tbHeader,
-            //                                            this.tbContent,
-            //                                            this.btnChooseImage,
-            //                                            this.tblImageName,
-            //                                            this.btnChange,
-            //                                            this.btnCancel);
         }
     }
 }

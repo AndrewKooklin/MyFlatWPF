@@ -377,5 +377,38 @@ namespace MyFlatWPF.Data.Repositories.API
 
             return apiResponseConvert;
         }
+
+        public ServiceModel GetServiceById(int id)
+        {
+            ServiceModel service = new ServiceModel();
+
+            urlRequest = $"{url}" + "ServicesPageEditAPI/GetServiceById/" + $"{id}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                service = JsonConvert.DeserializeObject<ServiceModel>(result);
+            }
+
+            return service;
+        }
+
+        public async Task<bool> ChangeService(ServiceModel model)
+        {
+            urlRequest = $"{url}" + "ServicesPageEditAPI/ChangeService/" + $"{model}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, model))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
     }
 }
