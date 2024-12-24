@@ -26,6 +26,7 @@ namespace MyFlatWPF.Commands.ManagementCommand.ProjectCommand
         {
             ProjectModel project = new ProjectModel();
             if (String.IsNullOrEmpty(App.AddProjectView.tbHeaderEdit.Text) ||
+                StaticImage.NewProjectImage == null ||
                 String.IsNullOrEmpty(App.AddProjectView.tbContentEdit.Text))
             {
                 return;
