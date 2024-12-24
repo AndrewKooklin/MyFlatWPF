@@ -427,5 +427,22 @@ namespace MyFlatWPF.Data.Repositories.API
 
             return apiResponseConvert;
         }
+
+        public async Task<bool> DeleteServiceById(int id)
+        {
+            urlRequest = $"{url}" + "ServicesPageEditAPI/DeleteServiceById/" + $"{id}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, id))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
     }
 }
