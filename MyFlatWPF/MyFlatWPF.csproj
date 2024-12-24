@@ -162,6 +162,7 @@
     <Compile Include="Commands\ManagementCommand\ProjectsCommand\DeleteProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectsCommand\OpenChangeProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\SaveMainImageCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ServicesCommand\CancelChangeServiceCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ServicesCommand\ChangeServiceCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ServicesCommand\DeleteServiceCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ServicesCommand\OpenAddServiceCommand.cs" />
