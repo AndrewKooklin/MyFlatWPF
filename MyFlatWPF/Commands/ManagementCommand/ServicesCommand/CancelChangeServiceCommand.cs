@@ -22,6 +22,8 @@ namespace MyFlatWPF.Commands.ManagementCommand.ServicesCommand
         {
             App.ServiceEditView.tbHeaderEdit.Text = "";
             App.ServiceEditView.tblContentEdit.Text = "";
+            App.AddServiceView.tbHeaderEdit.Text = "";
+            App.AddServiceView.tblContentEdit.Text = "";
             App.ServicesEditView = null;
             App.ServicesEditView = new ServicesEditView();
             App.ServicesEditView.Visibility = System.Windows.Visibility.Visible;

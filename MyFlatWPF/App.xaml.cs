@@ -60,6 +60,8 @@ namespace MyFlatWPF
 
         public static ServiceEditView ServiceEditView = new ServiceEditView();
 
+        public static AddServiceView AddServiceView = new AddServiceView();
+
 
 
         protected override void OnStartup(StartupEventArgs e)

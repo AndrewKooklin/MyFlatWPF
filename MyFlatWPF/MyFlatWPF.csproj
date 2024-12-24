@@ -162,6 +162,7 @@
     <Compile Include="Commands\ManagementCommand\ProjectsCommand\DeleteProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ProjectsCommand\OpenChangeProjectCommand.cs" />
     <Compile Include="Commands\ManagementCommand\SaveMainImageCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ServicesCommand\AddServiceCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ServicesCommand\CancelChangeServiceCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ServicesCommand\ChangeServiceCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ServicesCommand\DeleteServiceCommand.cs" />
@@ -204,6 +205,7 @@
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\Management\AddProjectViewModel.cs" />
+    <Compile Include="ViewModel\Management\AddServiceViewModel.cs" />
     <Compile Include="ViewModel\Management\AllOrdersViewModel.cs" />
     <Compile Include="ViewModel\Management\HomeEditViewModel.cs" />
     <Compile Include="ViewModel\Management\ManagementWindowViewModel.cs" />

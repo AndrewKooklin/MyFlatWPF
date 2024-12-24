@@ -51,7 +51,6 @@ namespace MyFlatWPF.Commands.ManagementCommand.ProjectCommand
                         App.ProjectsEditView;
                 }
             }
-            
         }
     }
 }
