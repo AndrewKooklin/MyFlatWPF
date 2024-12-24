@@ -1,6 +1,7 @@
 ﻿using MyFlatWPF.View;
 using MyFlatWPF.View.ManagementView;
 using MyFlatWPF.View.ManagementView.BlogView;
+using MyFlatWPF.View.ManagementView.ContactsView;
 using MyFlatWPF.View.ManagementView.ServicesView;
 using MyFlatWPF.ViewModel;
 using System;
@@ -68,6 +69,10 @@ namespace MyFlatWPF
         public static PostEditView PostEditView = new PostEditView();
 
         public static AddPostView AddPostView = new AddPostView();
+
+        public static ContastsEditView ContastsEditView = new ContastsEditView();
+
+        public static AddLinkView AddLinkView = new AddLinkView();
 
 
 

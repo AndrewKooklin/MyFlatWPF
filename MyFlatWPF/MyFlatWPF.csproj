@@ -153,6 +153,7 @@
     <Compile Include="Commands\ManagementCommand\ChangeRandomPhraseCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChooseMainImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ContactsCommand\ChangeContactsCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\ContactsCommand\OpenAddLinkCommand.cs" />
     <Compile Include="Commands\ManagementCommand\DeleteRandomPhraseCommand.cs" />
     <Compile Include="Commands\ManagementCommand\PostsCommand\AddPostCommand.cs" />
     <Compile Include="Commands\ManagementCommand\PostsCommand\CancelChangePostCommand.cs" />
@@ -213,6 +214,7 @@
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\Management\AddLinkViewModel.cs" />
     <Compile Include="ViewModel\Management\AddPostViewModel.cs" />
     <Compile Include="ViewModel\Management\AddProjectViewModel.cs" />
     <Compile Include="ViewModel\Management\AddServiceViewModel.cs" />
@@ -259,6 +261,9 @@
     </Compile>
     <Compile Include="View\ManagementView\BlogView\PostsEditView.xaml.cs">
       <DependentUpon>PostsEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManagementView\ContactsView\AddLinkView.xaml.cs">
+      <DependentUpon>AddLinkView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ManagementView\ContactsView\ContastsEditView.xaml.cs">
       <DependentUpon>ContastsEditView.xaml</DependentUpon>
@@ -354,6 +359,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManagementView\BlogView\PostsEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManagementView\ContactsView\AddLinkView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

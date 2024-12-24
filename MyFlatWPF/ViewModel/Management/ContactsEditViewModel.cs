@@ -1,4 +1,5 @@
-﻿using MyFlatWPF.Data.Repositories.API;
+﻿using MyFlatWPF.Commands.ManagementCommand.ContactsCommand;
+using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model;
 using System;
