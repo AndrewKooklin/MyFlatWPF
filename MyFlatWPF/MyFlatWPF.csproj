@@ -153,6 +153,8 @@
     <Compile Include="Commands\ManagementCommand\ChangeRandomPhraseCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChooseMainImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\DeleteRandomPhraseCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\PostsCommand\AddPostCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\PostsCommand\ChooseAddPostImageCommand.cs" />
     <Compile Include="Commands\ManagementCommand\PostsCommand\DeletePostCommand.cs" />
     <Compile Include="Commands\ManagementCommand\PostsCommand\OpenAddPostCommand.cs" />
     <Compile Include="Commands\ManagementCommand\PostsCommand\OpenChangePostCommand.cs" />

@@ -31,7 +31,7 @@ namespace MyFlatWPF.Commands.ManagementCommand.PostsCommand
                 App.PostEditView = null;
                 App.PostEditView = new PostEditView();
                 PostEditViewModel pevm =
-                    new ProjectEditViewModel(App.PostEditView.tbHeaderEdit,
+                    new PostEditViewModel(App.PostEditView.tbHeaderEdit,
                                              App.PostEditView.tbContentEdit,
                                              App.PostEditView.iPostImage,
                                              App.PostEditView.btnChooseImage,

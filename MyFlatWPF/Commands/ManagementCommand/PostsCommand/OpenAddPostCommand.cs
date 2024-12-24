@@ -24,8 +24,8 @@ namespace MyFlatWPF.Commands.ManagementCommand.PostsCommand
             App.AddPostView = new AddPostView();
             AddPostViewModel pevm =
                     new AddPostViewModel(App.AddPostView.btnChooseImage,
-                                            App.AddPostView.btnAddProject,
-                                            App.AddPostView.btnCancel);
+                                         App.AddPostView.btnAddPost,
+                                         App.AddPostView.btnCancel);
             App.AddProjectView.Visibility = System.Windows.Visibility.Visible;
             StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
                 App.AddPostView;
