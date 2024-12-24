@@ -22,4 +22,6 @@ FC:\repos\MyFlatWPF\MyFlatWPF\View\ManagementView\ProjectsEditView.xaml;;
 FC:\repos\MyFlatWPF\MyFlatWPF\View\ManagementView\ProjectEditView.xaml;;
 FC:\repos\MyFlatWPF\MyFlatWPF\View\ManagementView\AddProjectView.xaml;;
 FC:\repos\MyFlatWPF\MyFlatWPF\View\ManagementView\ServicesView\ServicesEditView.xaml;;
+FC:\repos\MyFlatWPF\MyFlatWPF\View\ManagementView\ServicesView\AddServiceView.xaml;;
+FC:\repos\MyFlatWPF\MyFlatWPF\View\ManagementView\ServicesView\ServiceEditView.xaml;;
 

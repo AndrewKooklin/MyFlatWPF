@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyFlatWPF.View.ManagementView;
+using MyFlatWPF.ViewModel.Management;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
