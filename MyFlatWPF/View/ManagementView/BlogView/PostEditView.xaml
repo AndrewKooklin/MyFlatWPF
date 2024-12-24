@@ -1,0 +1,235 @@
+﻿<UserControl x:Class="MyFlatWPF.View.ManagementView.BlogView.PostEditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyFlatWPF.View.ManagementView.BlogView"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" 
+             d:DesignWidth="600">
+
+    <Grid x:Name="gPostEdit"
+          Margin="10 0 10 0">
+
+        <Grid.Resources>
+
+            <Style x:Key="BorderStyle" TargetType="Border">
+                <Setter Property="Background" Value="LightSkyBlue"></Setter>
+                <Setter Property="Height" Value="0.5"></Setter>
+            </Style>
+
+            <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="FontSize" Value="10"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="Padding" Value="5 0 5 0"/>
+                <Setter Property="BorderBrush" Value="Black"/>
+                <Setter Property="BorderThickness" Value="0.75"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="border"
+                                    CornerRadius="3"
+                                    Height="20"
+                                    Padding="5 0 5 0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    BorderThickness="1"
+                                    BorderBrush="Black"
+                                    Background="DeepSkyBlue">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="ButtonHoverStyle" TargetType="{x:Type Button}">
+                <Setter Property="FontSize" Value="10"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="Padding" Value="5 0 5 0"/>
+                <Setter Property="BorderBrush" Value="Black"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="border"
+                                    CornerRadius="3"
+                                    Height="20"
+                                    Padding="5 0 5 0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    BorderThickness="1"
+                                    BorderBrush="Black"
+                                    Background="#0082ff">
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="InputTextBox" TargetType="{x:Type TextBox}">
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="BorderBrush" Value="LightGray"/>
+                <Setter Property="BorderThickness" Value="0.75"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Border
+                        x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="True"
+                                CornerRadius="2">
+                                <ScrollViewer
+                            x:Name="PART_ContentHost"
+                            Focusable="false"
+                            HorizontalScrollBarVisibility="Hidden"
+                            VerticalScrollBarVisibility="Hidden" />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <!--<Trigger Property="IsEnabled" Value="false">
+                                    <Setter TargetName="border" Property="Opacity" Value="0.56" />
+                                </Trigger>-->
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#FF7EB4EA" />
+                                    <Setter TargetName="border" Property="BorderThickness" Value="0.75" />
+                                </Trigger>
+                                <Trigger Property="IsFocused" Value="true">
+                                    <Setter TargetName="border" Property="BorderBrush" Value="Blue" />
+                                    <Setter TargetName="border" Property="BorderThickness" Value="1" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock x:Name="tblHeader"
+                   Text="Post Edit"
+                   FontSize="20"
+                   Margin="0 5 0 5"
+                   HorizontalAlignment="Left">
+        </TextBlock>
+
+        <Border x:Name="border"
+                Grid.Row="1"
+                Style="{Binding Source={StaticResource BorderStyle}}">
+        </Border>
+
+        <TextBlock x:Name="tblHeaderEdit"
+                   Grid.Row="2"
+                   Text="Header"
+                   FontSize="16"
+                   Margin="0 5 0 0"
+                   HorizontalAlignment="Left">
+        </TextBlock>
+
+        <TextBox x:Name="tbHeaderEdit"
+                 Grid.Row="3"
+                 Width="250"
+                 Style="{Binding Source={StaticResource InputTextBox}}"
+                 HorizontalAlignment="Left">
+        </TextBox>
+
+        <TextBlock x:Name="tblImage"
+                   Grid.Row="4"
+                   Text="Image"
+                   FontSize="16"
+                   Margin="0 5 0 0"
+                   HorizontalAlignment="Left">
+        </TextBlock>
+
+        <Image x:Name="iPostImage"
+               Grid.Row="5"
+               Width="190"
+               Height="150"
+               Margin="1"
+               Stretch="Fill"
+               HorizontalAlignment="Left">
+        </Image>
+
+
+        <Button x:Name="btnChooseImage"
+                Grid.Row="6"
+                Content="Choose image"
+                Style="{Binding Source={StaticResource ButtonStyle}}"
+                HorizontalAlignment="Left"
+                Margin="1 5 0 5"
+                ToolTip="Choose image">
+        </Button>
+
+        <TextBlock x:Name="tblImageName"
+                   Grid.Row="6"
+                   Text="Image not choosed"
+                   FontSize="12"
+                   Foreground="Red"
+                   Margin="85 5 0 5"
+                   HorizontalAlignment="Left">
+        </TextBlock>
+
+        <TextBlock x:Name="tblContentEdit"
+                   Grid.Row="7"
+                   Text="Content"
+                   Width="250"
+                   FontSize="16"
+                   Margin="0 5 0 0"
+                   HorizontalAlignment="Left">
+        </TextBlock>
+
+        <TextBox x:Name="tbContentEdit"
+                 Grid.Row="8"
+                 Style="{Binding Source={StaticResource InputTextBox}}"
+                 Width="250"
+                 MinLines="7"
+                 TextWrapping="Wrap"
+                 HorizontalAlignment="Left">
+        </TextBox>
+
+        <Button x:Name="btnChange"
+                Grid.Row="9"
+                Content="Change"
+                Style="{Binding Source={StaticResource ButtonStyle}}"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="1 5 0 0"
+                ToolTip="Change post">
+        </Button>
+
+        <Button x:Name="btnCancel"
+                Grid.Row="9"
+                Content="Cancel"
+                Style="{Binding Source={StaticResource ButtonStyle}}"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="55 5 0 0"
+                ToolTip="Cancel">
+        </Button>
+
+    </Grid>
+</UserControl>

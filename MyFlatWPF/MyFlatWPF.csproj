@@ -238,6 +238,12 @@
     <Compile Include="View\ManagementView\AllOrdersView.xaml.cs">
       <DependentUpon>AllOrdersView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ManagementView\BlogView\PostEditView.xaml.cs">
+      <DependentUpon>PostEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManagementView\BlogView\PostsEditView.xaml.cs">
+      <DependentUpon>PostsEditView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ManagementView\HomeEditView.xaml.cs">
       <DependentUpon>HomeEditView.xaml</DependentUpon>
     </Compile>
@@ -319,6 +325,14 @@
     <Page Include="View\ManagementView\AllOrdersView.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="View\ManagementView\BlogView\PostEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManagementView\BlogView\PostsEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManagementView\HomeEditView.xaml">
       <SubType>Designer</SubType>
