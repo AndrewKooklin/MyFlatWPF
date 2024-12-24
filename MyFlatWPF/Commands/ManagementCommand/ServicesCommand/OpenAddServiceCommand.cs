@@ -1,4 +1,5 @@
 ﻿using MyFlatWPF.View.ManagementView;
+using MyFlatWPF.View.ManagementView.ServicesView;
 using MyFlatWPF.ViewModel.Management;
 using System;
 using System.Collections.Generic;
@@ -20,15 +21,14 @@ namespace MyFlatWPF.Commands.ManagementCommand.ServicesCommand
 
         public void Execute(object parameter)
         {
-            App.AddProjectView = null;
-            App.AddProjectView = new AddProjectView();
-            AddProjectViewModel pevm =
-                    new AddProjectViewModel(App.AddProjectView.btnChooseImage,
-                                            App.AddProjectView.btnAddProject,
-                                            App.AddProjectView.btnCancel);
-            App.AddProjectView.Visibility = System.Windows.Visibility.Visible;
+            App.AddServiceView = null;
+            App.AddServiceView = new AddServiceView();
+            AddServiceViewModel pevm =
+                    new AddServiceViewModel(App.AddServiceView.btnAddService,
+                                            App.AddServiceView.btnCancel);
+            App.AddServiceView.Visibility = System.Windows.Visibility.Visible;
             StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
-                App.AddProjectView;
+                App.AddServiceView;
         }
     }
 }
