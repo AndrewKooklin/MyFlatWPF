@@ -212,11 +212,12 @@
         </TextBlock>
 
         <TextBox x:Name="tbAddress"
-                   Grid.Row="4"
+                 Grid.Row="4"
                  Width="200"
-                   FontSize="12"
-                   Margin="0 0 0 0"
-                   HorizontalAlignment="Left">
+                 FontSize="12"
+                 Margin="0 0 0 0"
+                 HorizontalAlignment="Left"
+                 Style="{Binding Source={StaticResource InputTextBox}}">
         </TextBox>
 
         <TextBlock x:Name="tblContactPhone"
@@ -227,11 +228,12 @@
         </TextBlock>
 
         <TextBox x:Name="tbPhone"
-                   Grid.Row="6"
-                   FontSize="12"
+                 Grid.Row="6"
+                 FontSize="12"
                  Width="200"
-                   Margin="0 0 0 0"
-                 HorizontalAlignment="Left">
+                 Margin="0 0 0 0"
+                 HorizontalAlignment="Left"
+                 Style="{Binding Source={StaticResource InputTextBox}}">
         </TextBox>
 
         <TextBlock x:Name="tblContactEmail"
@@ -242,11 +244,12 @@
         </TextBlock>
 
         <TextBox x:Name="tbEmail"
-                   Grid.Row="8"
-                   FontSize="12"
+                 Grid.Row="8"
+                 FontSize="12"
                  Width="200"
-                   Margin="0 0 0 0"
-                 HorizontalAlignment="Left">
+                 Margin="0 0 0 0"
+                 HorizontalAlignment="Left"
+                 Style="{Binding Source={StaticResource InputTextBox}}">
         </TextBox>
 
         <Button x:Name="btnChangeContacts"
@@ -290,9 +293,9 @@
 
         <TextBlock x:Name="tblSocialLinks"
                    Grid.Row="14"
-                   Text="Social links"
+                   Text="Social links :"
                    FontSize="14"
-                   Margin="0 5 0 5">
+                   Margin="0 15 0 5">
         </TextBlock>
 
         <StackPanel x:Name="spSocialLinks"

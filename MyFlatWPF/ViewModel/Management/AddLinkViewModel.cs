@@ -20,7 +20,7 @@ namespace MyFlatWPF.ViewModel.Management
         Style styleTextBox = new Style();
 
         public AddLinkViewModel(Button btnChooseImage,
-                                Button btnChange,
+                                Button btnAdd,
                                 Button btnCancel)
         {
             Grid grid = (Grid)btnChooseImage.Parent;
@@ -32,7 +32,7 @@ namespace MyFlatWPF.ViewModel.Management
             AddLinkCommand = new AddLinkCommand();
             CancelChangeLinkCommand = new CancelChangeLinkCommand();
             AddElementsToGrid(btnChooseImage,
-                              btnChange,
+                              btnAdd,
                               btnCancel);
         }
 

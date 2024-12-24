@@ -120,8 +120,8 @@ C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\BlogView\PostsEditVie
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ContactsView\AddLinkView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ContactsView\ContactsEditView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ContactsView\LinkEditView.g.cs
-C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\LoginWindow.baml
-C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\RegistrationWindow.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ContactsView\AddLinkView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ContactsView\ContactsEditView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ContactsView\LinkEditView.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\LoginWindow.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\RegistrationWindow.baml

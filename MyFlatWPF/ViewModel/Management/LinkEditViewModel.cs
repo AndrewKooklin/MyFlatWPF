@@ -66,6 +66,7 @@ namespace MyFlatWPF.ViewModel.Management
             tbContent.Text = social.SocialLink;
 
             image.Source = _ic.ByteArrayToImage(social.SocialImage);
+            StaticImage.NewSocialLinkImage = social.SocialImage;
 
             btnChooseImage.Command = ChooseLinkImageCommand;
             btnChooseImage.CommandParameter = tblImageName;

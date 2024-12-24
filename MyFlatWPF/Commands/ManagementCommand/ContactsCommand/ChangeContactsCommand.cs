@@ -21,23 +21,19 @@ namespace MyFlatWPF.Commands.ManagementCommand.ContactsCommand
 
         public async void Execute(object parameter)
         {
-            if(parameter == null)
+            ContactModel cm = new ContactModel();
+            cm.ContactAddress = App.ContactsEditView.tbAddress.Text;
+            cm.ContactPhone = App.ContactsEditView.tbPhone.Text;
+            cm.ContactEmail = App.ContactsEditView.tbEmail.Text;
+            if (String.IsNullOrEmpty(cm.ContactAddress) ||
+               String.IsNullOrEmpty(cm.ContactPhone) ||
+               String.IsNullOrEmpty(cm.ContactEmail))
             {
                 return;
             }
             else
             {
-                ContactModel cm = (ContactModel)parameter;
-                if(String.IsNullOrEmpty(cm.ContactAddress) ||
-                   String.IsNullOrEmpty(cm.ContactPhone) ||
-                   String.IsNullOrEmpty(cm.ContactEmail))
-                {
-                    return;
-                }
-                else
-                {
-                    bool result = await _api.ChangeContacts(cm);
-                }
+                bool result = await _api.ChangeContacts(cm);
             }
         }
     }

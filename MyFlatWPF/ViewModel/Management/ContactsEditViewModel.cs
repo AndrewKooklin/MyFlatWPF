@@ -45,7 +45,6 @@ namespace MyFlatWPF.ViewModel.Management
             DeleteSocialLinkCommand = new DeleteSocialLinkCommand();
             AddElementsWrapPanel(_spEditContacts);
             btnChangeContacts.Command = ChangeContactsCommand;
-            btnChangeContacts.CommandParameter = _contacts;
             btnChangeContacts.MouseEnter += Btn_mouseEnter;
             btnChangeContacts.MouseLeave += Btn_mouseLeave;
             btnAddLink.Command = OpenAddLinkCommand;
@@ -77,7 +76,7 @@ namespace MyFlatWPF.ViewModel.Management
                 StackPanel spSocial = new StackPanel();
                 spSocial.Orientation = Orientation.Horizontal;
                 spSocial.HorizontalAlignment = HorizontalAlignment.Left;
-                spSocial.Margin = new Thickness(0, 0, 5, 0);
+                spSocial.Margin = new Thickness(0, 0, 0, 10);
 
                 Image img = new Image();
                 img.Source = _ic.ByteArrayToImage(social.SocialImage);
@@ -90,11 +89,12 @@ namespace MyFlatWPF.ViewModel.Management
                 tblock.OverridesDefaultStyle = true;
                 tblock.Text = social.SocialLink;
                 tblock.HorizontalAlignment = HorizontalAlignment.Center;
-                tblock.Width = 130;
+                tblock.Width = 200;
                 tblock.FontSize = 12;
                 tblock.FontWeight = FontWeights.DemiBold;
                 tblock.Background = Brushes.LightGray;
-                tblock.Padding = new Thickness(5, 5, 5, 5);
+                tblock.Padding = new Thickness(3, 3, 3, 3);
+                tblock.TextWrapping = TextWrapping.Wrap;
                 spSocial.Children.Add(tblock);
 
                 Button btnOpenChange = new Button();

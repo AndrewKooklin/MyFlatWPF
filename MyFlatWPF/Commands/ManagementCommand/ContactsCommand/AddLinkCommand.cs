@@ -26,13 +26,13 @@ namespace MyFlatWPF.Commands.ManagementCommand.ContactsCommand
         {
             SocialModel social = new SocialModel();
             if (String.IsNullOrEmpty(App.AddLinkView.tbContentEdit.Text) ||
-                StaticImage.NewProjectImage == null)
+                StaticImage.NewSocialLinkImage == null)
             {
                 return;
             }
             else
             {
-                social.SocialImage = StaticImage.NewProjectImage;
+                social.SocialImage = StaticImage.NewSocialLinkImage;
                 social.SocialLink = App.AddLinkView.tbContentEdit.Text;
 
                 bool result = await _api.AddSocialToDB(social);
