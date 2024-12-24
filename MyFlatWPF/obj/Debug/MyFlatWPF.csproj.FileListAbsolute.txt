@@ -113,3 +113,6 @@ C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ServicesView\AddServi
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ServicesView\ServiceEditView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ServicesView\AddServiceView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ServicesView\ServiceEditView.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\BlogView\AddPostView.g.cs
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\BlogView\PostEditView.g.cs
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\BlogView\PostsEditView.g.cs

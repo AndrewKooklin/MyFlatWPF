@@ -1,6 +1,7 @@
 ﻿using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model;
+using MyFlatWPF.Commands.ManagementCommand.PostsCommand;
 using System;
 using System.Collections.Generic;
 using System.Linq;
