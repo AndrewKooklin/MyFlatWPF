@@ -105,8 +105,6 @@ C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ProjectEditView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ProjectEditView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\AddProjectView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\AddProjectView.baml
-C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\LoginWindow.baml
-C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\RegistrationWindow.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ServicesView\ServicesEditView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ServicesView\ServicesEditView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ServicesView\AddServiceView.g.cs
@@ -116,3 +114,6 @@ C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ServicesView\ServiceE
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\BlogView\AddPostView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\BlogView\PostEditView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\BlogView\PostsEditView.g.cs
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\BlogView\AddPostView.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\BlogView\PostEditView.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\BlogView\PostsEditView.baml

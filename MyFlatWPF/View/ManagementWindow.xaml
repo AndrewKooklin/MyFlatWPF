@@ -218,7 +218,10 @@
                         Margin="0 10 0 0"
                         Style="{StaticResource ButtonStyle}"
                         MouseEnter="btn_mouseEnter"
-                        MouseLeave="btn_mouseLeave">
+                        MouseLeave="btn_mouseLeave"
+                        Command="{Binding SwitchManagementView, 
+                                  Source={StaticResource ManagementWindowViewModel}}"
+                        CommandParameter="{Binding Name, ElementName=btnBlogEdit}">
                     </Button>
                 </Border>
 

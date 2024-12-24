@@ -1,5 +1,6 @@
 ﻿using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.View.ManagementView;
+using MyFlatWPF.View.ManagementView.BlogView;
 using MyFlatWPF.View.ManagementView.ServicesView;
 using MyFlatWPF.ViewModel.Management;
 using System;
@@ -89,15 +90,15 @@ namespace MyFlatWPF.Commands.ManagementCommand
                                 App.ServicesEditView;
                             break;
                         }
-                    //case "btnBlog":
-                    //case "btnBackToBlog":
-                    //    {
-                    //        App.BlogView.Visibility = System.Windows.Visibility.Visible;
-                    //        StaticMainViewModel.MainViewModel.CurrentView = App.BlogView;
-                    //        StaticMainViewModel.MainViewModel.RandomPhrase =
-                    //            StaticMainViewModel.MainViewModel.GetHeaderString();
-                    //        break;
-                    //    }
+                    case "btnBlogEdit":
+                        {
+                            App.PostsEditView = null;
+                            App.PostsEditView = new PostsEditView();
+                            App.PostsEditView.Visibility = System.Windows.Visibility.Visible;
+                            StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                                App.PostsEditView;
+                            break;
+                        }
                     //case "btnContacts":
                     //    {
                     //        App.ContactsView.Visibility = System.Windows.Visibility.Visible;

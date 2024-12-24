@@ -14,6 +14,10 @@ namespace MyFlatWPF.HelpMethods
         public BitmapImage ByteArrayToImage(byte[] byteArray)
         {
             BitmapImage bi = new BitmapImage();
+            if (byteArray == null)
+            {
+                return bi;
+            }
             bi.BeginInit();
             bi.StreamSource = new MemoryStream(byteArray);
             bi.EndInit();
