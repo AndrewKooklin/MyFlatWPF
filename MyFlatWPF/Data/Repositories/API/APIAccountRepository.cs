@@ -76,6 +76,51 @@ namespace MyFlatWPF.Data.Repositories.API
             return userRoles;
         }
 
+        public IEnumerable<IdentityRole> GetRoles()
+        {
+            urlRequest = $"{url}" + "RolesAPI/GetRoles";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                roles = JsonConvert.DeserializeObject<IEnumerable<IdentityRole>>(result);
+            }
+
+            return roles;
+        }
+
+        public async Task<bool> AddRoleToUser(RoleUserModel model)
+        {
+            urlRequest = $"{url}" + "UsersAPI/AddRoleToUser/" + $"{model}/";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, model))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
+
+        public UserWithRolesModel GetUserWithRoles(string id)
+        {
+            urlRequest = $"{url}" + "UsersAPI/GetUserWithRoles/" + $"{id}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                userWithRoles = JsonConvert.DeserializeObject<UserWithRolesModel>(result);
+            }
+
+            return userWithRoles;
+        }
+
         public async Task<bool> CreateUser(RegisterModel model)
         {
             urlRequest = $"{url}" + "RegisterAPI/CreateUser/" + $"{model}";

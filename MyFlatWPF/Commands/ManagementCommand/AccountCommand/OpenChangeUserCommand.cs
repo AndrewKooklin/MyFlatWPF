@@ -30,13 +30,15 @@ namespace MyFlatWPF.Commands.ManagementCommand.AccountCommand
 
                 App.UserEditView = null;
                 App.UserEditView = new UserEditView();
-                UserEditViewModel pevm =
-                    new UserEditViewModel(App.UserEditView.lbRoles,
+                UserEditViewModel uevm =
+                    new UserEditViewModel(id,
+                                          App.UserEditView.cbRoles,
+                                          App.UserEditView.tblUserName,
+                                          App.UserEditView.tblEmail,
+                                          App.UserEditView.tblRoles,
                                           App.UserEditView.btnAddRole,
                                           App.UserEditView.btnDeleteRole,
-                                          App.UserEditView.btnBackToUsers,
-                                          id);
-
+                                          App.UserEditView.tblMessage);
                 App.UserEditView.Visibility = System.Windows.Visibility.Visible;
                 StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
                     App.UserEditView;

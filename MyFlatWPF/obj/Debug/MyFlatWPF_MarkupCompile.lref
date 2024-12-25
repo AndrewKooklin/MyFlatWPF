@@ -30,4 +30,7 @@ FC:\repos\MyFlatWPF\MyFlatWPF\View\ManagementView\BlogView\PostsEditView.xaml;;
 FC:\repos\MyFlatWPF\MyFlatWPF\View\ManagementView\ContactsView\AddLinkView.xaml;;
 FC:\repos\MyFlatWPF\MyFlatWPF\View\ManagementView\ContactsView\ContactsEditView.xaml;;
 FC:\repos\MyFlatWPF\MyFlatWPF\View\ManagementView\ContactsView\LinkEditView.xaml;;
+FC:\repos\MyFlatWPF\MyFlatWPF\View\ManagementView\UsersView\AddUserView.xaml;;
+FC:\repos\MyFlatWPF\MyFlatWPF\View\ManagementView\UsersView\AllUsersView.xaml;;
+FC:\repos\MyFlatWPF\MyFlatWPF\View\ManagementView\UsersView\UserEditView.xaml;;
 

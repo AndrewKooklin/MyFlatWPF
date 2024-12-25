@@ -145,7 +145,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\LogoutCommand.cs" />
-    <Compile Include="Commands\ManagementCommand\AccountCommand\AddUserCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\AccountCommand\AddRoleToUserCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\DeleteUserCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\OpenAddUserCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\OpenChangeUserCommand.cs" />
@@ -204,6 +204,7 @@
     <Compile Include="HelpMethods\ObjectModel.cs" />
     <Compile Include="HelpMethods\SaveImageParameters.cs" />
     <Compile Include="HelpMethods\StaticImage.cs" />
+    <Compile Include="Model\AccountModel\RoleUserModel.cs" />
     <Compile Include="Model\AccountModel\UserWithRolesModel.cs" />
     <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\ContactModel.cs" />
