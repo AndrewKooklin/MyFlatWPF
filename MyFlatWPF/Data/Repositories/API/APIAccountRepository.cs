@@ -103,5 +103,22 @@ namespace MyFlatWPF.Data.Repositories.API
                 await _httpClient.GetAsync(urlRequest);
             }
         }
+
+        public async Task<bool> DeleteUser(string id)
+        {
+            urlRequest = $"{url}" + "UsersAPI/DeleteUser/" + $"{id}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, id))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
     }
 }

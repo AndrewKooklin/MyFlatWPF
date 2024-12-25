@@ -146,7 +146,9 @@
     </ApplicationDefinition>
     <Compile Include="Commands\LogoutCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\AddUserCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\AccountCommand\DeleteUserCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\OpenAddUserCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\AccountCommand\OpenChangeUserCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AddRandomPhraseCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChangeBottomContentCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChangeBottomHeaderCommand.cs" />
@@ -228,7 +230,6 @@
     <Compile Include="ViewModel\Management\AddPostViewModel.cs" />
     <Compile Include="ViewModel\Management\AddProjectViewModel.cs" />
     <Compile Include="ViewModel\Management\AddServiceViewModel.cs" />
-    <Compile Include="ViewModel\Management\AddUserViewModel.cs" />
     <Compile Include="ViewModel\Management\AllOrdersViewModel.cs" />
     <Compile Include="ViewModel\Management\AllUsersViewModel.cs" />
     <Compile Include="ViewModel\Management\ContactsEditViewModel.cs" />
@@ -244,6 +245,7 @@
     <Compile Include="ViewModel\Management\ServiceEditViewModel.cs" />
     <Compile Include="ViewModel\Management\ServicesEditViewModel.cs" />
     <Compile Include="ViewModel\Management\StaticManagementViewModel.cs" />
+    <Compile Include="ViewModel\Management\UserEditViewModel.cs" />
     <Compile Include="ViewModel\ProjectsViewModel.cs" />
     <Compile Include="ViewModel\RegistrationViewModel.cs" />
     <Compile Include="ViewModel\ServicesViewModel.cs" />
@@ -316,6 +318,9 @@
     </Compile>
     <Compile Include="View\ManagementView\UsersView\AllUsersView.xaml.cs">
       <DependentUpon>AllUsersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManagementView\UsersView\UserEditView.xaml.cs">
+      <DependentUpon>UserEditView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ManagementWindow.xaml.cs">
       <DependentUpon>ManagementWindow.xaml</DependentUpon>
@@ -437,6 +442,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManagementView\UsersView\AllUsersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManagementView\UsersView\UserEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

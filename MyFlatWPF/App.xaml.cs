@@ -81,6 +81,8 @@ namespace MyFlatWPF
 
         public static AddUserView AddUserView = new AddUserView();
 
+        public static UserEditView UserEditView = new UserEditView();
+
 
 
         protected override void OnStartup(StartupEventArgs e)

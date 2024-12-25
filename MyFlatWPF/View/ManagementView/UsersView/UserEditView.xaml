@@ -1,22 +1,17 @@
-﻿<UserControl x:Class="MyFlatWPF.View.ManagementView.UsersView.AddUserView"
+﻿<UserControl x:Class="MyFlatWPF.View.ManagementView.UsersView.UserEditView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyFlatWPF.View.ManagementView.UsersView"
-             xmlns:viewModel="clr-namespace:MyFlatWPF.ViewModel"
-             xmlns:help="clr-namespace:MyFlatWPF.HelpMethods"
              mc:Ignorable="d" 
              d:DesignHeight="800" 
              d:DesignWidth="600">
 
-    <Grid x:Name="gAddUser"
+    <Grid x:Name="gUserEdit"
           Margin="10 0 10 0">
 
         <Grid.Resources>
-
-            <viewModel:RegistrationViewModel x:Key="RegistrationViewModel"/>
-            <help:MyMultiValueConverter x:Key="MultiValueConverter"/>
 
             <Style x:Key="BorderStyle" TargetType="Border">
                 <Setter Property="Background" Value="LightSkyBlue"></Setter>
@@ -133,8 +128,8 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBlock x:Name="tblAddUser"
-                   Text="Add User"
+        <TextBlock x:Name="tblEditUser"
+                   Text="Edit User"
                    FontSize="20"
                    Margin="0 5 0 5">
         </TextBlock>
@@ -142,106 +137,8 @@
         <Border Grid.Row="1"
                 Margin="0 5 0 0"
                         Style="{StaticResource BorderStyle}"></Border>
-
-        <TextBlock x:Name="tblEmail"
-                   Grid.Row="2"
-                   Text="Email"
-                   FontSize="16"
-                   Margin="0 5 0 0"
-                   HorizontalAlignment="Left">
-        </TextBlock>
-
-        <Label x:Name="lErrorEMail"
-               Grid.Row="2"
-               FontSize="10"
-               Foreground="Red"
-               Margin="60 5 0 0">
-        </Label>
-
-        <TextBox x:Name="tbEmail"
-                   Grid.Row="3"
-                   Width="200"
-                   FontSize="12"
-                   Margin="0 0 0 0"
-                 HorizontalAlignment="Left"
-                   Style="{Binding Source={StaticResource InputTextBox}}">
-        </TextBox>
         
-        <TextBlock x:Name="tblPassword"
-                   Grid.Row="4"
-                   Text="Password"
-                   FontSize="16"
-                   Margin="0 5 0 0"
-                   HorizontalAlignment="Left">
-        </TextBlock>
-
-        <Label x:Name="lErrorPassword"
-               Grid.Row="4"
-               FontSize="10"
-               Foreground="Red"
-               Margin="75 5 0 0">
-        </Label>
-
-        <TextBox x:Name="tbPassword"
-                   Grid.Row="5"
-                   Width="200"
-                   FontSize="12"
-                   Margin="0 0 0 0"
-                 HorizontalAlignment="Left"
-                   Style="{Binding Source={StaticResource InputTextBox}}">
-        </TextBox>
-
-        <TextBlock x:Name="tblConfirmPassword"
-                   Grid.Row="6"
-                   Text="Password"
-                   FontSize="16"
-                   Margin="0 5 0 0"
-                   HorizontalAlignment="Left">
-        </TextBlock>
-
-        <Label x:Name="lErrorConfirmPassword"
-               Grid.Row="6"
-               FontSize="10"
-               Foreground="Red"
-               Margin="75 5 0 0">
-        </Label>
-
-        <TextBox x:Name="tbConfirmPassword"
-                   Grid.Row="7"
-                   Width="200"
-                   FontSize="12"
-                   Margin="0 0 0 0"
-                   HorizontalAlignment="Left"
-                   Style="{Binding Source={StaticResource InputTextBox}}">
-        </TextBox>
-
-        <Button x:Name="btnAddUser"
-                Grid.Row="8"
-                Content="Add"
-                FontWeight="DemiBold"
-                ToolTip="Add user"
-                HorizontalAlignment="Left"
-                Style="{StaticResource ButtonStyle}"
-                Command="{Binding RegisterCommand, Source={StaticResource RegistrationViewModel}}">
-            <Button.CommandParameter>
-                <MultiBinding Converter="{StaticResource MultiValueConverter}">
-                    <Binding ElementName="tbEMail"/>
-                    <Binding ElementName="tbPassword"/>
-                    <Binding ElementName="tbConfirmPassword"/>
-                    <Binding ElementName="lErrorEMail"/>
-                    <Binding ElementName="lErrorPassword"/>
-                    <Binding ElementName="lErrorConfirmPassword"/>
-                    <Binding ElementName="lResultRegistration"/>
-                </MultiBinding>
-            </Button.CommandParameter>
-        </Button>
-
-        <Label x:Name="lResultRegistration"
-               Grid.Row="8"
-               FontSize="10"
-               Foreground="Red"
-               Margin="40 5 0 0">
-        </Label>
+        
 
     </Grid>
 </UserControl>

@@ -22,8 +22,8 @@ namespace MyFlatWPF.Commands.ManagementCommand.AccountCommand
         {
             App.AddUserView = null;
             App.AddUserView = new AddUserView();
-            AddUserViewModel pevm =
-                    new AddUserViewModel(App.AddUserView.btnAddUser);
+            //AddUserViewModel pevm =
+            //        new AddUserViewModel(App.AddUserView.btnAddUser);
             App.AddUserView.Visibility = System.Windows.Visibility.Visible;
             StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
                 App.AddUserView;
