@@ -145,6 +145,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\LogoutCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\AccountCommand\AddUserCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\AccountCommand\OpenAddUserCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AddRandomPhraseCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChangeBottomContentCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChangeBottomHeaderCommand.cs" />
@@ -226,6 +228,7 @@
     <Compile Include="ViewModel\Management\AddPostViewModel.cs" />
     <Compile Include="ViewModel\Management\AddProjectViewModel.cs" />
     <Compile Include="ViewModel\Management\AddServiceViewModel.cs" />
+    <Compile Include="ViewModel\Management\AddUserViewModel.cs" />
     <Compile Include="ViewModel\Management\AllOrdersViewModel.cs" />
     <Compile Include="ViewModel\Management\AllUsersViewModel.cs" />
     <Compile Include="ViewModel\Management\ContactsEditViewModel.cs" />
@@ -307,6 +310,9 @@
     </Compile>
     <Compile Include="View\ManagementView\ServicesView\ServicesEditView.xaml.cs">
       <DependentUpon>ServicesEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManagementView\UsersView\AddUserView.xaml.cs">
+      <DependentUpon>AddUserView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ManagementView\UsersView\AllUsersView.xaml.cs">
       <DependentUpon>AllUsersView.xaml</DependentUpon>
@@ -423,6 +429,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManagementView\ServicesView\ServicesEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManagementView\UsersView\AddUserView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

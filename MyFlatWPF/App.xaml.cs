@@ -79,6 +79,8 @@ namespace MyFlatWPF
 
         public static AllUsersView AllUsersView = new AllUsersView();
 
+        public static AddUserView AddUserView = new AddUserView();
+
 
 
         protected override void OnStartup(StartupEventArgs e)
