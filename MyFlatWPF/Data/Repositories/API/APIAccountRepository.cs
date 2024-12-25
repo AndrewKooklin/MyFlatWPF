@@ -1,4 +1,5 @@
-﻿using MyFlatWPF.Model;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using MyFlatWPF.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,24 @@ namespace MyFlatWPF.Data.Repositories.API
         string result;
         bool apiResponseConvert;
         private List<string> userRoles = new List<string>();
+        private List<string> roleNames;
+        private IEnumerable<IdentityRole> roles;
+        private List<IdentityUser> users;
+        private UserWithRolesModel userWithRoles;
+
+        public List<IdentityUser> GetUsers()
+        {
+            urlRequest = $"{url}" + "UsersAPI/GetUsers";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                users = JsonConvert.DeserializeObject<List<IdentityUser>>(result);
+            }
+
+            return users;
+        }
 
         public async Task<bool> CheckUserToDB(LoginModel model)
         {

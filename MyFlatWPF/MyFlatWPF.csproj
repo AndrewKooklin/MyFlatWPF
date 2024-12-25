@@ -200,6 +200,7 @@
     <Compile Include="HelpMethods\ObjectModel.cs" />
     <Compile Include="HelpMethods\SaveImageParameters.cs" />
     <Compile Include="HelpMethods\StaticImage.cs" />
+    <Compile Include="Model\AccountModel\UserWithRolesModel.cs" />
     <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\ContactModel.cs" />
     <Compile Include="Model\HomePagePlaceholderModel.cs" />
