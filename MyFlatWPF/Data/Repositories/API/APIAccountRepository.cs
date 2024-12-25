@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using MyFlatWPF.Model;
+using MyFlatWPF.Model.AccountModel;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

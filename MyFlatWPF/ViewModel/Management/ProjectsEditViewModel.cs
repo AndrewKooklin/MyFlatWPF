@@ -89,7 +89,6 @@ namespace MyFlatWPF.ViewModel.Management
                 spButtons.HorizontalAlignment = HorizontalAlignment.Right;
 
                 Button btnOpenChange = new Button();
-                
                 btnOpenChange.Content = "🖉";
                 btnOpenChange.ToolTip = "Change project";
                 btnOpenChange.OverridesDefaultStyle = true;
