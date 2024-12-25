@@ -3,6 +3,7 @@ using MyFlatWPF.View.ManagementView;
 using MyFlatWPF.View.ManagementView.BlogView;
 using MyFlatWPF.View.ManagementView.ContactsView;
 using MyFlatWPF.View.ManagementView.ServicesView;
+using MyFlatWPF.View.ManagementView.UsersView;
 using MyFlatWPF.ViewModel.Management;
 using System;
 using System.Collections.Generic;
@@ -107,6 +108,15 @@ namespace MyFlatWPF.Commands.ManagementCommand
                             App.ContactsEditView.Visibility = System.Windows.Visibility.Visible;
                             StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
                                 App.ContactsEditView;
+                            break;
+                        }
+                    case "btnAllUsers":
+                        {
+                            App.AllUsersView = null;
+                            App.AllUsersView = new AllUsersView();
+                            App.AllUsersView.Visibility = System.Windows.Visibility.Visible;
+                            StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                                App.AllUsersView;
                             break;
                         }
                     default: break;

@@ -146,6 +146,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\LogoutCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\AddRoleToUserCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\AccountCommand\BackToListUsersCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\DeleteRoleToUserCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\DeleteUserCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\OpenAddUserCommand.cs" />

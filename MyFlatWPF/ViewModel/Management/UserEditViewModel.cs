@@ -27,7 +27,8 @@ namespace MyFlatWPF.ViewModel.Management
                                  TextBlock tblRoles,
                                  Button btnAddRole,
                                  Button btnDeleteRole,
-                                 TextBlock tblMessage)
+                                 TextBlock tblMessage,
+                                 Button btnBackToUsers)
         {
             UserWithRolesModel user = _api.GetUserWithRoles(id.ToString());
             cbRoles.ItemsSource = _api.GetRoles();
@@ -47,12 +48,17 @@ namespace MyFlatWPF.ViewModel.Management
             }
             AddRoleToUserCommand = new AddRoleToUserCommand();
             DeleteRoleToUserCommand = new DeleteRoleToUserCommand();
+            BackToListUsersCommand = new BackToListUsersCommand();
             btnAddRole.Command = AddRoleToUserCommand;
             btnDeleteRole.Command = DeleteRoleToUserCommand;
+            tblMessage.Text = "";
+            btnBackToUsers.Command = BackToListUsersCommand;
         }
 
         public ICommand AddRoleToUserCommand { get; set; }
 
         public ICommand DeleteRoleToUserCommand { get; set; }
+
+        public ICommand BackToListUsersCommand { get; set; }
     }
 }
