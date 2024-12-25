@@ -226,6 +226,7 @@
     <Compile Include="ViewModel\Management\AddProjectViewModel.cs" />
     <Compile Include="ViewModel\Management\AddServiceViewModel.cs" />
     <Compile Include="ViewModel\Management\AllOrdersViewModel.cs" />
+    <Compile Include="ViewModel\Management\AllUsersViewModel.cs" />
     <Compile Include="ViewModel\Management\ContactsEditViewModel.cs" />
     <Compile Include="ViewModel\Management\HomeEditViewModel.cs" />
     <Compile Include="ViewModel\Management\LinkEditViewModel.cs" />
@@ -305,6 +306,9 @@
     </Compile>
     <Compile Include="View\ManagementView\ServicesView\ServicesEditView.xaml.cs">
       <DependentUpon>ServicesEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManagementView\UsersView\AllUsersView.xaml.cs">
+      <DependentUpon>AllUsersView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ManagementWindow.xaml.cs">
       <DependentUpon>ManagementWindow.xaml</DependentUpon>
@@ -418,6 +422,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManagementView\ServicesView\ServicesEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManagementView\UsersView\AllUsersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

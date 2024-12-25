@@ -252,7 +252,10 @@
                         Style="{StaticResource ButtonExpanderStyle}"
                         HorizontalContentAlignment="Left"
                         MouseEnter="btnExpander_mouseEnter"
-                        MouseLeave="btnExpander_mouseLeave">
+                        MouseLeave="btnExpander_mouseLeave"
+                        Command="{Binding SwitchManagementView, 
+                                  Source={StaticResource ManagementWindowViewModel}}"
+                        CommandParameter="{Binding Name, ElementName=btnAllUsers}">
                             </Button>
                         </Border>
                         <Border BorderThickness="0 0 0 0">

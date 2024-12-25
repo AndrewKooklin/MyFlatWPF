@@ -3,6 +3,7 @@ using MyFlatWPF.View.ManagementView;
 using MyFlatWPF.View.ManagementView.BlogView;
 using MyFlatWPF.View.ManagementView.ContactsView;
 using MyFlatWPF.View.ManagementView.ServicesView;
+using MyFlatWPF.View.ManagementView.UsersView;
 using MyFlatWPF.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -75,6 +76,8 @@ namespace MyFlatWPF
         public static AddLinkView AddLinkView = new AddLinkView();
 
         public static LinkEditView LinkEditView = new LinkEditView();
+
+        public static AllUsersView AllUsersView = new AllUsersView();
 
 
 
