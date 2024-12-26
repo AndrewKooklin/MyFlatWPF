@@ -159,6 +159,7 @@
                    Grid.Row="2"
                    Text="UserName"
                    Width="150"
+                   Margin="0 10 0 0"
                    Padding="40 3 0 0"
                    Style="{Binding Source={StaticResource TextBlockHeaderStyle}}">
         </TextBlock>
@@ -167,7 +168,7 @@
                    Grid.Row="2"
                    Text="Email"
                    Width="150"
-                   Margin="150 0 0 0"
+                   Margin="150 10 0 0"
                    Padding="50 3 0 0"
                    Style="{Binding Source={StaticResource TextBlockHeaderStyle}}">
         </TextBlock>
@@ -179,7 +180,7 @@
                    Width="80"
                    Height="25"
                    Background="LightGray"
-                   Margin="300 0 0 0"
+                   Margin="300 10 0 0"
                    Padding="5 3 0 0"
                    HorizontalAlignment="Left">
         </TextBlock>
@@ -213,8 +214,14 @@
                    HorizontalAlignment="Left">
         </TextBlock>
 
+        <Border Grid.Row="4"
+                Margin="0 5 0 10"
+                Width="380"
+                HorizontalAlignment="Left"
+                Style="{StaticResource BorderStyle}"></Border>
+
         <Border x:Name="bRoles" 
-                        Grid.Row="4"
+                        Grid.Row="5"
                         Width="150"
                         Height="25"
                         CornerRadius="3"
@@ -234,7 +241,7 @@
         </Border>
 
         <Button x:Name="btnAddRole"
-                Grid.Row="4"
+                Grid.Row="5"
                 Content="Add"
                 Margin="160 0 0 0"
                 Style="{Binding Source={StaticResource ButtonStyle}}"
@@ -249,7 +256,7 @@
         </Button>
 
         <Button x:Name="btnDeleteRole"
-                Grid.Row="4"
+                Grid.Row="5"
                 Content="Delete"
                 Margin="200 0 0 0"
                 Style="{Binding Source={StaticResource ButtonStyle}}"
@@ -264,7 +271,7 @@
         </Button>
 
         <TextBlock x:Name="tblMessage"
-                   Grid.Row="4"
+                   Grid.Row="5"
                    FontSize="12"
                    Foreground="Red"
                    Margin="250 0 0 0"
@@ -273,7 +280,7 @@
         </TextBlock>
 
         <Button x:Name="btnBackToUsers"
-                Grid.Row="5"
+                Grid.Row="6"
                 Content="Back"
                 Style="{Binding Source={StaticResource ButtonStyle}}"
                 HorizontalAlignment="Left"

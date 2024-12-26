@@ -53,11 +53,20 @@ namespace MyFlatWPF.ViewModel.Management
             if (user.Roles != null)
             {
                 List<string> roles = user.Roles;
+                int count = 1;
                 if (roles.Count > 0)
                 {
                     foreach (string role in roles)
                     {
-                        tblRoles.Text += $"{role}\n";
+                        if (count == roles.Count)
+                        {
+                            tblRoles.Text += $"{role}";
+                        }
+                        else
+                        {
+                            tblRoles.Text += $"{role}\n";
+                            count++;
+                        }
                     }
                 }
             }
