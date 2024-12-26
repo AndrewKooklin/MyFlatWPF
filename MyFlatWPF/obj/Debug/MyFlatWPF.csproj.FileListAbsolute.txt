@@ -123,11 +123,11 @@ C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ContactsView\LinkEdit
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ContactsView\AddLinkView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ContactsView\ContactsEditView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\ContactsView\LinkEditView.baml
-C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\LoginWindow.baml
-C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\RegistrationWindow.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\UsersView\AddUserView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\UsersView\AllUsersView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\UsersView\UserEditView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\UsersView\AddUserView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\UsersView\AllUsersView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\UsersView\UserEditView.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\LoginWindow.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\RegistrationWindow.baml

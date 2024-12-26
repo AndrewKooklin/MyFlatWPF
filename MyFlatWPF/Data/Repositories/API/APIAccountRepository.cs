@@ -27,6 +27,7 @@ namespace MyFlatWPF.Data.Repositories.API
         private IEnumerable<IdentityRole> roles;
         private List<IdentityUser> users;
         private UserWithRolesModel userWithRoles;
+        private List<UserWithRolesModel> _usersWithRoles;
 
         public List<IdentityUser> GetUsers()
         {
@@ -136,6 +137,20 @@ namespace MyFlatWPF.Data.Repositories.API
             }
 
             return userWithRoles;
+        }
+
+        public List<UserWithRolesModel> GetUsersWithRoles()
+        {
+            urlRequest = $"{url}" + "UsersAPI/GetUsersWithRoles";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                _usersWithRoles = JsonConvert.DeserializeObject<List<UserWithRolesModel>>(result);
+            }
+
+            return _usersWithRoles;
         }
 
         public async Task<bool> CreateUser(RegisterModel model)

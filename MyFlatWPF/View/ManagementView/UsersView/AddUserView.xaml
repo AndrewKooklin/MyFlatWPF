@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyFlatWPF.View.ManagementView.UsersView"
-             xmlns:viewModel="clr-namespace:MyFlatWPF.ViewModel"
+             xmlns:viewModel="clr-namespace:MyFlatWPF.ViewModel.Management"
              xmlns:help="clr-namespace:MyFlatWPF.HelpMethods"
              mc:Ignorable="d" 
              d:DesignHeight="800" 
@@ -15,7 +15,7 @@
 
         <Grid.Resources>
 
-            <viewModel:RegistrationViewModel x:Key="RegistrationViewModel"/>
+            <viewModel:AddUserViewModel x:Key="AddUserViewModel"/>
             <help:MyMultiValueConverter x:Key="MultiValueConverter"/>
 
             <Style x:Key="BorderStyle" TargetType="Border">
@@ -222,10 +222,12 @@
                 ToolTip="Add user"
                 HorizontalAlignment="Left"
                 Style="{StaticResource ButtonStyle}"
-                Command="{Binding RegisterCommand, Source={StaticResource RegistrationViewModel}}">
+                MouseEnter="Btn_mouseEnter"
+                MouseLeave="Btn_mouseLeave"
+                Command="{Binding RegisterCommand, Source={StaticResource AddUserViewModel}}">
             <Button.CommandParameter>
                 <MultiBinding Converter="{StaticResource MultiValueConverter}">
-                    <Binding ElementName="tbEMail"/>
+                    <Binding ElementName="tbEmail"/>
                     <Binding ElementName="tbPassword"/>
                     <Binding ElementName="tbConfirmPassword"/>
                     <Binding ElementName="lErrorEMail"/>

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using MyFlatWPF.Commands.ManagementCommand.AccountCommand;
 using MyFlatWPF.Data.Repositories.API;
+using MyFlatWPF.Model.AccountModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace MyFlatWPF.ViewModel.Management
 {
     public class AllUsersViewModel : BaseViewModel
     {
-        List<IdentityUser> _lUsers;
+        List<UserWithRolesModel> _lUsers;
         APIAccountRepository _api = new APIAccountRepository();
         Style styleButton = new Style();
         Style styleHoverButton = new Style();
@@ -25,7 +26,7 @@ namespace MyFlatWPF.ViewModel.Management
         public AllUsersViewModel(Button btnAddUser,
                                  StackPanel spUsers)
         {
-            _lUsers = _api.GetUsers();
+            _lUsers = _api.GetUsersWithRoles();
             OpenAddUserCommand = new OpenAddUserCommand();
             OpenChangeUserCommand = new OpenChangeUserCommand();
             DeleteUserCommand = new DeleteUserCommand();
@@ -85,27 +86,34 @@ namespace MyFlatWPF.ViewModel.Management
 
             spUsers.Children.Add(spHeaders);
 
-            foreach (IdentityUser user in _lUsers)
+            foreach (var user in _lUsers)
             {
                 StackPanel spUser = new StackPanel();
                 spUser.Orientation = Orientation.Horizontal;
 
                 TextBlock tblUserName = new TextBlock();
-                tblUserName.Text = $"{user.UserName}";
-                tblUserName.Width = 200;
+                tblUserName.Text = $"{user.User.UserName}";
+                tblUserName.Width = 150;
                 tblUserName.TextWrapping = TextWrapping.Wrap;
                 tblUserName.Padding = new Thickness(5, 3, 5, 3);
                 spUser.Children.Add(tblUserName);
 
                 TextBlock tblEmail = new TextBlock();
-                tblEmail.Text = $"{user.Email}";
-                tblEmail.Width = 200;
+                tblEmail.Text = $"{user.User.Email}";
+                tblEmail.Width = 150;
                 tblEmail.TextWrapping = TextWrapping.Wrap;
                 tblEmail.Padding = new Thickness(5, 3, 5, 3);
                 spUser.Children.Add(tblEmail);
 
                 TextBlock tblRoles = new TextBlock();
-                tblRoles.Text = $"{user.Roles}";
+                if(user.Roles.Count > 0)
+                {
+                    foreach(var role in user.Roles)
+                    {
+                        tblRoles.Text += $"{role}\n";
+                    }
+                }
+                
                 tblRoles.Width = 50;
                 tblRoles.TextWrapping = TextWrapping.Wrap;
                 tblRoles.Padding = new Thickness(5, 3, 5, 3);
@@ -121,7 +129,7 @@ namespace MyFlatWPF.ViewModel.Management
                 btnOpenChange.MouseEnter += BtnCircle_mouseEnter;
                 btnOpenChange.MouseLeave += BtnCircle_mouseLeave;
                 btnOpenChange.Command = OpenChangeUserCommand;
-                btnOpenChange.CommandParameter = user.Id;
+                btnOpenChange.CommandParameter = user.User.Id;
                 spUser.Children.Add(btnOpenChange);
 
                 Button btnDelete = new Button();
@@ -134,7 +142,7 @@ namespace MyFlatWPF.ViewModel.Management
                 btnDelete.MouseEnter += BtnCircle_mouseEnter;
                 btnDelete.MouseLeave += BtnCircle_mouseLeave;
                 btnDelete.Command = DeleteUserCommand;
-                btnDelete.CommandParameter = user.Id;
+                btnDelete.CommandParameter = user.User.Id;
                 spUser.Children.Add(btnDelete);
 
                 spUsers.Children.Add(spUser);

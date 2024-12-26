@@ -33,7 +33,6 @@ namespace MyFlatWPF.Commands.ManagementCommand.AccountCommand
                 var fieldElements = (object[])parameter;
                 TextBlock tblId = (TextBlock)fieldElements[0];
                 string id = tblId.Text;
-                int idUser = Convert.ToInt32(id);
                 UserWithRolesModel uvrm = _api.GetUserWithRoles(id);
                 ComboBox cbRoles = (ComboBox)fieldElements[1];
                 TextBlock tblMessage = (TextBlock)fieldElements[2];
@@ -61,14 +60,15 @@ namespace MyFlatWPF.Commands.ManagementCommand.AccountCommand
                     App.UserEditView = null;
                     App.UserEditView = new UserEditView();
                     UserEditViewModel uevm =
-                        new UserEditViewModel(idUser,
+                        new UserEditViewModel(id,
                                               App.UserEditView.cbRoles,
                                               App.UserEditView.tblUserName,
                                               App.UserEditView.tblEmail,
                                               App.UserEditView.tblRoles,
                                               App.UserEditView.btnAddRole,
                                               App.UserEditView.btnDeleteRole,
-                                              App.UserEditView.tblMessage);
+                                              App.UserEditView.tblMessage,
+                                              App.UserEditView.btnBackToUsers);
                     App.UserEditView.Visibility = System.Windows.Visibility.Visible;
                     StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
                         App.UserEditView;

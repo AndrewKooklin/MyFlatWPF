@@ -26,7 +26,7 @@ namespace MyFlatWPF.Commands.ManagementCommand.AccountCommand
             }
             else
             {
-                int id = (Int32)parameter;
+                string id = parameter.ToString();
 
                 App.UserEditView = null;
                 App.UserEditView = new UserEditView();

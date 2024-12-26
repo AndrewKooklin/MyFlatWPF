@@ -283,6 +283,7 @@
                 Content="Back"
                 Style="{Binding Source={StaticResource ButtonStyle}}"
                 HorizontalAlignment="Left"
+                Margin="0 10 0 0"
                 ToolTip="To list users">
         </Button>
 
