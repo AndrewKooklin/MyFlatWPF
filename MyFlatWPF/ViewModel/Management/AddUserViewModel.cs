@@ -3,6 +3,7 @@ using MyFlatWPF.Commands.ManagementCommand.AccountCommand;
 using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.Model;
 using MyFlatWPF.Model.AccountModel;
+using MyFlatWPF.View.ManagementView.UsersView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -133,11 +134,16 @@ namespace MyFlatWPF.ViewModel.Management
             else
             {
                 bool result = await _api.AddNewUser(addUserModel);
-                if (!result)
+                if (result)
                 {
                     tbEmail.Text = "";
                     passwordBox.Text = "";
                     lResultRegistration.Content = "New user added.";
+                    App.AllUsersView = null;
+                    App.AllUsersView = new AllUsersView();
+                    App.AllUsersView.Visibility = System.Windows.Visibility.Visible;
+                    StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                        App.AllUsersView;
                 }
                 else
                 {

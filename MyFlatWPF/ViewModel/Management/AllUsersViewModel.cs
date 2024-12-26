@@ -66,7 +66,7 @@ namespace MyFlatWPF.ViewModel.Management
             tblUserNameHeader.Text = "UserName";
             tblUserNameHeader.Width = 150;
             tblUserNameHeader.Height = 25;
-            tblUserNameHeader.Padding = new Thickness(40, 30, 0, 0);
+            tblUserNameHeader.Padding = new Thickness(40, 3, 0, 0);
             tblUserNameHeader.Background = Brushes.LightGray;
             spHeaders.Children.Add(tblUserNameHeader);
             TextBlock tblEmailHeader = new TextBlock();
@@ -109,9 +109,18 @@ namespace MyFlatWPF.ViewModel.Management
                 tblRoles.Width = 50;
                 if (user.Roles.Count > 0)
                 {
-                    foreach(var role in user.Roles)
+                    int count = 1;
+                    foreach (var role in user.Roles)
                     {
-                        tblRoles.Text += $"{role}\n";
+                        if(count == user.Roles.Count)
+                        {
+                            tblRoles.Text += $"{role}";
+                        }
+                        else
+                        {
+                            tblRoles.Text += $"{role}\n";
+                            count++;
+                        }
                     }
                 }
                 tblRoles.TextWrapping = TextWrapping.Wrap;
@@ -123,7 +132,7 @@ namespace MyFlatWPF.ViewModel.Management
                 btnOpenChange.ToolTip = "Change user";
                 btnOpenChange.OverridesDefaultStyle = true;
                 btnOpenChange.HorizontalAlignment = HorizontalAlignment.Right;
-                btnOpenChange.Margin = new Thickness(10, 5, 0, 0);
+                btnOpenChange.Margin = new Thickness(10, 2, 0, 2);
                 btnOpenChange.Style = styleCircleButton;
                 btnOpenChange.MouseEnter += BtnCircle_mouseEnter;
                 btnOpenChange.MouseLeave += BtnCircle_mouseLeave;
@@ -136,7 +145,7 @@ namespace MyFlatWPF.ViewModel.Management
                 btnDelete.ToolTip = "Delete user";
                 btnDelete.OverridesDefaultStyle = true;
                 btnDelete.HorizontalAlignment = HorizontalAlignment.Right;
-                btnDelete.Margin = new Thickness(5, 5, 0, 0);
+                btnDelete.Margin = new Thickness(5, 2, 0, 2);
                 btnDelete.Style = styleCircleButton;
                 btnDelete.MouseEnter += BtnCircle_mouseEnter;
                 btnDelete.MouseLeave += BtnCircle_mouseLeave;
