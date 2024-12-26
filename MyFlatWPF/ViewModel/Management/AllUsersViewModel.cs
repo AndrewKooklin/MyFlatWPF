@@ -64,23 +64,23 @@ namespace MyFlatWPF.ViewModel.Management
 
             TextBlock tblUserNameHeader = new TextBlock();
             tblUserNameHeader.Text = "UserName";
-            tblUserNameHeader.Width = 200;
+            tblUserNameHeader.Width = 150;
             tblUserNameHeader.Height = 25;
-            tblUserNameHeader.HorizontalAlignment = HorizontalAlignment.Center;
+            tblUserNameHeader.Padding = new Thickness(40, 30, 0, 0);
             tblUserNameHeader.Background = Brushes.LightGray;
             spHeaders.Children.Add(tblUserNameHeader);
             TextBlock tblEmailHeader = new TextBlock();
             tblEmailHeader.Text = "E-Mail";
-            tblEmailHeader.Width = 200;
+            tblEmailHeader.Width = 150;
             tblEmailHeader.Height = 25;
-            tblEmailHeader.HorizontalAlignment = HorizontalAlignment.Center;
+            tblEmailHeader.Padding = new Thickness(40, 3, 0, 0);
             tblEmailHeader.Background = Brushes.LightGray;
             spHeaders.Children.Add(tblEmailHeader);
             TextBlock tblRolesHeader = new TextBlock();
             tblRolesHeader.Text = "Roles";
-            tblRolesHeader.Width = 50;
+            tblRolesHeader.Width = 115;
             tblRolesHeader.Height = 25;
-            tblRolesHeader.HorizontalAlignment = HorizontalAlignment.Center;
+            tblRolesHeader.Padding = new Thickness(5, 3, 0, 0);
             tblRolesHeader.Background = Brushes.LightGray;
             spHeaders.Children.Add(tblRolesHeader);
 
@@ -95,28 +95,27 @@ namespace MyFlatWPF.ViewModel.Management
                 tblUserName.Text = $"{user.User.UserName}";
                 tblUserName.Width = 150;
                 tblUserName.TextWrapping = TextWrapping.Wrap;
-                tblUserName.Padding = new Thickness(5, 3, 5, 3);
+                tblUserName.Padding = new Thickness(5, 5, 5, 5);
                 spUser.Children.Add(tblUserName);
 
                 TextBlock tblEmail = new TextBlock();
                 tblEmail.Text = $"{user.User.Email}";
                 tblEmail.Width = 150;
                 tblEmail.TextWrapping = TextWrapping.Wrap;
-                tblEmail.Padding = new Thickness(5, 3, 5, 3);
+                tblEmail.Padding = new Thickness(5, 5, 5, 5);
                 spUser.Children.Add(tblEmail);
 
                 TextBlock tblRoles = new TextBlock();
-                if(user.Roles.Count > 0)
+                tblRoles.Width = 50;
+                if (user.Roles.Count > 0)
                 {
                     foreach(var role in user.Roles)
                     {
                         tblRoles.Text += $"{role}\n";
                     }
                 }
-                
-                tblRoles.Width = 50;
                 tblRoles.TextWrapping = TextWrapping.Wrap;
-                tblRoles.Padding = new Thickness(5, 3, 5, 3);
+                tblRoles.Padding = new Thickness(5, 5, 5, 5);
                 spUser.Children.Add(tblRoles);
 
                 Button btnOpenChange = new Button();
@@ -124,7 +123,7 @@ namespace MyFlatWPF.ViewModel.Management
                 btnOpenChange.ToolTip = "Change user";
                 btnOpenChange.OverridesDefaultStyle = true;
                 btnOpenChange.HorizontalAlignment = HorizontalAlignment.Right;
-                btnOpenChange.Margin = new Thickness(5, 0, 0, 0);
+                btnOpenChange.Margin = new Thickness(10, 5, 0, 0);
                 btnOpenChange.Style = styleCircleButton;
                 btnOpenChange.MouseEnter += BtnCircle_mouseEnter;
                 btnOpenChange.MouseLeave += BtnCircle_mouseLeave;
@@ -137,7 +136,7 @@ namespace MyFlatWPF.ViewModel.Management
                 btnDelete.ToolTip = "Delete user";
                 btnDelete.OverridesDefaultStyle = true;
                 btnDelete.HorizontalAlignment = HorizontalAlignment.Right;
-                btnDelete.Margin = new Thickness(5, 0, 0, 0);
+                btnDelete.Margin = new Thickness(5, 5, 0, 0);
                 btnDelete.Style = styleCircleButton;
                 btnDelete.MouseEnter += BtnCircle_mouseEnter;
                 btnDelete.MouseLeave += BtnCircle_mouseLeave;
@@ -146,6 +145,14 @@ namespace MyFlatWPF.ViewModel.Management
                 spUser.Children.Add(btnDelete);
 
                 spUsers.Children.Add(spUser);
+
+                Border border = new Border();
+                border.Width = 415;
+                border.Height = 0.75;
+                border.BorderThickness = new Thickness(1, 1, 1, 1);
+                border.BorderBrush = Brushes.LightSkyBlue;
+                border.HorizontalAlignment = HorizontalAlignment.Left;
+                spUsers.Children.Add(border);
             }
         }
 

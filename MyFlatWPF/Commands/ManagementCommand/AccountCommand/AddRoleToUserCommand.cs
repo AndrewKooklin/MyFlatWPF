@@ -1,4 +1,5 @@
 ﻿using MyFlatWPF.Data.Repositories.API;
+using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model.AccountModel;
 using MyFlatWPF.View.ManagementView.UsersView;
 using MyFlatWPF.ViewModel.Management;
@@ -31,17 +32,17 @@ namespace MyFlatWPF.Commands.ManagementCommand.AccountCommand
             else
             {
                 var fieldElements = (object[])parameter;
-                TextBlock tblId = (TextBlock)fieldElements[0];
-                string id = tblId.Text;
-                UserWithRolesModel uvrm = _api.GetUserWithRoles(id);
-                ComboBox cbRoles = (ComboBox)fieldElements[1];
-                TextBlock tblMessage = (TextBlock)fieldElements[2];
-                string role = cbRoles.SelectedValue.ToString();
-                if (String.IsNullOrEmpty(role))
+                UserWithRolesModel uvrm = StaticUser.UserTemp;
+                string id = uvrm.User.Id;
+                ComboBox cbRoles = (ComboBox)fieldElements[0];
+                TextBlock tblMessage = (TextBlock)fieldElements[1];
+                
+                if (cbRoles.SelectedIndex == -1)
                 {
                     tblMessage.Text = "Select role!";
                     return;
                 }
+                string role = cbRoles.SelectedItem.ToString();
                 if (uvrm.Roles.Contains(role))
                 {
                     tblMessage.Text = "The User already has a role!";

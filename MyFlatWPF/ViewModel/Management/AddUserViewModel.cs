@@ -2,6 +2,7 @@
 using MyFlatWPF.Commands.ManagementCommand.AccountCommand;
 using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.Model;
+using MyFlatWPF.Model.AccountModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -108,6 +109,12 @@ namespace MyFlatWPF.ViewModel.Management
                 Password = passwordBox.Text
             };
 
+            AddUserModel addUserModel = new AddUserModel
+            {
+                Email = tbEmail.Text,
+                Password = passwordBox.Text
+            };
+
             LoginModel loginModel = new LoginModel
             {
                 Email = tbEmail.Text,
@@ -125,12 +132,12 @@ namespace MyFlatWPF.ViewModel.Management
             }
             else
             {
-                bool result = await _api.CreateUser(model);
+                bool result = await _api.AddNewUser(addUserModel);
                 if (!result)
                 {
                     tbEmail.Text = "";
                     passwordBox.Text = "";
-                    lResultRegistration.Content = "You have successfully registered.";
+                    lResultRegistration.Content = "New user added.";
                 }
                 else
                 {

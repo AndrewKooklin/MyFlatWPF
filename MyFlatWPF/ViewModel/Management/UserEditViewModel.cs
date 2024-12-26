@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using MyFlatWPF.Commands.ManagementCommand.AccountCommand;
 using MyFlatWPF.Data.Repositories.API;
+using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model.AccountModel;
 using System;
 using System.Collections.Generic;
@@ -49,12 +50,15 @@ namespace MyFlatWPF.ViewModel.Management
             cbRoles.ItemsSource = roleNames;
             tblUserName.Text = user.User.UserName;
             tblEmail.Text = user.User.Email;
-            List<string> roles = user.Roles;
-            if(roles.Count > 0)
+            if (user.Roles != null)
             {
-                foreach (string role in roles)
+                List<string> roles = user.Roles;
+                if (roles.Count > 0)
                 {
-                    tblRoles.Text += $"{role}\n";
+                    foreach (string role in roles)
+                    {
+                        tblRoles.Text += $"{role}\n";
+                    }
                 }
             }
             else
@@ -74,6 +78,7 @@ namespace MyFlatWPF.ViewModel.Management
             btnBackToUsers.Command = BackToListUsersCommand;
             btnBackToUsers.MouseEnter += Btn_mouseEnter;
             btnBackToUsers.MouseLeave += Btn_mouseLeave;
+            StaticUser.UserTemp = user;
         }
 
         public ICommand AddRoleToUserCommand { get; set; }

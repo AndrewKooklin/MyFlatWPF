@@ -25,7 +25,7 @@ namespace MyFlatWPF.View.ManagementView.UsersView
         {
             InitializeComponent();
             this.DataContext = new AllUsersViewModel(this.btnAddUser,
-                                                         this.spUsers);
+                                                     this.spUsers);
         }
     }
 }

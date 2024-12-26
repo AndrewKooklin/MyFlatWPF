@@ -221,6 +221,7 @@
                 FontWeight="DemiBold"
                 ToolTip="Add user"
                 HorizontalAlignment="Left"
+                Margin="0 10 0 0"
                 Style="{StaticResource ButtonStyle}"
                 MouseEnter="Btn_mouseEnter"
                 MouseLeave="Btn_mouseLeave"
@@ -240,7 +241,7 @@
 
         <Label x:Name="lResultRegistration"
                Grid.Row="8"
-               FontSize="10"
+               FontSize="12"
                Foreground="Red"
                Margin="40 5 0 0">
         </Label>
