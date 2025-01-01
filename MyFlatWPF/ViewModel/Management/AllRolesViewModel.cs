@@ -40,7 +40,6 @@ namespace MyFlatWPF.ViewModel.Management
                 AddElementProperties(btnAddRole,
                                      spRoles);
             }
-
         }
 
         private ICommand OpenAddRoleCommand { get; set; }
@@ -52,8 +51,6 @@ namespace MyFlatWPF.ViewModel.Management
         private void AddElementProperties(Button btnAddRole,
                                           StackPanel spRoles)
         {
-
-
             btnAddRole.Command = OpenAddRoleCommand;
             btnAddRole.MouseEnter += Btn_mouseEnter;
             btnAddRole.MouseLeave += Btn_mouseLeave;

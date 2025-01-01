@@ -148,6 +148,7 @@
     <Compile Include="Commands\ManagementCommand\AccountCommand\AddRoleCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\AddRoleToUserCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\BackToListUsersCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\AccountCommand\ChangeRoleNameCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\DeleteRoleCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\DeleteRoleToUserCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\DeleteUserCommand.cs" />
@@ -254,6 +255,7 @@
     <Compile Include="ViewModel\Management\PostsEditViewModel.cs" />
     <Compile Include="ViewModel\Management\ProjectEditViewModel.cs" />
     <Compile Include="ViewModel\Management\ProjectsEditViewModel.cs" />
+    <Compile Include="ViewModel\Management\RoleEditViewModel.cs" />
     <Compile Include="ViewModel\Management\ServiceEditViewModel.cs" />
     <Compile Include="ViewModel\Management\ServicesEditViewModel.cs" />
     <Compile Include="ViewModel\Management\StaticManagementViewModel.cs" />

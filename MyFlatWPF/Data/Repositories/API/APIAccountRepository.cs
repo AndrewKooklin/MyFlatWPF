@@ -24,6 +24,7 @@ namespace MyFlatWPF.Data.Repositories.API
         bool apiResponseConvert;
         private List<string> userRoles = new List<string>();
         private List<string> roleNames;
+        private IdentityRole role;
         private IEnumerable<IdentityRole> roles;
         private List<IdentityUser> users;
         private UserWithRolesModel userWithRoles;
@@ -215,6 +216,20 @@ namespace MyFlatWPF.Data.Repositories.API
             return roles;
         }
 
+        public IdentityRole GetRoleById(string id)
+        {
+            urlRequest = $"{url}" + "RolesAPI/GetRoleById/ + $"{id};
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                role = JsonConvert.DeserializeObject<IdentityRole>(result);
+            }
+
+            return role;
+        }
+
         public List<string> GetRoleNames()
         {
             roleNames = new List<string>();
@@ -233,6 +248,23 @@ namespace MyFlatWPF.Data.Repositories.API
         public async Task<bool> CreateRole(IdentityRole role)
         {
             urlRequest = $"{url}" + "RolesAPI/CreateRole/" + $"{role}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, role))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
+
+        public async Task<bool> ChangeRoleName(IdentityRole role)
+        {
+            urlRequest = $"{url}" + "RolesAPI/ChangeRoleName/" + $"{role}";
             using (_httpClient = new HttpClient())
             {
                 _httpClient.DefaultRequestHeaders.Accept.Clear();

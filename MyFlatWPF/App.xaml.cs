@@ -86,7 +86,9 @@ namespace MyFlatWPF
 
         public static AllRolesView AllRolesView = new AllRolesView();
 
-        public static AddRoleView AddRoleView = new AddRoleView(); 
+        public static AddRoleView AddRoleView = new AddRoleView();
+
+        public static RoleEditView RoleEditView = new RoleEditView();
 
 
 
