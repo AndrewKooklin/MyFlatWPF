@@ -182,5 +182,14 @@
             </Button.CommandParameter>
         </Button>
 
+        <Button x:Name="btnCancel"
+                Grid.Row="4"
+                Content="Cancel"
+                ToolTip="Cancel"
+                HorizontalAlignment="Left"
+                Margin="55 5 0 0"
+                Style="{Binding Source={StaticResource ButtonStyle}}">
+        </Button>
+
     </Grid>
 </UserControl>

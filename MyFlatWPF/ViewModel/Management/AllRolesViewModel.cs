@@ -69,9 +69,9 @@ namespace MyFlatWPF.ViewModel.Management
             spHeaders.Children.Add(tblRoleIdHeader);
             TextBlock tblRoleNameHeader = new TextBlock();
             tblRoleNameHeader.Text = "Role Name";
-            tblRoleNameHeader.Width = 200;
+            tblRoleNameHeader.Width = 205;
             tblRoleNameHeader.Height = 25;
-            tblRoleNameHeader.Padding = new Thickness(10, 3, 0, 0);
+            tblRoleNameHeader.Padding = new Thickness(5, 3, 0, 0);
             tblRoleNameHeader.Background = Brushes.LightGray;
             spHeaders.Children.Add(tblRoleNameHeader);
 

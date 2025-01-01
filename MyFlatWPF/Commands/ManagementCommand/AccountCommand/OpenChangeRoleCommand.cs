@@ -34,7 +34,8 @@ namespace MyFlatWPF.Commands.ManagementCommand.AccountCommand
                     new RoleEditViewModel(id,
                                           App.RoleEditView.tbRoleName,
                                           App.RoleEditView.lErrorRoleName,
-                                          App.RoleEditView.btnChangeRoleName);
+                                          App.RoleEditView.btnChangeRoleName,
+                                          App.RoleEditView.btnCancel);
                 App.RoleEditView.Visibility = System.Windows.Visibility.Visible;
                 StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
                     App.RoleEditView;
