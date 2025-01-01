@@ -33,4 +33,6 @@ FC:\repos\MyFlatWPF\MyFlatWPF\View\ManagementView\ContactsView\LinkEditView.xaml
 FC:\repos\MyFlatWPF\MyFlatWPF\View\ManagementView\UsersView\AddUserView.xaml;;
 FC:\repos\MyFlatWPF\MyFlatWPF\View\ManagementView\UsersView\AllUsersView.xaml;;
 FC:\repos\MyFlatWPF\MyFlatWPF\View\ManagementView\UsersView\UserEditView.xaml;;
+FC:\repos\MyFlatWPF\MyFlatWPF\View\ManagementView\RolesView\AddRoleView.xaml;;
+FC:\repos\MyFlatWPF\MyFlatWPF\View\ManagementView\RolesView\AllRolesView.xaml;;
 

@@ -2,6 +2,7 @@
 using MyFlatWPF.View.ManagementView;
 using MyFlatWPF.View.ManagementView.BlogView;
 using MyFlatWPF.View.ManagementView.ContactsView;
+using MyFlatWPF.View.ManagementView.RolesView;
 using MyFlatWPF.View.ManagementView.ServicesView;
 using MyFlatWPF.View.ManagementView.UsersView;
 using MyFlatWPF.ViewModel.Management;
@@ -117,6 +118,29 @@ namespace MyFlatWPF.Commands.ManagementCommand
                             App.AllUsersView.Visibility = System.Windows.Visibility.Visible;
                             StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
                                 App.AllUsersView;
+                            break;
+                        }
+                    case "btnAddUser":
+                        {
+                            App.AddUserView.Visibility = System.Windows.Visibility.Visible;
+                            StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                                App.AddUserView;
+                            break;
+                        }
+                    case "btnRoles":
+                        {
+                            App.AllRolesView = null;
+                            App.AllRolesView = new AllRolesView();
+                            App.AllRolesView.Visibility = System.Windows.Visibility.Visible;
+                            StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                                App.AllRolesView;
+                            break;
+                        }
+                    case "btnAddRole":
+                        {
+                            App.AddRoleView.Visibility = System.Windows.Visibility.Visible;
+                            StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
+                                App.AddRoleView;
                             break;
                         }
                     default: break;

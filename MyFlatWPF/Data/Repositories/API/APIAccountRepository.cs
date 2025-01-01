@@ -77,20 +77,6 @@ namespace MyFlatWPF.Data.Repositories.API
             return userRoles;
         }
 
-        public IEnumerable<IdentityRole> GetRoles()
-        {
-            urlRequest = $"{url}" + "RolesAPI/GetRoles";
-            using (_httpClient = new HttpClient())
-            {
-                _httpClient.DefaultRequestHeaders.Accept.Clear();
-                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                string result = _httpClient.GetStringAsync(urlRequest).Result;
-                roles = JsonConvert.DeserializeObject<IEnumerable<IdentityRole>>(result);
-            }
-
-            return roles;
-        }
-
         public async Task<bool> AddRoleToUser(RoleUserModel model)
         {
             urlRequest = $"{url}" + "UsersAPI/AddRoleToUser/" + $"{model}/";
@@ -206,6 +192,52 @@ namespace MyFlatWPF.Data.Repositories.API
                 _httpClient.DefaultRequestHeaders.Accept.Clear();
                 _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 using (response = await _httpClient.PostAsJsonAsync(urlRequest, id))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
+
+        public IEnumerable<IdentityRole> GetRoles()
+        {
+            urlRequest = $"{url}" + "RolesAPI/GetRoles";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                roles = JsonConvert.DeserializeObject<IEnumerable<IdentityRole>>(result);
+            }
+
+            return roles;
+        }
+
+        public List<string> GetRoleNames()
+        {
+            roleNames = new List<string>();
+            urlRequest = $"{url}" + "RegisterAPI/GetRoleNames";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                string result = _httpClient.GetStringAsync(urlRequest).Result;
+                roleNames = JsonConvert.DeserializeObject<List<string>>(result);
+            }
+
+            return roleNames;
+        }
+
+        public async Task<bool> CreateRole(IdentityRole role)
+        {
+            urlRequest = $"{url}" + "RolesAPI/CreateRole/" + $"{role}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, role))
                 {
                     apiResponse = await response.Content.ReadAsStringAsync();
                     apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);

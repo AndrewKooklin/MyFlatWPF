@@ -2,6 +2,7 @@
 using MyFlatWPF.View.ManagementView;
 using MyFlatWPF.View.ManagementView.BlogView;
 using MyFlatWPF.View.ManagementView.ContactsView;
+using MyFlatWPF.View.ManagementView.RolesView;
 using MyFlatWPF.View.ManagementView.ServicesView;
 using MyFlatWPF.View.ManagementView.UsersView;
 using MyFlatWPF.ViewModel;
@@ -82,6 +83,10 @@ namespace MyFlatWPF
         public static AddUserView AddUserView = new AddUserView();
 
         public static UserEditView UserEditView = new UserEditView();
+
+        public static AllRolesView AllRolesView = new AllRolesView();
+
+        public static AddRoleView AddRoleView = new AddRoleView(); 
 
 
 

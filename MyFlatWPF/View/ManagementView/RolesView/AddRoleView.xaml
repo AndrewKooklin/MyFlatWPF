@@ -1,28 +1,22 @@
-﻿<UserControl x:Class="MyFlatWPF.View.ManagementView.UsersView.UserEditView"
+﻿<UserControl x:Class="MyFlatWPF.View.ManagementView.RolesView.AddRoleView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MyFlatWPF.View.ManagementView.UsersView"
+             xmlns:local="clr-namespace:MyFlatWPF.View.ManagementView.RolesView"
              xmlns:viewModel="clr-namespace:MyFlatWPF.ViewModel.Management"
              xmlns:help="clr-namespace:MyFlatWPF.HelpMethods"
              mc:Ignorable="d" 
              d:DesignHeight="800" 
              d:DesignWidth="600">
 
-    <Grid x:Name="gUserEdit"
+    <Grid x:Name="gAddUser"
           Margin="10 0 10 0">
 
         <Grid.Resources>
 
+            <viewModel:AddRoleViewModel x:Key="AddRoleViewModel"/>
             <help:MyMultiValueConverter x:Key="MultiValueConverter"/>
-
-            <Style x:Key="TextBlockHeaderStyle" TargetType="TextBlock">
-                <Setter Property="FontSize" Value="16"></Setter>
-                <Setter Property="Background" Value="LightGray"></Setter>
-                <Setter Property="Height" Value="25"></Setter>
-                <Setter Property="HorizontalAlignment" Value="Left"></Setter>
-            </Style>
 
             <Style x:Key="BorderStyle" TargetType="Border">
                 <Setter Property="Background" Value="LightSkyBlue"></Setter>
@@ -121,32 +115,22 @@
                 </Setter>
             </Style>
 
-            <Style x:Key="ComboBoxStyle" TargetType="{x:Type ComboBox}">
-                <Setter Property="Background" Value="White"></Setter>
-            </Style>
-
-            <Style x:Key="ComboBoxItemStyle" TargetType="{x:Type ComboBoxItem}">
-                <Setter Property="Background" Value="White">
-                </Setter>
-            </Style>
-
         </Grid.Resources>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="0.6*"/>
             <RowDefinition Height="0.3*"/>
             <RowDefinition Height="0.6*"/>
-            <RowDefinition Height="0.7*"/>
             <RowDefinition Height="0.6*"/>
             <RowDefinition Height="0.6*"/>
-            <RowDefinition Height="9*"/>
+            <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBlock x:Name="tblEditUser"
-                   Text="Edit User"
+        <TextBlock x:Name="tblAddRole"
+                   Text="Add Role"
                    FontSize="20"
                    Margin="0 5 0 5">
         </TextBlock>
@@ -155,138 +139,47 @@
                 Margin="0 5 0 0"
                         Style="{StaticResource BorderStyle}"></Border>
 
-        <TextBlock x:Name="tblUserNameHeader"
+        <TextBlock x:Name="tblRoleName"
                    Grid.Row="2"
-                   Text="UserName"
-                   Width="150"
-                   Margin="0 10 0 0"
-                   Padding="40 3 0 0"
-                   Style="{Binding Source={StaticResource TextBlockHeaderStyle}}">
-        </TextBlock>
-
-        <TextBlock x:Name="tblEmailHeader"
-                   Grid.Row="2"
-                   Text="Email"
-                   Width="150"
-                   Margin="150 10 0 0"
-                   Padding="50 3 0 0"
-                   Style="{Binding Source={StaticResource TextBlockHeaderStyle}}">
-        </TextBlock>
-
-        <TextBlock x:Name="tblRolesHeader"
-                   Grid.Row="2"
-                   Text="Role"
+                   Text="Role name"
                    FontSize="16"
-                   Width="80"
-                   Height="25"
-                   Background="LightGray"
-                   Margin="300 10 0 0"
-                   Padding="5 3 0 0"
+                   Margin="0 5 0 0"
                    HorizontalAlignment="Left">
         </TextBlock>
 
-        <TextBlock x:Name="tblUserName"
+        <TextBox x:Name="tbRoleName"
                    Grid.Row="3"
+                   Width="200"
                    FontSize="12"
-                   Width="150"
-                   Padding="5"
-                   TextWrapping="Wrap"
-                   HorizontalAlignment="Left">
-        </TextBlock>
+                   Margin="0 0 0 0"
+                 HorizontalAlignment="Left"
+                   Style="{Binding Source={StaticResource InputTextBox}}">
+        </TextBox>
 
-        <TextBlock x:Name="tblEmail"
-                   Grid.Row="3"
-                   FontSize="12"
-                   Width="150"
-                   Padding="5"
-                   TextWrapping="Wrap"
-                   Margin="150 0 0 0"
-                   HorizontalAlignment="Left">
-        </TextBlock>
+        <Label x:Name="lErrorRoleName"
+               Grid.Row="3"
+               FontSize="12"
+               Foreground="Red"
+               Margin="210 5 0 0">
+        </Label>
 
-        <TextBlock x:Name="tblRoles"
-                   Grid.Row="3"
-                   FontSize="12"
-                   Width="100"
-                   Padding="5"
-                   Margin="300 0 0 0"
-                   TextWrapping="Wrap"
-                   HorizontalAlignment="Left">
-        </TextBlock>
-
-        <Border Grid.Row="4"
-                Margin="0 5 0 10"
-                Width="380"
-                HorizontalAlignment="Left"
-                Style="{StaticResource BorderStyle}"></Border>
-
-        <Border x:Name="bRoles" 
-                        Grid.Row="5"
-                        Width="150"
-                        Height="25"
-                        CornerRadius="3"
-                        BorderThickness="1"
-                        BorderBrush="Black"
-                        Background="White"
-                        Cursor="Hand"
-                        HorizontalAlignment="Left">
-            <ComboBox x:Name="cbRoles"
-                          ToolTip="Choose Service"
-                          FontSize="12"
-                          VerticalAlignment="Center"
-                          Style="{StaticResource ComboBoxStyle}"
-                          BorderBrush="Transparent"
-                          BorderThickness="0">
-            </ComboBox>
-        </Border>
-
-        <Button x:Name="btnAddRole"
-                Grid.Row="5"
+        <Button x:Name="btnAddUser"
+                Grid.Row="4"
                 Content="Add"
-                Margin="160 0 0 0"
-                Style="{Binding Source={StaticResource ButtonStyle}}"
+                FontWeight="DemiBold"
+                ToolTip="Add user"
                 HorizontalAlignment="Left"
-                ToolTip="Add role">
-            <Button.CommandParameter>
-                <MultiBinding Converter="{StaticResource MultiValueConverter}">
-                    <Binding ElementName="cbRoles"/>
-                    <Binding ElementName="tblMessage"/>
-                </MultiBinding>
-            </Button.CommandParameter>
-        </Button>
-
-        <Button x:Name="btnDeleteRole"
-                Grid.Row="5"
-                Content="Delete"
-                Margin="200 0 0 0"
-                Style="{Binding Source={StaticResource ButtonStyle}}"
-                HorizontalAlignment="Left"
-                ToolTip="Delete role">
-            <Button.CommandParameter>
-                <MultiBinding Converter="{StaticResource MultiValueConverter}">
-                    <Binding ElementName="cbRoles"/>
-                    <Binding ElementName="tblMessage"/>
-                </MultiBinding>
-            </Button.CommandParameter>
-        </Button>
-
-        <TextBlock x:Name="tblMessage"
-                   Grid.Row="5"
-                   FontSize="12"
-                   Foreground="Red"
-                   Margin="250 0 0 0"
-                   Padding="0 3 0 0"
-                   HorizontalAlignment="Left">
-        </TextBlock>
-
-        <Button x:Name="btnBackToUsers"
-                Grid.Row="6"
-                Content="Back"
-                Style="{Binding Source={StaticResource ButtonStyle}}"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
                 Margin="0 10 0 0"
-                ToolTip="To list users">
+                Style="{StaticResource ButtonStyle}"
+                MouseEnter="Btn_mouseEnter"
+                MouseLeave="Btn_mouseLeave"
+                Command="{Binding AddRoleCommand, Source={StaticResource AddRoleViewModel}}">
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource MultiValueConverter}">
+                    <Binding ElementName="tbRoleName"/>
+                    <Binding ElementName="lErrorRoleName"/>
+                </MultiBinding>
+            </Button.CommandParameter>
         </Button>
 
     </Grid>

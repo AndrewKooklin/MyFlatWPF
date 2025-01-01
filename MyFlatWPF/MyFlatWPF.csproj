@@ -145,11 +145,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\LogoutCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\AccountCommand\AddRoleCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\AddRoleToUserCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\BackToListUsersCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\AccountCommand\DeleteRoleCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\DeleteRoleToUserCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\DeleteUserCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\AccountCommand\OpenAddRoleCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\OpenAddUserCommand.cs" />
+    <Compile Include="Commands\ManagementCommand\AccountCommand\OpenChangeRoleCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AccountCommand\OpenChangeUserCommand.cs" />
     <Compile Include="Commands\ManagementCommand\AddRandomPhraseCommand.cs" />
     <Compile Include="Commands\ManagementCommand\ChangeBottomContentCommand.cs" />
@@ -234,9 +238,11 @@
     <Compile Include="ViewModel\Management\AddLinkViewModel.cs" />
     <Compile Include="ViewModel\Management\AddPostViewModel.cs" />
     <Compile Include="ViewModel\Management\AddProjectViewModel.cs" />
+    <Compile Include="ViewModel\Management\AddRoleViewModel.cs" />
     <Compile Include="ViewModel\Management\AddServiceViewModel.cs" />
     <Compile Include="ViewModel\Management\AddUserViewModel.cs" />
     <Compile Include="ViewModel\Management\AllOrdersViewModel.cs" />
+    <Compile Include="ViewModel\Management\AllRolesViewModel.cs" />
     <Compile Include="ViewModel\Management\AllUsersViewModel.cs" />
     <Compile Include="ViewModel\Management\ContactsEditViewModel.cs" />
     <Compile Include="ViewModel\Management\HomeEditViewModel.cs" />
@@ -309,6 +315,15 @@
     </Compile>
     <Compile Include="View\ManagementView\ProjectsEditView.xaml.cs">
       <DependentUpon>ProjectsEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManagementView\RolesView\AddRoleView.xaml.cs">
+      <DependentUpon>AddRoleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManagementView\RolesView\AllRolesView.xaml.cs">
+      <DependentUpon>AllRolesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManagementView\RolesView\RoleEditView.xaml.cs">
+      <DependentUpon>RoleEditView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ManagementView\ServicesView\AddServiceView.xaml.cs">
       <DependentUpon>AddServiceView.xaml</DependentUpon>
@@ -428,6 +443,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ManagementView\ProjectsEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManagementView\RolesView\AddRoleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManagementView\RolesView\AllRolesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManagementView\RolesView\RoleEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

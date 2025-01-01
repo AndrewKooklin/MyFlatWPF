@@ -131,3 +131,7 @@ C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\UsersView\AllUsersVie
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\UsersView\UserEditView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\LoginWindow.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\RegistrationWindow.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\RolesView\AddRoleView.g.cs
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\RolesView\AllRolesView.g.cs
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\RolesView\AddRoleView.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\RolesView\AllRolesView.baml
