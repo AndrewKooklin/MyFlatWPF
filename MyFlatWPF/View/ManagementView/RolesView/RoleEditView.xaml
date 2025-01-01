@@ -125,8 +125,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="0.6*"/>
             <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.4*"/>
             <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="0.7*"/>
             <RowDefinition Height="0.6*"/>
             <RowDefinition Height="0.6*"/>
             <RowDefinition Height="9*"/>
@@ -149,12 +149,13 @@
                    Grid.Row="2"
                    Text="Role Name"
                    FontSize="16"
-                   Margin="0 10 0 5">
+                   Margin="0 15 0 0">
         </TextBlock>
 
         <TextBox x:Name="tbRoleName"
                  Grid.Row="3"
-                 Width="200"
+                 Width="150"
+                 Height="20"
                  HorizontalAlignment="Left">
         </TextBox>
 
@@ -162,7 +163,8 @@
                Grid.Row="3"
                FontSize="12"
                Foreground="Red"
-               Margin="210 0 0 0">
+               Margin="160 0 0 0"
+               HorizontalAlignment="Left">
         </Label>
 
         <Button x:Name="btnChangeRoleName"

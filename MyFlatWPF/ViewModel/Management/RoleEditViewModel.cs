@@ -34,6 +34,7 @@ namespace MyFlatWPF.ViewModel.Management
             tbRoleName.Text = _role.Name;
             lErrorRoleName.Content = "";
             btnChangeRoleNAme.Command = ChangeRoleNameCommand;
+            btnChangeRoleNAme.CommandParameter = id;
             btnChangeRoleNAme.MouseEnter += Btn_mouseEnter;
             btnChangeRoleNAme.MouseLeave += Btn_mouseLeave;
         }

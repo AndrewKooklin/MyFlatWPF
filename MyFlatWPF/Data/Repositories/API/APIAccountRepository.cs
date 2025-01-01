@@ -218,7 +218,7 @@ namespace MyFlatWPF.Data.Repositories.API
 
         public IdentityRole GetRoleById(string id)
         {
-            urlRequest = $"{url}" + "RolesAPI/GetRoleById/ + $"{id};
+            urlRequest = $"{url}" + "RolesAPI/GetRoleById/" + $"{id}";
             using (_httpClient = new HttpClient())
             {
                 _httpClient.DefaultRequestHeaders.Accept.Clear();
@@ -270,6 +270,23 @@ namespace MyFlatWPF.Data.Repositories.API
                 _httpClient.DefaultRequestHeaders.Accept.Clear();
                 _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 using (response = await _httpClient.PostAsJsonAsync(urlRequest, role))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                    apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);
+                }
+            }
+
+            return apiResponseConvert;
+        }
+
+        public async Task<bool> DeleteRole(string id)
+        {
+            urlRequest = $"{url}" + "RolesAPI/DeleteRole/" + $"{id}";
+            using (_httpClient = new HttpClient())
+            {
+                _httpClient.DefaultRequestHeaders.Accept.Clear();
+                _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                using (response = await _httpClient.PostAsJsonAsync(urlRequest, id))
                 {
                     apiResponse = await response.Content.ReadAsStringAsync();
                     apiResponseConvert = JsonConvert.DeserializeObject<bool>(apiResponse);

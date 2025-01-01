@@ -63,14 +63,15 @@ namespace MyFlatWPF.ViewModel.Management
             tblRoleIdHeader.Text = "Id";
             tblRoleIdHeader.Width = 200;
             tblRoleIdHeader.Height = 25;
+            tblRoleIdHeader.TextWrapping = TextWrapping.Wrap;
             tblRoleIdHeader.Padding = new Thickness(40, 3, 0, 0);
             tblRoleIdHeader.Background = Brushes.LightGray;
             spHeaders.Children.Add(tblRoleIdHeader);
             TextBlock tblRoleNameHeader = new TextBlock();
             tblRoleNameHeader.Text = "Role Name";
-            tblRoleNameHeader.Width = 150;
+            tblRoleNameHeader.Width = 200;
             tblRoleNameHeader.Height = 25;
-            tblRoleNameHeader.Padding = new Thickness(40, 3, 0, 0);
+            tblRoleNameHeader.Padding = new Thickness(10, 3, 0, 0);
             tblRoleNameHeader.Background = Brushes.LightGray;
             spHeaders.Children.Add(tblRoleNameHeader);
 

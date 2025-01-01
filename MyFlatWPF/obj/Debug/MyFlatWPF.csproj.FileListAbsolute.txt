@@ -135,3 +135,5 @@ C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\RolesView\AddRoleView
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\RolesView\AllRolesView.g.cs
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\RolesView\AddRoleView.baml
 C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\RolesView\AllRolesView.baml
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\RolesView\RoleEditView.g.cs
+C:\repos\MyFlatWPF\MyFlatWPF\obj\Debug\View\ManagementView\RolesView\RoleEditView.baml
