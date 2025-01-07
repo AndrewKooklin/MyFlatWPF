@@ -79,6 +79,10 @@
 
             <Style x:Key="InputTextBox" TargetType="TextBox">
                 <Setter Property="Padding" Value="0"/>
+                <Setter Property="Width" Value="200"/>
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
                 <Setter Property="BorderBrush" Value="LightGray"/>
                 <Setter Property="BorderThickness" Value="0.75"/>
                 <Setter Property="Template">
@@ -151,21 +155,17 @@
                    HorizontalAlignment="Left">
         </TextBlock>
 
-        <Label x:Name="lErrorEMail"
-               Grid.Row="2"
-               FontSize="10"
-               Foreground="Red"
-               Margin="60 5 0 0">
-        </Label>
-
         <TextBox x:Name="tbEmail"
                    Grid.Row="3"
-                   Width="200"
-                   FontSize="12"
-                   Margin="0 0 0 0"
-                 HorizontalAlignment="Left"
                    Style="{Binding Source={StaticResource InputTextBox}}">
         </TextBox>
+
+        <Label x:Name="lErrorEMail"
+               Grid.Row="3"
+               FontSize="10"
+               Foreground="Red"
+               Margin="205 5 0 0">
+        </Label>
         
         <TextBlock x:Name="tblPassword"
                    Grid.Row="4"
@@ -175,45 +175,37 @@
                    HorizontalAlignment="Left">
         </TextBlock>
 
-        <Label x:Name="lErrorPassword"
-               Grid.Row="4"
-               FontSize="10"
-               Foreground="Red"
-               Margin="75 5 0 0">
-        </Label>
-
         <TextBox x:Name="tbPassword"
                    Grid.Row="5"
-                   Width="200"
-                   FontSize="12"
-                   Margin="0 0 0 0"
-                 HorizontalAlignment="Left"
                    Style="{Binding Source={StaticResource InputTextBox}}">
         </TextBox>
 
+        <Label x:Name="lErrorPassword"
+               Grid.Row="5"
+               FontSize="10"
+               Foreground="Red"
+               Margin="205 5 0 0">
+        </Label>
+
         <TextBlock x:Name="tblConfirmPassword"
                    Grid.Row="6"
-                   Text="Password"
+                   Text="Confirm Password"
                    FontSize="16"
                    Margin="0 5 0 0"
                    HorizontalAlignment="Left">
         </TextBlock>
 
-        <Label x:Name="lErrorConfirmPassword"
-               Grid.Row="6"
-               FontSize="10"
-               Foreground="Red"
-               Margin="75 5 0 0">
-        </Label>
-
         <TextBox x:Name="tbConfirmPassword"
                    Grid.Row="7"
-                   Width="200"
-                   FontSize="12"
-                   Margin="0 0 0 0"
-                   HorizontalAlignment="Left"
                    Style="{Binding Source={StaticResource InputTextBox}}">
         </TextBox>
+        
+        <Label x:Name="lErrorConfirmPassword"
+               Grid.Row="7"
+               FontSize="10"
+               Foreground="Red"
+               Margin="205 5 0 0">
+        </Label>
 
         <Button x:Name="btnAddUser"
                 Grid.Row="8"

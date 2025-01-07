@@ -43,7 +43,7 @@ namespace MyFlatWPF.ViewModel
 
             if (String.IsNullOrEmpty(tbEmail.Text))
             {
-                lErrorEMail.Content = "Fill field \"EMail!\"";
+                lErrorEMail.Content = "Fill field \"EMail\" !";
                 return false;
             }
             else if (!String.IsNullOrEmpty(tbEmail.Text))
@@ -54,7 +54,7 @@ namespace MyFlatWPF.ViewModel
                 }
                 catch
                 {
-                    lErrorEMail.Content = "View format name@site.com!";
+                    lErrorEMail.Content = "Email format name@site.com";
                     return false;
                 }
                 lErrorEMail.Content = "";
@@ -72,7 +72,7 @@ namespace MyFlatWPF.ViewModel
 
             if (!passwordBox.Text.Equals(confirmPasswordBox.Text))
             {
-                lErrorConfirmPassword.Content = "Passwords don't match!";
+                lErrorConfirmPassword.Content = "Passwords don't match !";
                 return false;
             }
             else
