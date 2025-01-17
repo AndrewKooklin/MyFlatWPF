@@ -143,9 +143,6 @@
                             VerticalScrollBarVisibility="Hidden" />
                             </Border>
                             <ControlTemplate.Triggers>
-                                <!--<Trigger Property="IsEnabled" Value="false">
-                                    <Setter TargetName="border" Property="Opacity" Value="0.56" />
-                                </Trigger>-->
                                 <Trigger Property="IsMouseOver" Value="true">
                                     <Setter TargetName="border" Property="BorderBrush" Value="#FF7EB4EA" />
                                     <Setter TargetName="border" Property="BorderThickness" Value="0.75" />
@@ -203,7 +200,6 @@
                    Grid.Row="4"
                    Margin="0 0 0 0">
         </WrapPanel>
-
 
     </Grid>
 </UserControl>

@@ -12,7 +12,6 @@
 
         <Grid.Resources>
 
-            <!--<viewModel:AllOrdersViewModel x:Key="AllOrdersViewModel"/>-->
             <viewModel:OrdersByPeriodViewModel x:Key="OrdersByPeriodViewModel"/>
 
             <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
@@ -479,7 +478,6 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-
 
             </DataGrid.Columns>
         </DataGrid>

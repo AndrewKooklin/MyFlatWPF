@@ -290,7 +290,6 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-
             </DataGrid.Columns>
         </DataGrid>
 

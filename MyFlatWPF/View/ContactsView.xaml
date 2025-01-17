@@ -12,13 +12,9 @@
     <Grid x:Name="gContacts">
         <Grid.Resources>
 
-            <!--<viewModel:MainWindowViewModel x:Key="MainWindowViewModel"/>-->
-            <!--<viewModel:ContactsViewModel x:Key="ContactsViewModel"/>-->
-
             <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="Cursor" Value="Hand"/>
-                <!--<Setter Property="Padding" Value="5 5 5 8"/>-->
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="Button">
@@ -184,81 +180,6 @@
                     Grid.ColumnSpan="2"
                     Orientation="Horizontal"
                     Margin="0 30 0 0">
-            <!--<TextBlock x:Name="tbTelegram"
-                       Margin="30 0 0 0"
-                       Height="36"
-                       Width="36">
-            <Hyperlink x:Name="hlTelegram"
-                       NavigateUri="https://telegram.org/"
-                       TextDecorations="none"
-                       ToolTip="Navigate to Telegram web"
-                       Cursor="Hand">
-                <Border x:Name="bTelegramImage"
-                        BorderThickness="0"
-                        Height="36"
-                        Width="36"
-                        CornerRadius="5">
-                    <Border.Background>
-                        <ImageBrush>
-                            <ImageBrush.ImageSource>
-                                <BitmapImage UriSource="C:\repos\MyFlatWPF\MyFlatWPF\Images\Icons\icon-telegram-48.png"/>
-                            </ImageBrush.ImageSource>
-                        </ImageBrush>
-                    </Border.Background>
-                </Border>
-            </Hyperlink>
-            </TextBlock>
-
-            <TextBlock x:Name="tbYouTube"
-                       Margin="30 0 0 0"
-                       Height="36"
-                       Width="36">
-            <Hyperlink x:Name="hlYouTube"
-                       NavigateUri="https://www.youtube.com/"
-                       TextDecorations="none"
-                       ToolTip="Navigate to YouTube"
-                       Cursor="Hand">
-                <Border x:Name="bYouTubeImage"
-                        BorderThickness="0"
-                        Height="36"
-                        Width="36"
-                        CornerRadius="5">
-                    <Border.Background>
-                        <ImageBrush>
-                            <ImageBrush.ImageSource>
-                                <BitmapImage UriSource="C:\repos\MyFlatWPF\MyFlatWPF\Images\Icons\icon-youtube-48.png"/>
-                            </ImageBrush.ImageSource>
-                        </ImageBrush>
-                    </Border.Background>
-                </Border>
-            </Hyperlink>
-            </TextBlock>
-
-            <TextBlock x:Name="tbInstagram"
-                       Margin="30 0 0 0"
-                       Height="36"
-                       Width="36">
-            <Hyperlink x:Name="hlInstagram"
-                       NavigateUri="https://www.instagram.com/"
-                       TextDecorations="none"
-                       ToolTip="Navigate to Instagram"
-                       Cursor="Hand">
-                <Border x:Name="bInstagramImage"
-                        BorderThickness="0"
-                        Height="36"
-                        Width="36"
-                        CornerRadius="5">
-                    <Border.Background>
-                        <ImageBrush>
-                            <ImageBrush.ImageSource>
-                                <BitmapImage UriSource="C:\repos\MyFlatWPF\MyFlatWPF\Images\Icons\icon-instagram-48.png"/>
-                            </ImageBrush.ImageSource>
-                        </ImageBrush>
-                    </Border.Background>
-                </Border>
-            </Hyperlink>
-            </TextBlock>-->
-
         </StackPanel>
 
         <Image x:Name="iAddressMap"

@@ -33,18 +33,14 @@
         <viewModel:HomeViewModel x:Key="HomeViewModel"/>
         <help:MyMultiValueConverter x:Key="MultiValueConverter"/>
 
-
     </UserControl.Resources>
 
-
     <Grid>
-
 
         <Grid.Resources>
             <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
                 <Setter Property="FontSize" Value="15"/>
                 <Setter Property="Cursor" Value="Hand"/>
-                <!--<Setter Property="Padding" Value="5 5 5 8"/>-->
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="Button">
@@ -106,8 +102,6 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-
-
 
         <TextBlock x:Name="tbHello"
                    Grid.Row="2"
@@ -212,14 +206,7 @@
                        Text="{Binding BottomAreaContent, 
                                 Source={StaticResource HomeViewModel}, 
                                 UpdateSourceTrigger=PropertyChanged}"
-                       TextWrapping="WrapWithOverflow"><!--Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. <LineBreak/>
-                        Aliqu diam amet diam et eos.Clita erat ipsum et lorem et sit, sed  <LineBreak/>
-                        stet lorem sit clita duo justo. Tempor erat elitr rebum at clita. Diam <LineBreak/>
-                        dolor diam ipsum sit. Aliqu diam amet diam et eos.Clita erat ipsum  <LineBreak/>
-                        et lorem et sit, sed stet lorem sit clita duo justo. Tempor erat elitr <LineBreak/>
-                        rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam <LineBreak/>
-                        et eos.Clita erat ipsum et lorem et sit, sed stet lorem sit clita <LineBreak/>
-                        duo justo.-->
+                       TextWrapping="WrapWithOverflow">
                 </TextBlock>
                 <StackPanel Orientation="Horizontal"
                         Grid.Row="3">
@@ -393,26 +380,6 @@
                           ItemsSource="{Binding ServiceItems, 
                                         Source={StaticResource HomeViewModel}, 
                                         UpdateSourceTrigger=PropertyChanged}">
-                        <!--SelectionChanged ="OnSelectedChanged">-->
-
-                        <!--<ComboBoxItem IsSelected="True" 
-                                      IsEnabled="False"
-                                      Foreground="#a0afc5"
-                                      Background="White">Choose Service
-                        </ComboBoxItem>-->
-                        <!--<ComboBoxItem x:Name="cbiService"
-                                      Visibility="Collapsed">
-                        </ComboBoxItem>
-                        <ComboBoxItem>Building design
-                        </ComboBoxItem>
-                        <ComboBoxItem>Home construction
-                        </ComboBoxItem>
-                        <ComboBoxItem>Communications
-                        </ComboBoxItem>
-                        <ComboBoxItem>Room design
-                        </ComboBoxItem>
-                        <ComboBoxItem>Finishing facilities
-                        </ComboBoxItem>-->
                     </ComboBox>
                 </Border>
 
