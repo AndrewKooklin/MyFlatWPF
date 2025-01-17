@@ -2,10 +2,6 @@
 using MyFlatWPF.View.ManagementView.BlogView;
 using MyFlatWPF.ViewModel.Management;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace MyFlatWPF.Commands.ManagementCommand.PostsCommand

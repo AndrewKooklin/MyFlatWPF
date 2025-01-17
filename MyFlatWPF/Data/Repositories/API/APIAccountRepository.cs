@@ -2,13 +2,10 @@
 using MyFlatWPF.Model;
 using MyFlatWPF.Model.AccountModel;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MyFlatWPF.Data.Repositories.API
@@ -20,7 +17,6 @@ namespace MyFlatWPF.Data.Repositories.API
         string urlRequest = "";
         HttpResponseMessage response;
         string apiResponse = "";
-        string result;
         bool apiResponseConvert;
         private List<string> userRoles = new List<string>();
         private List<string> roleNames;

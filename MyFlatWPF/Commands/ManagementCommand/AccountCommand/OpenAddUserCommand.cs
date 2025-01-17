@@ -1,10 +1,5 @@
-﻿using MyFlatWPF.View.ManagementView.UsersView;
-using MyFlatWPF.ViewModel.Management;
+﻿using MyFlatWPF.ViewModel.Management;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace MyFlatWPF.Commands.ManagementCommand.AccountCommand
@@ -20,10 +15,6 @@ namespace MyFlatWPF.Commands.ManagementCommand.AccountCommand
 
         public void Execute(object parameter)
         {
-            //App.AddUserView = null;
-            //App.AddUserView = new AddUserView();
-            //AddUserViewModel pevm =
-            //        new AddUserViewModel(App.AddUserView.btnAddUser);
             App.AddUserView.Visibility = System.Windows.Visibility.Visible;
             StaticManagementViewModel.ManagementViewModel.CurrentManagementView =
                 App.AddUserView;

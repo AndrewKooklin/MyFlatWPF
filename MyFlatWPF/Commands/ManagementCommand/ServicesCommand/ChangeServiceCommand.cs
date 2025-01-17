@@ -1,13 +1,8 @@
 ﻿using MyFlatWPF.Data.Repositories.API;
-using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model;
 using MyFlatWPF.View.ManagementView.ServicesView;
 using MyFlatWPF.ViewModel.Management;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace MyFlatWPF.Commands.ManagementCommand.ServicesCommand
