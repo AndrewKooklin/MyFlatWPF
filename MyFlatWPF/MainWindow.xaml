@@ -8,7 +8,7 @@
         xmlns:help="clr-namespace:MyFlatWPF.HelpMethods"
         mc:Ignorable="d"
         Title="MyFlat"
-        Icon="/Images/i.ico"
+        Icon="/Images/Icons/app.ico"
         Height="610"
         MinHeight="610"
         Width="680"
