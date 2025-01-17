@@ -62,7 +62,6 @@
                     Margin="20 20 25 20"
                     Orientation="Horizontal">
             
-            
         </WrapPanel>
 
     </Grid>

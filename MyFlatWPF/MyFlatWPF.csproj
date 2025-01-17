@@ -564,9 +564,6 @@
     <Resource Include="Images\House-icon.jpeg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\i.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\apps_comm.png" />
   </ItemGroup>
   <ItemGroup>
@@ -637,6 +634,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\i.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

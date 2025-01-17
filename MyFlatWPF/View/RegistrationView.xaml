@@ -126,38 +126,46 @@
                Margin="0,30,0,40" 
                VerticalAlignment="Top"
                Height="50"/>
+        
         <Label x:Name="lErrorEMail"
                Grid.Row="1"
                Grid.Column="1"
                Content=""
                Style="{StaticResource LabelInputError}"/>
+        
         <Label Content="EMail"
                Grid.Row="2"
                Style="{StaticResource RegistrationLabel}" 
                Width="73"/>
+        
         <Label x:Name="lErrorPassword"
                Grid.Row="3"
                Grid.Column="1"
                Content=""
                Style="{StaticResource LabelInputError}"/>
+        
         <Label Content="Password" 
                Grid.Row="4"
                Style="{StaticResource RegistrationLabel}" 
                Width="107"/>
+        
         <Label x:Name="lErrorConfirmPassword"
                Grid.Row="5"
                Grid.Column="1"
                Content=""
                Style="{StaticResource LabelInputError}"/>
+        
         <Label Content="Confirm password" 
                Grid.Row="6"
                Style="{StaticResource RegistrationLabel}" 
                Width="185"/>
+        
         <TextBox x:Name="tbEMail"
                  Grid.Row="2"
                  Grid.Column="1"
                  Style="{StaticResource TextBoxStyle}" 
                  Width="230"/>
+        
         <TextBox x:Name="tbPassword"
                  Grid.Row="4"
                  Grid.Column="1"
@@ -169,26 +177,6 @@
                      Grid.Column="1"
                      Style="{StaticResource TextBoxStyle}" 
                      Width="230"/>
-
-        <!--<CheckBox x:Name="chbRememberMe"
-                  Grid.Row="7"
-                  Grid.Column="1"
-                  HorizontalAlignment="Left" 
-                  VerticalAlignment="Center"
-                  BorderThickness="2"
-                  BorderBrush="Black"
-                  Margin="20,10,0,0"
-                  Height="25" 
-                  Width="25"
-                  IsChecked="{Binding CkeckRememberMe, Source={StaticResource RegistrationViewModel}}"/>
-        <Label Content="Remember me"
-               Grid.Row="7"
-               Grid.Column="1"
-               FontSize="20"
-               Margin="50,0,0,0"
-               HorizontalAlignment="Left" 
-               VerticalAlignment="Center" 
-               Width="151"/>-->
 
         <Label x:Name="lResultRegistration"
                Content=""
@@ -205,6 +193,7 @@
             Grid.Column="1"
             Orientation="Horizontal"
             VerticalAlignment="Top">
+            
             <Button x:Name="btnRedirectToLogin"
                 Content="Log in"  
                 Margin="0,0,0,0"

@@ -1,15 +1,9 @@
 ﻿using MyFlatWPF.Commands.ManagementCommand;
 using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.Model.ManagementModel;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -33,24 +27,24 @@ namespace MyFlatWPF.ViewModel.Management
         {
             TextBlock tbHeader = new TextBlock();
             tbHeader.Text = "Orders By Service";
-            tbHeader.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-            tbHeader.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            tbHeader.Margin = new System.Windows.Thickness(0, 20, 0, 20);
+            tbHeader.HorizontalAlignment = HorizontalAlignment.Center;
+            tbHeader.VerticalAlignment = VerticalAlignment.Top;
+            tbHeader.Margin = new Thickness(0, 20, 0, 20);
             tbHeader.FontSize = 24;
             panel.Children.Add(tbHeader);
 
             TextBlock tbTotalOrders = new TextBlock();
-            tbTotalOrders.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-            tbTotalOrders.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            tbTotalOrders.Margin = new System.Windows.Thickness(0, 20, 0, 20);
+            tbTotalOrders.HorizontalAlignment = HorizontalAlignment.Center;
+            tbTotalOrders.VerticalAlignment = VerticalAlignment.Top;
+            tbTotalOrders.Margin = new Thickness(0, 20, 0, 20);
             tbTotalOrders.FontSize = 20;
             int totalOrders = 0;
             panel.Children.Add(tbTotalOrders);
 
             Grid grid = new Grid();
             grid.Width = 220;
-            grid.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-            grid.Margin = new System.Windows.Thickness(0, 10, 0, 20);
+            grid.HorizontalAlignment = HorizontalAlignment.Center;
+            grid.Margin = new Thickness(0, 10, 0, 20);
 
             RowDefinition row1 = new RowDefinition();
             grid.RowDefinitions.Add(row1);
@@ -66,8 +60,8 @@ namespace MyFlatWPF.ViewModel.Management
             lService.FontSize = 16;
             lService.MinWidth = 150;
             lService.HorizontalAlignment = HorizontalAlignment.Center;
-            lService.Padding = new System.Windows.Thickness(25, 3, 15, 3);
-            lService.FontWeight = System.Windows.FontWeights.SemiBold;
+            lService.Padding = new Thickness(25, 3, 15, 3);
+            lService.FontWeight = FontWeights.SemiBold;
             lService.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ececec"));
             Grid.SetRow(lService, 0);
             Grid.SetColumn(lService, 0);
@@ -78,8 +72,8 @@ namespace MyFlatWPF.ViewModel.Management
             lCount.FontSize = 16;
             lCount.MinWidth = 60;
             lCount.HorizontalAlignment = HorizontalAlignment.Center;
-            lCount.Padding = new System.Windows.Thickness(15, 3, 15, 3);
-            lCount.FontWeight = System.Windows.FontWeights.SemiBold;
+            lCount.Padding = new Thickness(15, 3, 15, 3);
+            lCount.FontWeight = FontWeights.SemiBold;
             lCount.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ececec"));
             Grid.SetRow(lCount, 0);
             Grid.SetColumn(lCount, 1);
@@ -108,14 +102,14 @@ namespace MyFlatWPF.ViewModel.Management
                     btn.Width = 150;
                     btn.FontSize = 14;
                     btn.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#2235ef"));
-                    btn.Margin = new System.Windows.Thickness(5, 5, 5, 5);
-                    btn.Padding = new System.Windows.Thickness(15, 0, 0, 0);
+                    btn.Margin = new Thickness(5, 5, 5, 5);
+                    btn.Padding = new Thickness(15, 0, 0, 0);
                     btn.Cursor = Cursors.Hand;
                     btn.OverridesDefaultStyle = true;
                     Grid spParent = (Grid)_sp.Parent;
                     Style styleButton = (Style)spParent.FindResource("HoverButtonStyle");
                     btn.Style = styleButton;
-                    btn.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
+                    btn.BorderThickness = new Thickness(0, 0, 0, 0);
                     btn.HorizontalContentAlignment = HorizontalAlignment.Center;
                     btn.Background = Brushes.Transparent;
                     btn.BorderBrush = Brushes.Transparent;
@@ -131,7 +125,7 @@ namespace MyFlatWPF.ViewModel.Management
                     lbl.Content = service.OrdersByServiceCount;
                     lbl.FontSize = 14;
                     lbl.HorizontalAlignment = HorizontalAlignment.Center;
-                    lbl.Margin = new System.Windows.Thickness(5, 5, 5, 5);
+                    lbl.Margin = new Thickness(5, 5, 5, 5);
                     lbl.Cursor = Cursors.Arrow;
                     Grid.SetRow(lbl, rowNumber);
                     Grid.SetColumn(lbl, columnNumber + 1);
@@ -155,12 +149,12 @@ namespace MyFlatWPF.ViewModel.Management
                 Grid spParent = (Grid)_sp.Parent;
                 Style styleButton = (Style)spParent.FindResource("HoverButtonStyle");
                 btn.OverridesDefaultStyle = true;
-                btn.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
+                btn.BorderThickness = new Thickness(0, 0, 0, 0);
                 btn.Style = styleButton;
                 btn.FontWeight = FontWeights.SemiBold;
                 btn.Background = Brushes.Transparent;
                 btn.BorderBrush = Brushes.Transparent;
-                btn.Padding = new System.Windows.Thickness(15, 0, 0, 0);
+                btn.Padding = new Thickness(15, 0, 0, 0);
                 btn.HorizontalContentAlignment = HorizontalAlignment.Center;
             }
         }
@@ -175,10 +169,10 @@ namespace MyFlatWPF.ViewModel.Management
                 Style styleButton = (Style)spParent.FindResource("HoverButtonStyle");
                 btn.OverridesDefaultStyle = true;
                 btn.FontWeight = FontWeights.Normal;
-                btn.BorderThickness = new System.Windows.Thickness(0, 0, 0, 0);
+                btn.BorderThickness = new Thickness(0, 0, 0, 0);
                 btn.Background = Brushes.Transparent;
                 btn.BorderBrush = Brushes.Transparent;
-                btn.Padding = new System.Windows.Thickness(15, 0, 0, 0);
+                btn.Padding = new Thickness(15, 0, 0, 0);
                 btn.HorizontalContentAlignment = HorizontalAlignment.Center;
             }
         }

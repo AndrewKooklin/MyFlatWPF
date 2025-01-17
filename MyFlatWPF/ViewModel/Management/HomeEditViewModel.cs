@@ -1,16 +1,11 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
 using MyFlatWPF.Model;
 using MyFlatWPF.Data.Repositories.API;
 using System.Windows.Input;
 using MyFlatWPF.Commands.ManagementCommand;
-using System.Windows.Media.Imaging;
 using MyFlatWPF.HelpMethods;
 
 namespace MyFlatWPF.ViewModel.Management

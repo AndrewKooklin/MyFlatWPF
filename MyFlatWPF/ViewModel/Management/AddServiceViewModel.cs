@@ -1,9 +1,4 @@
 ﻿using MyFlatWPF.Commands.ManagementCommand.ServicesCommand;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -13,20 +8,15 @@ namespace MyFlatWPF.ViewModel.Management
 {
     public class AddServiceViewModel : BaseViewModel
     {
-        private Grid _grid;
-        Style styleBorder = new Style();
         Style styleButton = new Style();
         Style styleButtonHover = new Style();
-        Style styleTextBox = new Style();
 
         public AddServiceViewModel(Button btnChange,
                                    Button btnCancel)
         {
             Grid grid = (Grid)btnChange.Parent;
-            styleBorder = (Style)grid.FindResource("BorderStyle");
             styleButton = (Style)grid.FindResource("ButtonStyle");
             styleButtonHover = (Style)grid.FindResource("ButtonHoverStyle");
-            styleTextBox = (Style)grid.FindResource("InputTextBox");
             AddServiceCommand = new AddServiceCommand();
             CancelChangeServiceCommand = new CancelChangeServiceCommand();
             AddElementsToGrid(btnChange,

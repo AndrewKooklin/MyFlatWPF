@@ -2,18 +2,11 @@
 using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model;
-using MyFlatWPF.View;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Net.Http.Json;
 using System.Net.Mail;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
@@ -22,12 +15,12 @@ namespace MyFlatWPF.ViewModel
 {
     public class HomeViewModel : BaseViewModel
     {
-        private HttpClient _httpClient;
-        private string url = @"https://localhost:44388/";
-        string urlRequest = "";
-        HttpResponseMessage response;
-        string apiResponse;
-        public bool apiResponseConvert;
+        //private HttpClient _httpClient;
+        //private string url = @"https://localhost:44388/";
+        //string urlRequest = "";
+        //HttpResponseMessage response;
+        //string apiResponse;
+        //public bool apiResponseConvert;
         private APIRenderingRepository _api = new APIRenderingRepository();
         private ImageConverter _ic = new ImageConverter();
 

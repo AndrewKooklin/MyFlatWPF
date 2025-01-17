@@ -1,15 +1,10 @@
 ﻿using MyFlatWPF.Commands;
-using MyFlatWPF.Commands.ManagementCommand.AccountCommand;
 using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.Model;
 using MyFlatWPF.Model.AccountModel;
 using MyFlatWPF.View.ManagementView.UsersView;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -34,11 +29,8 @@ namespace MyFlatWPF.ViewModel.Management
             }
             var values = (object[])param;
             TextBox tbEmail = (TextBox)values[0];
-            //string tbEmailValue = tbEmail.Text;
             TextBox passwordBox = (TextBox)values[1];
-            //string passwordValue = passwordBox.Text;
             TextBox confirmPasswordBox = (TextBox)values[2];
-            //string confirmPasswordValue = confirmPasswordBox.Text;
             Label lErrorEMail = (Label)values[3];
             Label lErrorPassword = (Label)values[4];
             Label lErrorConfirmPassword = (Label)values[5];
@@ -94,11 +86,8 @@ namespace MyFlatWPF.ViewModel.Management
             }
             var values = (object[])param;
             TextBox tbEmail = (TextBox)values[0];
-            //string tbEmailValue = tbEmail.Text;
             TextBox passwordBox = (TextBox)values[1];
-            //string passwordValue = passwordBox.Text;
             TextBox confirmPasswordBox = (TextBox)values[2];
-            //string confirmPasswordValue = confirmPasswordBox.Text;
             Label lErrorEMail = (Label)values[3];
             Label lErrorPassword = (Label)values[4];
             Label lErrorConfirmPassword = (Label)values[5];
@@ -147,7 +136,7 @@ namespace MyFlatWPF.ViewModel.Management
                 }
                 else
                 {
-                    lResultRegistration.Content = "Server error.";
+                    lResultRegistration.Content = "Server error !";
                 }
             }
         }

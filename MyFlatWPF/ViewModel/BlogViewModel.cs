@@ -26,11 +26,7 @@ namespace MyFlatWPF.ViewModel
             Posts = GetPosts();
 
             GetBlogCards(_wrapPanel);
-
-            //OpenPostDetailsCommand = new OpenPostDetailsCommand();
         }
-
-        //public ICommand OpenPostDetailsCommand { get; set; }
 
         private void GetBlogCards(WrapPanel wrapPanel)
         {
@@ -82,8 +78,8 @@ namespace MyFlatWPF.ViewModel
                     btnPost.FontSize = 14;
                     btnPost.FontWeight = FontWeights.SemiBold;
                     btnPost.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#2235ef"));
-                    btnPost.VerticalAlignment = System.Windows.VerticalAlignment.Center;
-                    btnPost.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                    btnPost.VerticalAlignment = VerticalAlignment.Center;
+                    btnPost.HorizontalAlignment = HorizontalAlignment.Center;
                     btnPost.Content = postItem.PostHeader;
                     btnPost.ToolTip = "Post details";
                     btnPost.OverridesDefaultStyle = true;
@@ -93,9 +89,6 @@ namespace MyFlatWPF.ViewModel
                     tbPostDescription.Width = 190;
                     tbPostDescription.Height = 40;
                     tbPostDescription.Text = GetSubstring(postItem.PostDescription);
-                        //"As a builder, we undertake large, complex projects, " +
-                        //"foster innovation, embrace emerging technologies, " +
-                        //"and make a difference in the community.";
                     tbPostDescription.Padding = new Thickness(2, 1, 2, 1);
                     tbPostDescription.FontSize = 8;
                     tbPostDescription.Background = Brushes.White;
@@ -105,7 +98,6 @@ namespace MyFlatWPF.ViewModel
                     ObjectModel post = new ObjectModel();
                     post.TypeObject = "post";
                     post.IdObject = Int32.Parse(tbId.Text);
-                    //OpenPostDetailsCommand = new SwitchViewCommand(post);
                     btnPost.Command = new SwitchViewCommand(post);
 
                     btnPost.CommandParameter = post;

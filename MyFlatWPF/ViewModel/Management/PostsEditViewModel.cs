@@ -2,11 +2,7 @@
 using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -18,7 +14,6 @@ namespace MyFlatWPF.ViewModel.Management
     {
         WrapPanel _wpEditPosts;
         APIRenderingRepository _api = new APIRenderingRepository();
-        APIManagementRepository _apiManage = new APIManagementRepository();
         Style styleButton = new Style();
         Style styleHoverButton = new Style();
         Style styleCircleButton = new Style();
@@ -35,7 +30,6 @@ namespace MyFlatWPF.ViewModel.Management
             btnAdd.Command = OpenAddPostCommand;
             btnAdd.MouseEnter += Btn_mouseEnter;
             btnAdd.MouseLeave += Btn_mouseLeave;
-
         }
 
 

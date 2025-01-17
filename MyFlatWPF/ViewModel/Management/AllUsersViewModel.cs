@@ -1,12 +1,7 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using MyFlatWPF.Commands.ManagementCommand.AccountCommand;
+﻿using MyFlatWPF.Commands.ManagementCommand.AccountCommand;
 using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.Model.AccountModel;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -41,7 +36,6 @@ namespace MyFlatWPF.ViewModel.Management
                 AddElementProperties(btnAddUser,
                                      spUsers);
             }
-
         }
 
         private ICommand OpenAddUserCommand { get; set; }
@@ -53,8 +47,6 @@ namespace MyFlatWPF.ViewModel.Management
         private void AddElementProperties(Button btnAddUser,
                                           StackPanel spUsers)
         {
-
-
             btnAddUser.Command = OpenAddUserCommand;
             btnAddUser.MouseEnter += Btn_mouseEnter;
             btnAddUser.MouseLeave += Btn_mouseLeave;

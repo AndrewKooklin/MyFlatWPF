@@ -28,6 +28,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                
                 <TextBlock x:Name="tbHeaderProjects"
                    Grid.Row="0"
                    Padding="0 20 0 10"

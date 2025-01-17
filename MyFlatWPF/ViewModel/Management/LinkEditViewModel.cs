@@ -2,11 +2,6 @@
 using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -16,11 +11,8 @@ namespace MyFlatWPF.ViewModel.Management
 {
     class LinkEditViewModel : BaseViewModel
     {
-        private Grid _grid;
-        Style styleBorder = new Style();
         Style styleButton = new Style();
         Style styleButtonHover = new Style();
-        Style styleTextBox = new Style();
         APIManagementRepository _api = new APIManagementRepository();
         private ImageConverter _ic = new ImageConverter();
 
@@ -33,10 +25,8 @@ namespace MyFlatWPF.ViewModel.Management
                                  int id)
         {
             Grid grid = (Grid)tbContent.Parent;
-            styleBorder = (Style)grid.FindResource("BorderStyle");
             styleButton = (Style)grid.FindResource("ButtonStyle");
             styleButtonHover = (Style)grid.FindResource("ButtonHoverStyle");
-            styleTextBox = (Style)grid.FindResource("InputTextBox");
             ChooseLinkImageCommand = new ChooseLinkImageCommand();
             ChangeLinkCommand = new ChangeLinkCommand();
             CancelChangeLinkCommand = new CancelChangeLinkCommand();
@@ -81,7 +71,6 @@ namespace MyFlatWPF.ViewModel.Management
             btnCancel.Command = CancelChangeLinkCommand;
             btnCancel.MouseEnter += Btn_mouseEnter;
             btnCancel.MouseLeave += Btn_mouseLeave;
-
         }
 
         private SocialModel GetSocialLinkByIdFromDB(int id)

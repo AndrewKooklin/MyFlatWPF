@@ -2,26 +2,17 @@
 using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace MyFlatWPF.ViewModel.Management
 {
     public class ProjectEditViewModel : BaseViewModel
     {
-        private Grid _grid;
-        Style styleBorder = new Style();
         Style styleButton = new Style();
         Style styleButtonHover = new Style();
-        Style styleTextBox = new Style();
         APIManagementRepository _api = new APIManagementRepository();
         private ImageConverter _ic = new ImageConverter();
 
@@ -35,10 +26,8 @@ namespace MyFlatWPF.ViewModel.Management
                                     int id)
         {
             Grid grid = (Grid)tbHeader.Parent;
-            styleBorder = (Style)grid.FindResource("BorderStyle");
             styleButton = (Style)grid.FindResource("ButtonStyle");
             styleButtonHover = (Style)grid.FindResource("ButtonHoverStyle");
-            styleTextBox = (Style)grid.FindResource("InputTextBox");
             ChooseProjectImageCommand = new ChooseProjectImageCommand();
             ChangeProjectCommand = new ChangeProjectCommand();
             CancelChangeProjectCommand = new CancelChangeProjectCommand();
@@ -86,7 +75,6 @@ namespace MyFlatWPF.ViewModel.Management
             btnCancel.Command = CancelChangeProjectCommand;
             btnCancel.MouseEnter += Btn_mouseEnter;
             btnCancel.MouseLeave += Btn_mouseLeave;
-
         }
 
         private ProjectModel GetProjectByIdFromDB(int id)

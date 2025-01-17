@@ -1,17 +1,10 @@
 ﻿using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace MyFlatWPF.ViewModel
 {
@@ -71,7 +64,6 @@ namespace MyFlatWPF.ViewModel
 
                 sp.Children.Add(bdr);
             }
-            
         }
 
         private void Img_MouseDown(object sender, MouseButtonEventArgs e)

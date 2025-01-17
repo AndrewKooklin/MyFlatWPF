@@ -147,7 +147,6 @@ namespace MyFlatWPF.Commands
                             App.PostDetailView.tbPostName.Text = post.PostHeader;
                             App.PostDetailView.tbPostDescription.Text = post.PostDescription;
                             App.PostDetailView.iPostImage.Source = ic.ByteArrayToImage(post.PostImage);
-
                             App.PostDetailView.Visibility = System.Windows.Visibility.Visible;
                             StaticViewModel.MainViewModel.CurrentView = App.PostDetailView;
                             break;

@@ -1,9 +1,4 @@
 ﻿using MyFlatWPF.Commands.ManagementCommand.PostsCommand;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -13,21 +8,16 @@ namespace MyFlatWPF.ViewModel.Management
 {
     public class AddPostViewModel : BaseViewModel
     {
-        private Grid _grid;
-        Style styleBorder = new Style();
         Style styleButton = new Style();
         Style styleButtonHover = new Style();
-        Style styleTextBox = new Style();
 
         public AddPostViewModel(Button btnChooseImage,
                                    Button btnChange,
                                    Button btnCancel)
         {
             Grid grid = (Grid)btnChooseImage.Parent;
-            styleBorder = (Style)grid.FindResource("BorderStyle");
             styleButton = (Style)grid.FindResource("ButtonStyle");
             styleButtonHover = (Style)grid.FindResource("ButtonHoverStyle");
-            styleTextBox = (Style)grid.FindResource("InputTextBox");
             ChooseAddPostImageCommand = new ChooseAddPostImageCommand();
             AddPostCommand = new AddPostCommand();
             CancelChangePostCommand = new CancelChangePostCommand();
