@@ -4,7 +4,6 @@ using MyFlatWPF.HelpMethods;
 using MyFlatWPF.Model;
 using System;
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
 using System.Windows.Controls;
@@ -15,12 +14,6 @@ namespace MyFlatWPF.ViewModel
 {
     public class HomeViewModel : BaseViewModel
     {
-        //private HttpClient _httpClient;
-        //private string url = @"https://localhost:44388/";
-        //string urlRequest = "";
-        //HttpResponseMessage response;
-        //string apiResponse;
-        //public bool apiResponseConvert;
         private APIRenderingRepository _api = new APIRenderingRepository();
         private ImageConverter _ic = new ImageConverter();
 
@@ -358,8 +351,6 @@ namespace MyFlatWPF.ViewModel
                 ErrorServiceChoose = "";
             }
             
-
-
             string message = MessageInput;
             if (String.IsNullOrEmpty(message))
             {

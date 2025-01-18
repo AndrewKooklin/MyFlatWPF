@@ -35,22 +35,133 @@
 
     </UserControl.Resources>
 
-    <Grid>
+    <Grid x:Name="gHome"
+          Margin="0 0 0 10">
 
         <Grid.Resources>
-            <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            
+            <Style x:Key="ButtonOrderStyle" TargetType="{x:Type Button}">
                 <Setter Property="FontSize" Value="15"/>
                 <Setter Property="Cursor" Value="Hand"/>
                 <Setter Property="Template">
                     <Setter.Value>
-                        <ControlTemplate TargetType="Button">
-                            <Border CornerRadius="3"
+                        <ControlTemplate x:Name="ctBtnOrder"
+                            TargetType="Button">
+                            <Border x:Name="bBtnOrder"
+                                CornerRadius="3"
                                     BorderThickness="1"
                                     BorderBrush="Black"
                                     Background="DeepSkyBlue">
                                 <ContentPresenter HorizontalAlignment="Center"
                                                   VerticalAlignment="Center"/>
                             </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsDefaulted" Value="true">
+                                    <Setter Property="BorderBrush" 
+                                            TargetName="bBtnOrder" 
+                                            Value="Black"/>
+                                    <Setter Property="Background" TargetName="bBtnOrder" Value="Transparent"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Background" TargetName="bBtnOrder" Value="#00a9ff"/>
+                                    <Setter Property="BorderBrush" TargetName="bBtnOrder" Value="Black"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter Property="Background" TargetName="bBtnOrder" Value="#00fffd"/>
+                                    <Setter Property="BorderBrush" TargetName="bBtnOrder" Value="Black"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="ButtonReadStyle" TargetType="{x:Type Button}">
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="bBtnRead"
+                                CornerRadius="3"
+                                    BorderThickness="1"
+                                    BorderBrush="Black">
+                                <ContentPresenter x:Name="contentPresenter1"
+                                    HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsDefaulted" Value="true">
+                                    <Setter Property="BorderBrush" 
+                                            TargetName="bBtnRead" 
+                                            Value="Black"/>
+                                    <Setter Property="Background" TargetName="bBtnRead" Value="Transparent"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Background" TargetName="bBtnRead" Value="LightGray"/>
+                                    <Setter Property="BorderBrush" TargetName="bBtnRead" Value="Black"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter Property="Background" TargetName="bBtnRead" Value="#00fffd"/>
+                                    <Setter Property="BorderBrush" TargetName="bBtnRead" Value="Black"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+            <SolidColorBrush x:Key="Button.Static.Border" Color="#000"/>
+            <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#00a9ff"/>
+            <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#000"/>
+            <SolidColorBrush x:Key="Button.Pressed.Background" Color="#00fffd"/>
+            <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+            <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+            <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+            <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+
+            <Style x:Key="ButtonSendStyle" TargetType="{x:Type Button}">
+                <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="1"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="border" 
+                                    CornerRadius="3"
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}" 
+                                    Background="{TemplateBinding Background}" 
+                                    SnapsToDevicePixels="true">
+                                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsDefaulted" Value="true">
+                                    <Setter Property="BorderBrush" 
+                                            TargetName="border" 
+                                            Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                    <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
@@ -90,13 +201,12 @@
 
         </Grid.Resources>
 
-
         <Grid.RowDefinitions>
             <RowDefinition Height="8*"/>
             <RowDefinition Height="0.1*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="140*"/>
-            <RowDefinition Height="140*"/>
+            <RowDefinition Height="150*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -142,20 +252,16 @@
                        Margin="0 10 0 10"
                        HorizontalAlignment="Center">
                 <Button Content="Order"
-                        Style="{StaticResource ButtonStyle}"
+                        Style="{StaticResource ButtonOrderStyle}"
                         Width="56"
                         Height="25"
                         Padding="3 3 3 5"
-                        Foreground="White"
-                        Background="Aquamarine"
                         Cursor="Hand"></Button>
                 <Button Content="Read more"
-                        Style="{StaticResource ButtonStyle}"
+                        Style="{StaticResource ButtonReadStyle}"
                         Margin="5 0 0 0"
                         Width="90"
                         Height="25"
-                        Foreground="DimGray"
-                        Background="Transparent"
                         Cursor="Hand"></Button>
             </TextBlock>
         </StackPanel>
@@ -440,9 +546,10 @@
                         Grid.Row="8"
                         Grid.ColumnSpan="2"
                         Content="Send form"
-                        Margin="0 0 0 10"
+                        Margin="0 0 0 0"
                         Height="30"
-                        Style="{StaticResource ButtonStyle}"
+                        Background="DeepSkyBlue"
+                        Style="{StaticResource ButtonSendStyle}"
                         Command="{Binding SendOrderFormCommand, Source={StaticResource HomeViewModel}}">
                     <Button.CommandParameter>
                         <MultiBinding Converter="{StaticResource MultiValueConverter}">
