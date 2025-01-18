@@ -3,10 +3,7 @@ using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -128,7 +125,5 @@ namespace MyFlatWPF.ViewModel
                 }
             }
         }
-
-        
     }
 }

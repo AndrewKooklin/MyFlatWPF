@@ -5,13 +5,6 @@ using MyFlatWPF.View.ManagementView.ContactsView;
 using MyFlatWPF.View.ManagementView.RolesView;
 using MyFlatWPF.View.ManagementView.ServicesView;
 using MyFlatWPF.View.ManagementView.UsersView;
-using MyFlatWPF.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -99,10 +92,10 @@ namespace MyFlatWPF
 
             base.OnStartup(e);
 
-            Style dpStyle = new Style(typeof(System.Windows.Controls.DatePicker));
-            dpStyle.Setters.Add(new Setter(System.Windows.Controls.DatePicker.LanguageProperty,
+            Style dpStyle = new Style(typeof(DatePicker));
+            dpStyle.Setters.Add(new Setter(DatePicker.LanguageProperty,
                 System.Windows.Markup.XmlLanguage.GetLanguage("ru-RU")));
-            this.Resources.Add(typeof(System.Windows.Controls.DatePicker), dpStyle);
+            this.Resources.Add(typeof(DatePicker), dpStyle);
         }
     }
 }

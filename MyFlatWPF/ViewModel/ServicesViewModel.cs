@@ -1,10 +1,6 @@
 ﻿using MyFlatWPF.Data.Repositories.API;
 using MyFlatWPF.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -15,9 +11,7 @@ namespace MyFlatWPF.ViewModel
     public class ServicesViewModel : BaseViewModel
     {
         private StackPanel _stackPanel;
-
         private APIRenderingRepository _api = new APIRenderingRepository();
-
         private List<ServiceModel> Services { get; set; }
 
         public ServicesViewModel(StackPanel stackPanel)
@@ -67,9 +61,6 @@ namespace MyFlatWPF.ViewModel
                     tbContent.Padding = new Thickness(15, 10, 10, 10);
                     tbContent.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#fff"));
                     tbContent.Text = service.ServiceDescription;
-                        //"Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit." +
-                        //    "Aliqu diam amet diam et eos.Clita erat ipsum et lorem et sit, sed" +
-                        //    "stet lorem sit clita duo justo.Tempor erat elitr rebum at clita.";
                     tbContent.FontSize = 12;
                     tbContent.FontWeight = FontWeights.Normal;
                     tbContent.TextWrapping = TextWrapping.Wrap;
@@ -83,7 +74,6 @@ namespace MyFlatWPF.ViewModel
                     stackPanel.Children.Add(exp);
                 }
             }
-            
         }
 
         private List<ServiceModel> GetServices()

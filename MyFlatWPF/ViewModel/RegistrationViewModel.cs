@@ -31,11 +31,8 @@ namespace MyFlatWPF.ViewModel
             }
             var values = (object[])param;
             TextBox tbEmail = (TextBox)values[0];
-            //string tbEmailValue = tbEmail.Text;
             TextBox passwordBox = (TextBox)values[1];
-            //string passwordValue = passwordBox.Text;
             TextBox confirmPasswordBox = (TextBox)values[2];
-            //string confirmPasswordValue = confirmPasswordBox.Text;
             Label lErrorEMail = (Label)values[3];
             Label lErrorPassword = (Label)values[4];
             Label lErrorConfirmPassword = (Label)values[5];
@@ -91,11 +88,8 @@ namespace MyFlatWPF.ViewModel
             }
             var values = (object[])param;
             TextBox tbEmail = (TextBox)values[0];
-            //string tbEmailValue = tbEmail.Text;
             TextBox passwordBox = (TextBox)values[1];
-            //string passwordValue = passwordBox.Text;
             TextBox confirmPasswordBox = (TextBox)values[2];
-            //string confirmPasswordValue = confirmPasswordBox.Text;
             Label lErrorEMail = (Label)values[3];
             Label lErrorPassword = (Label)values[4];
             Label lErrorConfirmPassword = (Label)values[5];
@@ -133,7 +127,7 @@ namespace MyFlatWPF.ViewModel
                 }
                 else
                 {
-                    lResultRegistration.Content = "Server error.";
+                    lResultRegistration.Content = "Server error !";
                 }
             }
         }
