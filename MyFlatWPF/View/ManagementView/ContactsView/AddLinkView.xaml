@@ -180,7 +180,7 @@
 
         <TextBlock x:Name="tblContentEdit"
                    Grid.Row="5"
-                   Text="Content"
+                   Text="Link address"
                    Width="250"
                    FontSize="16"
                    Margin="0 5 0 0"
